@@ -3,12 +3,11 @@ const selectVersion = require('./utils/select-version');
 const checkNpmPermission = require('./utils/check-npm-permission');
 
 const packageJson = require('../package.json');
+
 const currentVersion = packageJson.version;
 
 async function release() {
-  const hasPublishPackagePermission = await checkNpmPermission(
-    packageJson.name
-  );
+  await checkNpmPermission(packageJson.name);
 
   const { version: releaseVersion, isBeta } = await selectVersion(
     currentVersion
@@ -21,7 +20,7 @@ async function release() {
     // build
     await runTasks(['npm run build:entry', 'npm run build:pkg']);
 
-    //commit
+    // commit
     await runTasks([
       'git add .',
       `git tag v${releaseVersion}`,
@@ -36,9 +35,9 @@ async function release() {
 
     // publish
     if (isBeta) {
-      runTasks(['npm publish --tag beta']);
+      runTasks(['npm publish --tag beta --access=public']);
     } else {
-      runTasks(['npm publish']);
+      runTasks(['npm publish --access=public']);
     }
   } catch (e) {
     // rollback version and delete local tag
