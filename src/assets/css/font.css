@@ -1,0 +1,142 @@
+@font-face {
+  font-weight: normal;
+  font-family: 'vue-markdown-editor-font';
+  font-style: normal;
+  src: url('../font/fontello.eot?60486047');
+  src: url('../font/fontello.eot?60486047#iefix') format('embedded-opentype'),
+    url('../font/fontello.woff2?60486047') format('woff2'),
+    url('../font/fontello.ttf?60486047') format('truetype');
+}
+
+[class^='fa-md-']::before,
+[class*=' fa-md-']::before {
+  display: inline-block;
+  width: 1em;
+  margin-right: 0.2em;
+
+  /* Animation center compensation - margins should be symmetric */
+
+  /* remove if not needed */
+  margin-left: 0.2em;
+  font-weight: normal;
+  font-family: 'vue-markdown-editor-font';
+  font-style: normal;
+
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes */
+  font-variant: normal;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  text-align: center;
+  text-transform: none;
+  text-decoration: inherit;
+  speak: none;
+
+  /* you can be more comfortable with increased icons size */
+
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.fa-md-bold::before {
+  content: '\e800';
+}
+.fa-md-italic::before {
+  content: '\e801';
+}
+.fa-md-thumb-tack::before {
+  content: '\e802';
+}
+.fa-md-link::before {
+  content: '\e803';
+}
+.fa-md-picture-o::before {
+  content: '\e804';
+}
+.fa-md-repeat::before {
+  content: '\e805';
+}
+.fa-md-undo::before {
+  content: '\e806';
+}
+.fa-md-trash-o::before {
+  content: '\e807';
+}
+.fa-md-floppy-o::before {
+  content: '\e808';
+}
+.fa-md-compress::before {
+  content: '\e809';
+}
+.fa-md-eye::before {
+  content: '\e80a';
+}
+.fa-md-eye-slash::before {
+  content: '\e80b';
+}
+.fa-md-question-circle::before {
+  content: '\e80c';
+}
+.fa-md-times::before {
+  content: '\e80d';
+}
+.fa-md-align-left::before {
+  content: '\e80f';
+}
+.fa-md-align-center::before {
+  content: '\e810';
+}
+.fa-md-align-right::before {
+  content: '\e811';
+}
+.fa-md-arrows-alt::before {
+  content: '\f0b2';
+}
+.fa-md-bars::before {
+  content: '\f0c9';
+}
+.fa-md-list-ul::before {
+  content: '\f0ca';
+}
+.fa-md-list-ol::before {
+  content: '\f0cb';
+}
+.fa-md-strikethrough::before {
+  content: '\f0cc';
+}
+.fa-md-underline::before {
+  content: '\f0cd';
+}
+.fa-md-table::before {
+  content: '\f0ce';
+}
+.fa-md-columns::before {
+  content: '\f0db';
+}
+.fa-md-quote-left::before {
+  content: '\f10d';
+}
+.fa-md-code::before {
+  content: '\f121';
+}
+.fa-md-superscript::before {
+  content: '\f12b';
+}
+.fa-md-subscript::before {
+  content: '\f12c';
+}
+.fa-md-header::before {
+  content: '\f1dc';
+}
+.fa-md-window-maximize::before {
+  content: '\f2d0';
+}
