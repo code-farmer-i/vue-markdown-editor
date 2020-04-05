@@ -4,7 +4,7 @@ export default function (editor) {
   editor.insertText({
     prefix: '``` language',
     subfix: '```',
-    placeholder: `\n`,
+    placeholder: '\n',
     selected: 'language',
   });
 }

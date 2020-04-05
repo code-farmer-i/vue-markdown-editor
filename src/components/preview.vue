@@ -3,14 +3,14 @@
     v-html="html"
     class="vue-markdown-editor__preview"
     :class="[previewClass]"
-  ></div>
+  />
 </template>
 
 <script>
 import markdownItInstance from '@/utils/markdown-it';
 
 export default {
-  name: 'MarkdownPreview',
+  name: 'markdown-preview',
   props: {
     text: {
       type: String,

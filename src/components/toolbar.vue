@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'EditorToolbar',
+  name: 'editor-toolbar',
   props: {
     groups: Array,
     toolbars: Object,

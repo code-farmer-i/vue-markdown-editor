@@ -37,7 +37,7 @@ const toolbars = {};
 importAll(toolbars, require.context('@/toolbar', false, /\.(js)$/));
 
 export default {
-  name: 'VueMarkdownEditor',
+  name: 'vue-markdown-editor',
   components: {
     [EditorEngine.name]: EditorEngine,
     [EditorWrapper.name]: EditorWrapper,

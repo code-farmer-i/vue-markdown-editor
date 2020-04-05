@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'TextareaAutosize',
+  name: 'textarea-autosize',
   props: {
     value: String,
   },

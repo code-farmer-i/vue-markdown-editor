@@ -1,17 +1,18 @@
+/* eslint-disable no-underscore-dangle */
 import ResizeObserver from 'resize-observer-polyfill';
 
 const isServer = typeof window === 'undefined';
 
 /* istanbul ignore next */
 const resizeHandler = function (entries) {
-  for (let entry of entries) {
+  entries.forEach((entry) => {
     const listeners = entry.target.__resizeListeners__ || [];
     if (listeners.length) {
       listeners.forEach((fn) => {
         fn();
       });
     }
-  }
+  });
 };
 
 /* istanbul ignore next */

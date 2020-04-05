@@ -37,7 +37,11 @@ import Scrollbar from '@/components/scrollbar/index';
 import Toolbar from '@/components/toolbar';
 
 export default {
-  name: 'EditorWrapper',
+  name: 'editor-wrapper',
+  components: {
+    [Scrollbar.name]: Scrollbar,
+    [Toolbar.name]: Toolbar,
+  },
   props: {
     leftToolbar: String,
     rightToolbar: String,
@@ -50,10 +54,6 @@ export default {
     rightToolbarGroup() {
       return this.getToolbarConfig(this.rightToolbar);
     },
-  },
-  components: {
-    [Scrollbar.name]: Scrollbar,
-    [Toolbar.name]: Toolbar,
   },
   methods: {
     getToolbarConfig(toolbarStr) {

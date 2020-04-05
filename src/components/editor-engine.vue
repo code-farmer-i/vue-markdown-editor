@@ -48,8 +48,6 @@ export default {
     insertText({ prefix = '', subfix = '', placeholder, selected }) {
       if (!this.isFocus()) return;
 
-      const range = this.getRange();
-
       const currentSelected = this.getSelected();
       const insertText = this.getInsertText(
         prefix,

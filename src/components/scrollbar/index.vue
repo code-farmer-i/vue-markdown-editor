@@ -6,16 +6,16 @@ import Bar from './bar';
 
 // scrollbar 组件代码 来源于 el-scrollbar
 export default {
-  name: 'Scrollbar',
+  name: 'scrollbar',
 
   components: { Bar },
 
   props: {
     native: Boolean,
-    wrapStyle: {},
-    wrapClass: {},
-    viewClass: {},
-    viewStyle: {},
+    wrapStyle: null,
+    wrapClass: null,
+    viewClass: null,
+    viewStyle: null,
     noresize: Boolean, // 如果 container 尺寸不会发生变化，最好设置它可以优化性能
     tag: {
       type: String,
@@ -38,8 +38,39 @@ export default {
     },
   },
 
+  mounted() {
+    if (this.native) return;
+    this.$nextTick(this.update);
+    !this.noresize && addResizeListener(this.$refs.resize, this.update);
+  },
+
+  beforeDestroy() {
+    if (this.native) return;
+    !this.noresize && removeResizeListener(this.$refs.resize, this.update);
+  },
+
+  methods: {
+    handleScroll() {
+      const { wrap } = this;
+
+      this.moveY = (wrap.scrollTop * 100) / wrap.clientHeight;
+      this.moveX = (wrap.scrollLeft * 100) / wrap.clientWidth;
+    },
+
+    update() {
+      const { wrap } = this;
+      if (!wrap) return;
+
+      const heightPercentage = (wrap.clientHeight * 100) / wrap.scrollHeight;
+      const widthPercentage = (wrap.clientWidth * 100) / wrap.scrollWidth;
+
+      this.sizeHeight = heightPercentage < 100 ? heightPercentage + '%' : '';
+      this.sizeWidth = widthPercentage < 100 ? widthPercentage + '%' : '';
+    },
+  },
+
   render(h) {
-    let gutter = scrollbarWidth();
+    const gutter = scrollbarWidth();
     let style = this.wrapStyle;
 
     if (gutter) {
@@ -48,7 +79,8 @@ export default {
 
       if (Array.isArray(this.wrapStyle)) {
         style = arraytoObject(this.wrapStyle);
-        style.marginRight = style.marginBottom = gutterWith;
+        style.marginRight = gutterWith;
+        style.marginBottom = gutterWith;
       } else if (typeof this.wrapStyle === 'string') {
         style += gutterStyle;
       } else {
@@ -98,38 +130,6 @@ export default {
       ];
     }
     return h('div', { class: 'scrollbar' }, nodes);
-  },
-
-  methods: {
-    handleScroll() {
-      const wrap = this.wrap;
-
-      this.moveY = (wrap.scrollTop * 100) / wrap.clientHeight;
-      this.moveX = (wrap.scrollLeft * 100) / wrap.clientWidth;
-    },
-
-    update() {
-      let heightPercentage, widthPercentage;
-      const wrap = this.wrap;
-      if (!wrap) return;
-
-      heightPercentage = (wrap.clientHeight * 100) / wrap.scrollHeight;
-      widthPercentage = (wrap.clientWidth * 100) / wrap.scrollWidth;
-
-      this.sizeHeight = heightPercentage < 100 ? heightPercentage + '%' : '';
-      this.sizeWidth = widthPercentage < 100 ? widthPercentage + '%' : '';
-    },
-  },
-
-  mounted() {
-    if (this.native) return;
-    this.$nextTick(this.update);
-    !this.noresize && addResizeListener(this.$refs.resize, this.update);
-  },
-
-  beforeDestroy() {
-    if (this.native) return;
-    !this.noresize && removeResizeListener(this.$refs.resize, this.update);
   },
 };
 </script>

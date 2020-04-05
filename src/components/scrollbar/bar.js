@@ -20,7 +20,7 @@ export default {
     },
   },
 
-  render(h) {
+  render() {
     const { size, move, bar } = this;
 
     return (
@@ -95,7 +95,7 @@ export default {
         (thumbPositionPercentage * this.wrap[this.bar.scrollSize]) / 100;
     },
 
-    mouseUpDocumentHandler(e) {
+    mouseUpDocumentHandler() {
       this.cursorDown = false;
       this[this.bar.axis] = 0;
       document.removeEventListener(
