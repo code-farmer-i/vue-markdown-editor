@@ -45,13 +45,13 @@ export default {
         document.execCommand('redo');
       }
     },
-    insertText({ prefix = '', subfix = '', placeholder, selected }) {
+    insertText({ prefix = '', suffix = '', placeholder, selected }) {
       if (!this.isFocus()) return;
 
       const currentSelected = this.getSelected();
       const insertText = this.getInsertText(
         prefix,
-        subfix,
+        suffix,
         currentSelected,
         placeholder
       );
@@ -61,7 +61,7 @@ export default {
       const newRange = this.getSelectedTextRange(
         this.value,
         insertText,
-        prefix || subfix ? currentSelected || selected : selected,
+        prefix || suffix ? currentSelected || selected : selected,
         this.getRange().end
       );
 
@@ -78,11 +78,11 @@ export default {
 
       return { start: rangeStartIndex, end: rangeEndIndex };
     },
-    getInsertText(prefix, subfix, currentSelected, placeholder) {
+    getInsertText(prefix, suffix, currentSelected, placeholder) {
       const text =
-        currentSelected && (prefix || subfix) ? currentSelected : placeholder;
+        currentSelected && (prefix || suffix) ? currentSelected : placeholder;
 
-      return `${prefix}${text}${subfix}`;
+      return `${prefix}${text}${suffix}`;
     },
     getSelected() {
       const { start, end } = this.getRange();

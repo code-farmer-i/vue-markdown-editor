@@ -3,7 +3,7 @@ export const name = 'code';
 export default function (editor) {
   editor.insertText({
     prefix: '``` language',
-    subfix: '```',
+    suffix: '```',
     placeholder: '\n',
     selected: 'language',
   });
