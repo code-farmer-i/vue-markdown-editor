@@ -3,7 +3,7 @@ import MarkdownEditor from './markdown-editor.vue';
 import markdownItInstance from '@/utils/markdown-it';
 import '@/assets/css/font';
 
-const version = '0.0.0';
+const version = '0.0.1';
 
 const install = (Vue) => {
   Vue.component(MarkdownEditor.name, MarkdownEditor);
