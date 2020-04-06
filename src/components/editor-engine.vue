@@ -107,21 +107,6 @@ export default {
       const { textarea } = this.$refs;
 
       textarea.focus();
-
-      // if (window.getSelection) {
-      //   textarea.focus();
-
-      //   const range = window.getSelection();
-
-      //   range.selectAllChildren(textarea);
-      //   range.collapseToEnd();
-      // } else if (document.selection) {
-      //   const range = document.selection.createRange();
-
-      //   range.moveToElementText(textarea);
-      //   range.collapse(false);
-      //   range.select();
-      // }
     },
   },
 };
