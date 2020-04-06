@@ -1,23 +1,9 @@
 import App from './App';
 import Vue from 'vue';
 import VueMarkdownEditor from '../src';
-import highlighjs from './highlightjs';
 import 'highlight.js/styles/github';
 
 import 'github-markdown-css';
-
-VueMarkdownEditor.markdownIt.set({
-  breaks: true,
-  highlight(str, lang) {
-    let res = VueMarkdownEditor.markdownIt.utils.escapeHtml(str);
-
-    if (lang && highlighjs.getLanguage(lang)) {
-      res = highlighjs.highlight(lang, str).value;
-    }
-
-    return `<pre class="language-${lang}"><code>${res}</code></pre>`;
-  },
-});
 
 Vue.use(VueMarkdownEditor);
 

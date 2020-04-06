@@ -8,6 +8,24 @@
 
 <script>
 import markdownItInstance from '@/utils/markdown-it';
+import highlighjs from '@/utils/highlightjs';
+
+markdownItInstance.set({
+  html: true,
+  xhtmlOut: true,
+  breaks: true,
+  linkify: false,
+  typographer: true,
+  highlight(str, lang) {
+    let res = markdownItInstance.utils.escapeHtml(str);
+
+    if (lang && highlighjs.getLanguage(lang)) {
+      res = highlighjs.highlight(lang, str).value;
+    }
+
+    return `<pre class="language-${lang}"><code>${res}</code></pre>`;
+  },
+});
 
 export default {
   name: 'markdown-preview',
