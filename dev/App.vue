@@ -1,5 +1,5 @@
 <template>
-  <vue-markdown-editor @change="handleChange" height="500px" />
+  <vue-markdown-editor @change="handleChange" @save="handleSave" height="500px" />
 </template>
 
 <script>
@@ -15,6 +15,9 @@ export default {
     },
   },
   methods: {
+    handleSave (text, html) {
+      console.log(text, html);
+    },
     handleChange (text, html) {
       console.log(text, html);
     },
