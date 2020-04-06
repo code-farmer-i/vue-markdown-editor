@@ -12,9 +12,7 @@ VueMarkdownEditor.markdownIt.set({
     let res = VueMarkdownEditor.markdownIt.utils.escapeHtml(str);
 
     if (lang && highlighjs.getLanguage(lang)) {
-      try {
-        res = highlighjs.highlight(lang, str).value;
-      } catch (e) {}
+      res = highlighjs.highlight(lang, str).value;
     }
 
     return `<pre class="language-${lang}"><code>${res}</code></pre>`;
