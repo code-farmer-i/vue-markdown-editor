@@ -36,17 +36,22 @@ export default {
   },
   methods: {
     undo() {
-      if (this.isFocus()) {
-        document.execCommand('undo');
-      }
+      this.focus();
+
+      document.execCommand('undo');
     },
     redo() {
-      if (this.isFocus()) {
-        document.execCommand('redo');
-      }
+      this.focus();
+
+      document.execCommand('redo');
+    },
+    clear() {
+      this.focus();
+
+      this.value = '';
     },
     insertText({ prefix = '', suffix = '', placeholder, selected }) {
-      if (!this.isFocus()) return;
+      this.focus();
 
       const currentSelected = this.getSelected();
       const insertText = this.getInsertText(
@@ -97,9 +102,6 @@ export default {
     },
     setRange({ start, end }) {
       this.textareaEl.setSelectionRange(start, end);
-    },
-    isFocus() {
-      return window.getSelection().anchorNode === this.$el;
     },
     focus() {
       const { textarea } = this.$refs;

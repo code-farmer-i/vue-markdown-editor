@@ -52,7 +52,7 @@ export default {
     leftToolbar: {
       type: String,
       default:
-        'undo redo | bold italic strikethrough quote | h1 h2 h3 h4 h5 h6 | ul ol table | link image code',
+        'undo redo clear | bold italic strikethrough quote | h1 h2 h3 h4 h5 h6 | ul ol table | link image code',
     },
     rightToolbar: {
       type: String,
@@ -132,6 +132,9 @@ export default {
     },
     redo() {
       this.$refs.editorEngine.redo();
+    },
+    clear() {
+      this.$refs.editorEngine.clear();
     },
     handleInput(val) {
       this.text = val;
