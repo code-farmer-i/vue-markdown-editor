@@ -4,7 +4,7 @@ import markdownItInstance from '@/utils/markdown-it';
 import hljs from '@/utils/highlightjs';
 import '@/assets/css/font';
 
-const version = '0.0.5';
+const version = '0.0.6';
 
 const install = (Vue) => {
   Vue.component(MarkdownEditor.name, MarkdownEditor);
