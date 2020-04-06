@@ -9,6 +9,7 @@ function buildEntry() {
   const content = `${tips}
 import MarkdownEditor from './markdown-editor.vue';
 import markdownItInstance from '@/utils/markdown-it';
+import hljs from '@/utils/highlightjs';
 import '@/assets/css/font';
 
 const version = '${version}';
@@ -24,6 +25,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 MarkdownEditor.version = version;
 MarkdownEditor.install = install;
 MarkdownEditor.markdownIt = markdownItInstance;
+MarkdownEditor.hljs = hljs;
 
 export default MarkdownEditor;
 `;
