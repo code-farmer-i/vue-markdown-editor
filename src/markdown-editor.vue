@@ -10,11 +10,17 @@
   >
     <template slot="editor">
       <slot name="editor">
-        <editor-engine @input="handleInput" ref="editorEngine" />
+        <editor-engine
+          @input="handleInput"
+          ref="editorEngine"
+        />
       </slot>
     </template>
     <template slot="preview">
-      <slot name="preview" :text="text">
+      <slot
+        name="preview"
+        :text="text"
+      >
         <markdown-preview
           :text="text"
           :preview-class="previewClass"
@@ -39,6 +45,11 @@ importAll(defaultToolbars, require.context('@/toolbar', false, /\.(js)$/));
 
 export default {
   name: 'vue-markdown-editor',
+  provide() {
+    return {
+      markdownEditor: this,
+    };
+  },
   components: {
     [EditorEngine.name]: EditorEngine,
     [EditorWrapper.name]: EditorWrapper,
@@ -97,7 +108,19 @@ export default {
       this.registerCommand(name, callback);
     });
   },
+  mounted() {
+    window.addEventListener('keyup', this.handleWindowKeyup, false);
+  },
+  beforeDestroy() {
+    window.removeEventListener('keyup', this.handleWindowKeyup, false);
+  },
   methods: {
+    handleWindowKeyup(e) {
+      // esc
+      if (e.keyCode === 27 && this.fullscreen) {
+        this.toggleFullScreen(false);
+      }
+    },
     toggleFullScreen(fullscreen = !this.fullscreen) {
       this.fullscreen = fullscreen;
       const { 0: html, 1: body } = document.querySelectorAll('html, body');
@@ -125,9 +148,7 @@ export default {
         if (typeof commandCallBack === 'function') {
           commandCallBack(this);
         } else {
-          console.error(
-            `The command must be registered as a function: ${name}`
-          );
+          console.error(`The command must be registered as a function: ${name}`);
         }
       } else {
         console.error(`Command not registered: ${name}`);

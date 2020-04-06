@@ -31,10 +31,6 @@
     "*.{vue,css,scss}": [
       "stylelint",
       "git add"
-    ],
-    "src/**/*.{js,json,css,scss,md}": [
-      "prettier --write",
-      "git add"
     ]
   },
   "peerDependencies": {

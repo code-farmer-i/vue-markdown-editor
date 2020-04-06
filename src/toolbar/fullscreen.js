@@ -2,14 +2,10 @@ import { name } from '@/command/fullscreen';
 
 export default {
   name,
-  state: {
-    isFullscreen: false,
-  },
   icon: 'fa fa-md-arrows-alt',
-  title: (state) => (state.isFullscreen ? '退出全屏' : '全屏'),
-  active: (state) => state.isFullscreen,
-  action(editor, state) {
-    state.isFullscreen = !state.isFullscreen;
-    editor.execCommand(name, state.isFullscreen);
+  title: (editor) => (editor.fullscreen ? '退出全屏（按ESC还原）' : '全屏（按ESC还原）'),
+  active: (editor) => editor.fullscreen,
+  action(editor) {
+    editor.execCommand(name, !editor.fullscreen);
   },
 };

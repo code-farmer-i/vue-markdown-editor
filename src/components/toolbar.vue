@@ -16,9 +16,7 @@
         :title="getConfig(toolbarName, 'title')"
         @mousedown.prevent
         @click="$emit('item-click', toolbars[toolbarName])"
-      >
-        {{ getConfig(toolbarName, 'text') }}
-      </li>
+      >{{ getConfig(toolbarName, 'text') }}</li>
       <li
         v-if="idx !== groups.length - 1"
         class="vue-markdown-editor__toolbar-divider"
@@ -30,6 +28,7 @@
 <script>
 export default {
   name: 'editor-toolbar',
+  inject: ['markdownEditor'],
   props: {
     groups: Array,
     toolbars: Object,
@@ -37,10 +36,9 @@ export default {
   methods: {
     getConfig(toolbarName, configName) {
       const toolbarConfig = this.toolbars[toolbarName];
-      const { state } = toolbarConfig;
       const value = toolbarConfig[configName];
 
-      return typeof value === 'function' ? value(state) : value;
+      return typeof value === 'function' ? value(this.markdownEditor) : value;
     },
   },
 };
