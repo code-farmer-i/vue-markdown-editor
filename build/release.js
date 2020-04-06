@@ -9,9 +9,7 @@ const currentVersion = packageJson.version;
 async function release() {
   await checkNpmPermission(packageJson.name);
 
-  const { version: releaseVersion, isBeta } = await selectVersion(
-    currentVersion
-  );
+  const { version: releaseVersion, isBeta } = await selectVersion(currentVersion);
 
   // set version
   await runTasks([`npm version ${releaseVersion} --no-git-tag-version`]);
@@ -21,17 +19,19 @@ async function release() {
     await runTasks(['npm run build:entry', 'npm run build:pkg']);
 
     // commit
-    await runTasks([
-      'git add .',
-      `git tag v${releaseVersion}`,
-      `git commit -m "chore: release ${releaseVersion}"`,
-    ]);
+    await runTasks(['git add .', `git commit -m "chore: release ${releaseVersion}"`]);
+
+    // changelog
+    await runTasks(['npm run changelog']);
+
+    // commit
+    await runTasks(['git add .', `git commit -m "docs(changelog): ${releaseVersion}"`]);
+
+    // tag
+    await runTasks([`git tag v${releaseVersion}`]);
 
     // push
-    await runTasks([
-      'git push',
-      `git push origin refs/tags/v${releaseVersion}`,
-    ]);
+    await runTasks(['git push', `git push origin refs/tags/v${releaseVersion}`]);
 
     // publish
     if (isBeta) {
