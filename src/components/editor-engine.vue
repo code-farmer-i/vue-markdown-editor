@@ -1,9 +1,10 @@
 <template>
   <textarea-autosize
-    v-model="value"
+    :value="value"
     class="editor-engine"
     spellcheck="false"
     @click.stop
+    @input="handleInput"
     ref="textarea"
   />
 </template>
@@ -16,25 +17,21 @@ export default {
   components: {
     [Textarea.name]: Textarea,
   },
-  data() {
-    return {
-      value: '',
-    };
+  props: {
+    value: String,
   },
   computed: {
     textareaEl() {
       return this.$refs.textarea.$refs.textarea;
     },
   },
-  watch: {
-    value() {
-      this.$emit('input', this.value);
-    },
-  },
   mounted() {
     this.focus();
   },
   methods: {
+    handleInput (val) {
+      this.$emit('input', val);
+    },
     undo() {
       this.focus();
 
@@ -48,7 +45,7 @@ export default {
     clear() {
       this.focus();
 
-      this.value = '';
+      this.handleInput('');
     },
     insertText({ prefix = '', suffix = '', placeholder, selected }) {
       this.focus();
@@ -63,14 +60,16 @@ export default {
 
       document.execCommand('insertText', false, insertText);
 
-      const newRange = this.getSelectedTextRange(
-        this.value,
-        insertText,
-        prefix || suffix ? currentSelected || selected : selected,
-        this.getRange().end
-      );
+      this.$nextTick(() => {
+        const newRange = this.getSelectedTextRange(
+          this.value,
+          insertText,
+          prefix || suffix ? currentSelected || selected : selected,
+          this.getRange().end
+        );
 
-      this.setRange(newRange);
+        this.setRange(newRange);
+      });
     },
     getSelectedTextRange(allText, insertText, selectedText, cursorEndIndex) {
       const selectedIndexOfStr = insertText.indexOf(selectedText);

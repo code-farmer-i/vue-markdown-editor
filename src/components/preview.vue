@@ -49,6 +49,7 @@ export default {
       immediate: true,
       handler() {
         this.html = markdownItInstance.render(this.text);
+        this.$emit('change', this.text, this.html);
       },
     },
   },

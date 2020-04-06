@@ -11,19 +11,18 @@
     <template slot="editor">
       <slot name="editor">
         <editor-engine
+          :value="text"
           @input="handleInput"
           ref="editorEngine"
         />
       </slot>
     </template>
     <template slot="preview">
-      <slot
-        name="preview"
-        :text="text"
-      >
+      <slot name="preview">
         <markdown-preview
           :text="text"
           :preview-class="previewClass"
+          @change="handleChange"
           ref="preview"
         />
       </slot>
@@ -56,6 +55,10 @@ export default {
     [Preview.name]: Preview,
   },
   props: {
+    value: {
+      type: String,
+      default: '',
+    },
     height: {
       require: true,
       type: String,
@@ -78,10 +81,15 @@ export default {
   },
   data() {
     return {
-      text: '',
+      text: this.value,
       toolbars: {},
       fullscreen: false,
     };
+  },
+  watch: {
+    value () {
+      this.text = this.value;
+    },
   },
   created() {
     this.commands = {};
@@ -172,6 +180,10 @@ export default {
     },
     handleInput(val) {
       this.text = val;
+      this.$emit('input', val);
+    },
+    handleChange(text, html) {
+      this.$emit('change', text, html);
     },
     handleEditorWrapperClick(e) {
       this.focus();
