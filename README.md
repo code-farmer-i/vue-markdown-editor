@@ -42,3 +42,7 @@ import bash from 'highlight.js/lib/languages/bash';
 
 VueMarkdownEditor.hljs.registerLanguage('bash', bash);
 ```
+
+## 更新日志
+
+[查看更新日志](https://github.com/code-farmer-i/vue-markdown-editor/blob/dev/CHANGELOG.md)
