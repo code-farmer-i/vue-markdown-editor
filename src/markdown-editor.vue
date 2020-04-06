@@ -1,9 +1,10 @@
 <template>
   <editor-wrapper
-    :style="{ height }"
+    :height="height"
     :left-toolbar="leftToolbar"
     :right-toolbar="rightToolbar"
     :toolbars="toolbars"
+    :fullscreen="fullscreen"
     @toolbar-click="handleToolbarClick"
     @editor-wrapper-click="handleEditorWrapperClick"
   >
@@ -33,8 +34,8 @@ import { importAll } from '@/utils/util';
 const commands = {};
 importAll(commands, require.context('@/command', false, /\.(js)$/));
 
-const toolbars = {};
-importAll(toolbars, require.context('@/toolbar', false, /\.(js)$/));
+const defaultToolbars = {};
+importAll(defaultToolbars, require.context('@/toolbar', false, /\.(js)$/));
 
 export default {
   name: 'vue-markdown-editor',
@@ -56,7 +57,7 @@ export default {
     },
     rightToolbar: {
       type: String,
-      default: '',
+      default: 'fullscreen',
     },
     toolbar: {
       type: Object,
@@ -67,24 +68,28 @@ export default {
   data() {
     return {
       text: '',
+      toolbars: {},
+      fullscreen: false,
     };
   },
   created() {
     this.commands = {};
-    this.toolbars = {};
+    const toolbars = {};
 
-    Object.values(toolbars).forEach((toolbar) => {
+    Object.values(defaultToolbars).forEach((toolbar) => {
       const { default: config } = toolbar;
       const { name } = config;
 
-      if (name) this.toolbars[name] = config;
+      if (name) toolbars[name] = config;
     });
 
     Object.values(this.toolbar).forEach((toolbar) => {
       const { name } = toolbar;
 
-      if (name) this.toolbars[name] = toolbar;
+      if (name) toolbars[name] = toolbar;
     });
+
+    this.toolbars = toolbars;
 
     Object.values(commands).forEach((command) => {
       const { name, default: callback } = command;
@@ -93,9 +98,17 @@ export default {
     });
   },
   methods: {
+    toggleFullScreen(fullscreen = !this.fullscreen) {
+      this.fullscreen = fullscreen;
+      const { 0: html, 1: body } = document.querySelectorAll('html, body');
+      const overflow = this.fullscreen ? 'hidden' : null;
+
+      body.style.overflow = overflow;
+      html.style.overflow = overflow;
+    },
     handleToolbarClick(toolbar) {
       if (toolbar.action && typeof toolbar.action === 'function') {
-        toolbar.action(this);
+        toolbar.action(this, toolbar.state);
       }
     },
     registerCommand(name, callback) {

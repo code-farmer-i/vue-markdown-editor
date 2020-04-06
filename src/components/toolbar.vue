@@ -4,12 +4,20 @@
       <li
         v-for="toolbarName in group"
         class="vue-markdown-editor__toolbar-item"
-        :class="[toolbars[toolbarName].icon]"
-        :title="[toolbars[toolbarName].title]"
+        :class="[
+          getConfig(toolbarName, 'icon'),
+          {
+            'vue-markdown-editor__toolbar-item--active': getConfig(
+              toolbarName,
+              'active'
+            ),
+          },
+        ]"
+        :title="getConfig(toolbarName, 'title')"
         @mousedown.prevent
         @click="$emit('item-click', toolbars[toolbarName])"
       >
-        {{ toolbars[toolbarName].text }}
+        {{ getConfig(toolbarName, 'text') }}
       </li>
       <li
         v-if="idx !== groups.length - 1"
@@ -25,6 +33,15 @@ export default {
   props: {
     groups: Array,
     toolbars: Object,
+  },
+  methods: {
+    getConfig(toolbarName, configName) {
+      const toolbarConfig = this.toolbars[toolbarName];
+      const { state } = toolbarConfig;
+      const value = toolbarConfig[configName];
+
+      return typeof value === 'function' ? value(state) : value;
+    },
   },
 };
 </script>

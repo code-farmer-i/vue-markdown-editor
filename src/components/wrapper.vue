@@ -1,5 +1,9 @@
 <template>
-  <div class="vue-markdown-editor">
+  <div
+    class="vue-markdown-editor"
+    :class="{ 'vue-markdown-editor--fullscreen': fullscreen }"
+    :style="{ height: realHeight }"
+  >
     <div class="vue-markdown-editor__toolbar">
       <editor-toolbar
         class="vue-markdown-editor__toolbar-left"
@@ -46,8 +50,13 @@ export default {
     leftToolbar: String,
     rightToolbar: String,
     toolbars: Object,
+    fullscreen: Boolean,
+    height: String,
   },
   computed: {
+    realHeight() {
+      return this.fullscreen ? 'auto' : this.height;
+    },
     leftToolbarGroup() {
       return this.getToolbarConfig(this.leftToolbar);
     },
@@ -83,6 +92,14 @@ export default {
   background-color: #fff;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.1) 0 2px 12px 0;
+
+  &--fullscreen {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
 
   &__toolbar {
     display: flex;
