@@ -1,27 +1,27 @@
 <h1 align="center">Markdown Editor built on Vue</h1>
 
 <p align="center">
-  <a href="https://npmcharts.com/compare/@kangchen/vue-markdown-editor?minimal=true"><img src="https://img.shields.io/npm/dm/@kangchen/vue-markdown-editor.svg?sanitize=true" alt="Downloads"></a>
-  <a href="https://www.npmjs.com/package/@kangchen/vue-markdown-editor"><img src="https://img.shields.io/npm/v/@kangchen/vue-markdown-editor.svg?sanitize=true" alt="Version"></a>
-  <a href="https://www.npmjs.com/package/@kangchen/vue-markdown-editor"><img src="https://img.shields.io/npm/l/@kangchen/vue-markdown-editor.svg?sanitize=true" alt="License"></a>
+  <a href="https://npmcharts.com/compare/@kangc/v-md-editor?minimal=true"><img src="https://img.shields.io/npm/dm/@kangc/v-md-editor.svg?sanitize=true" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/@kangc/v-md-editor"><img src="https://img.shields.io/npm/v/@kangc/v-md-editor.svg?sanitize=true" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/@kangc/v-md-editor"><img src="https://img.shields.io/npm/l/@kangc/v-md-editor.svg?sanitize=true" alt="License"></a>
 </p>
 
 ## 安装
 
 ```bash
 # 使用 npm
-npm i @kangchen/vue-markdown-editor -S
+npm i @kangc/v-md-editor -S
 
 # 使用yarn
-yarn add @kangchen/vue-markdown-editor
+yarn add @kangc/v-md-editor
 ```
 
 ## 全局注册
 
 ```js
 import Vue from 'vue';
-import VueMarkdownEditor from '@kangchen/vue-markdown-editor';
-import '@kangchen/vue-markdown-editor/dist/style/index.css';
+import VueMarkdownEditor from '@kangc/v-md-editor';
+import '@kangc/v-md-editor/dist/style/index.css';
 
 // 引入markdown样式 此处以github的markdown样式风格为例
 import 'github-markdown-css';
