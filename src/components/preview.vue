@@ -10,7 +10,6 @@
 
 <script>
 import markdownItInstance from '@/utils/markdown-it';
-import highlighjs from '@/utils/highlightjs';
 import Scrollbar from '@/components/scrollbar/index';
 
 markdownItInstance.set({
@@ -19,15 +18,7 @@ markdownItInstance.set({
   breaks: true,
   linkify: false,
   typographer: true,
-  highlight(str, lang) {
-    let res = markdownItInstance.utils.escapeHtml(str);
 
-    if (lang && highlighjs.getLanguage(lang)) {
-      res = highlighjs.highlight(lang, str).value;
-    }
-
-    return `<pre class="language-${lang}"><code>${res}</code></pre>`;
-  },
 });
 
 export default {
@@ -53,9 +44,10 @@ export default {
   watch: {
     text: {
       immediate: true,
-      handler() {
+      handler(newVal, oldVal) {
         this.html = markdownItInstance.render(this.text);
-        this.$emit('change', this.text, this.html);
+
+        if (typeof oldVal !== 'undefined') { this.$emit('change', this.text, this.html); }
       },
     },
   },
