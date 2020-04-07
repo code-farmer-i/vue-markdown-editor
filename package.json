@@ -13,6 +13,8 @@
     "lint": "eslint ./src --ext .js,.vue,.ts,.tsx --fix && stylelint \"src/**/*.vue\" --fix",
     "build:entry": "node build/build-entry.js",
     "build:pkg": "webpack --config build/webpack.pkg.js",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "commit": "git-cz",
     "release": "node build/release.js"
@@ -72,6 +74,7 @@
     "url-loader": "^4.0.0",
     "vue-loader": "^15.9.1",
     "vue-style-loader": "^4.1.2",
+    "vuepress": "^1.4.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "3.9.0",
