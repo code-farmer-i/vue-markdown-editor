@@ -31,10 +31,7 @@ async function checkPackagePermission(userName, packageName) {
 module.exports = async function checkNpmPermission(packageName) {
   const userName = await checkNpmLogin();
 
-  const hasPublishPackagePermission = await checkPackagePermission(
-    userName,
-    packageName
-  );
+  const hasPublishPackagePermission = await checkPackagePermission(userName, packageName);
 
   return hasPublishPackagePermission;
 };

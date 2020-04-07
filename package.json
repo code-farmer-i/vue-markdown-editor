@@ -1,6 +1,6 @@
 {
   "name": "@kangc/v-md-editor",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A lightweight markdown editor built on Vue",
   "main": "dist/index.js",
   "unpkg": "dist/index.js",
@@ -68,6 +68,7 @@
     "signale": "^1.4.0",
     "style-loader": "^1.1.3",
     "stylelint": "^13.3.0",
+    "typescript": "^3.8.3",
     "url-loader": "^4.0.0",
     "vue-loader": "^15.9.1",
     "vue-style-loader": "^4.1.2",
