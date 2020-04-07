@@ -136,6 +136,7 @@ export default {
 
 <style lang="scss">
 .scrollbar {
+  height: 100%;
   overflow: hidden;
 
   &:active,

@@ -1,14 +1,17 @@
 <template>
-  <div
-    v-html="html"
-    class="vue-markdown-editor__preview"
-    :class="[previewClass]"
-  />
+  <scrollbar>
+    <div
+      v-html="html"
+      class="vue-markdown-editor__preview"
+      :class="[previewClass]"
+    />
+  </scrollbar>
 </template>
 
 <script>
 import markdownItInstance from '@/utils/markdown-it';
 import highlighjs from '@/utils/highlightjs';
+import Scrollbar from '@/components/scrollbar/index';
 
 markdownItInstance.set({
   html: true,
@@ -28,7 +31,10 @@ markdownItInstance.set({
 });
 
 export default {
-  name: 'markdown-preview',
+  name: 'v-md-preview',
+  components: {
+    [Scrollbar.name]: Scrollbar,
+  },
   props: {
     text: {
       type: String,

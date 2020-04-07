@@ -3,11 +3,11 @@
     <template v-for="(group, idx) in groups">
       <li
         v-for="toolbarName in group"
-        class="vue-markdown-editor__toolbar-item"
+        class="v-md-editor__toolbar-item"
         :class="[
           getConfig(toolbarName, 'icon'),
           {
-            'vue-markdown-editor__toolbar-item--active': getConfig(
+            'v-md-editor__toolbar-item--active': getConfig(
               toolbarName,
               'active'
             ),
@@ -19,7 +19,7 @@
       >{{ getConfig(toolbarName, 'text') }}</li>
       <li
         v-if="idx !== groups.length - 1"
-        class="vue-markdown-editor__toolbar-divider"
+        class="v-md-editor__toolbar-divider"
       />
     </template>
   </ul>

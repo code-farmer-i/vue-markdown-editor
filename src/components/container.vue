@@ -1,49 +1,43 @@
 <template>
   <div
-    class="vue-markdown-editor"
-    :class="{ 'vue-markdown-editor--fullscreen': fullscreen }"
-    :style="{ height: realHeight }"
+    class="v-md-editor"
+    :class="{ 'v-md-editor--fullscreen': fullscreen }"
+    :style="{ height: heightGetter }"
   >
-    <div class="vue-markdown-editor__toolbar">
+    <div class="v-md-editor__toolbar">
       <editor-toolbar
-        class="vue-markdown-editor__toolbar-left"
+        class="v-md-editor__toolbar-left"
         :groups="leftToolbarGroup"
         :toolbars="toolbars"
-        @item-click="handleToolbarClick"
+        @item-click="handleToolbarItemClick"
       />
       <editor-toolbar
-        class="vue-markdown-editor__toolbar-right"
+        class="v-md-editor__toolbar-right"
         :groups="rightToolbarGroup"
         :toolbars="toolbars"
-        @item-click="handleToolbarClick"
+        @item-click="handleToolbarItemClick"
       />
     </div>
-    <div class="vue-markdown-editor__main">
+    <div class="v-md-editor__main">
       <div
-        class="vue-markdown-editor__editor-wrapper"
+        class="v-md-editor__editor-wrapper"
         @click="handleEditorWrapperClick"
       >
-        <scrollbar style="height: 100%;">
-          <slot name="editor" />
-        </scrollbar>
+        <slot name="editor" />
       </div>
-      <div class="vue-markdown-editor__preview-wrapper">
-        <scrollbar style="height: 100%;">
-          <slot name="preview" />
-        </scrollbar>
+      <div class="v-md-editor__preview-wrapper">
+        <slot name="preview" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Scrollbar from '@/components/scrollbar/index';
 import Toolbar from '@/components/toolbar';
 
 export default {
-  name: 'editor-wrapper',
+  name: 'v-md-container',
   components: {
-    [Scrollbar.name]: Scrollbar,
     [Toolbar.name]: Toolbar,
   },
   props: {
@@ -54,7 +48,7 @@ export default {
     height: String,
   },
   computed: {
-    realHeight() {
+    heightGetter() {
       return this.fullscreen ? 'auto' : this.height;
     },
     leftToolbarGroup() {
@@ -77,15 +71,15 @@ export default {
     handleEditorWrapperClick(e) {
       this.$emit('editor-wrapper-click', e);
     },
-    handleToolbarClick(toolbar) {
-      this.$emit('toolbar-click', toolbar);
+    handleToolbarItemClick(toolbar) {
+      this.$emit('toolbar-item-click', toolbar);
     },
   },
 };
 </script>
 
 <style lang="scss">
-.vue-markdown-editor {
+.v-md-editor {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -124,7 +118,7 @@ export default {
       margin: 0 10px;
       border-left: 1px solid #ddd;
 
-      + li.vue-markdown-editor__toolbar-item {
+      + li.v-md-editor__toolbar-item {
         margin-left: 0;
       }
     }

@@ -1,5 +1,9 @@
 <template>
-  <vue-markdown-editor @change="handleChange" @save="handleSave" height="500px" />
+  <v-md-editor
+    @change="handleChange"
+    @save="handleSave"
+    height="500px"
+  />
 </template>
 
 <script>
