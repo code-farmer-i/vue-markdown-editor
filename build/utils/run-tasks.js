@@ -1,5 +1,6 @@
 const shell = require('shelljs');
 const signale = require('signale');
+
 const { Signale } = signale;
 
 module.exports = function runTasks(tasks) {

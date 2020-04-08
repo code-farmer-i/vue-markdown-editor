@@ -19,7 +19,7 @@ module.exports = async function selectVersion(curVersion) {
       type: 'input',
       message: '请输入要发布的版本号：',
       name: 'customVersion',
-      when: function (answers) {
+      when(answers) {
         return answers.version === customVersionOption;
       },
       validate(releaseVersion) {
@@ -37,10 +37,10 @@ module.exports = async function selectVersion(curVersion) {
     {
       type: 'confirm',
       name: 'confirm',
-      message: function ({ version, customVersion }) {
+      message({ version, customVersion }) {
         return `确认发布版本 ${customVersion || version} ?`;
       },
-      when: function (answers) {
+      when(answers) {
         return answers.version || answers.customVersion;
       },
     },

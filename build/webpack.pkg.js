@@ -50,7 +50,7 @@ module.exports = merge(config, {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'style/index.css',
+      filename: 'style/[name].css',
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
