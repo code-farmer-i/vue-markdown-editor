@@ -101,11 +101,7 @@ export default {
         ref="wrap"
         style={style}
         onScroll={this.handleScroll}
-        class={[
-          this.wrapClass,
-          'scrollbar__wrap',
-          gutter ? '' : 'scrollbar__wrap--hidden-default',
-        ]}
+        class={[this.wrapClass, 'scrollbar__wrap', gutter ? '' : 'scrollbar__wrap--hidden-default']}
       >
         {[view]}
       </div>
@@ -120,11 +116,7 @@ export default {
       ];
     } else {
       nodes = [
-        <div
-          ref="wrap"
-          class={[this.wrapClass, 'scrollbar__wrap']}
-          style={style}
-        >
+        <div ref="wrap" class={[this.wrapClass, 'scrollbar__wrap']} style={style}>
           {[view]}
         </div>,
       ];
@@ -144,7 +136,6 @@ export default {
   &:hover {
     .scrollbar__bar {
       opacity: 1;
-      transition: opacity 0.34s ease-out;
     }
   }
 
@@ -184,7 +175,7 @@ export default {
     z-index: 1;
     border-radius: 4px;
     opacity: 0;
-    transition: opacity 0.12s ease-out;
+    transition: opacity 0.34s ease-out;
 
     &.is-vertical {
       top: 2px;

@@ -19,10 +19,7 @@
       />
     </div>
     <div class="v-md-editor__main">
-      <div
-        class="v-md-editor__editor-wrapper"
-        @click="handleEditorWrapperClick"
-      >
+      <div class="v-md-editor__editor-wrapper" @click="handleEditorWrapperClick">
         <slot name="editor" />
       </div>
       <div class="v-md-editor__preview-wrapper">
@@ -34,6 +31,7 @@
 
 <script>
 import Toolbar from '@/components/toolbar';
+import { addResizeListener, removeResizeListener } from '@/utils/resize-event';
 
 export default {
   name: 'v-md-container',
@@ -46,6 +44,7 @@ export default {
     toolbars: Object,
     fullscreen: Boolean,
     height: String,
+    noresize: Boolean,
   },
   computed: {
     heightGetter() {
@@ -58,14 +57,22 @@ export default {
       return this.getToolbarConfig(this.rightToolbar);
     },
   },
+  mounted() {
+    !this.noresize && addResizeListener(this.$el, this.handleContainerResize);
+  },
+
+  beforeDestroy() {
+    !this.noresize && removeResizeListener(this.$el, this.handleContainerResize);
+  },
   methods: {
+    handleContainerResize() {
+      this.$emit('resize');
+    },
     getToolbarConfig(toolbarStr) {
       return toolbarStr
         .split('|')
         .map((group) =>
-          group
-            .split(' ')
-            .filter((toolbarName) => toolbarName && this.toolbars[toolbarName])
+          group.split(' ').filter((toolbarName) => toolbarName && this.toolbars[toolbarName])
         );
     },
     handleEditorWrapperClick(e) {
@@ -85,7 +92,7 @@ export default {
   width: 100%;
   background-color: #fff;
   border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 12px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.24);
 
   &--fullscreen {
     position: fixed;

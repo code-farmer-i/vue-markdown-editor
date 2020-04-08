@@ -9,12 +9,7 @@
     @toolbar-item-click="handleToolbarItemClick"
     ref="contaner"
   >
-    <v-md-engine
-      slot="editor"
-      :value="text"
-      @input="handleInput"
-      ref="editorEgine"
-    />
+    <v-md-engine slot="editor" :value="text" @input="handleInput" ref="editorEgine" />
     <v-md-preview
       slot="preview"
       :text="text"
@@ -54,7 +49,7 @@ export default {
     height: String,
     previewClass: String,
   },
-  data () {
+  data() {
     return {
       text: this.value,
     };
@@ -87,21 +82,20 @@ export default {
       return { start: rangeStartIndex, end: rangeEndIndex };
     },
     getInsertText(prefix, suffix, currentSelectedStr, placeholder) {
-      const text =
-        currentSelectedStr && (prefix || suffix) ? currentSelectedStr : placeholder;
+      const text = currentSelectedStr && (prefix || suffix) ? currentSelectedStr : placeholder;
 
       return `${prefix}${text}${suffix}`;
     },
-    getSelectedStr() {
-      const { start, end } = this.$refs.editorEgine.getRange();
+    getSelectedStr(text, selectedRange) {
+      const { start, end } = selectedRange;
 
-      return end > start ? this.text.slice(start, end) : null;
+      return end > start ? text.slice(start, end) : null;
     },
-    focus () {
+    focus() {
       this.$refs.editorEgine.focus();
     },
     // Must implement
-    save () {
+    save() {
       this.$emit('save', this.text, this.$refs.preview.html);
     },
     // Must implement
@@ -126,13 +120,8 @@ export default {
     insertText({ prefix = '', suffix = '', placeholder, selected }) {
       this.focus();
 
-      const currentSelectedStr = this.getSelectedStr();
-      const insertText = this.getInsertText(
-        prefix,
-        suffix,
-        currentSelectedStr,
-        placeholder
-      );
+      const currentSelectedStr = this.getSelectedStr(this.text, this.$refs.editorEgine.getRange());
+      const insertText = this.getInsertText(prefix, suffix, currentSelectedStr, placeholder);
 
       document.execCommand('insertText', false, insertText);
 
