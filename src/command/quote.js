@@ -1,9 +1,13 @@
 export const name = 'quote';
 
 export default function (editor) {
-  editor.insertText({
-    prefix: '> ',
-    placeholder: '引用',
-    selected: '引用',
+  editor.insert((selected) => {
+    const prefix = '>';
+    const content = selected || '引用';
+
+    return {
+      text: `${prefix} ${content}`,
+      selected: content,
+    };
   });
 }

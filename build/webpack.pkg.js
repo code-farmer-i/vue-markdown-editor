@@ -5,6 +5,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const cssnano = require('cssnano');
+const { entryFiles } = require('./build-entry');
+
+const entry = {};
+
+entryFiles.forEach((fileName) => {
+  entry[fileName] = `./src/${fileName}.js`;
+});
 
 module.exports = merge(config, {
   mode: 'production',
@@ -18,20 +25,13 @@ module.exports = merge(config, {
       {
         test: /\.scss/,
         sideEffects: true,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
     ],
   },
-  entry: {
-    index: './src/index.js',
-  },
+  entry,
   output: {
-    library: 'VueMarkdownEditor',
+    library: 'VMdEditor',
     libraryTarget: 'umd',
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',

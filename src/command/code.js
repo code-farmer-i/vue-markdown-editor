@@ -1,10 +1,18 @@
 export const name = 'code';
 
 export default function (editor) {
-  editor.insertText({
-    prefix: '``` language',
-    suffix: '```',
-    placeholder: '\n',
-    selected: 'language',
+  editor.insert((selected) => {
+    const prefix = '``` language';
+    const suffix = '```';
+    let text = `${prefix}\n${suffix}`;
+
+    if (selected) {
+      text = `${prefix}\n  ${selected}\n${suffix}`;
+    }
+
+    return {
+      text,
+      selected: 'language',
+    };
   });
 }

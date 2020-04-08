@@ -1,10 +1,14 @@
 export const name = 'strikethrough';
 
 export default function (editor) {
-  editor.insertText({
-    prefix: '~~',
-    suffix: '~~',
-    placeholder: '删除线',
-    selected: '删除线',
+  editor.insert((selected) => {
+    const prefix = '~~';
+    const suffix = '~~';
+    const content = selected || '删除线';
+
+    return {
+      text: `${prefix}${content}${suffix}`,
+      selected: content,
+    };
   });
 }

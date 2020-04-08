@@ -1,25 +1,21 @@
 <template>
-  <scrollbar>
-    <textarea-autosize
-      class="v-md-editor-engine"
-      :value="value"
-      spellcheck="false"
-      @click.stop
-      @input="handleInput"
-      ref="textarea"
-    />
-  </scrollbar>
+  <textarea-autosize
+    class="v-md-editor-engine"
+    :value="value"
+    spellcheck="false"
+    @click.stop
+    @input="handleInput"
+    ref="textarea"
+  />
 </template>
 
 <script>
 import Textarea from '@/components/textarea';
-import Scrollbar from '@/components/scrollbar/index';
 
 export default {
   name: 'v-md-engine',
   components: {
     [Textarea.name]: Textarea,
-    [Scrollbar.name]: Scrollbar,
   },
   props: {
     value: String,
@@ -44,6 +40,11 @@ export default {
     },
     setRange({ start, end }) {
       this.textareaEl.setSelectionRange(start, end);
+    },
+    setRangeText (text) {
+      this.textareaEl.focus();
+
+      document.execCommand('insertText', false, text);
     },
     focus() {
       const { textarea } = this.$refs;

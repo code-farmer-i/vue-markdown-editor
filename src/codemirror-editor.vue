@@ -9,23 +9,31 @@
     @resize="handleContainerResize"
     ref="contaner"
   >
-    <div class="codemirror-wrapper" slot="editor" ref="monacoEditor" />
-    <v-md-preview
-      slot="preview"
-      :text="text"
-      :preview-class="previewClass"
-      @change="handleChange"
-      ref="preview"
+    <div
+      class="codemirror-wrapper"
+      slot="editor"
+      ref="monacoEditor"
     />
+    <scrollbar slot="preview">
+      <v-md-preview
+        :text="text"
+        :preview-class="previewClass"
+        @change="handleChange"
+        ref="preview"
+      />
+    </scrollbar>
   </v-md-container>
 </template>
 
 <script>
-import Preview from '@/components/preview';
+import Preview from '@/preview';
 import Container from '@/components/container';
+import Scrollbar from '@/components/scrollbar/index';
+
 import toolbarMixin from '@/mixins/toolbar';
 import commandMixin from '@/mixins/command';
 import fullscreenMixin from '@/mixins/fullscreen';
+import insertMixin from '@/mixins/insert';
 import Codemirror from 'codemirror';
 // mode
 import 'codemirror/mode/markdown/markdown';
@@ -47,8 +55,9 @@ export default {
   components: {
     [Preview.name]: Preview,
     [Container.name]: Container,
+    [Scrollbar.name]: Scrollbar,
   },
-  mixins: [toolbarMixin, commandMixin, fullscreenMixin],
+  mixins: [toolbarMixin, commandMixin, fullscreenMixin, insertMixin],
   props: {
     value: {
       type: String,
@@ -79,7 +88,6 @@ export default {
       styleActiveLine: true,
       dragDrop: false,
     });
-    console.log(this.editorInstance);
 
     this.editorInstance.on('change', () => {
       const newValue = this.getValue();
@@ -102,27 +110,12 @@ export default {
     handleChange(text, html) {
       this.$emit('change', text, html);
     },
-    getSelectedTextRange(allText, insertText, selectedText, cursorEndIndex) {
-      const selectedIndexOfStr = insertText.indexOf(selectedText);
-
-      if (selectedIndexOfStr === -1) return;
-      const text = allText.slice(0, cursorEndIndex);
-      const insertTextIndex = text.length - insertText.length;
-      const rangeStartIndex = insertTextIndex + selectedIndexOfStr;
-      const rangeEndIndex = rangeStartIndex + selectedText.length;
-
-      return { start: rangeStartIndex, end: rangeEndIndex };
+    getIndexInInterval(number, start, end) {
+      if (start <= number && number <= end) {
+        return number - start;
+      }
     },
-    getInsertText(prefix, suffix, currentSelectedStr, placeholder) {
-      const text = currentSelectedStr && (prefix || suffix) ? currentSelectedStr : placeholder;
-
-      return `${prefix}${text}${suffix}`;
-    },
-    getSelectedStr(text, selectedRange) {
-      const { start, end } = selectedRange;
-
-      return end > start ? text.slice(start, end) : null;
-    },
+    // Must implement
     focus() {
       this.editorInstance.focus();
     },
@@ -143,22 +136,17 @@ export default {
       this.editorInstance.setValue('');
     },
     // Must implement
-    insertText({ prefix = '', suffix = '', placeholder, selected: defaultSelectedStr }) {
-      const currentSelectedStr = this.editorInstance.getSelection();
-
-      this.insert(this.text, currentSelectedStr, prefix, suffix, placeholder, defaultSelectedStr);
-    },
     replaceSelectionText(text) {
       this.editorInstance.replaceSelection(text, 'around');
     },
-    getlinesText(text) {
-      return text.split('\n');
-    },
-    changeSelctionTo(selectedText) {
+    // Must implement
+    changeSelctionTo(insertText, selectedText) {
       const curStartLine = this.editorInstance.getCursor('from');
-      const currentSelectedStr = this.editorInstance.getSelection();
-      const startIndex = currentSelectedStr.indexOf(selectedText) + curStartLine.ch;
+      const curEndLine = this.editorInstance.getCursor('to');
+      const lines = this.text.split('\n').slice(curStartLine.line, curEndLine.line + 1);
+      const startIndex = lines.join('\n').indexOf(selectedText, curStartLine.ch);
       const endIndex = startIndex + selectedText.length;
+
       const start = {
         line: 0,
         ch: null,
@@ -171,7 +159,7 @@ export default {
       };
 
       let strLen = 0;
-      currentSelectedStr.split('\n').find((rowText, lineIndex) => {
+      lines.find((rowText, lineIndex) => {
         const rowLength = rowText.length;
 
         [start, end].forEach((position) => {
@@ -181,9 +169,9 @@ export default {
             strLen + rowLength
           );
 
-          if (newCursor) {
+          if (typeof newCursor !== 'undefined') {
             position.ch = newCursor;
-            position.line = curStartLine + lineIndex;
+            position.line = curStartLine.line + lineIndex;
           }
         });
 
@@ -194,25 +182,9 @@ export default {
 
       this.editorInstance.setSelection(end, start);
     },
-    getIndexInInterval(number, start, end) {
-      if (start <= number && number <= end) {
-        return number - start;
-      }
-    },
-    insert(fullContent, currentSelectedStr, prefix, suffix, placeholder, defaultSelectedStr) {
-      this.focus();
-
-      const insertText = this.getInsertText(prefix, suffix, currentSelectedStr, placeholder);
-
-      this.replaceSelectionText(insertText);
-
-      this.$nextTick(() => {
-        const selectedText =
-          prefix || suffix ? currentSelectedStr || defaultSelectedStr : defaultSelectedStr;
-        if (!selectedText) return;
-
-        this.changeSelctionTo(selectedText);
-      });
+    // Must implement
+    getCurrentSelectedStr () {
+      return this.editorInstance.getSelection();
     },
   },
 };

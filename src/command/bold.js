@@ -1,10 +1,14 @@
 export const name = 'bold';
 
 export default function (editor) {
-  editor.insertText({
-    prefix: '**',
-    suffix: '**',
-    placeholder: '粗体',
-    selected: '粗体',
+  editor.insert((selected) => {
+    const prefix = '**';
+    const suffix = '**';
+    const content = selected || '粗体';
+
+    return {
+      text: `${prefix}${content}${suffix}`,
+      selected: content,
+    };
   });
 }

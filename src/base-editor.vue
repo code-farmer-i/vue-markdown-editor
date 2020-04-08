@@ -9,24 +9,34 @@
     @toolbar-item-click="handleToolbarItemClick"
     ref="contaner"
   >
-    <v-md-engine slot="editor" :value="text" @input="handleInput" ref="editorEgine" />
-    <v-md-preview
-      slot="preview"
-      :text="text"
-      :preview-class="previewClass"
-      @change="handleChange"
-      ref="preview"
-    />
+    <scrollbar slot="editor">
+      <v-md-engine
+        :value="text"
+        @input="handleInput"
+        ref="editorEgine"
+      />
+    </scrollbar>
+    <scrollbar slot="preview">
+      <v-md-preview
+        :text="text"
+        :preview-class="previewClass"
+        @change="handleChange"
+        ref="preview"
+      />
+    </scrollbar>
   </v-md-container>
 </template>
 
 <script>
 import Engine from '@/components/engine';
-import Preview from '@/components/preview';
+import Preview from '@/preview';
 import Container from '@/components/container';
+import Scrollbar from '@/components/scrollbar/index';
+
 import toolbarMixin from '@/mixins/toolbar';
 import commandMixin from '@/mixins/command';
 import fullscreenMixin from '@/mixins/fullscreen';
+import insertMixin from '@/mixins/insert';
 
 export default {
   name: 'v-md-editor',
@@ -39,8 +49,9 @@ export default {
     [Engine.name]: Engine,
     [Preview.name]: Preview,
     [Container.name]: Container,
+    [Scrollbar.name]: Scrollbar,
   },
-  mixins: [toolbarMixin, commandMixin, fullscreenMixin],
+  mixins: [toolbarMixin, commandMixin, fullscreenMixin, insertMixin],
   props: {
     value: {
       type: String,
@@ -70,27 +81,12 @@ export default {
     handleEditorWrapperClick() {
       this.focus();
     },
-    getSelectedTextRange(allText, insertText, selectedText, cursorEndIndex) {
-      const selectedIndexOfStr = insertText.indexOf(selectedText);
-
-      if (selectedIndexOfStr === -1) return;
-      const text = allText.slice(0, cursorEndIndex);
-      const insertTextIndex = text.length - insertText.length;
-      const rangeStartIndex = insertTextIndex + selectedIndexOfStr;
-      const rangeEndIndex = rangeStartIndex + selectedText.length;
-
-      return { start: rangeStartIndex, end: rangeEndIndex };
-    },
-    getInsertText(prefix, suffix, currentSelectedStr, placeholder) {
-      const text = currentSelectedStr && (prefix || suffix) ? currentSelectedStr : placeholder;
-
-      return `${prefix}${text}${suffix}`;
-    },
     getSelectedStr(text, selectedRange) {
       const { start, end } = selectedRange;
 
       return end > start ? text.slice(start, end) : null;
     },
+    // Must implement
     focus() {
       this.$refs.editorEgine.focus();
     },
@@ -117,24 +113,30 @@ export default {
       this.handleInput('');
     },
     // Must implement
-    insertText({ prefix = '', suffix = '', placeholder, selected }) {
-      this.focus();
+    replaceSelectionText(text) {
+      this.$refs.editorEgine.setRangeText(text);
+    },
+    // Must implement
+    getCurrentSelectedStr () {
+      const { start, end } = this.$refs.editorEgine.getRange();
 
-      const currentSelectedStr = this.getSelectedStr(this.text, this.$refs.editorEgine.getRange());
-      const insertText = this.getInsertText(prefix, suffix, currentSelectedStr, placeholder);
+      return end > start ? this.text.slice(start, end) : null;
+    },
+    // Must implement
+    changeSelctionTo(insertText, selectedText) {
+      const { editorEgine } = this.$refs;
+      const selectedIndexOfStr = insertText.indexOf(selectedText);
+      const cursorEndIndex = editorEgine.getRange().end;
 
-      document.execCommand('insertText', false, insertText);
+      if (selectedIndexOfStr === -1) return;
+      const text = this.text.slice(0, cursorEndIndex);
+      const insertTextIndex = text.length - insertText.length;
+      const rangeStartIndex = insertTextIndex + selectedIndexOfStr;
+      const rangeEndIndex = rangeStartIndex + selectedText.length;
 
-      this.$nextTick(() => {
-        const { editorEgine } = this.$refs;
-        const newRange = this.getSelectedTextRange(
-          this.text,
-          insertText,
-          prefix || suffix ? currentSelectedStr || selected : selected,
-          editorEgine.getRange().end
-        );
-
-        editorEgine.setRange(newRange);
+      this.$refs.editorEgine.setRange({
+        start: rangeStartIndex,
+        end: rangeEndIndex,
       });
     },
   },
