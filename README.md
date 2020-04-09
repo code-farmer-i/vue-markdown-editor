@@ -49,4 +49,5 @@ Vue.use(VueMarkdownEditor);
 
 ## Links
 
-[Changelog](https://github.com/code-farmer-i/vue-markdown-editor/blob/dev/CHANGELOG.md)
+- [Documentation](https://code-farmer-i.github.io/vue-markdown-editor/)
+- [Changelog](https://code-farmer-i.github.io/vue-markdown-editor/changelog.html)
