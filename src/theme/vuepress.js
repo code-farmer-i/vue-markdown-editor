@@ -16,7 +16,7 @@ const markdownItInstance = markdownIt({
   },
 });
 
-export default {
+const theme = {
   previewClass: 'vuepress-markdown-body',
   configure(callback) {
     callback(markdownItInstance, Prism);
@@ -25,3 +25,9 @@ export default {
     return markdownItInstance.render(text);
   },
 };
+
+if (typeof window !== 'undefined' && window.VMdEditor) {
+  window.VMdEditor.useTheme(theme);
+}
+
+export default theme;

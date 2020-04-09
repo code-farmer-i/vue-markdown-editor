@@ -17,7 +17,7 @@ const markdownItInstance = markdownIt({
   },
 });
 
-export default {
+const theme = {
   previewClass: 'github-markdown-body',
   configure(callback) {
     callback(markdownItInstance, hljs);
@@ -26,3 +26,9 @@ export default {
     return markdownItInstance.render(text);
   },
 };
+
+if (typeof window !== 'undefined' && window.VMdEditor) {
+  window.VMdEditor.useTheme(theme);
+}
+
+export default theme;
