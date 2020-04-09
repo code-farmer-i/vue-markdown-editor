@@ -12,7 +12,7 @@
     <div
       class="codemirror-wrapper"
       slot="editor"
-      ref="monacoEditor"
+      ref="codemirrorEditor"
     />
     <scrollbar slot="preview">
       <v-md-preview
@@ -66,6 +66,7 @@ export default {
     },
     height: String,
     theme: Object,
+    codemirrorConfig: Object,
   },
   data() {
     return {
@@ -75,22 +76,23 @@ export default {
   watch: {
     value() {
       this.text = this.value;
-      this.editorInstance.setValue(this.text);
+      this.codemirrorInstance.setValue(this.text);
     },
   },
   mounted() {
-    this.editorInstance = new Codemirror(this.$refs.monacoEditor, {
-      value: this.text,
-      mode: 'markdown',
+    this.codemirrorInstance = new Codemirror(this.$refs.codemirrorEditor, {
       tabSize: 2,
-      lineWrapping: 'wrap',
-      scrollbarStyle: 'overlay',
       lineNumbers: true,
       styleActiveLine: true,
+      ...this.codemirrorConfig,
+      value: this.text,
+      mode: 'markdown',
+      lineWrapping: 'wrap',
+      scrollbarStyle: 'overlay',
       dragDrop: false,
     });
 
-    this.editorInstance.on('change', () => {
+    this.codemirrorInstance.on('change', () => {
       const newValue = this.getValue();
 
       this.handleInput(newValue);
@@ -99,10 +101,10 @@ export default {
   methods: {
     handleContainerResize() {
       // 容器大小变化的时候刷新 codemirror 解决滚动条的显示问题
-      this.editorInstance.refresh();
+      this.codemirrorInstance.refresh();
     },
     getValue() {
-      return this.editorInstance.getValue();
+      return this.codemirrorInstance.getValue();
     },
     handleInput(val) {
       this.text = val;
@@ -118,7 +120,7 @@ export default {
     },
     // Must implement
     focus() {
-      this.editorInstance.focus();
+      this.codemirrorInstance.focus();
     },
     // Must implement
     save() {
@@ -126,24 +128,24 @@ export default {
     },
     // Must implement
     undo() {
-      this.editorInstance.undo();
+      this.codemirrorInstance.undo();
     },
     // Must implement
     redo() {
-      this.editorInstance.redo();
+      this.codemirrorInstance.redo();
     },
     // Must implement
     clear() {
-      this.editorInstance.setValue('');
+      this.codemirrorInstance.setValue('');
     },
     // Must implement
     replaceSelectionText(text) {
-      this.editorInstance.replaceSelection(text, 'around');
+      this.codemirrorInstance.replaceSelection(text, 'around');
     },
     // Must implement
     changeSelctionTo(insertText, selectedText) {
-      const curStartLine = this.editorInstance.getCursor('from');
-      const curEndLine = this.editorInstance.getCursor('to');
+      const curStartLine = this.codemirrorInstance.getCursor('from');
+      const curEndLine = this.codemirrorInstance.getCursor('to');
       const lines = this.text.split('\n').slice(curStartLine.line, curEndLine.line + 1);
       const startIndex = lines.join('\n').indexOf(selectedText, curStartLine.ch);
       const endIndex = startIndex + selectedText.length;
@@ -181,11 +183,11 @@ export default {
         return start.ch !== null && end.ch !== null;
       });
 
-      this.editorInstance.setSelection(end, start);
+      this.codemirrorInstance.setSelection(end, start);
     },
     // Must implement
     getCurrentSelectedStr () {
-      return this.editorInstance.getSelection();
+      return this.codemirrorInstance.getSelection();
     },
   },
 };
@@ -198,7 +200,10 @@ export default {
 
     .CodeMirror {
       height: 100%;
+      color: #2c3e50;
       font-size: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+        Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
       line-height: 1.5;
 
       &:hover {
@@ -213,6 +218,18 @@ export default {
       pre {
         padding: 0 12px;
       }
+    }
+
+    .cm-header,
+    .cm-link {
+      color: #1890ff;
+    }
+
+    .cm-quote,
+    .cm-comment,
+    .cm-variable-2,
+    .cm-url {
+      color: #2c3e50;
     }
 
     // 选中代码的高亮背景色

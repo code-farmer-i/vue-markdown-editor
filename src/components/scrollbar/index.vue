@@ -141,7 +141,7 @@ export default {
 
   &__wrap {
     height: 100%;
-    overflow-y: scroll;
+    overflow-x: hidden;
 
     &--hidden-default {
       scrollbar-width: none;

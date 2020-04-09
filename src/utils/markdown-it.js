@@ -5,7 +5,6 @@ export default function (config) {
 
   markdownItInstance.set({
     html: true,
-    xhtmlOut: true,
     breaks: true,
     linkify: false,
     typographer: true,

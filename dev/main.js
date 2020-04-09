@@ -1,9 +1,9 @@
 import App from './App';
 import Vue from 'vue';
-import VueMarkdownEditor from '@/codemirror-editor';
-import githubTheme from '@/theme/vuepress';
+import VueMarkdownEditor from '@/editor';
+import vuepressTheme from '@/theme/vuepress';
 
-VueMarkdownEditor.useTheme(githubTheme);
+VueMarkdownEditor.useTheme(vuepressTheme);
 
 Vue.use(VueMarkdownEditor);
 

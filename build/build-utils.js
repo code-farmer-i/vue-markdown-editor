@@ -3,27 +3,7 @@ const path = require('path');
 const babel = require('@babel/core');
 
 const babelConfig = {
-  presets: [
-    [
-      '@babel/preset-env',
-      {
-        loose: true,
-        modules: 'commonjs',
-      },
-    ],
-  ],
-  plugins: [
-    [
-      '@babel/plugin-transform-runtime',
-      {
-        corejs: false,
-        helpers: true,
-        useESModules: false,
-      },
-    ],
-    '@babel/plugin-transform-object-assign',
-    '@babel/plugin-proposal-optional-chaining',
-  ],
+  configFile: path.join(__dirname, '../babel.config.js'),
 };
 
 const libDir = path.join(__dirname, '../lib/utils');
@@ -54,6 +34,7 @@ function compile(dir) {
 }
 
 fs.emptyDirSync(libDir);
-
 fs.copySync(srcDir, libDir);
+
+process.env.BABEL_MODULE = 'commonjs';
 compile(libDir);
