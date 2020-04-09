@@ -1,3 +1,7 @@
+## [0.0.11](https://github.com/code-farmer-i/vue-markdown-editor/compare/v0.0.10...v0.0.11) (2020-04-09)
+
+
+
 ## [0.0.10](https://github.com/code-farmer-i/vue-markdown-editor/compare/v0.0.9...v0.0.10) (2020-04-09)
 
 
