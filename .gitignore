@@ -3,7 +3,7 @@ node_modules
 package-lock.json
 
 # dist file
-/dist
+dist
 lib
 
 .DS_Store

@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/v-md-editor',
+  base: '/vue-markdown-editor/',
   title: 'v-md-editor',
   description: 'A lightweight markdown editor built on Vue',
   themeConfig: {
