@@ -16,7 +16,7 @@ async function release() {
 
   try {
     // build
-    await runTasks(['npm run build:entry', 'npm run build:pkg']);
+    await runTasks(['npm run build:pkg']);
 
     // commit
     await runTasks(['git add .', `git commit -m "chore: release ${releaseVersion}"`]);
