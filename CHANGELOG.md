@@ -1,3 +1,12 @@
+## [0.0.9](https://github.com/code-farmer-i/vue-markdown-editor/compare/v0.0.8...v0.0.9) (2020-04-09)
+
+
+### Bug Fixes
+
+* **package.json:** fix prop main ([e715c0b](https://github.com/code-farmer-i/vue-markdown-editor/commit/e715c0b92dc4f6e88e31493931f2c14a1525f774))
+
+
+
 ## [0.0.8](https://github.com/code-farmer-i/vue-markdown-editor/compare/v0.0.7...v0.0.8) (2020-04-09)
 
 
