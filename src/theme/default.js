@@ -1,14 +1,28 @@
-import App from './App';
-import Vue from 'vue';
-import VueMarkdownEditor from '../src/codemirror-editor';
-import 'highlight.js/styles/github';
+// markdown-it
+import MarkdownIt from 'markdown-it';
+
+// hljs
 import hljs from 'highlight.js/lib/highlight.js';
 import jsLanguage from 'highlight.js/lib/languages/javascript';
 import xmlLanguage from 'highlight.js/lib/languages/xml';
 import cssLanguage from 'highlight.js/lib/languages/css';
+
+// style
 import 'github-markdown-css';
-import bash from 'highlight.js/lib/languages/bash';
-import markdownItInstance from '@/utils/markdown-it';
+import 'highlight.js/styles/github';
+
+// language js
+hljs.registerLanguage('js', jsLanguage);
+hljs.registerLanguage('javascript', jsLanguage);
+
+// language xml, html
+hljs.registerLanguage('html', xmlLanguage);
+hljs.registerLanguage('xml', xmlLanguage);
+
+// language css
+hljs.registerLanguage('css', cssLanguage);
+
+const markdownItInstance = new MarkdownIt();
 
 markdownItInstance.set({
   html: true,
@@ -16,24 +30,8 @@ markdownItInstance.set({
   breaks: true,
   linkify: false,
   typographer: true,
-});
-
-// js
-hljs.registerLanguage('js', jsLanguage);
-hljs.registerLanguage('javascript', jsLanguage);
-
-// xml, html
-hljs.registerLanguage('html', xmlLanguage);
-hljs.registerLanguage('xml', xmlLanguage);
-
-// css
-hljs.registerLanguage('css', cssLanguage);
-
-hljs.registerLanguage('bash', bash);
-
-VueMarkdownEditor.markdownIt.set({
   highlight(str, lang) {
-    let res = VueMarkdownEditor.markdownIt.utils.escapeHtml(str);
+    let res = markdownItInstance.utils.escapeHtml(str);
 
     if (lang && hljs.getLanguage(lang)) {
       res = hljs.highlight(lang, str).value;
@@ -43,9 +41,12 @@ VueMarkdownEditor.markdownIt.set({
   },
 });
 
-Vue.use(VueMarkdownEditor);
-
-new Vue({
-  el: '#app',
-  render: (h) => h(App),
-});
+export default {
+  previewClass: 'markdown-body',
+  configure(callback) {
+    callback(markdownItInstance, hljs);
+  },
+  markdownLoader(text) {
+    return markdownItInstance.render(text);
+  },
+};

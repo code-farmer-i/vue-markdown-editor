@@ -18,6 +18,7 @@
       <v-md-preview
         :text="text"
         :preview-class="previewClass"
+        :markdown-loader="markdownLoader"
         @change="handleChange"
         ref="preview"
       />
@@ -65,6 +66,7 @@ export default {
     },
     height: String,
     previewClass: String,
+    markdownLoader: Function,
   },
   data() {
     return {

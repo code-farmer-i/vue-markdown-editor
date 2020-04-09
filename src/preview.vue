@@ -7,16 +7,7 @@
 </template>
 
 <script>
-import markdownItInstance from '@/utils/markdown-it';
-
-markdownItInstance.set({
-  html: true,
-  xhtmlOut: true,
-  breaks: true,
-  linkify: false,
-  typographer: true,
-
-});
+const defaultMarkdownLoader = (text) => text;
 
 export default {
   name: 'v-md-preview',
@@ -29,6 +20,10 @@ export default {
       type: String,
       default: 'markdown-body',
     },
+    markdownLoader: {
+      type: Function,
+      default: defaultMarkdownLoader,
+    },
   },
   data() {
     return {
@@ -39,11 +34,16 @@ export default {
     text: {
       immediate: true,
       handler(newVal, oldVal) {
-        this.html = markdownItInstance.render(this.text);
+        this.html = this.markdownLoader(this.text);
 
         if (typeof oldVal !== 'undefined') { this.$emit('change', this.text, this.html); }
       },
     },
+  },
+  created () {
+    if (this.markdownLoader === defaultMarkdownLoader) {
+      console.warn('Please configure your markdown loader');
+    }
   },
 };
 </script>
