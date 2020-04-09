@@ -22,9 +22,11 @@ module.exports = merge(getBaseConfig(), {
   output: {
     library: 'VMdTheme',
     libraryTarget: 'umd',
+    libraryExport: 'default',
     path: path.join(__dirname, '../lib/theme'),
     umdNamedDefine: true,
     filename: '[name].js',
+    globalObject: "typeof self !== 'undefined' ? self : this",
   },
   optimization: {
     minimize: true,

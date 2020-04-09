@@ -18,9 +18,11 @@ module.exports = merge(getBaseConfig({ useCssExtract: true }), {
   output: {
     library: 'VMdEditor',
     libraryTarget: 'umd',
+    libraryExport: 'default',
     path: path.join(__dirname, '../lib'),
     umdNamedDefine: true,
     filename: '[name].js',
+    globalObject: "typeof self !== 'undefined' ? self : this",
   },
   externals: {
     vue: {
