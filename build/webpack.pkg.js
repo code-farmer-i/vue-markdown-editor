@@ -1,7 +1,6 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const config = require('./webpack.base');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const getBaseConfig = require('./webpack.base');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const cssnano = require('cssnano');
@@ -13,27 +12,14 @@ entryFiles.forEach((fileName) => {
   entry[fileName] = `./src/${fileName}.js`;
 });
 
-module.exports = merge(config, {
+module.exports = merge(getBaseConfig({ useCssExtract: true }), {
   mode: 'production',
-  module: {
-    rules: [
-      {
-        test: /\.css/,
-        sideEffects: true,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.scss/,
-        sideEffects: true,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
-      },
-    ],
-  },
   entry,
   output: {
     library: 'VMdEditor',
     libraryTarget: 'umd',
     path: path.join(__dirname, '../lib'),
+    umdNamedDefine: true,
     filename: '[name].js',
   },
   externals: {
@@ -49,9 +35,6 @@ module.exports = merge(config, {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'style/[name].css',
-    }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
       cssProcessor: cssnano,

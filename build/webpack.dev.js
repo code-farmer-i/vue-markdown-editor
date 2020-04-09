@@ -1,25 +1,11 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const config = require('./webpack.base');
+const getBaseConfig = require('./webpack.base');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = merge(config, {
+module.exports = merge(getBaseConfig(), {
   entry: {
     dev: './dev/main.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css/,
-        sideEffects: true,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.scss/,
-        sideEffects: true,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
-      },
-    ],
   },
   devServer: {
     open: true,
