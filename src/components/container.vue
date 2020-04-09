@@ -19,7 +19,10 @@
       />
     </div>
     <div class="v-md-editor__main">
-      <div class="v-md-editor__editor-wrapper" @click="handleEditorWrapperClick">
+      <div
+        class="v-md-editor__editor-wrapper"
+        @click="handleEditorWrapperClick"
+      >
         <slot name="editor" />
       </div>
       <div class="v-md-editor__preview-wrapper">
@@ -100,6 +103,7 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 1001;
   }
 
   &__toolbar {
