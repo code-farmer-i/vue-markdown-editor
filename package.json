@@ -2,8 +2,8 @@
   "name": "@kangc/v-md-editor",
   "version": "0.0.8",
   "description": "A lightweight markdown editor built on Vue",
-  "main": "lib/index.js",
-  "unpkg": "lib/index.js",
+  "main": "lib/base-editor.js",
+  "unpkg": "lib/base-editor.js",
   "files": [
     "src",
     "lib"
