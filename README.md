@@ -6,43 +6,47 @@
   <a href="https://www.npmjs.com/package/@kangc/v-md-editor"><img src="https://img.shields.io/npm/l/@kangc/v-md-editor.svg?sanitize=true" alt="License"></a>
 </p>
 
-## 安装
+## Install
 
 ```bash
-# 使用 npm
+# use npm
 npm i @kangc/v-md-editor -S
 
-# 使用yarn
+# use yarn
 yarn add @kangc/v-md-editor
 ```
 
-## 全局注册
+## Quick Start
 
 ```js
 import Vue from 'vue';
 import VueMarkdownEditor from '@kangc/v-md-editor';
-import '@kangc/v-md-editor/dist/style/index.css';
+import '@kangc/v-md-editor/lib/style/editor.css';
+import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
 
-// 引入markdown样式 此处以github的markdown样式风格为例
-import 'github-markdown-css';
-// 引入markdown代码块高亮样式
-import 'highlight.js/styles/github';
+VueMarkdownEditor.useTheme(vuepressTheme);
 
 Vue.use(VueMarkdownEditor);
 ```
 
-## 按需引入 highlightjs 语言包
+## Useage
 
-内置了 xml(html) css js(javascript)，若需要支持其他语言，请按需引入 highlightjs 语言包
+```html
+<template>
+  <v-md-editor v-model="text" height="400px"></v-md-editor>
+</template>
 
-[查看支持的语言包](https://github.com/highlightjs/highlight.js/tree/master/src/languages)
-
-```js
-import bash from 'highlight.js/lib/languages/bash';
-
-VueMarkdownEditor.hljs.registerLanguage('bash', bash);
+<script>
+  export default {
+    data() {
+      return {
+        text: '',
+      };
+    },
+  };
+</script>
 ```
 
-## 更新日志
+## Links
 
-[查看更新日志](https://github.com/code-farmer-i/vue-markdown-editor/blob/dev/CHANGELOG.md)
+[Changelog](https://github.com/code-farmer-i/vue-markdown-editor/blob/dev/CHANGELOG.md)
