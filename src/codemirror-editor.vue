@@ -17,8 +17,7 @@
     <scrollbar slot="preview">
       <v-md-preview
         :text="text"
-        :preview-class="previewClass"
-        :markdown-loader="markdownLoader"
+        :theme="theme"
         @change="handleChange"
         ref="preview"
       />
@@ -30,6 +29,7 @@
 import Preview from '@/preview';
 import Container from '@/components/container';
 import Scrollbar from '@/components/scrollbar/index';
+import '@/assets/css/font';
 
 import toolbarMixin from '@/mixins/toolbar';
 import commandMixin from '@/mixins/command';
@@ -65,8 +65,7 @@ export default {
       default: '',
     },
     height: String,
-    previewClass: String,
-    markdownLoader: Function,
+    theme: Object,
   },
   data() {
     return {

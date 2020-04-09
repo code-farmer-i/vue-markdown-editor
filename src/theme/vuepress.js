@@ -1,16 +1,15 @@
-import hljs from '@/utils/highlight';
+import Prism from 'prismjs';
 import markdownIt from '@/utils/markdown-it';
 
 // style
-import '@/assets/css/github-markdown';
-import 'highlight.js/styles/github';
+import '@/assets/css/vuepress-markdown';
 
 const markdownItInstance = markdownIt({
   highlight(str, lang) {
     let res = markdownItInstance.utils.escapeHtml(str);
 
-    if (lang && hljs.getLanguage(lang)) {
-      res = hljs.highlight(lang, str).value;
+    if (lang && Prism.languages[lang]) {
+      res = Prism.highlight(str, Prism.languages[lang], lang);
     }
 
     return `<pre class="language-${lang}"><code>${res}</code></pre>`;
@@ -18,9 +17,9 @@ const markdownItInstance = markdownIt({
 });
 
 export default {
-  previewClass: 'github-markdown-body',
+  previewClass: 'vuepress-markdown-body',
   configure(callback) {
-    callback(markdownItInstance, hljs);
+    callback(markdownItInstance, Prism);
   },
   markdownLoader(text) {
     return markdownItInstance.render(text);

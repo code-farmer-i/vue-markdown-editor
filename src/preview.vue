@@ -2,11 +2,14 @@
   <div
     v-html="html"
     class="v-md-editor-preview"
-    :class="[previewClass]"
+    :class="[themeConfig.previewClass]"
   />
 </template>
 
 <script>
+// util
+import { getGlobal } from '@/utils/global';
+
 const defaultMarkdownLoader = (text) => text;
 
 export default {
@@ -16,19 +19,20 @@ export default {
       type: String,
       default: '',
     },
-    previewClass: {
-      type: String,
-      default: 'markdown-body',
-    },
-    markdownLoader: {
-      type: Function,
-      default: defaultMarkdownLoader,
-    },
+    theme: Object,
   },
   data() {
     return {
       html: '',
     };
+  },
+  computed: {
+    themeConfig() {
+      return { ...getGlobal('theme'), ...this.theme };
+    },
+    markdownLoader () {
+      return this.themeConfig.markdownLoader || defaultMarkdownLoader;
+    },
   },
   watch: {
     text: {
@@ -41,7 +45,7 @@ export default {
     },
   },
   created () {
-    if (this.markdownLoader === defaultMarkdownLoader) {
+    if (typeof this.markdownLoader !== 'function' || this.markdownLoader === defaultMarkdownLoader) {
       console.warn('Please configure your markdown loader');
     }
   },

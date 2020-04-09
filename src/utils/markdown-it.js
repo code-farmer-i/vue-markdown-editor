@@ -1,5 +1,16 @@
 import MarkdownIt from 'markdown-it';
 
-const markdownItInstance = new MarkdownIt();
+export default function (config) {
+  const markdownItInstance = new MarkdownIt();
 
-export default markdownItInstance;
+  markdownItInstance.set({
+    html: true,
+    xhtmlOut: true,
+    breaks: true,
+    linkify: false,
+    typographer: true,
+    ...config,
+  });
+
+  return markdownItInstance;
+}

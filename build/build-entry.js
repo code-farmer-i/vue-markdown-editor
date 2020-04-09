@@ -10,8 +10,7 @@ const entryFiles = ['base-editor', 'codemirror-editor', 'preview'];
 function buildEntry(filename) {
   const content = `${tips}
 import Component from './${filename}.vue';
-import markdownItInstance from '@/utils/markdown-it';
-${filename === 'preview' ? '' : "import '@/assets/css/font';"}
+import { setGlobal } from '@/utils/global';
 
 const version = '${version}';
 
@@ -25,7 +24,9 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 Component.version = version;
 Component.install = install;
-Component.markdownIt = markdownItInstance;
+Component.useTheme = function (themeConfig) {
+  setGlobal('theme', themeConfig);
+};
 
 export default Component;
 `;
