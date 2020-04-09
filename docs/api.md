@@ -90,11 +90,55 @@ export default {
 </script>
 ```
 
+### codemirrorConfig
+
+- 类型：`Object`
+- 默认值：`{}`
+
+初始化 Codemirror 的配置。将会与内部的默认的配置合并。如下：
+
+```js
+new Codemirror(this.$refs.codemirrorEditor, {
+  tabSize: 2,
+  lineNumbers: true,
+  styleActiveLine: true,
+  // 传入的配置将会在此合并
+  ...this.codemirrorConfig,
+  value: this.text,
+  mode: 'markdown',
+  lineWrapping: 'wrap',
+  scrollbarStyle: 'overlay',
+  dragDrop: false,
+});
+```
+
 ## Methods
 
 ### focus
 
 使编辑器聚焦
+
+### insert
+
+- 参数：`(getInsertContent: Function)`
+
+向编辑其中插入文本。例如：
+
+```js
+// selected 为当前选中的文本
+editor.insert((selected) => {
+  const prefix = '**';
+  const suffix = '**';
+  const content = selected || '粗体';
+
+  return {
+    // 要插入的文本
+    text: `${prefix}${content}${suffix}`,
+    // 插入后要选中的文本
+    selected: content,
+  };
+});
+```
 
 ## Events
 

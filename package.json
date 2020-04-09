@@ -1,7 +1,7 @@
 {
   "name": "@kangc/v-md-editor",
   "version": "1.0.0",
-  "description": "A lightweight markdown editor built on Vue",
+  "description": "A markdown editor built on Vue",
   "main": "lib/editor.js",
   "unpkg": "lib/editor.js",
   "files": [
@@ -101,6 +101,7 @@
   },
   "homepage": "https://github.com/code-farmer-i/vue-markdown-editor#readme",
   "dependencies": {
+    "cache-loader": "^4.1.0",
     "codemirror": "^5.52.2",
     "core-js": "^3.6.4",
     "github-markdown-css": "^4.0.0",

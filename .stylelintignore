@@ -1,3 +1,4 @@
-dist
-lib
+docs/
+dist/
+lib/
 src/assets/**/*

@@ -16,7 +16,9 @@
         :title="getConfig(toolbarName, 'title')"
         @mousedown.prevent
         @click="$emit('item-click', toolbars[toolbarName])"
-      >{{ getConfig(toolbarName, 'text') }}</li>
+      >
+        {{ getConfig(toolbarName, 'text') }}
+      </li>
       <li
         v-if="idx !== groups.length - 1"
         class="v-md-editor__toolbar-divider"
