@@ -1,3 +1,12 @@
+## [0.0.10](https://github.com/code-farmer-i/vue-markdown-editor/compare/v0.0.9...v0.0.10) (2020-04-09)
+
+
+### Bug Fixes
+
+* **fullscreen:** add fullscreen style z-index 1001 ([78a3382](https://github.com/code-farmer-i/vue-markdown-editor/commit/78a33827bfaf7e5bb4120a48e96a3e52a81fae2e))
+
+
+
 ## [0.0.9](https://github.com/code-farmer-i/vue-markdown-editor/compare/v0.0.8...v0.0.9) (2020-04-09)
 
 
