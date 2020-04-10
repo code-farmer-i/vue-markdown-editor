@@ -31,18 +31,13 @@
 </template>
 
 <script>
-import Preview from '@/preview';
-import Container from '@/components/container';
-import Scrollbar from '@/components/scrollbar/index';
-import UploadImage from '@/components/upload-image';
-import '@/assets/css/font';
-
+// mixins
+import commonMixin from '@/mixins/common';
+import vModelMixin from '@/mixins/v-model';
 import toolbarMixin from '@/mixins/toolbar';
 import commandMixin from '@/mixins/command';
 import fullscreenMixin from '@/mixins/fullscreen';
-import insertMixin from '@/mixins/insert';
-
-import uploadToolbar from '@/toolbar/upload-image';
+import uploadImageMixin from '@/mixins/upload-image';
 
 import Codemirror from 'codemirror';
 // mode
@@ -57,42 +52,16 @@ import 'codemirror/lib/codemirror.css';
 
 export default {
   name: 'v-md-editor',
-  components: {
-    [Preview.name]: Preview,
-    [Container.name]: Container,
-    [Scrollbar.name]: Scrollbar,
-    [UploadImage.name]: UploadImage,
-  },
-  mixins: [toolbarMixin, commandMixin, fullscreenMixin, insertMixin],
-  inheritAttrs: false,
-  provide() {
-    return {
-      markdownEditor: this,
-    };
-  },
+  mixins: [
+    commonMixin,
+    vModelMixin,
+    toolbarMixin,
+    commandMixin,
+    fullscreenMixin,
+    uploadImageMixin,
+  ],
   props: {
-    value: {
-      type: String,
-      default: '',
-    },
-    height: String,
-    theme: Object,
     codemirrorConfig: Object,
-  },
-  data() {
-    return {
-      text: this.value,
-    };
-  },
-  computed: {
-    hasUploadImage () {
-      const {
-        leftToolbar,
-        rightToolbar,
-      } = this;
-
-      return leftToolbar.includes(uploadToolbar.name) || rightToolbar.includes(uploadToolbar.name);
-    },
   },
   watch: {
     value() {
@@ -129,13 +98,6 @@ export default {
     getValue() {
       return this.codemirrorInstance.getValue();
     },
-    handleInput(val) {
-      this.text = val;
-      this.$emit('input', val);
-    },
-    handleChange(text, html) {
-      this.$emit('change', text, html);
-    },
     getIndexInInterval(number, start, end) {
       if (start <= number && number <= end) {
         return number - start;
@@ -144,10 +106,6 @@ export default {
     // Must implement
     focus() {
       this.codemirrorInstance.focus();
-    },
-    // Must implement
-    save() {
-      this.$emit('save', this.text, this.$refs.preview.html);
     },
     // Must implement
     undo() {
