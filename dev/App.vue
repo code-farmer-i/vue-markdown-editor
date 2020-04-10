@@ -1,5 +1,6 @@
 <template>
   <v-md-editor
+    v-model="value"
     @change="handleChange"
     @save="handleSave"
     height="500px"

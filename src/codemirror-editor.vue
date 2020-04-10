@@ -75,8 +75,10 @@ export default {
   },
   watch: {
     value() {
-      this.text = this.value;
-      this.codemirrorInstance.setValue(this.text);
+      if (this.value !== this.text) {
+        this.text = this.value;
+        this.codemirrorInstance.setValue(this.text);
+      }
     },
   },
   mounted() {
@@ -178,10 +180,12 @@ export default {
           }
         });
 
-        strLen += rowLength;
+        // + 1 是算上换行符占的长度
+        strLen += rowLength + 1;
 
         return start.ch !== null && end.ch !== null;
       });
+
 
       this.codemirrorInstance.setSelection(end, start);
     },
