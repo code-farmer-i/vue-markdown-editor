@@ -206,8 +206,8 @@ export default {
       height: 100%;
       color: #2c3e50;
       font-size: 16px;
-      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-        Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+      font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei',
+        'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
       line-height: 1.5;
 
       &:hover {
@@ -225,14 +225,23 @@ export default {
     }
 
     .cm-header,
+    .cm-url,
     .cm-link {
       color: #1890ff;
+    }
+
+    .cm-link {
+      text-decoration: none;
+    }
+
+    .cm-url {
+      text-decoration: underline;
     }
 
     .cm-quote,
     .cm-comment,
     .cm-variable-2,
-    .cm-url {
+    .cm-link {
       color: #2c3e50;
     }
 

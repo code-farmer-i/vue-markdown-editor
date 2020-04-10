@@ -1,21 +1,22 @@
+import { generatorText } from '@/utils/util';
+
 export const name = 'ul';
 
 export default function (editor) {
   editor.insert((selected) => {
-    const prefix = '-';
     const placeholder = '无序列表';
-    let text = `${prefix} ${placeholder}`;
 
-    if (selected) {
-      text = selected
-        .split('\n')
-        .map((row) => `${prefix} ${row}`)
-        .join('\n');
-    }
+    const selectedGetter = (selected) => selected || placeholder;
+    const { insertContent, newSelected } = generatorText({
+      selected,
+      InsertGetter: (selected) => `- ${selectedGetter(selected)}`,
+      selectedGetter,
+      ignoreEmptyLine: false,
+    });
 
     return {
-      text,
-      selected: selected ? null : placeholder,
+      text: insertContent,
+      selected: newSelected,
     };
   });
 }
