@@ -1,3 +1,12 @@
+## [1.0.4](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.3...v1.0.4) (2020-04-10)
+
+
+### Features
+
+* **toolbar:** add upload toolbar and upload-image event ([a015b71](https://github.com/code-farmer-i/vue-markdown-editor/commit/a015b71ed51f7260b571280a782958d60424f662))
+
+
+
 ## [1.0.3](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.2...v1.0.3) (2020-04-10)
 
 
