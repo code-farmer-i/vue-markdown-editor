@@ -21,12 +21,12 @@ export default {
         console.error(`The command name is already in use: ${name}`);
       }
     },
-    execCommand(name) {
+    execCommand(name, ...arg) {
       const commandCallBack = this.commands[name];
 
       if (commandCallBack) {
         if (typeof commandCallBack === 'function') {
-          commandCallBack(this);
+          commandCallBack(this, ...arg);
         } else {
           console.error(`The command must be registered as a function: ${name}`);
         }

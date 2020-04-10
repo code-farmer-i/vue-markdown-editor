@@ -22,8 +22,12 @@ export default {
     },
   },
   methods: {
-    handleImageUpload(e) {
+    handleImageUpload(e, insertImage) {
       console.log(e);
+
+      insertImage({
+        desc: '111',
+      });
     },
     handleSave (text, html) {
       console.log(text, html);

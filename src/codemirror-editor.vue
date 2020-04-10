@@ -169,6 +169,12 @@ export default {
     changeSelctionTo(insertText, selectedText) {
       const curStartLine = this.codemirrorInstance.getCursor('from');
       const curEndLine = this.codemirrorInstance.getCursor('to');
+
+      if (!selectedText) {
+        this.codemirrorInstance.setSelection(curEndLine);
+        return;
+      }
+
       const lines = this.text.split('\n').slice(curStartLine.line, curEndLine.line + 1);
       const startIndex = lines.join('\n').indexOf(selectedText, curStartLine.ch);
       const endIndex = startIndex + selectedText.length;
