@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.1...v1.0.2) (2020-04-10)
+
+
+### Bug Fixes
+
+* **v-model:** fix v-model bug ([d030280](https://github.com/code-farmer-i/vue-markdown-editor/commit/d03028031310d7c6d40c26d07248e0b4c772a5d6))
+
+
+
 ## [1.0.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.0...v1.0.1) (2020-04-10)
 
 
