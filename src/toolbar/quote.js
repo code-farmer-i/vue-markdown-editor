@@ -2,7 +2,7 @@ import { name } from '@/command/quote';
 
 export default {
   name,
-  icon: 'fa fa-md-quote-left',
+  icon: 'v-md-icon-quote',
   title: '引用',
   action(editor) {
     editor.execCommand(name);

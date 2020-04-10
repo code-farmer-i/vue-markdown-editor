@@ -1,6 +1,6 @@
 export default {
   name: 'save',
-  icon: 'fa fa-md-floppy-o',
+  icon: 'v-md-icon-save',
   title: '保存',
   action(editor) {
     editor.save();

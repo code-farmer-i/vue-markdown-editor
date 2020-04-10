@@ -28,6 +28,7 @@
       <div class="v-md-editor__preview-wrapper">
         <slot name="preview" />
       </div>
+      <slot />
     </div>
   </div>
 </template>

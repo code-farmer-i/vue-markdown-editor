@@ -1,8 +1,10 @@
 <template>
   <v-md-editor
     v-model="value"
+    left-toolbar="uploadImage"
     @change="handleChange"
     @save="handleSave"
+    @upload-image="handleImageUpload"
     height="500px"
   />
 </template>
@@ -20,6 +22,9 @@ export default {
     },
   },
   methods: {
+    handleImageUpload(e) {
+      console.log(e);
+    },
     handleSave (text, html) {
       console.log(text, html);
     },

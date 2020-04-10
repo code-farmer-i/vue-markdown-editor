@@ -22,6 +22,11 @@
         ref="preview"
       />
     </scrollbar>
+    <v-md-upload-img
+      v-if="hasUploadImage"
+      :upload-image-config="$attrs['upload-image-config'] || $attrs.uploadImageConfig"
+      ref="uploadImage"
+    />
   </v-md-container>
 </template>
 
@@ -29,12 +34,16 @@
 import Preview from '@/preview';
 import Container from '@/components/container';
 import Scrollbar from '@/components/scrollbar/index';
+import UploadImage from '@/components/upload-image';
 import '@/assets/css/font';
 
 import toolbarMixin from '@/mixins/toolbar';
 import commandMixin from '@/mixins/command';
 import fullscreenMixin from '@/mixins/fullscreen';
 import insertMixin from '@/mixins/insert';
+
+import uploadToolbar from '@/toolbar/upload-image';
+
 import Codemirror from 'codemirror';
 // mode
 import 'codemirror/mode/markdown/markdown';
@@ -48,17 +57,19 @@ import 'codemirror/lib/codemirror.css';
 
 export default {
   name: 'v-md-editor',
+  components: {
+    [Preview.name]: Preview,
+    [Container.name]: Container,
+    [Scrollbar.name]: Scrollbar,
+    [UploadImage.name]: UploadImage,
+  },
+  mixins: [toolbarMixin, commandMixin, fullscreenMixin, insertMixin],
+  inheritAttrs: false,
   provide() {
     return {
       markdownEditor: this,
     };
   },
-  components: {
-    [Preview.name]: Preview,
-    [Container.name]: Container,
-    [Scrollbar.name]: Scrollbar,
-  },
-  mixins: [toolbarMixin, commandMixin, fullscreenMixin, insertMixin],
   props: {
     value: {
       type: String,
@@ -72,6 +83,16 @@ export default {
     return {
       text: this.value,
     };
+  },
+  computed: {
+    hasUploadImage () {
+      const {
+        leftToolbar,
+        rightToolbar,
+      } = this;
+
+      return leftToolbar.includes(uploadToolbar.name) || rightToolbar.includes(uploadToolbar.name);
+    },
   },
   watch: {
     value() {
