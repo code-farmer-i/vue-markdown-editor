@@ -2,7 +2,7 @@
 import Component from './base-editor.vue';
 import { setGlobal } from '@/utils/global';
 
-const version = '1.0.1';
+const version = '1.0.2';
 
 const install = (Vue) => {
   Vue.component(Component.name, Component);
