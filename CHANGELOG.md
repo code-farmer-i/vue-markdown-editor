@@ -1,3 +1,12 @@
+## [1.0.5](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.4...v1.0.5) (2020-04-10)
+
+
+### Performance Improvements
+
+* **upload-image:** optimize upload-image ([0e8a710](https://github.com/code-farmer-i/vue-markdown-editor/commit/0e8a710f3a76eb03de94daa9efd2a63163525de6))
+
+
+
 ## [1.0.4](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.3...v1.0.4) (2020-04-10)
 
 
