@@ -6,10 +6,7 @@ const babelConfig = {
   configFile: path.join(__dirname, '../babel.config.js'),
 };
 
-const libDir = path.join(__dirname, '../lib/utils');
-const srcDir = path.join(__dirname, '../src/utils');
-
-const scriptRegExp = /\.(js|ts|tsx)$/;
+const scriptRegExp = /\.(js)$/;
 const isDir = (dir) => fs.lstatSync(dir).isDirectory();
 const isScript = (path) => scriptRegExp.test(path);
 
@@ -33,8 +30,13 @@ function compile(dir) {
   });
 }
 
-fs.emptyDirSync(libDir);
-fs.copySync(srcDir, libDir);
+['utils', 'plugins'].forEach((folderName) => {
+  const libDir = path.join(__dirname, `../lib/${folderName}`);
+  const srcDir = path.join(__dirname, `../src/${folderName}`);
 
-process.env.BABEL_MODULE = 'commonjs';
-compile(libDir);
+  fs.emptyDirSync(libDir);
+  fs.copySync(srcDir, libDir);
+
+  process.env.BABEL_MODULE = 'commonjs';
+  compile(libDir);
+});

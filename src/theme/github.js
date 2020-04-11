@@ -1,28 +1,19 @@
-import hljs from '@/utils/highlight';
-import markdownIt from '@/utils/markdown-it';
+import markdownItHljs from '@/plugins/markdown-it-hljs';
 
 // style
 import '@/assets/css/github-markdown';
 
-const markdownItInstance = markdownIt({
-  highlight(str, lang) {
-    let res = markdownItInstance.utils.escapeHtml(str);
-
-    if (lang && hljs.getLanguage(lang)) {
-      res = hljs.highlight(lang, str).value;
-    }
-
-    return `<pre class="v-md-hljs-${lang}"><code>${res}</code></pre>`;
-  },
+const { mdIt, hljs } = markdownItHljs({
+  codeBlockClass: (lang) => `v-md-hljs-${lang}`,
 });
 
 const theme = {
   previewClass: 'github-markdown-body',
   configure(callback) {
-    callback(markdownItInstance, hljs);
+    callback(mdIt, hljs);
   },
   markdownLoader(text) {
-    return markdownItInstance.render(text);
+    return mdIt.render(text);
   },
 };
 
