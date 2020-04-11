@@ -3,10 +3,10 @@ module.exports = function (api) {
     api.cache.never();
   }
 
-  const { BABEL_MODULE } = process.env;
+  const { BABEL_MODULE, USE_BABEL_RESOLVE } = process.env;
   const useESModules = BABEL_MODULE !== 'commonjs';
 
-  return {
+  const config = {
     presets: [
       [
         '@babel/preset-env',
@@ -33,4 +33,17 @@ module.exports = function (api) {
       '@babel/plugin-transform-object-assign',
     ],
   };
+
+  if (USE_BABEL_RESOLVE) {
+    config.plugins.push([
+      'module-resolver',
+      {
+        alias: {
+          '@': './lib',
+        },
+      },
+    ]);
+  }
+
+  return config;
 };

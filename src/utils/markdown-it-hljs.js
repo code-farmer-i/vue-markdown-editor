@@ -1,5 +1,5 @@
 import hljs from '@/utils/highlight';
-import markdownIt from './markdown-it';
+import markdownIt from '@/utils/markdown-it';
 
 export default function ({ codeBlockClass }) {
   const markdownItInstance = markdownIt({

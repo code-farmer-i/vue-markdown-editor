@@ -19,7 +19,10 @@ export default {
   },
   props: {
     height: String,
-    theme: Object,
+    theme: {
+      type: Object,
+      default: () => ({}),
+    },
   },
   methods: {
     // change event

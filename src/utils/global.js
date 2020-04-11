@@ -1,7 +1,7 @@
 const global = {};
 
 function setGlobal(name, config) {
-  global[name] = { ...global[name], ...config };
+  global[name] = config;
 }
 
 function getGlobal(name) {

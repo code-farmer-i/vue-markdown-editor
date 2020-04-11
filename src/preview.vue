@@ -30,8 +30,11 @@ export default {
     themeConfig() {
       return { ...getGlobal('theme'), ...this.theme };
     },
+    markdownParser () {
+      return this.themeConfig.markdownParser;
+    },
     markdownLoader () {
-      return this.themeConfig.markdownLoader || defaultMarkdownLoader;
+      return this.markdownParser?.render.bind(this.markdownParser) || defaultMarkdownLoader;
     },
   },
   watch: {
@@ -46,7 +49,17 @@ export default {
   },
   created () {
     if (typeof this.markdownLoader !== 'function' || this.markdownLoader === defaultMarkdownLoader) {
-      console.warn('Please configure your markdown loader');
+      console.warn('Please configure your markdown parser');
+    } else {
+      const plugins = [...(getGlobal('plugins') || []), ...(this.theme.plugins || [])];
+
+      if (plugins.length) {
+        plugins.forEach(plugin => {
+          if (plugin.extendMarkdown) {
+            plugin.extendMarkdown(this.markdownParser);
+          }
+        });
+      }
     }
   },
 };

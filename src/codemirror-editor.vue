@@ -38,6 +38,7 @@ import toolbarMixin from '@/mixins/toolbar';
 import commandMixin from '@/mixins/command';
 import fullscreenMixin from '@/mixins/fullscreen';
 import uploadImageMixin from '@/mixins/upload-image';
+import pluginMixin from '@/mixins/plugin';
 
 import Codemirror from 'codemirror';
 // mode
@@ -59,6 +60,7 @@ export default {
     commandMixin,
     fullscreenMixin,
     uploadImageMixin,
+    pluginMixin,
   ],
   props: {
     codemirrorConfig: Object,

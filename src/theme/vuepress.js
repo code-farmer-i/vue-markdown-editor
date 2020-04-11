@@ -1,4 +1,5 @@
-import markdownItPrism from '@/plugins/markdown-it-prism';
+import markdownItPrism from '@/utils/markdown-it-prism';
+import tip from '@/plugins/tip';
 
 // style
 import '@/assets/css/vuepress-markdown';
@@ -9,12 +10,11 @@ const { mdIt, prism } = markdownItPrism({
 
 const theme = {
   previewClass: 'vuepress-markdown-body',
+  plugins: [tip({ icon: 'aaa' })],
   configure(callback) {
     callback(mdIt, prism);
   },
-  markdownLoader(text) {
-    return mdIt.render(text);
-  },
+  markdownParser: mdIt,
 };
 
 if (typeof window !== 'undefined' && window.VMdEditor) {

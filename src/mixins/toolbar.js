@@ -20,26 +20,31 @@ export default {
     },
   },
   created() {
-    const toolbars = {};
+    this.toolbars = {};
 
     Object.values(defaultToolbars).forEach((module) => {
       const { default: config } = module;
       const { name } = config;
 
-      if (name) {
-        toolbars[name] = { ...config };
-      } else {
-        console.error('Missing name attribute');
-      }
+      this.registerToolbar(name, config);
     });
 
     Object.entries(this.toolbar).forEach(([name, config]) => {
-      toolbars[name] = { ...config };
+      this.registerToolbar(name, config);
     });
-
-    this.toolbars = toolbars;
   },
   methods: {
+    registerToolbar(name, config) {
+      if (name) {
+        if (!this.toolbars[name]) {
+          this.toolbars[name] = { ...config };
+        } else {
+          console.error(`The toolbar name is already in use: ${name}`);
+        }
+      } else {
+        console.error('Toolbar name is required');
+      }
+    },
     handleToolbarItemClick(toolbar) {
       if (toolbar.action && typeof toolbar.action === 'function') {
         toolbar.action(this, toolbar.state);

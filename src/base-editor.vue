@@ -41,6 +41,7 @@ import toolbarMixin from '@/mixins/toolbar';
 import commandMixin from '@/mixins/command';
 import fullscreenMixin from '@/mixins/fullscreen';
 import uploadImageMixin from '@/mixins/upload-image';
+import pluginMixin from '@/mixins/plugin';
 
 import TextareaEditor from '@/components/textarea-editor';
 
@@ -56,6 +57,7 @@ export default {
     commandMixin,
     fullscreenMixin,
     uploadImageMixin,
+    pluginMixin,
   ],
   computed: {
     editorEgine () {

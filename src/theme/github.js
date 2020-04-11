@@ -1,4 +1,4 @@
-import markdownItHljs from '@/plugins/markdown-it-hljs';
+import markdownItHljs from '@/utils/markdown-it-hljs';
 
 // style
 import '@/assets/css/github-markdown';
@@ -12,9 +12,7 @@ const theme = {
   configure(callback) {
     callback(mdIt, hljs);
   },
-  markdownLoader(text) {
-    return mdIt.render(text);
-  },
+  markdownParser: mdIt,
 };
 
 if (typeof window !== 'undefined' && window.VMdEditor) {

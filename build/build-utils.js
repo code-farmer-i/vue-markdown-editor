@@ -38,5 +38,6 @@ function compile(dir) {
   fs.copySync(srcDir, libDir);
 
   process.env.BABEL_MODULE = 'commonjs';
+  process.env.USE_BABEL_RESOLVE = true;
   compile(libDir);
 });

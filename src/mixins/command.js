@@ -15,23 +15,27 @@ export default {
   },
   methods: {
     registerCommand(name, callback) {
-      if (!this.commands[name]) {
-        this.commands[name] = callback;
+      if (name) {
+        if (!this.commands[name]) {
+          if (typeof callback === 'function') {
+            this.commands[name] = callback;
+          } else {
+            console.error(`The command must be registered as a function: ${name}`);
+          }
+        } else {
+          console.error(`The command name is already in use: ${name}`);
+        }
       } else {
-        console.error(`The command name is already in use: ${name}`);
+        console.error('Command name is required');
       }
     },
     execCommand(name, ...arg) {
       const commandCallBack = this.commands[name];
 
       if (commandCallBack) {
-        if (typeof commandCallBack === 'function') {
-          commandCallBack(this, ...arg);
-        } else {
-          console.error(`The command must be registered as a function: ${name}`);
-        }
+        commandCallBack(this, ...arg);
       } else {
-        console.error(`Command not registered: ${name}`);
+        console.error(`Command not found: ${name}`);
       }
     },
   },

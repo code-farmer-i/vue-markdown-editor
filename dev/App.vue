@@ -1,6 +1,7 @@
 <template>
   <v-md-editor
     v-model="value"
+    left-toolbar="tip"
     height="500px"
   />
 </template>

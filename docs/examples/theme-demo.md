@@ -2,6 +2,18 @@
 
 内置了两套开箱即用的主题。
 
+## github
+
+github 主题包。
+
+<ClientOnly>
+  <base-editor />
+</ClientOnly>
+
+## vuepress
+
+vuepress 主题包。
+
 <ClientOnly>
   <theme-demo />
 </ClientOnly>
