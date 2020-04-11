@@ -3,7 +3,6 @@ import markdownIt from '@/utils/markdown-it';
 
 // style
 import '@/assets/css/github-markdown';
-import 'highlight.js/styles/github';
 
 const markdownItInstance = markdownIt({
   highlight(str, lang) {
@@ -13,7 +12,7 @@ const markdownItInstance = markdownIt({
       res = hljs.highlight(lang, str).value;
     }
 
-    return `<pre class="language-${lang}"><code>${res}</code></pre>`;
+    return `<pre class="v-md-hljs-${lang}"><code>${res}</code></pre>`;
   },
 });
 

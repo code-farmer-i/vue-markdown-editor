@@ -225,7 +225,7 @@ export default {
 
     .cm-quote,
     .cm-comment,
-    .cm-variable-2,
+    .cm-variable-2:not(.cm-url),
     .cm-link {
       color: #2c3e50;
     }

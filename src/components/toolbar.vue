@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul v-if="groups.length">
     <template v-for="(group, idx) in groups">
       <li
         v-for="toolbarName in group"

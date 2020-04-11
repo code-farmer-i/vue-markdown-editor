@@ -6,10 +6,12 @@
 </template>
 
 <script>
+import text from './text';
+
 export default {
   data () {
     return {
-      value: 'asdasdasd',
+      value: text,
     };
   },
   methods: {

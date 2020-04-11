@@ -112,17 +112,20 @@ export default {
     justify-content: space-between;
     box-sizing: border-box;
     width: 100%;
-    height: 40px;
     padding: 6px;
     border-bottom: 1px solid #ddd;
 
     &-left,
     &-right {
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       margin: 0;
       padding: 0;
       list-style: none;
+    }
+
+    &-left + &-right {
+      margin-left: 60px;
     }
 
     &-divider {

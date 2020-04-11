@@ -1,6 +1,7 @@
 {
   "extends": ["@vant/stylelint-config"],
   "rules": {
-    "at-rule-no-unknown": null
+    "at-rule-no-unknown": null,
+    "font-family-no-missing-generic-family-keyword": null
   }
 }

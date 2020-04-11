@@ -4,18 +4,32 @@ sidebarDepth: 2
 
 ## Props
 
+### text
+
+- 类型：`String`
+
+需要解析预览的 markdown 字符串。
+
+::: warning 注意
+只有预览组件支持该属性。
+:::
+
 ### v-model
 
 - 类型：`String`
 
-支持双向绑定
+支持双向绑定。
+
+::: warning 注意
+只有编辑组件支持该属性。
+:::
 
 ### height
 
 - 类型：`String`
 - 默认值： `''`
 
-正常模式下编辑器的高度
+正常模式下编辑器的高度。
 
 ### left-toolbar
 
@@ -90,6 +104,13 @@ export default {
 </script>
 ```
 
+### theme
+
+- 类型：`Object`
+- 默认值：`{}`
+
+主题配置。将会与全局的主题合并。优先级高于全局配置的主题。
+
 ### codemirrorConfig
 
 - 类型：`Object`
@@ -112,11 +133,15 @@ new Codemirror(this.$refs.codemirrorEditor, {
 });
 ```
 
+::: warning 注意
+只有进阶版支持该属性。
+:::
+
 ## Methods
 
 ### focus
 
-使编辑器聚焦
+使编辑器聚焦。
 
 ### insert
 

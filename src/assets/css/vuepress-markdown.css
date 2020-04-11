@@ -1,22 +1,22 @@
 .vuepress-markdown-body code[class*='language-'],
 .vuepress-markdown-body pre[class*='language-'] {
   color: #ccc;
-  background: none;
-  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
   font-size: 1em;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
+  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
   line-height: 1.5;
+  white-space: pre;
+  text-align: left;
+  word-wrap: normal;
+  word-break: normal;
+  word-spacing: normal;
   tab-size: 4;
   -webkit-hyphens: none;
   hyphens: none;
+  background: none;
 }
 .vuepress-markdown-body pre[class*='language-'] {
-  padding: 1em;
   margin: 0.5em 0;
+  padding: 1em;
   overflow: auto;
 }
 .vuepress-markdown-body :not(pre) > code[class*='language-'],
@@ -25,8 +25,8 @@
 }
 .vuepress-markdown-body :not(pre) > code[class*='language-'] {
   padding: 0.1em;
-  border-radius: 0.3em;
   white-space: normal;
+  border-radius: 0.3em;
 }
 .vuepress-markdown-body .token.block-comment,
 .vuepress-markdown-body .token.cdata,
@@ -91,9 +91,9 @@
   color: green;
 }
 .vuepress-markdown-body code {
-  color: #476582;
-  padding: 0.25rem 0.5rem;
   margin: 0;
+  padding: 0.25rem 0.5rem;
+  color: #476582;
   font-size: 0.85em;
   background-color: rgba(27, 31, 35, 0.05);
   border-radius: 3px;
@@ -106,17 +106,17 @@
 }
 .vuepress-markdown-body pre,
 .vuepress-markdown-body pre[class*='language-'] {
-  line-height: 1.4;
-  padding: 1.25rem 1.5rem;
   margin: 0.85rem 0;
+  padding: 1.25rem 1.5rem;
+  overflow: auto;
+  line-height: 1.4;
   background-color: #282c34;
   border-radius: 6px;
-  overflow: auto;
 }
 .vuepress-markdown-body pre[class*='language-'] code,
 .vuepress-markdown-body pre code {
-  color: #fff;
   padding: 0;
+  color: #fff;
   background-color: initial;
   border-radius: 0;
 }
@@ -126,32 +126,32 @@
   border-radius: 6px;
 }
 .vuepress-markdown-body div[class*='language-'] .highlight-lines {
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  padding-top: 1.3rem;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  padding-top: 1.3rem;
   line-height: 1.4;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .vuepress-markdown-body div[class*='language-'] .highlight-lines .highlighted {
   background-color: rgba(0, 0, 0, 0.66);
 }
 .vuepress-markdown-body div[class*='language-'] pre,
 .vuepress-markdown-body div[class*='language-'] pre[class*='language-'] {
-  background: transparent;
   position: relative;
   z-index: 1;
+  background: transparent;
 }
-.vuepress-markdown-body div[class*='language-']:before {
+.vuepress-markdown-body div[class*='language-']::before {
   position: absolute;
-  z-index: 3;
   top: 0.8em;
   right: 1em;
-  font-size: 0.75rem;
+  z-index: 3;
   color: hsla(0, 0%, 100%, 0.4);
+  font-size: 0.75rem;
 }
 .vuepress-markdown-body div[class*='language-']:not(.line-numbers-mode) .line-numbers-wrapper {
   display: none;
@@ -162,16 +162,16 @@
 .vuepress-markdown-body
   div[class*='language-'].line-numbers-mode
   .highlight-lines
-  .highlighted:before {
-  content: ' ';
+  .highlighted::before {
   position: absolute;
-  z-index: 3;
-  left: 0;
   top: 0;
+  left: 0;
+  z-index: 3;
   display: block;
   width: 3.5rem;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.66);
+  content: ' ';
 }
 .vuepress-markdown-body div[class*='language-'].line-numbers-mode pre {
   padding-left: 4.5rem;
@@ -181,10 +181,10 @@
   position: absolute;
   top: 0;
   width: 3.5rem;
-  text-align: center;
-  color: hsla(0, 0%, 100%, 0.3);
   padding: 1.25rem 0;
+  color: hsla(0, 0%, 100%, 0.3);
   line-height: 1.4;
+  text-align: center;
 }
 .vuepress-markdown-body div[class*='language-'].line-numbers-mode .line-numbers-wrapper br {
   -webkit-user-select: none;
@@ -197,127 +197,127 @@
   .line-number {
   position: relative;
   z-index: 4;
+  font-size: 0.85em;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  font-size: 0.85em;
 }
-.vuepress-markdown-body div[class*='language-'].line-numbers-mode:after {
-  content: '';
+.vuepress-markdown-body div[class*='language-'].line-numbers-mode::after {
   position: absolute;
-  z-index: 2;
   top: 0;
   left: 0;
+  z-index: 2;
   width: 3.5rem;
   height: 100%;
-  border-radius: 6px 0 0 6px;
-  border-right: 1px solid rgba(0, 0, 0, 0.66);
   background-color: #282c34;
+  border-right: 1px solid rgba(0, 0, 0, 0.66);
+  border-radius: 6px 0 0 6px;
+  content: '';
 }
-.vuepress-markdown-body div[class~='language-js']:before {
+.vuepress-markdown-body div[class~='language-js']::before {
   content: 'js';
 }
-.vuepress-markdown-body div[class~='language-ts']:before {
+.vuepress-markdown-body div[class~='language-ts']::before {
   content: 'ts';
 }
-.vuepress-markdown-body div[class~='language-html']:before {
+.vuepress-markdown-body div[class~='language-html']::before {
   content: 'html';
 }
-.vuepress-markdown-body div[class~='language-md']:before {
+.vuepress-markdown-body div[class~='language-md']::before {
   content: 'md';
 }
-.vuepress-markdown-body div[class~='language-vue']:before {
+.vuepress-markdown-body div[class~='language-vue']::before {
   content: 'vue';
 }
-.vuepress-markdown-body div[class~='language-css']:before {
+.vuepress-markdown-body div[class~='language-css']::before {
   content: 'css';
 }
-.vuepress-markdown-body div[class~='language-sass']:before {
+.vuepress-markdown-body div[class~='language-sass']::before {
   content: 'sass';
 }
-.vuepress-markdown-body div[class~='language-scss']:before {
+.vuepress-markdown-body div[class~='language-scss']::before {
   content: 'scss';
 }
-.vuepress-markdown-body div[class~='language-less']:before {
+.vuepress-markdown-body div[class~='language-less']::before {
   content: 'less';
 }
-.vuepress-markdown-body div[class~='language-stylus']:before {
+.vuepress-markdown-body div[class~='language-stylus']::before {
   content: 'stylus';
 }
-.vuepress-markdown-body div[class~='language-go']:before {
+.vuepress-markdown-body div[class~='language-go']::before {
   content: 'go';
 }
-.vuepress-markdown-body div[class~='language-java']:before {
+.vuepress-markdown-body div[class~='language-java']::before {
   content: 'java';
 }
-.vuepress-markdown-body div[class~='language-c']:before {
+.vuepress-markdown-body div[class~='language-c']::before {
   content: 'c';
 }
-.vuepress-markdown-body div[class~='language-sh']:before {
+.vuepress-markdown-body div[class~='language-sh']::before {
   content: 'sh';
 }
-.vuepress-markdown-body div[class~='language-yaml']:before {
+.vuepress-markdown-body div[class~='language-yaml']::before {
   content: 'yaml';
 }
-.vuepress-markdown-body div[class~='language-py']:before {
+.vuepress-markdown-body div[class~='language-py']::before {
   content: 'py';
 }
-.vuepress-markdown-body div[class~='language-docker']:before {
+.vuepress-markdown-body div[class~='language-docker']::before {
   content: 'docker';
 }
-.vuepress-markdown-body div[class~='language-dockerfile']:before {
+.vuepress-markdown-body div[class~='language-dockerfile']::before {
   content: 'dockerfile';
 }
-.vuepress-markdown-body div[class~='language-makefile']:before {
+.vuepress-markdown-body div[class~='language-makefile']::before {
   content: 'makefile';
 }
-.vuepress-markdown-body div[class~='language-javascript']:before {
+.vuepress-markdown-body div[class~='language-javascript']::before {
   content: 'js';
 }
-.vuepress-markdown-body div[class~='language-typescript']:before {
+.vuepress-markdown-body div[class~='language-typescript']::before {
   content: 'ts';
 }
-.vuepress-markdown-body div[class~='language-markup']:before {
+.vuepress-markdown-body div[class~='language-markup']::before {
   content: 'html';
 }
-.vuepress-markdown-body div[class~='language-markdown']:before {
+.vuepress-markdown-body div[class~='language-markdown']::before {
   content: 'md';
 }
-.vuepress-markdown-body div[class~='language-json']:before {
+.vuepress-markdown-body div[class~='language-json']::before {
   content: 'json';
 }
-.vuepress-markdown-body div[class~='language-ruby']:before {
+.vuepress-markdown-body div[class~='language-ruby']::before {
   content: 'rb';
 }
-.vuepress-markdown-body div[class~='language-python']:before {
+.vuepress-markdown-body div[class~='language-python']::before {
   content: 'py';
 }
-.vuepress-markdown-body div[class~='language-bash']:before {
+.vuepress-markdown-body div[class~='language-bash']::before {
   content: 'sh';
 }
-.vuepress-markdown-body div[class~='language-php']:before {
+.vuepress-markdown-body div[class~='language-php']::before {
   content: 'php';
 }
 .vuepress-markdown-body .custom-block .custom-block-title {
-  font-weight: 600;
   margin-bottom: -0.4rem;
+  font-weight: 600;
 }
 .vuepress-markdown-body.custom-block.danger,
 .vuepress-markdown-body .custom-block.tip,
 .vuepress-markdown-body .custom-block.warning {
+  margin: 1rem 0;
   padding: 0.1rem 1.5rem;
   border-left-width: 0.5rem;
   border-left-style: solid;
-  margin: 1rem 0;
 }
 .vuepress-markdown-body .custom-block.tip {
   background-color: #f3f5f7;
   border-color: #42b983;
 }
 .vuepress-markdown-body .custom-block.warning {
+  color: #6b5900;
   background-color: rgba(255, 229, 100, 0.3);
   border-color: #e7c000;
-  color: #6b5900;
 }
 .vuepress-markdown-body .custom-block.warning .custom-block-title {
   color: #b29400;
@@ -326,9 +326,9 @@
   color: #2c3e50;
 }
 .vuepress-markdown-body .custom-block.danger {
+  color: #4d0000;
   background-color: #ffe6e6;
   border-color: #c00;
-  color: #4d0000;
 }
 .vuepress-markdown-body .custom-block.danger .custom-block-title {
   color: #900;
@@ -337,12 +337,12 @@
   color: #2c3e50;
 }
 .vuepress-markdown-body .custom-block.details {
-  display: block;
   position: relative;
-  border-radius: 2px;
+  display: block;
   margin: 1.6em 0;
   padding: 1.6em;
   background-color: #eee;
+  border-radius: 2px;
 }
 .vuepress-markdown-body .custom-block.details h4 {
   margin-top: 0;
@@ -357,17 +357,17 @@
   cursor: pointer;
 }
 .vuepress-markdown-body {
+  color: #2c3e50;
+  font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
-  color: #2c3e50;
-  word-wrap: break-word;
 }
 .vuepress-markdown-body.custom {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 .vuepress-markdown-body.custom img {
   max-width: 100%;
@@ -384,18 +384,18 @@
   font-weight: 400;
 }
 .vuepress-markdown-body kbd {
+  padding: 0 0.15em;
   background: #eee;
   border: 0.15rem solid #ddd;
   border-bottom: 0.25rem solid #ddd;
   border-radius: 0.15rem;
-  padding: 0 0.15em;
 }
 .vuepress-markdown-body blockquote {
-  font-size: 1rem;
-  color: #999;
-  border-left: 0.2rem solid #dfe2e5;
   margin: 1rem 0;
   padding: 0.25rem 0 0.25rem 1rem;
+  color: #999;
+  font-size: 1rem;
+  border-left: 0.2rem solid #dfe2e5;
 }
 .vuepress-markdown-body blockquote > p {
   margin: 0;
@@ -428,19 +428,19 @@
   font-size: 2.2rem;
 }
 .vuepress-markdown-body h2 {
-  font-size: 1.65rem;
   padding-bottom: 0.3rem;
+  font-size: 1.65rem;
   border-bottom: 1px solid #eaecef;
 }
 .vuepress-markdown-body h3 {
   font-size: 1.35rem;
 }
 .vuepress-markdown-body a.header-anchor {
-  font-size: 0.85em;
   float: left;
+  margin-top: 0.125em;
   margin-left: -0.87em;
   padding-right: 0.23em;
-  margin-top: 0.125em;
+  font-size: 0.85em;
   opacity: 0;
 }
 .vuepress-markdown-body a.header-anchor:hover {
@@ -461,10 +461,10 @@
   border-top: 1px solid #eaecef;
 }
 .vuepress-markdown-body table {
-  border-collapse: collapse;
-  margin: 1rem 0;
   display: block;
+  margin: 1rem 0;
   overflow-x: auto;
+  border-collapse: collapse;
 }
 .vuepress-markdown-body tr {
   border-top: 1px solid #dfe2e5;
@@ -474,6 +474,6 @@
 }
 .vuepress-markdown-body td,
 .vuepress-markdown-body th {
-  border: 1px solid #dfe2e5;
   padding: 0.6em 1em;
+  border: 1px solid #dfe2e5;
 }
