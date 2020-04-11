@@ -2,7 +2,9 @@
 
 内置了两套开箱即用的主题。
 
-<theme-demo />
+<ClientOnly>
+  <theme-demo />
+</ClientOnly>
 
 参考:
 

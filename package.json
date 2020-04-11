@@ -30,12 +30,15 @@
     }
   },
   "lint-staged": {
+    "*.md": [
+      "prettier --write"
+    ],
     "*.{js,vue}": [
-      "eslint",
+      "eslint --fix",
       "git add"
     ],
-    "*.{vue,css,scss}": [
-      "stylelint",
+    "src/**/*.{vue,css,scss}": [
+      "stylelint --fix",
       "git add"
     ]
   },

@@ -2,7 +2,9 @@
 
 当你的项目中只需要解析预览 markdown 的时候，可以直接使用此组件。
 
-<preview-demo />
+<ClientOnly>
+  <preview-demo />
+</ClientOnly>
 
 参考:
 

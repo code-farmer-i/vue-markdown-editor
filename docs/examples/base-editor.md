@@ -2,7 +2,9 @@
 
 编辑器由 textarea 实现，十分轻量。如果对编辑器的没有较高的要求，推荐使用此组件。
 
-<base-editor />
+<ClientOnly>
+  <base-editor />
+</ClientOnly>
 
 参考:
 

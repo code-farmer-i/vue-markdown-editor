@@ -2,7 +2,9 @@
 
 编辑器由 CodeMirror 实现，拥有较为良好的编辑体验，但是包的体积会变大。
 
-<codemirror-editor />
+<ClientOnly>
+  <codemirror-editor />
+</ClientOnly>
 
 参考:
 
