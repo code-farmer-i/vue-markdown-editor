@@ -4,7 +4,6 @@ import scrollbarWidth from '@/utils/scrollbar-width';
 import { arraytoObject } from '@/utils/util';
 import Bar from './bar';
 
-// scrollbar 组件代码 来源于 el-scrollbar
 export default {
   name: 'scrollbar',
 
