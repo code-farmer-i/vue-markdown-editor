@@ -20,7 +20,7 @@ export default function ({ hasLang = () => true, highlight = (str) => str, codeB
         }
       }
 
-      return `<pre class="${getCodeBlockClass}"><code>${res}</code></pre>`;
+      return `<pre class="${getCodeBlockClass(lang)}"><code>${res}</code></pre>`;
     },
   });
 

@@ -5,7 +5,7 @@ import tip from '@/plugins/tip';
 import '@/assets/css/vuepress-markdown';
 
 const { mdIt, prism } = markdownItPrism({
-  codeBlockClass: (lang) => `v-md-hljs-${lang}`,
+  codeBlockClass: (lang) => `v-md-prism-${lang}`,
 });
 
 const theme = {

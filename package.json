@@ -33,7 +33,7 @@
     "*.md": [
       "prettier --write"
     ],
-    "*.{js,vue}": [
+    "src/**/*.{js,vue}": [
       "eslint --fix",
       "git add"
     ],

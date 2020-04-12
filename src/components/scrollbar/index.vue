@@ -73,8 +73,18 @@ export default {
     let style = this.wrapStyle;
 
     if (gutter) {
+      const scrollView = this.$refs.resize;
+      const wrapper = this.$refs.wrap;
+      const scrollViewHeight = scrollView?.scrollHeight;
+      const scrollViewWidth = scrollView?.scrollWidth;
+      const wrapperHeight = wrapper?.clientHeight;
+      const wrapperWidth = wrapper?.clientWidth;
+
       const gutterWith = `-${gutter}px`;
-      const gutterStyle = `margin-bottom: ${gutterWith}; margin-right: ${gutterWith};`;
+      const marginBottom = scrollViewWidth > wrapperWidth ? gutterWith : 0;
+      const marginRight = scrollViewHeight > wrapperHeight ? gutterWith : 0;
+
+      const gutterStyle = `margin-bottom: ${marginBottom}; margin-right: ${marginRight};`;
 
       if (Array.isArray(this.wrapStyle)) {
         style = arraytoObject(this.wrapStyle);

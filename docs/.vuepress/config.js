@@ -23,6 +23,14 @@ module.exports = {
       },
       ['/quick-start', '快速上手'],
       ['/api', 'API'],
+      {
+        title: '扩展',
+        collapsable: false,
+        children: [
+          ['/extend/theme', '基于现有的主题扩展'],
+          ['/extend/toolbar', '自定义工具栏'],
+        ],
+      },
       ['/changelog', '更新日志'],
     ],
   },
