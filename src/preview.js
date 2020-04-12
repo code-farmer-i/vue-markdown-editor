@@ -2,7 +2,7 @@
 import Component from './preview.vue';
 import { getGlobal, setGlobal } from '@/utils/global';
 
-const version = '1.0.8';
+const version = '1.0.9';
 
 const install = (Vue) => {
   Vue.component(Component.name, Component);
