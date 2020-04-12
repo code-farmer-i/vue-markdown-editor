@@ -10,7 +10,7 @@ const { mdIt, prism } = markdownItPrism({
 
 const theme = {
   previewClass: 'vuepress-markdown-body',
-  plugins: [tip({ icon: 'aaa' })],
+  plugins: [tip({ icon: 'v-md-icon-tip' })],
   configure(callback) {
     callback(mdIt, prism);
   },

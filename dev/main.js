@@ -1,14 +1,12 @@
 import App from './App';
 import Vue from 'vue';
 import VueMarkdownEditor from '@/base-editor';
-import githubTheme from '@/theme/github';
-import tipPlugin from '@/plugins/tip';
+// import githubTheme from '@/theme/github';
 
-VueMarkdownEditor.usePlugins([tipPlugin({ icon: 'aa' })]);
-// import vuepressTheme from '@/theme/vuepress';
+import vuepressTheme from '@/theme/vuepress';
 
-VueMarkdownEditor.useTheme(githubTheme);
-// VueMarkdownEditor.useTheme(vuepressTheme);
+// VueMarkdownEditor.useTheme(githubTheme);
+VueMarkdownEditor.useTheme(vuepressTheme);
 
 Vue.use(VueMarkdownEditor);
 
