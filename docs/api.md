@@ -36,28 +36,31 @@ sidebarDepth: 2
 - 类型：`String`
 - 默认值： `undo redo clear | bold italic strikethrough quote | h1 h2 h3 h4 h5 h6 | ul ol table | link image code | save`
 
-| 名称          | 说明     |
-| ------------- | -------- |
-| undo          | 撤销     |
-| redo          | 重做     |
-| clear         | 清空     |
-| bold          | 粗体     |
-| italic        | 斜体     |
-| strikethrough | 中划线   |
-| quote         | 引用     |
-| h1            | 一级标题 |
-| h2            | 二级标题 |
-| h3            | 三级标题 |
-| h4            | 四级标题 |
-| h5            | 五级标题 |
-| h6            | 六级标题 |
-| ul            | 无序列表 |
-| ol            | 有序列表 |
-| table         | 表格     |
-| link          | 链接     |
-| image         | 图片链接 |
-| code          | 代码块   |
-| save          | 保存     |
+| 名称          | 说明                                       |
+| ------------- | ------------------------------------------ |
+| undo          | 撤销                                       |
+| redo          | 重做                                       |
+| clear         | 清空                                       |
+| bold          | 粗体                                       |
+| italic        | 斜体                                       |
+| strikethrough | 中划线                                     |
+| quote         | 引用                                       |
+| h1            | 一级标题                                   |
+| h2            | 二级标题                                   |
+| h3            | 三级标题                                   |
+| h4            | 四级标题                                   |
+| h5            | 五级标题                                   |
+| h6            | 六级标题                                   |
+| hr            | 分割线                                     |
+| ul            | 无序列表                                   |
+| ol            | 有序列表                                   |
+| table         | 表格                                       |
+| link          | 链接                                       |
+| image         | 图片链接                                   |
+| uploadImage   | [本地图片上传](/senior/upload-image)       |
+| code          | 代码块                                     |
+| save          | 保存，点击后触发[save](/api.html#save)事件 |
+| tip           | 提示块（注：只有 vuepress 主题才有效）     |
 
 左侧工具栏
 
@@ -90,7 +93,6 @@ export default {
     return {
       toolbar: {
         customToolbar: {
-          name: 'customToolbar',
           icon: 'toolbar图标类名',
           title: 'hover时显示的标题',
           action(editor) {
@@ -104,12 +106,25 @@ export default {
 </script>
 ```
 
+参考高级用法：[自定义工具栏](/senior/toolbar)
+
 ### theme
 
 - 类型：`Object`
 - 默认值：`{}`
 
 主题配置。将会与全局的主题合并。优先级高于全局配置的主题。
+
+### upload-image-config
+
+- 类型：`Object`
+- 默认值：`{ accept: 'image/*' }`
+
+| 名称   | 默认值   | 描述                                                                               |
+| ------ | -------- | ---------------------------------------------------------------------------------- |
+| accept | image/\* | 同 img 标签的 [accept 属性](https://www.w3school.com.cn/tags/att_input_accept.asp) |
+
+上传本地图片的相关配置。参考高级用法：[如何插入本地图片](/senior/upload-image)
 
 ### codemirrorConfig
 
@@ -132,6 +147,8 @@ new Codemirror(this.$refs.codemirrorEditor, {
   dragDrop: false,
 });
 ```
+
+[查看可用属性文档](https://codemirror.net/doc/manual.html#config)
 
 ::: warning 注意
 只有进阶版支持该属性。
@@ -165,10 +182,26 @@ editor.insert((selected) => {
 });
 ```
 
+参考高级用法：[自定义工具栏](/senior/toolbar)
+
 ## Events
 
 ### change
 
 - 回调参数：`(text, html)`
 
-内容变化时触发的回调。text 为输入的内容，html 为解析之后的 html 字符串。
+内容变化时触发的事件。text 为输入的内容，html 为解析之后的 html 字符串。
+
+### save
+
+- 回调参数：`(text, html)`
+
+点击 save toolbar 时触发的事件。
+
+### upload-image
+
+- 回调参数：`(event, insertImage)`
+
+toolbar 中使用上传图片之后，用户选择完图片会触发该事件。
+
+参考高级用法：[如何插入本地图片](/senior/upload-image)

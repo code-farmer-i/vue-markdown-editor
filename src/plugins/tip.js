@@ -1,6 +1,12 @@
 import markdownItContainer from '@/utils/markdown-it-container';
 
-function tipPlugin({ name = 'tip', icon, text, placeholder = '在此输入提示内容', title = '提示' }) {
+function tipPlugin({
+  name = 'tip',
+  icon,
+  text,
+  placeholder = '在此输入提示内容',
+  title = '插入提示',
+}) {
   return {
     toolbar: {
       name,

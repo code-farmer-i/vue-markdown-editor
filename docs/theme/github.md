@@ -1,10 +1,18 @@
-# 基于现有的主题扩展
+# github 主题
 
-## github 主题
+## 介绍
 
 markdown 解析使用 [markdown-it](https://github.com/markdown-it/markdown-it) 来实现，代码块解析使用 [highlight.js](https://github.com/highlightjs/highlight.js) 来实现。
 
-主题包默认只支持了 js(javascript), xml(html), css。以免引入太多冗余代码导致包的体积过大。
+效果如下：
+
+<ClientOnly>
+  <base-editor />
+</ClientOnly>
+
+## 扩展
+
+主题包默认只支持了 js(javascript), xml(html), css。以免引入太多冗余代码导致包的体积过大。如果需要支持更多的语言代码高亮，请按需引入对应的语言包。
 
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
@@ -28,27 +36,4 @@ VueMarkdownEditor.useTheme(githubTheme);
 
 <ClientOnly>
   <extend-github-theme />
-</ClientOnly>
-
-## vuepress 主题
-
-markdown 解析使用 [markdown-it](https://github.com/markdown-it/markdown-it) 来实现，代码块解析使用 [prism](https://github.com/PrismJS/prism) 来实现。
-
-默认支持 markup, html, xml, svg, mathml, css, clike, jacascript(js)
-
-```js
-import VueMarkdownEditor from '@kangc/v-md-editor';
-import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
-// 直接按需引入 prism 的语言包即可
-import 'prismjs/components/prism-json';
-
-VueMarkdownEditor.useTheme(vuepressTheme);
-```
-
-[查看 prism 支持的语言包](https://github.com/PrismJS/prism/tree/master/components)
-
-扩展后就能支持对应的代码块高亮了，如下
-
-<ClientOnly>
-  <extend-vuepress-theme />
 </ClientOnly>

@@ -6,6 +6,8 @@
   <extend-toolbar />
 </ClientOnly>
 
+示例代码：
+
 ```vue
 <template>
   <v-md-editor
@@ -40,7 +42,7 @@ export default {
     };
 
     return {
-      text,
+      text: '',
     };
   },
 };
