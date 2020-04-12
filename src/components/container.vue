@@ -129,12 +129,20 @@ export default {
     }
 
     &-divider {
-      height: 20px;
+      position: relative;
+      height: 28px;
       margin: 0 10px;
-      border-left: 1px solid #ddd;
 
       + li.v-md-editor__toolbar-item {
         margin-left: 0;
+      }
+
+      &::before {
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        border-left: 1px solid #ddd;
+        content: '';
       }
     }
 
