@@ -1,3 +1,13 @@
+## [1.0.10](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.9...v1.0.10) (2020-04-13)
+
+### Bug Fixes
+
+- **xss:** add xss whiteList ([240be9e](https://github.com/code-farmer-i/vue-markdown-editor/commit/240be9ee7ff69ff91033bca209cd02f6e72d0601))
+
+### Features
+
+- **xss:** add xss filter ([79afb34](https://github.com/code-farmer-i/vue-markdown-editor/commit/79afb346c76ccd326eb30392264bdd9d447686c2))
+
 ## [1.0.9](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.8...v1.0.9) (2020-04-12)
 
 ### Features
