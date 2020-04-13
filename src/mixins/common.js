@@ -21,10 +21,7 @@ export default {
   },
   props: {
     height: String,
-    theme: {
-      type: Object,
-      default: () => ({}),
-    },
+    theme: Object,
   },
   methods: {
     // change event
