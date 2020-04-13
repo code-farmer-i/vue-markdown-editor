@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import xss from 'xss';
+
 const defaultMarkdownLoader = (text) => text;
 
 const component = {
@@ -38,7 +40,11 @@ const component = {
     text: {
       immediate: true,
       handler(newVal, oldVal) {
-        this.html = this.markdownLoader(this.text);
+        this.html = xss(this.markdownLoader(this.text), {
+          escapeHtml (html) {
+            return html;
+          },
+        });
 
         if (typeof oldVal !== 'undefined') { this.$emit('change', this.text, this.html); }
       },
