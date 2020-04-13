@@ -30,7 +30,6 @@ export default function (md, { externalAttrs, openLinkIcon, openLinkIconClass })
       hasOpenExternalLink = false;
 
       if (openLinkIcon && openLinkIconClass) {
-        console.log(`<i class="${openLinkIconClass}"></i>`);
         return `<i class="${openLinkIconClass}"></i>` + self.renderToken(tokens, idx, options);
       }
     }
