@@ -376,6 +376,13 @@
   font-weight: 500;
   text-decoration: none;
 }
+.vuepress-markdown-body a .v-md-icon-open-in-new {
+  position: relative;
+  display: inline-block;
+  color: #aaa;
+  font-size: 15px;
+  vertical-align: middle;
+}
 .vuepress-markdown-body a,
 .vuepress-markdown-body p a code {
   color: #3eaf7c;

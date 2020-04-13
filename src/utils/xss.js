@@ -19,6 +19,7 @@ xss.whiteList.td = ['style', 'class'];
 xss.whiteList.p = ['style', 'class'];
 xss.whiteList.div = ['style', 'class'];
 xss.whiteList.a = ['style', 'class', 'id', 'target', 'href', 'title'];
+xss.whiteList.i = ['class'];
 xss.stripIgnoreTag = true;
 
 export default xss;
