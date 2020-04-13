@@ -1,7 +1,4 @@
-import { importAll } from '@/utils/util';
-
-const defaultToolbars = {};
-importAll(defaultToolbars, require.context('@/toolbar', false, /\.(js)$/));
+import registerToolbar from '@/utils/toolbar';
 
 export default {
   props: {
@@ -20,30 +17,21 @@ export default {
     },
   },
   created() {
+    const { toolbars } = this.$options;
+
     this.toolbars = {};
 
-    Object.values(defaultToolbars).forEach((module) => {
-      const { default: config } = module;
-      const { name } = config;
-
-      this.registerToolbar(name, config);
+    Object.keys(toolbars).forEach((name) => {
+      this.registerToolbar(name, toolbars[name]);
     });
 
-    Object.entries(this.toolbar).forEach(([name, config]) => {
-      this.registerToolbar(name, config);
+    Object.keys(this.toolbar).forEach((name) => {
+      this.registerToolbar(name, this.toolbar[name]);
     });
   },
   methods: {
     registerToolbar(name, config) {
-      if (name) {
-        if (!this.toolbars[name]) {
-          this.toolbars[name] = { ...config };
-        } else {
-          console.error(`The toolbar name is already in use: ${name}`);
-        }
-      } else {
-        console.error('Toolbar name is required');
-      }
+      registerToolbar(this.toolbars, name, config);
     },
     handleToolbarItemClick(toolbar) {
       if (toolbar.action && typeof toolbar.action === 'function') {

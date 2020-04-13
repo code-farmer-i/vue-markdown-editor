@@ -7,12 +7,9 @@
 </template>
 
 <script>
-// util
-import { getGlobal } from '@/utils/global';
-
 const defaultMarkdownLoader = (text) => text;
 
-export default {
+const component = {
   name: 'v-md-preview',
   props: {
     text: {
@@ -28,7 +25,7 @@ export default {
   },
   computed: {
     themeConfig() {
-      return { ...getGlobal('theme'), ...this.theme };
+      return { ...this.$options.themeConfig, ...this.theme };
     },
     markdownParser () {
       return this.themeConfig.markdownParser;
@@ -51,22 +48,28 @@ export default {
     if (typeof this.markdownLoader !== 'function' || this.markdownLoader === defaultMarkdownLoader) {
       console.warn('Please configure your markdown parser');
     } else {
-      const plugins = [...(getGlobal('plugins') || []), ...(this.theme.plugins || [])];
-
-      if (plugins.length) {
-        plugins.forEach(plugin => {
-          if (plugin.extendMarkdown) {
-            plugin.extendMarkdown(this.markdownParser);
-          }
-        });
-      }
+      this.$options.markdownExtenders.forEach(extender => {
+        extender(this.markdownParser);
+      });
     }
   },
 };
+
+component.theme = function(themeConfig) {
+  component.themeConfig = themeConfig;
+};
+
+component.markdownExtenders = [];
+component.extendMarkdown = function (extend) {
+  component.markdownExtenders.push(extend);
+};
+
+export default component;
 </script>
 
 <style lang="scss">
 .v-md-editor-preview {
   padding: 20px;
+  word-break: break-all;
 }
 </style>

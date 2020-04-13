@@ -10,7 +10,6 @@ const entryFiles = ['base-editor', 'codemirror-editor', 'preview'];
 function buildEntry(filename) {
   const content = `${tips}
 import Component from './${filename}.vue';
-import { getGlobal, setGlobal } from '@/utils/global';
 
 const version = '${version}';
 
@@ -24,13 +23,12 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 Component.version = version;
 Component.install = install;
-Component.useTheme = function (themeConfig) {
-  setGlobal('theme', themeConfig);
-
-  if (themeConfig.plugins) this.usePlugins(themeConfig.plugins);
-};
-Component.usePlugins = function (plugins) {
-  setGlobal('plugins', [...(getGlobal('plugins') || []), ...plugins]);
+Component.use = function (optionsOrInstall) {
+  if (typeof optionsOrInstall === 'function') {
+    optionsOrInstall(Component);
+  } else {
+    optionsOrInstall.install(Component);
+  }
 };
 
 export default Component;

@@ -6,6 +6,8 @@ import Container from '@/components/container';
 import Scrollbar from '@/components/scrollbar/index';
 
 export default {
+  theme: Preview.theme,
+  extendMarkdown: Preview.extendMarkdown,
   inheritAttrs: false,
   components: {
     [Preview.name]: Preview,

@@ -1,33 +1,18 @@
-import { importAll } from '@/utils/util';
-
-const defaultCommands = {};
-importAll(defaultCommands, require.context('@/command', false, /\.(js)$/));
+import registerCommand from '@/utils/command';
 
 export default {
   created() {
+    const { commands } = this.$options;
+
     this.commands = {};
 
-    Object.values(defaultCommands).forEach((command) => {
-      const { name, default: callback } = command;
-
-      this.registerCommand(name, callback);
+    Object.keys(commands).forEach((name) => {
+      this.registerCommand(name, commands[name]);
     });
   },
   methods: {
     registerCommand(name, callback) {
-      if (name) {
-        if (!this.commands[name]) {
-          if (typeof callback === 'function') {
-            this.commands[name] = callback;
-          } else {
-            console.error(`The command must be registered as a function: ${name}`);
-          }
-        } else {
-          console.error(`The command name is already in use: ${name}`);
-        }
-      } else {
-        console.error('Command name is required');
-      }
+      registerCommand(this.commands, name, callback);
     },
     execCommand(name, ...arg) {
       const commandCallBack = this.commands[name];

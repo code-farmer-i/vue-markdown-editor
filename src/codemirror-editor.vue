@@ -38,7 +38,8 @@ import toolbarMixin from '@/mixins/toolbar';
 import commandMixin from '@/mixins/command';
 import fullscreenMixin from '@/mixins/fullscreen';
 import uploadImageMixin from '@/mixins/upload-image';
-import pluginMixin from '@/mixins/plugin';
+
+import createEditor from './create-editor';
 
 import Codemirror from 'codemirror';
 // mode
@@ -51,7 +52,7 @@ import 'codemirror/addon/scroll/simplescrollbars.css';
 // style
 import 'codemirror/lib/codemirror.css';
 
-export default {
+const component = {
   name: 'v-md-editor',
   mixins: [
     commonMixin,
@@ -60,7 +61,6 @@ export default {
     commandMixin,
     fullscreenMixin,
     uploadImageMixin,
-    pluginMixin,
   ],
   props: {
     codemirrorConfig: Object,
@@ -182,6 +182,10 @@ export default {
     },
   },
 };
+
+createEditor(component);
+
+export default component;
 </script>
 
 <style lang="scss">

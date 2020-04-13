@@ -3,22 +3,12 @@ const merge = require('webpack-merge');
 const getBaseConfig = require('./webpack.base');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const fs = require('fs-extra');
-
-const themeDir = path.join(__dirname, '../src/theme');
-const files = fs.readdirSync(themeDir);
-
-const entry = {};
-
-files.forEach((file) => {
-  const themeName = file.replace('.js', '');
-
-  entry[themeName] = `./src/theme/${themeName}.js`;
-});
-
 module.exports = merge(getBaseConfig(), {
   mode: 'production',
-  entry,
+  entry: {
+    github: './src/theme/github/index',
+    vuepress: './src/theme/vuepress/index',
+  },
   output: {
     library: 'VMdTheme',
     libraryTarget: 'umd',

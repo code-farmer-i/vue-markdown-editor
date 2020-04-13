@@ -1,8 +1,11 @@
 <template>
-  <v-md-editor
-    v-model="value"
-    height="500px"
-  />
+  <div>
+    <v-md-editor
+      v-model="value"
+      height="500px"
+    />
+    <!-- <v-md-preview :text="value" /> -->
+  </div>
 </template>
 
 <script>

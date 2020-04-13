@@ -41,11 +41,12 @@ import toolbarMixin from '@/mixins/toolbar';
 import commandMixin from '@/mixins/command';
 import fullscreenMixin from '@/mixins/fullscreen';
 import uploadImageMixin from '@/mixins/upload-image';
-import pluginMixin from '@/mixins/plugin';
 
 import TextareaEditor from '@/components/textarea-editor';
 
-export default {
+import createEditor from './create-editor';
+
+const component = {
   name: 'v-md-editor',
   components: {
     [TextareaEditor.name]: TextareaEditor,
@@ -57,7 +58,6 @@ export default {
     commandMixin,
     fullscreenMixin,
     uploadImageMixin,
-    pluginMixin,
   ],
   computed: {
     editorEgine () {
@@ -131,4 +131,8 @@ export default {
     },
   },
 };
+
+createEditor(component);
+
+export default component;
 </script>

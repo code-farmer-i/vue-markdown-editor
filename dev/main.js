@@ -1,14 +1,18 @@
 import App from './App';
 import Vue from 'vue';
-import VueMarkdownEditor from '@/base-editor';
-// import githubTheme from '@/theme/github';
+// import VueMarkdownEditor from '@/base-editor';
+import VueMarkdownEditor from '@/codemirror-editor';
+import Preview from '@/preview';
+// import githubTheme from '@/theme/github/index';
 
 import vuepressTheme from '@/theme/vuepress';
 
-// VueMarkdownEditor.useTheme(githubTheme);
-VueMarkdownEditor.useTheme(vuepressTheme);
+// VueMarkdownEditor.use(githubTheme);
+VueMarkdownEditor.use(vuepressTheme);
+Preview.use(vuepressTheme);
 
 Vue.use(VueMarkdownEditor);
+Vue.use(Preview);
 
 new Vue({
   el: '#app',
