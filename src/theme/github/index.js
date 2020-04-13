@@ -9,5 +9,6 @@ if (typeof window !== 'undefined' && window.VMdEditor) {
 }
 
 export default {
+  ...theme,
   install,
 };

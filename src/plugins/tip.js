@@ -29,30 +29,33 @@ export default function createTipPlugin({
     },
   };
 
+  const extendMarkdown = function (mdParser) {
+    if (mdParser) {
+      // extend markdown-it
+      markdownItContainer(mdParser, {
+        type: 'tip',
+        defaultTitle: '提示',
+      });
+
+      markdownItContainer(mdParser, {
+        type: 'warning',
+        defaultTitle: '注意',
+      });
+
+      markdownItContainer(mdParser, {
+        type: 'danger',
+        defaultTitle: '警告',
+      });
+    }
+  };
+
   return {
+    extendMarkdown,
     install(VMdEditor) {
       if (VMdEditor.command) VMdEditor.command(name, commandHandler);
       if (VMdEditor.toolbar) VMdEditor.toolbar(name, toolbar);
 
-      VMdEditor.extendMarkdown((mdParser) => {
-        if (mdParser) {
-          // extend markdown-it
-          markdownItContainer(mdParser, {
-            type: 'tip',
-            defaultTitle: '提示',
-          });
-
-          markdownItContainer(mdParser, {
-            type: 'warning',
-            defaultTitle: '注意',
-          });
-
-          markdownItContainer(mdParser, {
-            type: 'danger',
-            defaultTitle: '警告',
-          });
-        }
-      });
+      VMdEditor.extendMarkdown(extendMarkdown);
     },
   };
 }

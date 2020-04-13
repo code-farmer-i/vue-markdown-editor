@@ -16,7 +16,7 @@ import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/editor.css';
 import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
 
-VueMarkdownEditor.useTheme(vuepressTheme);
+VueMarkdownEditor.use(vuepressTheme);
 
 Vue.use(VueMarkdownEditor);
 ```

@@ -1,8 +1,10 @@
 import theme from './theme';
 import createTipPlugin from '@/plugins/tip';
 
+const tipPlugin = createTipPlugin({ icon: 'v-md-icon-tip' });
+
 const install = function (VMdEditor) {
-  VMdEditor.use(createTipPlugin({ icon: 'v-md-icon-tip' }));
+  VMdEditor.use(tipPlugin);
 
   VMdEditor.theme(theme);
 };
@@ -12,5 +14,7 @@ if (typeof window !== 'undefined' && window.VMdEditor) {
 }
 
 export default {
+  ...theme,
+  markdownExtenders: [tipPlugin.extendMarkdown],
   install,
 };

@@ -27,7 +27,7 @@ githubTheme.configure((md, hljs) => {
   hljs.registerLanguage('json', json);
 });
 
-VueMarkdownEditor.useTheme(githubTheme);
+VueMarkdownEditor.use(githubTheme);
 ```
 
 [查看 highlight.js 支持的语言包](https://github.com/highlightjs/highlight.js/tree/master/src/languages)

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import xss from 'xss';
+import xss from '@/utils/xss';
 
 const defaultMarkdownLoader = (text) => text;
 
@@ -27,7 +27,7 @@ const component = {
   },
   computed: {
     themeConfig() {
-      return { ...this.$options.themeConfig, ...this.theme };
+      return this.theme || this.$options.themeConfig || {};
     },
     markdownParser () {
       return this.themeConfig.markdownParser;
@@ -40,11 +40,7 @@ const component = {
     text: {
       immediate: true,
       handler(newVal, oldVal) {
-        this.html = xss(this.markdownLoader(this.text), {
-          escapeHtml (html) {
-            return html;
-          },
-        });
+        this.html = xss(this.markdownLoader(this.text));
 
         if (typeof oldVal !== 'undefined') { this.$emit('change', this.text, this.html); }
       },
@@ -54,7 +50,9 @@ const component = {
     if (typeof this.markdownLoader !== 'function' || this.markdownLoader === defaultMarkdownLoader) {
       console.warn('Please configure your markdown parser');
     } else {
-      this.$options.markdownExtenders.forEach(extender => {
+      const markdownExtenders = [...(this.theme?.markdownExtenders || []), ...this.$options.markdownExtenders];
+
+      markdownExtenders.forEach(extender => {
         extender(this.markdownParser);
       });
     }
