@@ -1,3 +1,9 @@
+## [1.0.11](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.10...v1.0.11) (2020-04-13)
+
+### Bug Fixes
+
+- **theme:** fix theme bug ([c746e13](https://github.com/code-farmer-i/vue-markdown-editor/commit/c746e131c1b9020e2eb05b58d7239aa74ab66c1d))
+
 ## [1.0.10](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.9...v1.0.10) (2020-04-13)
 
 ### Bug Fixes
