@@ -17,10 +17,6 @@ const install = (Vue) => {
   Vue.component(Component.name, Component);
 };
 
-if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
-}
-
 Component.version = version;
 Component.install = install;
 Component.use = function (optionsOrInstall) {
@@ -30,6 +26,12 @@ Component.use = function (optionsOrInstall) {
     optionsOrInstall.install(Component);
   }
 };
+
+if (typeof window !== 'undefined' && window.Vue && window.VMdTheme) {
+  Component.use(window.VMdTheme);
+
+  install(window.Vue);
+}
 
 export default Component;
 `;
