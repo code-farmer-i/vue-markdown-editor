@@ -1,3 +1,9 @@
+## [1.0.12](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.11...v1.0.12) (2020-04-14)
+
+### Features
+
+- **link:** open link in new window ([e2e027d](https://github.com/code-farmer-i/vue-markdown-editor/commit/e2e027d66ec4aec90996cac2104da50966746fdb))
+
 ## [1.0.11](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.10...v1.0.11) (2020-04-13)
 
 ### Bug Fixes
