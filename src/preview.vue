@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import xss from '@/utils/xss';
+import xss from '@/utils/xss/index';
 
 const defaultMarkdownLoader = (text) => text;
 
@@ -40,7 +40,7 @@ const component = {
     text: {
       immediate: true,
       handler(newVal, oldVal) {
-        this.html = xss(this.markdownLoader(this.text));
+        this.html = xss.process(this.markdownLoader(this.text));
 
         if (typeof oldVal !== 'undefined') { this.$emit('change', this.text, this.html); }
       },
