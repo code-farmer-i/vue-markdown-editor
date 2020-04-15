@@ -1,3 +1,13 @@
+## [1.0.13](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.12...v1.0.13) (2020-04-15)
+
+### Bug Fixes
+
+- **cdn:** fix bug when use the package from cdn ([040a15a](https://github.com/code-farmer-i/vue-markdown-editor/commit/040a15ac6ab40332f526e3a1baa80c7246b04b38))
+
+### Performance Improvements
+
+- **xss:** optimize xss rules ([63c9850](https://github.com/code-farmer-i/vue-markdown-editor/commit/63c98502a2ea1610b4b945c1267e12e8ea337d0e))
+
 ## [1.0.12](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.11...v1.0.12) (2020-04-14)
 
 ### Features
