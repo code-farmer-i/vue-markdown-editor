@@ -8,7 +8,9 @@
         :icon="getConfig(toolbarName, 'icon')"
         :text="getConfig(toolbarName, 'text')"
         :active="getConfig(toolbarName,'active')"
+        :menus="getConfig(toolbarName,'menus')"
         @click="$emit('item-click', toolbars[toolbarName])"
+        @menu-click="$emit('toolbar-menu-click', arguments[0])"
       />
       <li
         v-if="idx !== groups.length - 1"

@@ -46,7 +46,7 @@ export default {
 .v-md-editor {
   &__tooltip {
     position: absolute;
-    z-index: 10;
+    z-index: 101;
     padding: 4px 6px;
     color: #fff;
     font-size: 12px;

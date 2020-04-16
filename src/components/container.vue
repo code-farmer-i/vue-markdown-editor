@@ -10,12 +10,14 @@
         :groups="leftToolbarGroup"
         :toolbars="toolbars"
         @item-click="handleToolbarItemClick"
+        @toolbar-menu-click="handleToolbarMenuClick"
       />
       <editor-toolbar
         class="v-md-editor__toolbar-right"
         :groups="rightToolbarGroup"
         :toolbars="toolbars"
         @item-click="handleToolbarItemClick"
+        @toolbar-menu-click="handleToolbarMenuClick"
       />
     </div>
     <div class="v-md-editor__main">
@@ -84,6 +86,9 @@ export default {
     },
     handleToolbarItemClick(toolbar) {
       this.$emit('toolbar-item-click', toolbar);
+    },
+    handleToolbarMenuClick(menu) {
+      this.$emit('toolbar-menu-click', menu);
     },
   },
 };

@@ -7,6 +7,7 @@
     :fullscreen="fullscreen"
     @editor-wrapper-click="handleEditorWrapperClick"
     @toolbar-item-click="handleToolbarItemClick"
+    @toolbar-menu-click="handleToolbarMenuClick"
     ref="contaner"
   >
     <scrollbar slot="editor">

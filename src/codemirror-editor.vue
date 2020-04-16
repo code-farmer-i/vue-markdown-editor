@@ -6,6 +6,7 @@
     :height="height"
     :fullscreen="fullscreen"
     @toolbar-item-click="handleToolbarItemClick"
+    @toolbar-menu-click="handleToolbarMenuClick"
     @resize="handleContainerResize"
     ref="contaner"
   >

@@ -5,7 +5,7 @@ export default {
     leftToolbar: {
       type: String,
       default:
-        'undo redo clear | bold italic strikethrough quote | h1 h2 h3 h4 h5 h6 | ul ol table hr | link image code | save',
+        'undo redo clear | h bold italic strikethrough quote | ul ol table hr | link image code | save',
     },
     rightToolbar: {
       type: String,
@@ -34,8 +34,13 @@ export default {
       registerToolbar(this.toolbars, name, config);
     },
     handleToolbarItemClick(toolbar) {
-      if (toolbar.action && typeof toolbar.action === 'function') {
-        toolbar.action(this, toolbar.state);
+      if (toolbar.action && !toolbar.menus?.length && typeof toolbar.action === 'function') {
+        toolbar.action(this);
+      }
+    },
+    handleToolbarMenuClick(menu) {
+      if (menu.action && typeof menu.action === 'function') {
+        menu.action(this);
       }
     },
   },

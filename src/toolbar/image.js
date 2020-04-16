@@ -1,10 +1,25 @@
-import { name } from '@/command/image';
+import { name as image } from '@/command/image';
 
 export default {
-  name,
+  name: 'image',
   icon: 'v-md-icon-img',
-  title: '添加图片链接',
-  action(editor) {
-    editor.execCommand(name);
-  },
+  title: '插入图片',
+  menus: [
+    {
+      text: '添加图片链接',
+      action(editor) {
+        editor.execCommand(image);
+      },
+    },
+    {
+      text: '上传本地图片',
+      async action(editor) {
+        const event = await editor.$refs.uploadImage.upload();
+
+        editor.$emit('upload-image', event, ({ url, desc }) => {
+          editor.execCommand(image, { url, desc });
+        });
+      },
+    },
+  ],
 };
