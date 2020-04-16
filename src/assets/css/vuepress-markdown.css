@@ -1,5 +1,5 @@
-.vuepress-markdown-body code[class*='language-'],
-.vuepress-markdown-body pre[class*='language-'] {
+.vuepress-markdown-body code[class*='v-md-prism-'],
+.vuepress-markdown-body pre[class*='v-md-prism-'] {
   color: #ccc;
   font-size: 1em;
   font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
@@ -14,16 +14,16 @@
   hyphens: none;
   background: none;
 }
-.vuepress-markdown-body pre[class*='language-'] {
+.vuepress-markdown-body pre[class*='v-md-prism-'] {
   margin: 0.5em 0;
   padding: 1em;
   overflow: auto;
 }
-.vuepress-markdown-body :not(pre) > code[class*='language-'],
-.vuepress-markdown-body pre[class*='language-'] {
+.vuepress-markdown-body :not(pre) > code[class*='v-md-prism-'],
+.vuepress-markdown-body pre[class*='v-md-prism-'] {
   background: #2d2d2d;
 }
-.vuepress-markdown-body :not(pre) > code[class*='language-'] {
+.vuepress-markdown-body :not(pre) > code[class*='v-md-prism-'] {
   padding: 0.1em;
   white-space: normal;
   border-radius: 0.3em;
@@ -105,7 +105,7 @@
   color: #3eaf7c;
 }
 .vuepress-markdown-body pre,
-.vuepress-markdown-body pre[class*='language-'] {
+.vuepress-markdown-body pre[class*='v-md-prism-'] {
   margin: 0.85rem 0;
   padding: 1.25rem 1.5rem;
   overflow: auto;
@@ -113,19 +113,19 @@
   background-color: #282c34;
   border-radius: 6px;
 }
-.vuepress-markdown-body pre[class*='language-'] code,
+.vuepress-markdown-body pre[class*='v-md-prism-'] code,
 .vuepress-markdown-body pre code {
   padding: 0;
   color: #fff;
   background-color: initial;
   border-radius: 0;
 }
-.vuepress-markdown-body div[class*='language-'] {
+.vuepress-markdown-body div[class*='v-md-prism-'] {
   position: relative;
   background-color: #282c34;
   border-radius: 6px;
 }
-.vuepress-markdown-body div[class*='language-'] .highlight-lines {
+.vuepress-markdown-body div[class*='v-md-prism-'] .highlight-lines {
   position: absolute;
   top: 0;
   left: 0;
@@ -136,16 +136,16 @@
   -ms-user-select: none;
   user-select: none;
 }
-.vuepress-markdown-body div[class*='language-'] .highlight-lines .highlighted {
+.vuepress-markdown-body div[class*='v-md-prism-'] .highlight-lines .highlighted {
   background-color: rgba(0, 0, 0, 0.66);
 }
-.vuepress-markdown-body div[class*='language-'] pre,
-.vuepress-markdown-body div[class*='language-'] pre[class*='language-'] {
+.vuepress-markdown-body div[class*='v-md-prism-'] pre,
+.vuepress-markdown-body div[class*='v-md-prism-'] pre[class*='v-md-prism-'] {
   position: relative;
   z-index: 1;
   background: transparent;
 }
-.vuepress-markdown-body div[class*='language-']::before {
+.vuepress-markdown-body div[class*='v-md-prism-']::before {
   position: absolute;
   top: 0.8em;
   right: 1em;
@@ -153,14 +153,14 @@
   color: hsla(0, 0%, 100%, 0.4);
   font-size: 0.75rem;
 }
-.vuepress-markdown-body div[class*='language-']:not(.line-numbers-mode) .line-numbers-wrapper {
+.vuepress-markdown-body div[class*='v-md-prism-']:not(.line-numbers-mode) .line-numbers-wrapper {
   display: none;
 }
-.vuepress-markdown-body div[class*='language-'].line-numbers-mode .highlight-lines .highlighted {
+.vuepress-markdown-body div[class*='v-md-prism-'].line-numbers-mode .highlight-lines .highlighted {
   position: relative;
 }
 .vuepress-markdown-body
-  div[class*='language-'].line-numbers-mode
+  div[class*='v-md-prism-'].line-numbers-mode
   .highlight-lines
   .highlighted::before {
   position: absolute;
@@ -173,11 +173,11 @@
   background-color: rgba(0, 0, 0, 0.66);
   content: ' ';
 }
-.vuepress-markdown-body div[class*='language-'].line-numbers-mode pre {
+.vuepress-markdown-body div[class*='v-md-prism-'].line-numbers-mode pre {
   padding-left: 4.5rem;
   vertical-align: middle;
 }
-.vuepress-markdown-body div[class*='language-'].line-numbers-mode .line-numbers-wrapper {
+.vuepress-markdown-body div[class*='v-md-prism-'].line-numbers-mode .line-numbers-wrapper {
   position: absolute;
   top: 0;
   width: 3.5rem;
@@ -186,13 +186,13 @@
   line-height: 1.4;
   text-align: center;
 }
-.vuepress-markdown-body div[class*='language-'].line-numbers-mode .line-numbers-wrapper br {
+.vuepress-markdown-body div[class*='v-md-prism-'].line-numbers-mode .line-numbers-wrapper br {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 .vuepress-markdown-body
-  div[class*='language-'].line-numbers-mode
+  div[class*='v-md-prism-'].line-numbers-mode
   .line-numbers-wrapper
   .line-number {
   position: relative;
@@ -202,7 +202,7 @@
   -ms-user-select: none;
   user-select: none;
 }
-.vuepress-markdown-body div[class*='language-'].line-numbers-mode::after {
+.vuepress-markdown-body div[class*='v-md-prism-'].line-numbers-mode::after {
   position: absolute;
   top: 0;
   left: 0;
@@ -214,88 +214,88 @@
   border-radius: 6px 0 0 6px;
   content: '';
 }
-.vuepress-markdown-body div[class~='language-js']::before {
+.vuepress-markdown-body div[class~='v-md-prism-js']::before {
   content: 'js';
 }
-.vuepress-markdown-body div[class~='language-ts']::before {
+.vuepress-markdown-body div[class~='v-md-prism-ts']::before {
   content: 'ts';
 }
-.vuepress-markdown-body div[class~='language-html']::before {
+.vuepress-markdown-body div[class~='v-md-prism-html']::before {
   content: 'html';
 }
-.vuepress-markdown-body div[class~='language-md']::before {
+.vuepress-markdown-body div[class~='v-md-prism-md']::before {
   content: 'md';
 }
-.vuepress-markdown-body div[class~='language-vue']::before {
+.vuepress-markdown-body div[class~='v-md-prism-vue']::before {
   content: 'vue';
 }
-.vuepress-markdown-body div[class~='language-css']::before {
+.vuepress-markdown-body div[class~='v-md-prism-css']::before {
   content: 'css';
 }
-.vuepress-markdown-body div[class~='language-sass']::before {
+.vuepress-markdown-body div[class~='v-md-prism-sass']::before {
   content: 'sass';
 }
-.vuepress-markdown-body div[class~='language-scss']::before {
+.vuepress-markdown-body div[class~='v-md-prism-scss']::before {
   content: 'scss';
 }
-.vuepress-markdown-body div[class~='language-less']::before {
+.vuepress-markdown-body div[class~='v-md-prism-less']::before {
   content: 'less';
 }
-.vuepress-markdown-body div[class~='language-stylus']::before {
+.vuepress-markdown-body div[class~='v-md-prism-stylus']::before {
   content: 'stylus';
 }
-.vuepress-markdown-body div[class~='language-go']::before {
+.vuepress-markdown-body div[class~='v-md-prism-go']::before {
   content: 'go';
 }
-.vuepress-markdown-body div[class~='language-java']::before {
+.vuepress-markdown-body div[class~='v-md-prism-java']::before {
   content: 'java';
 }
-.vuepress-markdown-body div[class~='language-c']::before {
+.vuepress-markdown-body div[class~='v-md-prism-c']::before {
   content: 'c';
 }
-.vuepress-markdown-body div[class~='language-sh']::before {
+.vuepress-markdown-body div[class~='v-md-prism-sh']::before {
   content: 'sh';
 }
-.vuepress-markdown-body div[class~='language-yaml']::before {
+.vuepress-markdown-body div[class~='v-md-prism-yaml']::before {
   content: 'yaml';
 }
-.vuepress-markdown-body div[class~='language-py']::before {
+.vuepress-markdown-body div[class~='v-md-prism-py']::before {
   content: 'py';
 }
-.vuepress-markdown-body div[class~='language-docker']::before {
+.vuepress-markdown-body div[class~='v-md-prism-docker']::before {
   content: 'docker';
 }
-.vuepress-markdown-body div[class~='language-dockerfile']::before {
+.vuepress-markdown-body div[class~='v-md-prism-dockerfile']::before {
   content: 'dockerfile';
 }
-.vuepress-markdown-body div[class~='language-makefile']::before {
+.vuepress-markdown-body div[class~='v-md-prism-makefile']::before {
   content: 'makefile';
 }
-.vuepress-markdown-body div[class~='language-javascript']::before {
+.vuepress-markdown-body div[class~='v-md-prism-javascript']::before {
   content: 'js';
 }
-.vuepress-markdown-body div[class~='language-typescript']::before {
+.vuepress-markdown-body div[class~='v-md-prism-typescript']::before {
   content: 'ts';
 }
-.vuepress-markdown-body div[class~='language-markup']::before {
+.vuepress-markdown-body div[class~='v-md-prism-markup']::before {
   content: 'html';
 }
-.vuepress-markdown-body div[class~='language-markdown']::before {
+.vuepress-markdown-body div[class~='v-md-prism-markdown']::before {
   content: 'md';
 }
-.vuepress-markdown-body div[class~='language-json']::before {
+.vuepress-markdown-body div[class~='v-md-prism-json']::before {
   content: 'json';
 }
-.vuepress-markdown-body div[class~='language-ruby']::before {
+.vuepress-markdown-body div[class~='v-md-prism-ruby']::before {
   content: 'rb';
 }
-.vuepress-markdown-body div[class~='language-python']::before {
+.vuepress-markdown-body div[class~='v-md-prism-python']::before {
   content: 'py';
 }
-.vuepress-markdown-body div[class~='language-bash']::before {
+.vuepress-markdown-body div[class~='v-md-prism-bash']::before {
   content: 'sh';
 }
-.vuepress-markdown-body div[class~='language-php']::before {
+.vuepress-markdown-body div[class~='v-md-prism-php']::before {
   content: 'php';
 }
 .vuepress-markdown-body .custom-block .custom-block-title {
