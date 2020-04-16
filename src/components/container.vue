@@ -107,69 +107,6 @@ export default {
     z-index: 1001;
   }
 
-  &__toolbar {
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 6px;
-    border-bottom: 1px solid #ddd;
-
-    &-left,
-    &-right {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    &-left + &-right {
-      margin-left: 60px;
-    }
-
-    &-divider {
-      position: relative;
-      height: 28px;
-      margin: 0 10px;
-
-      + li.v-md-editor__toolbar-item {
-        margin-left: 0;
-      }
-
-      &::before {
-        position: absolute;
-        top: 4px;
-        bottom: 4px;
-        border-left: 1px solid #ddd;
-        content: '';
-      }
-    }
-
-    &-item {
-      width: 28px;
-      height: 28px;
-      color: #757575;
-      font-weight: bold;
-      font-size: 15px;
-      line-height: 28px;
-      text-align: center;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.2s linear 0s;
-
-      &:not(:first-child) {
-        margin-left: 4px;
-      }
-
-      &:hover,
-      &--active {
-        color: rgba(0, 0, 0, 0.8);
-        background: #e9e9eb;
-      }
-    }
-  }
-
   &__main {
     display: flex;
     flex: 1;

@@ -1,24 +1,15 @@
 <template>
   <ul v-if="groups.length">
     <template v-for="(group, idx) in groups">
-      <li
+      <toolbar-item
         v-for="toolbarName in group"
-        class="v-md-editor__toolbar-item"
-        :class="[
-          getConfig(toolbarName, 'icon'),
-          {
-            'v-md-editor__toolbar-item--active': getConfig(
-              toolbarName,
-              'active'
-            ),
-          },
-        ]"
+        :key="toolbarName"
         :title="getConfig(toolbarName, 'title')"
-        @mousedown.prevent
+        :icon="getConfig(toolbarName, 'icon')"
+        :text="getConfig(toolbarName, 'text')"
+        :active="getConfig(toolbarName,'active')"
         @click="$emit('item-click', toolbars[toolbarName])"
-      >
-        {{ getConfig(toolbarName, 'text') }}
-      </li>
+      />
       <li
         v-if="idx !== groups.length - 1"
         class="v-md-editor__toolbar-divider"
@@ -28,9 +19,14 @@
 </template>
 
 <script>
+import ToolbarItem from '@/components/toolbar-item/index';
+
 export default {
   name: 'editor-toolbar',
   inject: ['markdownEditor'],
+  components: {
+    [ToolbarItem.name]: ToolbarItem,
+  },
   props: {
     groups: Array,
     toolbars: Object,
@@ -45,3 +41,47 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.v-md-editor {
+  &__toolbar {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 6px;
+    border-bottom: 1px solid #ddd;
+
+    &-left,
+    &-right {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    &-left + &-right {
+      margin-left: 60px;
+    }
+
+    &-divider {
+      position: relative;
+      height: 28px;
+      margin: 0 10px;
+
+      + li.v-md-editor__toolbar-item {
+        margin-left: 0;
+      }
+
+      &::before {
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        border-left: 1px solid #ddd;
+        content: '';
+      }
+    }
+  }
+}
+</style>

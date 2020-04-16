@@ -2,7 +2,6 @@
   <div>
     <v-md-editor
       v-model="value"
-      left-toolbar="tip"
       height="500px"
     />
     <v-md-preview :text="value" />
