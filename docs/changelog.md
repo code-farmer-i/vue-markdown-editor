@@ -6,7 +6,7 @@
 
 **Bug Fixes**
 
-- theme: 解决使用 cdn 引入的时主题失效的问题
+- theme: 解决使用 cdn 引入时主题失效的问题
 
 **Improvement**
 

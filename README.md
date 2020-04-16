@@ -35,7 +35,7 @@ VueMarkdownEditor.use(vuepressTheme);
 Vue.use(VueMarkdownEditor);
 ```
 
-## Useage
+## Usage
 
 ```html
 <template>
