@@ -22,7 +22,7 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "commit": "git-cz",
     "release": "node build/release.js",
-    "release:docs": "npm run docs:build && gh-pages -d docs/.vuepress/dist"
+    "release:docs": "npm run build:pkg && npm run docs:build && gh-pages -d docs/.vuepress/dist"
   },
   "husky": {
     "hooks": {
