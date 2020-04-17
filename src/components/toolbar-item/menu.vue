@@ -5,20 +5,42 @@
       :class="[`v-md-editor__menu--${mode}`]"
       v-show="visible"
       @mousemove.stop
+      @click.stop
     >
-      <div
-        v-for="item in menus"
-        :key="item.name"
-        class="v-md-editor__menu-item"
-        :class="[`v-md-editor__menu-item-${item.name}`]"
-        @click.stop="handleClick(item)"
-      >
-        <v-md-render
-          :render="item.render"
-          v-if="item.render"
-        />
-        <template v-else>{{ item.text }}</template>
-      </div>
+      <template v-if="mode === 'list'">
+        <li
+          v-for="item in menus"
+          :key="item.name"
+          class="v-md-editor__menu-item"
+          :class="[`v-md-editor__menu-item-${item.name}`]"
+          @click.stop="handleClick(item)"
+        >
+          <v-md-render
+            :render="item.render"
+            v-if="item.render"
+          />
+          <template v-else>{{ item.text }}</template>
+        </li>
+      </template>
+      <template v-else>
+        <li>
+          <div
+            v-for="rowIndex in rowCount"
+            class="v-md-editor__menu-row"
+          >
+            <span
+              v-for="item in getRowMenus(rowIndex)"
+              :key="item.name"
+              :style="{
+                width: itemWidth
+              }"
+              class="v-md-editor__menu-item"
+              :class="[`v-md-editor__menu-item-${item.name}`]"
+              @click.stop="handleClick(item)"
+            >{{ item.text }}</span>
+          </div>
+        </li>
+      </template>
     </ul>
   </transition>
 </template>
@@ -37,9 +59,28 @@ export default {
       default: 'panel',
     },
     menus: Array,
+    itemWidth: {
+      type: String,
+      default: '30px',
+    },
+    rowNum: {
+      type: Number,
+      default: 10,
+    },
     visible: Boolean,
   },
+  computed: {
+    rowCount () {
+      return Math.ceil(this.menus.length / this.rowNum);
+    },
+  },
   methods: {
+    getRowMenus (rowIndex) {
+      const end = rowIndex * this.rowNum;
+      const start = end - this.rowNum;
+
+      return this.menus.slice(start, end);
+    },
     hide() {
       this.$emit('update:visible', false);
     },
@@ -92,21 +133,28 @@ export default {
     }
 
     &--panel {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      width: 300px;
-      height: 200px;
-      padding: 5px;
+      max-height: 200px;
+      padding: 12px 10px;
       overflow-y: auto;
 
+      .v-md-editor__menu-row {
+        display: flex;
+        flex-wrap: nowrap;
+
+        &:not(:last-child) {
+          margin-bottom: 6px;
+        }
+      }
+
       .v-md-editor__menu-item {
-        padding: 0 6px;
+        display: inline-block;
+        padding: 8px 0;
+        line-height: 1;
         text-align: center;
         border-radius: 2px;
 
         &:not(:last-child) {
-          margin-right: 2px;
+          margin-right: 4px;
         }
       }
     }

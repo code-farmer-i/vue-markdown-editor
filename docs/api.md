@@ -108,6 +108,13 @@ export default {
 
 参考高级用法：[自定义工具栏](/vue-markdown-editor/senior/toolbar)
 
+### disabled-menus
+
+- 类型：`Object`
+- 默认值：`['image/upload-image']`
+
+禁用的菜单。默认值为 image 工具栏下的上传本地图片菜单。示例：`h/h1` （禁用标题工具栏下的 h1 标题菜单）。
+
 ### theme
 
 - 类型：`Object`

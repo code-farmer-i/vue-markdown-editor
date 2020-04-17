@@ -6,13 +6,18 @@
   <upload-image />
 </ClientOnly>
 
+::: warning 注意
+上传图片菜单默认为禁用状态 设置 disabled-menus 为空数组可以开启。
+:::
+
 示例代码：
 
 ```vue
 <template>
   <v-md-editor
     v-model="text"
-    left-toolbar="undo redo | uploadImage"
+    left-toolbar="undo redo | image"
+    :disabled-menus="[]"
     :upload-image-config="uploadImageConfig"
     @upload-image="handleUploadImage"
     height="500px"

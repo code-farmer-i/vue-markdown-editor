@@ -1,7 +1,8 @@
 <template>
   <v-md-editor
     v-model="text"
-    left-toolbar="undo redo | uploadImage"
+    left-toolbar="undo redo | image"
+    :disabled-menus="[]"
     :upload-image-config="uploadImageConfig"
     :theme="theme"
     @upload-image="handleUploadImage"

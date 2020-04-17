@@ -26,6 +26,8 @@
       ref="menu"
       :mode="menuMode"
       :menus="menuItems"
+      :item-width="menus.itemWidth"
+      :row-num="menus.rowNum"
       :visible.sync="menuActive"
       @item-click="$emit('menu-click', arguments[0])"
     />
