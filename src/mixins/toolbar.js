@@ -16,18 +16,22 @@ export default function (Component) {
         type: Object,
         default: () => ({}),
       },
+      disabledMenus: {
+        type: Array,
+        default: () => ['image/upload-image'],
+      },
     },
     created() {
       const { toolbars } = Component;
 
       this.toolbars = {};
 
-      Object.keys(toolbars).forEach((name) => {
-        this.registerToolbar(name, toolbars[name]);
+      Object.entries(toolbars).forEach(([name, toolbar]) => {
+        this.registerToolbar(name, toolbar);
       });
 
-      Object.keys(this.toolbar).forEach((name) => {
-        this.registerToolbar(name, this.toolbar[name]);
+      Object.entries(this.toolbar).forEach(([name, toolbar]) => {
+        this.registerToolbar(name, toolbar);
       });
     },
     methods: {

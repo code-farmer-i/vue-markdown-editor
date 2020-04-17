@@ -3,6 +3,7 @@
     :left-toolbar="leftToolbar"
     :right-toolbar="rightToolbar"
     :toolbars="toolbars"
+    :disabled-menus="disabledMenus"
     :height="height"
     :fullscreen="fullscreen"
     @editor-wrapper-click="handleEditorWrapperClick"

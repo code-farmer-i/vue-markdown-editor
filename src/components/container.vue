@@ -9,6 +9,7 @@
         class="v-md-editor__toolbar-left"
         :groups="leftToolbarGroup"
         :toolbars="toolbars"
+        :disabled-menus="disabledMenus"
         @item-click="handleToolbarItemClick"
         @toolbar-menu-click="handleToolbarMenuClick"
       />
@@ -16,6 +17,7 @@
         class="v-md-editor__toolbar-right"
         :groups="rightToolbarGroup"
         :toolbars="toolbars"
+        :disabled-mens="disabledMenus"
         @item-click="handleToolbarItemClick"
         @toolbar-menu-click="handleToolbarMenuClick"
       />
@@ -51,6 +53,7 @@ export default {
     fullscreen: Boolean,
     height: String,
     noresize: Boolean,
+    disabledMenus: Array,
   },
   computed: {
     heightGetter() {

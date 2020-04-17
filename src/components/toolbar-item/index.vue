@@ -57,6 +57,7 @@ export default {
     text: String,
     icon: String,
     menus: [Array, Object],
+    disabledMenus: Array,
   },
   data () {
     return {
@@ -68,7 +69,9 @@ export default {
       return this.menuItems?.length;
     },
     menuItems () {
-      return isObject(this.menus) ? this.menus.items : this.menus;
+      const menus = isObject(this.menus) ? this.menus.items : this.menus;
+
+      return menus?.filter(({ name: menuName }) => !this.disabledMenus?.includes(`${this.name}/${menuName}`));
     },
     menuMode () {
       return isObject(this.menus) ? this.menus.mode : 'list';

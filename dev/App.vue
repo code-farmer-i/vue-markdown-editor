@@ -2,7 +2,6 @@
   <div>
     <v-md-editor
       v-model="value"
-      left-toolbar="h emoji"
       height="500px"
     />
     <v-md-preview :text="value" />

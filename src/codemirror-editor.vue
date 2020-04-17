@@ -3,6 +3,7 @@
     :left-toolbar="leftToolbar"
     :right-toolbar="rightToolbar"
     :toolbars="toolbars"
+    :disabled-mens="disabledMenus"
     :height="height"
     :fullscreen="fullscreen"
     @toolbar-item-click="handleToolbarItemClick"

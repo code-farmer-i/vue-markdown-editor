@@ -9,7 +9,8 @@
         :icon="getConfig(toolbarName, 'icon')"
         :text="getConfig(toolbarName, 'text')"
         :active="getConfig(toolbarName,'active')"
-        :menus="getConfig(toolbarName,'menus')"
+        :menus="getConfig(toolbarName, 'menus')"
+        :disabled-menus="disabledMenus"
         @click="$emit('item-click', toolbars[toolbarName])"
         @menu-click="$emit('toolbar-menu-click', arguments[0])"
       />
@@ -33,6 +34,7 @@ export default {
   props: {
     groups: Array,
     toolbars: Object,
+    disabledMenus: Array,
   },
   methods: {
     getConfig(toolbarName, configName) {
