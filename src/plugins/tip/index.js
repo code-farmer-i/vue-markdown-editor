@@ -2,11 +2,11 @@ import markdownItContainer from '@/utils/markdown-it-container';
 
 export default function createTipPlugin({
   name = 'tip',
-  icon,
+  icon = 'v-md-icon-tip',
   text,
-  placeholder = '在此输入提示内容',
+  placeholder = '在此输入内容',
   title = '插入提示',
-}) {
+} = {}) {
   const commandHandler = function (editor, type = 'tip') {
     editor.insert((selected) => {
       const prefix = ':::';
@@ -24,27 +24,52 @@ export default function createTipPlugin({
     title,
     icon,
     text,
-    action(editor) {
-      editor.execCommand(name);
-    },
+    menus: [
+      {
+        name: 'tip',
+        text: '提示',
+        action(editor) {
+          editor.execCommand(name);
+        },
+      },
+      {
+        name: 'warning',
+        text: '注意',
+        action(editor) {
+          editor.execCommand(name, 'warning');
+        },
+      },
+      {
+        name: 'danger',
+        text: '警告',
+        action(editor) {
+          editor.execCommand(name, 'danger');
+        },
+      },
+    ],
   };
 
   const extendMarkdown = function (mdParser) {
+    const blockClass = 'v-md-plugin-tip';
+
     if (mdParser) {
       // extend markdown-it
       markdownItContainer(mdParser, {
         type: 'tip',
         defaultTitle: '提示',
+        blockClass,
       });
 
       markdownItContainer(mdParser, {
         type: 'warning',
         defaultTitle: '注意',
+        blockClass,
       });
 
       markdownItContainer(mdParser, {
         type: 'danger',
         defaultTitle: '警告',
+        blockClass,
       });
     }
   };

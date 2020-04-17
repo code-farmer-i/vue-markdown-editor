@@ -15,7 +15,7 @@ import text from './text';
 export default {
   data () {
     return {
-      value: text,
+      value: text + ':grinning:',
     };
   },
   methods: {

@@ -9,7 +9,16 @@ function wrapRenderPlaceFunction(func) {
 
 export default function (
   md,
-  { validate, marker, render, type, before, after, defaultTitle = type.toUpperCase() }
+  {
+    validate,
+    marker,
+    render,
+    type,
+    before,
+    after,
+    defaultTitle = type.toUpperCase(),
+    blockClass = 'custom-block',
+  }
 ) {
   if (!type) {
     return;
@@ -26,8 +35,8 @@ export default function (
     } else {
       // fallback default
       renderBefore = (info) =>
-        `<div class="custom-block ${type}">${
-          info ? `<p class="custom-block-title">${info}</p>` : ''
+        `<div class="${blockClass} ${type}">${
+          info ? `<p class="${blockClass}-title">${info}</p>` : ''
         }\n`;
       renderAfter = () => '</div>\n';
     }

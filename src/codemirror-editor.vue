@@ -35,8 +35,6 @@
 // mixins
 import commonMixin from '@/mixins/common';
 import vModelMixin from '@/mixins/v-model';
-import toolbarMixin from '@/mixins/toolbar';
-import commandMixin from '@/mixins/command';
 import fullscreenMixin from '@/mixins/fullscreen';
 import uploadImageMixin from '@/mixins/upload-image';
 
@@ -58,8 +56,6 @@ const component = {
   mixins: [
     commonMixin,
     vModelMixin,
-    toolbarMixin,
-    commandMixin,
     fullscreenMixin,
     uploadImageMixin,
   ],

@@ -38,6 +38,14 @@ module.exports = {
           ['/senior/upload-image', '图片上传'],
         ],
       },
+      {
+        title: '插件',
+        collapsable: false,
+        children: [
+          ['/plugins/tip', '提示信息'],
+          ['/plugins/emoji', 'emoji'],
+        ],
+      },
       ['/changelog', '更新日志'],
     ],
   },

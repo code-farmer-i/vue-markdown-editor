@@ -25,6 +25,8 @@ Component.use = function (optionsOrInstall) {
   } else {
     optionsOrInstall.install(Component);
   }
+
+  return Component;
 };
 
 if (typeof window !== 'undefined' && window.Vue && window.VMdTheme) {

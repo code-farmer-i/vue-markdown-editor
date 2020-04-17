@@ -1,7 +1,8 @@
 import theme from './theme';
-import createTipPlugin from '@/plugins/tip';
+import createTipPlugin from '@/plugins/tip/index';
+import '@/plugins/tip/tip.css';
 
-const tipPlugin = createTipPlugin({ icon: 'v-md-icon-tip' });
+const tipPlugin = createTipPlugin();
 
 const install = function (VMdEditor) {
   VMdEditor.use(tipPlugin);

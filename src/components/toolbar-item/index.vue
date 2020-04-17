@@ -56,7 +56,7 @@ export default {
     active: Boolean,
     text: String,
     icon: String,
-    menus: Array,
+    menus: [Array, Object],
   },
   data () {
     return {

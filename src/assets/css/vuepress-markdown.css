@@ -298,64 +298,6 @@
 .vuepress-markdown-body div[class~='v-md-prism-php']::before {
   content: 'php';
 }
-.vuepress-markdown-body .custom-block .custom-block-title {
-  margin-bottom: -0.4rem;
-  font-weight: 600;
-}
-.vuepress-markdown-body.custom-block.danger,
-.vuepress-markdown-body .custom-block.tip,
-.vuepress-markdown-body .custom-block.warning {
-  margin: 1rem 0;
-  padding: 0.1rem 1.5rem;
-  border-left-width: 0.5rem;
-  border-left-style: solid;
-}
-.vuepress-markdown-body .custom-block.tip {
-  background-color: #f3f5f7;
-  border-color: #42b983;
-}
-.vuepress-markdown-body .custom-block.warning {
-  color: #6b5900;
-  background-color: rgba(255, 229, 100, 0.3);
-  border-color: #e7c000;
-}
-.vuepress-markdown-body .custom-block.warning .custom-block-title {
-  color: #b29400;
-}
-.vuepress-markdown-body .custom-block.warning a {
-  color: #2c3e50;
-}
-.vuepress-markdown-body .custom-block.danger {
-  color: #4d0000;
-  background-color: #ffe6e6;
-  border-color: #c00;
-}
-.vuepress-markdown-body .custom-block.danger .custom-block-title {
-  color: #900;
-}
-.vuepress-markdown-body .custom-block.danger a {
-  color: #2c3e50;
-}
-.vuepress-markdown-body .custom-block.details {
-  position: relative;
-  display: block;
-  margin: 1.6em 0;
-  padding: 1.6em;
-  background-color: #eee;
-  border-radius: 2px;
-}
-.vuepress-markdown-body .custom-block.details h4 {
-  margin-top: 0;
-}
-.vuepress-markdown-body .custom-block.details figure:last-child,
-.vuepress-markdown-body .custom-block.details p:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-.vuepress-markdown-body .custom-block.details summary {
-  outline: none;
-  cursor: pointer;
-}
 .vuepress-markdown-body {
   color: #2c3e50;
   font-size: 16px;

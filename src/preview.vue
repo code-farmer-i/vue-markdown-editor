@@ -27,7 +27,7 @@ const component = {
   },
   computed: {
     themeConfig() {
-      return this.theme || this.$options.themeConfig || {};
+      return this.theme || component.themeConfig || {};
     },
     markdownParser () {
       return this.themeConfig.markdownParser;
@@ -37,25 +37,29 @@ const component = {
     },
   },
   watch: {
-    text: {
-      immediate: true,
-      handler(newVal, oldVal) {
-        this.html = xss.process(this.markdownLoader(this.text));
-
-        if (typeof oldVal !== 'undefined') { this.$emit('change', this.text, this.html); }
-      },
+    text () {
+      this.handleTextChange();
     },
   },
   created () {
     if (typeof this.markdownLoader !== 'function' || this.markdownLoader === defaultMarkdownLoader) {
       console.warn('Please configure your markdown parser');
     } else {
-      const markdownExtenders = [...(this.theme?.markdownExtenders || []), ...this.$options.markdownExtenders];
+      const markdownExtenders = [...(this.theme?.markdownExtenders || []), ...component.markdownExtenders];
 
       markdownExtenders.forEach(extender => {
         extender(this.markdownParser);
       });
     }
+
+    this.handleTextChange();
+  },
+  methods: {
+    handleTextChange () {
+      this.html = xss.process(this.markdownLoader(this.text));
+
+      this.$emit('change', this.text, this.html);
+    },
   },
 };
 

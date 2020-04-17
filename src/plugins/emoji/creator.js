@@ -4,11 +4,11 @@ import commandHandler from './command';
 export default function creator({ emojiJson, mdEmojiPlugin }) {
   return function createEmojiPlugin({
     name = 'emoji',
-    icon,
+    icon = 'v-md-icon-emoji',
     text,
     title = '插入emoji表情',
     customEmoji,
-  }) {
+  } = {}) {
     const toolbar = createToolbar({ commandName: name, title, text, icon, emojiJson });
 
     const extendMarkdown = function (mdParser) {
