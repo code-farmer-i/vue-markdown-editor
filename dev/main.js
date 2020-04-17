@@ -5,7 +5,7 @@ import VueMarkdownEditor from '@/base-editor';
 import Preview from '@/preview';
 import githubTheme from '@/theme/github/index';
 
-import createEmojiPlugin from '@/plugins/emoji/index';
+import createEmojiPlugin from '@/plugins/emoji/full';
 
 VueMarkdownEditor.use(createEmojiPlugin({ text: 'emoji' }));
 
