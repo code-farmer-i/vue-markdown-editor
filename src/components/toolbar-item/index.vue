@@ -3,6 +3,7 @@
     class="v-md-editor__toolbar-item"
     :class="[
       icon,
+      `v-md-editor__toolbar-item-${name}`,
       {
         'v-md-editor__toolbar-item--active': active || menuActive
       },
@@ -23,7 +24,8 @@
     <v-md-menu
       v-if="hasMenu"
       ref="menu"
-      :menus="menus"
+      :mode="menuMode"
+      :menus="menuItems"
       :visible.sync="menuActive"
       @item-click="$emit('menu-click', arguments[0])"
     />
@@ -39,6 +41,7 @@
 import Tooltip from './tooltip';
 import Menu from './menu';
 import Clickoutside from '@/utils/clickoutside';
+import { isObject } from '@/utils/util';
 
 export default {
   name: 'toolbar-item',
@@ -48,6 +51,7 @@ export default {
     [Menu.name]: Menu,
   },
   props: {
+    name: String,
     title: String,
     active: Boolean,
     text: String,
@@ -61,7 +65,13 @@ export default {
   },
   computed: {
     hasMenu () {
-      return this.menus?.length;
+      return this.menuItems?.length;
+    },
+    menuItems () {
+      return isObject(this.menus) ? this.menus.items : this.menus;
+    },
+    menuMode () {
+      return isObject(this.menus) ? this.menus.mode : 'list';
     },
   },
   methods: {
@@ -115,20 +125,20 @@ export default {
 </script>
 
 <style lang="scss">
-$item-width: 28px;
 $item-height: 28px;
 
 .v-md-editor {
   &__menu-ctrl {
     position: absolute;
-    left: 22px;
+    top: 0;
+    right: 0;
     display: none;
   }
 
   &__toolbar-item {
     position: relative;
-    width: $item-width;
     height: $item-height;
+    padding: 0 6px;
     color: #595959;
     font-size: 16px;
     line-height: $item-height;
@@ -146,7 +156,7 @@ $item-height: 28px;
     }
 
     &--menu {
-      padding-right: 14px;
+      padding-right: 16px;
 
       .v-md-editor__menu-ctrl {
         display: inline-block;

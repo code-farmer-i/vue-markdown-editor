@@ -4,6 +4,7 @@
       <toolbar-item
         v-for="toolbarName in group"
         :key="toolbarName"
+        :name="toolbarName"
         :title="getConfig(toolbarName, 'title')"
         :icon="getConfig(toolbarName, 'icon')"
         :text="getConfig(toolbarName, 'text')"

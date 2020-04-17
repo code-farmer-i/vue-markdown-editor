@@ -5,6 +5,10 @@ import VueMarkdownEditor from '@/base-editor';
 import Preview from '@/preview';
 import githubTheme from '@/theme/github/index';
 
+import createEmojiPlugin from '@/plugins/emoji/index';
+
+VueMarkdownEditor.use(createEmojiPlugin({ text: 'emoji' }));
+
 // import vuepressTheme from '@/theme/vuepress';
 
 // VueMarkdownEditor.use(githubTheme);

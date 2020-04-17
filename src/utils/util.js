@@ -1,3 +1,7 @@
+const { toString } = Object.prototype;
+
+export const isObject = (target) => toString.call(target) === '[object Object]';
+
 function extend(to, _from) {
   Object.keys(_from).forEach((key) => {
     to[key] = _from[key];
