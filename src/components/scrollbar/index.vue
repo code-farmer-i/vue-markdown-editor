@@ -136,6 +136,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/var';
+
 .scrollbar {
   height: 100%;
   overflow: hidden;
@@ -167,13 +169,13 @@ export default {
     display: block;
     width: 0;
     height: 0;
-    background-color: rgba(144, 147, 153, 0.3);
+    background-color: $scrollbar-background-color;
     border-radius: inherit;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color $scrollbar-background-transition;
 
     &:hover {
-      background-color: rgba(144, 147, 153, 0.5);
+      background-color: $scrollbar-active-background-color;
     }
   }
 
@@ -182,13 +184,13 @@ export default {
     right: 2px;
     bottom: 2px;
     z-index: 1;
-    border-radius: 4px;
+    border-radius: $scrollbar-border-radius;
     opacity: 0;
-    transition: opacity 0.34s ease-out;
+    transition: opacity $scrollbar-opacity-transition;
 
     &.is-vertical {
       top: 2px;
-      width: 6px;
+      width: $scrollbar-width;
 
       & > div {
         width: 100%;
@@ -197,7 +199,7 @@ export default {
 
     &.is-horizontal {
       left: 2px;
-      height: 6px;
+      height: $scrollbar-width;
 
       & > div {
         height: 100%;

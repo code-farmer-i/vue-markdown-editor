@@ -190,17 +190,18 @@ export default component;
 </script>
 
 <style lang="scss">
+@import '@/styles/var';
+
 .v-md-editor {
   .codemirror-wrapper {
     height: 100%;
 
     .CodeMirror {
       height: 100%;
-      color: #2c3e50;
-      font-size: 16px;
-      font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei',
-        'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
-      line-height: 1.5;
+      color: $text-color;
+      font-size: $editor-font-size;
+      font-family: $editor-font-family;
+      line-height: $editor-line-height;
 
       &:hover {
         .CodeMirror-overlayscroll-vertical,
@@ -234,7 +235,7 @@ export default component;
     .cm-comment,
     .cm-variable-2:not(.cm-url),
     .cm-link {
-      color: #2c3e50;
+      color: $text-color;
     }
 
     // 选中代码的高亮背景色
@@ -250,14 +251,15 @@ export default component;
     .CodeMirror-overlayscroll-vertical,
     .CodeMirror-overlayscroll-horizontal {
       & > div {
-        background-color: rgba(144, 147, 153, 0.3);
-        border-radius: 4px;
+        background-color: $scrollbar-background-color;
+        border-radius: $scrollbar-border-radius;
         cursor: pointer;
         opacity: 0;
-        transition: opacity 0.34s ease-out, background-color 0.3s;
+        transition: opacity $scrollbar-opacity-transition,
+          background-color $scrollbar-background-transition;
 
         &:hover {
-          background-color: rgba(144, 147, 153, 0.5);
+          background-color: $scrollbar-active-background-color;
         }
       }
     }

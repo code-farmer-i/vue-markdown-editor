@@ -46,6 +46,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/var';
+
 .v-md-editor {
   &__toolbar {
     display: flex;
@@ -53,7 +55,7 @@ export default {
     box-sizing: border-box;
     width: 100%;
     padding: 6px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $border-color;
 
     &-left,
     &-right {
@@ -81,7 +83,7 @@ export default {
         position: absolute;
         top: 4px;
         bottom: 4px;
-        border-left: 1px solid #ddd;
+        border-left: 1px solid $border-color;
         content: '';
       }
     }

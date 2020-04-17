@@ -45,14 +45,16 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/var';
+
 @mixin common {
   box-sizing: border-box;
   padding: 20px 20px 30px;
   overflow: hidden;
-  font-size: 16px;
-  font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB',
-    'WenQuanYi Micro Hei', sans-serif;
-  line-height: 1.5;
+  color: $text-color;
+  font-size: $editor-font-size;
+  font-family: $editor-font-family;
+  line-height: $editor-line-height;
 }
 
 .v-md-textarea-editor {
@@ -72,7 +74,6 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    color: #2c3e50;
     border: none;
     outline: none;
     resize: none;

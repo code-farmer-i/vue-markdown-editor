@@ -125,6 +125,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/var';
+
 $item-height: 28px;
 
 .v-md-editor {
@@ -139,8 +141,8 @@ $item-height: 28px;
     position: relative;
     height: $item-height;
     padding: 0 6px;
-    color: #595959;
-    font-size: 16px;
+    color: $toolbar-text-color;
+    font-size: $toolbar-font-size;
     line-height: $item-height;
     text-align: center;
     border-radius: 4px;
@@ -152,7 +154,7 @@ $item-height: 28px;
     }
 
     &:hover {
-      background: #f5f5f5;
+      background: $toolbar-hover-background;
     }
 
     &--menu {
@@ -164,10 +166,10 @@ $item-height: 28px;
     }
 
     &--active {
-      background: #e8e8e8;
+      background: $toolbar-active-background;
 
       &:hover {
-        background: #e8e8e8;
+        background: $toolbar-active-background;
       }
     }
   }

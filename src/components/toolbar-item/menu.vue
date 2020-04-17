@@ -53,6 +53,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/var';
+@import '@/styles/mixins';
+
 .v-md-editor {
   &__menu {
     position: absolute;
@@ -61,18 +64,20 @@ export default {
     z-index: 99;
     background-color: #fff;
     border-radius: 3px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+    box-shadow: $box-shadow-light;
     transform-origin: center top;
 
+    @include scrollbar-style;
+
     &-item {
-      color: #595959;
+      color: $toolbar-text-color;
       font-weight: normal;
-      font-size: 14px;
+      font-size: $menu-font-size;
       white-space: nowrap;
       list-style: none;
 
       &:hover {
-        background-color: #f5f5f5;
+        background-color: $toolbar-hover-background;
       }
     }
 
@@ -106,18 +111,5 @@ export default {
       }
     }
   }
-}
-
-.v-md-zoom-in-top-enter-active,
-.v-md-zoom-in-top-leave-active {
-  transform: scaleY(1);
-  opacity: 1;
-  transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1),
-    opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
-}
-.v-md-zoom-in-top-enter,
-.v-md-zoom-in-top-leave-active {
-  transform: scaleY(0);
-  opacity: 0;
 }
 </style>

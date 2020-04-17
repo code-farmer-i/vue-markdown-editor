@@ -1,0 +1,16 @@
+@import './var';
+
+@mixin scrollbar-style {
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-background-color;
+    border-radius: $scrollbar-border-radius;
+
+    &:hover {
+      background-color: $scrollbar-active-background-color;
+    }
+  }
+}

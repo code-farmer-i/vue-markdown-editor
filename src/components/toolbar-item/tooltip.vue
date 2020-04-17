@@ -43,18 +43,20 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/var';
+
 .v-md-editor {
   &__tooltip {
     position: absolute;
-    z-index: 101;
-    padding: 4px 6px;
-    color: #fff;
-    font-size: 12px;
+    z-index: $tooltip-z-index;
+    padding: $tooltip-padding;
+    color: $tooltip-color;
+    font-size: $tooltip-font-size;
     line-height: 1;
     white-space: nowrap;
-    background-color: #878787;
-    border-radius: 2px;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    background-color: $tooltip-background;
+    border-radius: $tooltip-border-radius;
+    box-shadow: $box-shadow-light;
   }
 }
 </style>

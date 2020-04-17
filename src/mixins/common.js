@@ -1,3 +1,5 @@
+// base css
+import '@/styles/index.scss';
 // font css
 import '@/assets/css/font';
 

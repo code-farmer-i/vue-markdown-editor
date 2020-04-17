@@ -95,13 +95,15 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/var';
+
 .v-md-editor {
   display: flex;
   flex-direction: column;
   width: 100%;
   background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.24);
+  box-shadow: $box-shadow-light;
 
   &--fullscreen {
     position: fixed;
@@ -128,7 +130,7 @@ export default {
   }
 
   &__editor-wrapper {
-    border-right: 1px solid #ddd;
+    border-right: 1px solid $border-color;
     cursor: text;
     user-select: none;
   }
