@@ -3,17 +3,18 @@ import Vue from 'vue';
 import VueMarkdownEditor from '@/base-editor';
 // import VueMarkdownEditor from '@/codemirror-editor';
 import Preview from '@/preview';
-// import githubTheme from '@/theme/github/index';
+import githubTheme from '@/theme/github/index';
 
 import createEmojiPlugin from '@/plugins/emoji/full';
+import createKatexPlugin from '@/plugins/katex/npm';
 
 import vuepressTheme from '@/theme/vuepress';
 
-VueMarkdownEditor.use(createEmojiPlugin());
+VueMarkdownEditor.use(createEmojiPlugin()).use(createKatexPlugin());
 console.log(VueMarkdownEditor);
 
-// VueMarkdownEditor.use(githubTheme);
-VueMarkdownEditor.use(vuepressTheme);
+VueMarkdownEditor.use(githubTheme);
+// VueMarkdownEditor.use(vuepressTheme);
 // Preview.use(githubTheme);
 
 Vue.use(VueMarkdownEditor);
