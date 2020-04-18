@@ -1,6 +1,6 @@
 export const name = 'image';
 
-export default function (editor, { url, desc } = {}) {
+export default function (editor, { url, desc, width = 'auto', height = 'auto' } = {}) {
   editor.insert(() => {
     const urlPlaceholder = 'http://';
     const descPlaceholder = 'Description';
@@ -15,7 +15,9 @@ export default function (editor, { url, desc } = {}) {
     }
 
     return {
-      text: `![${desc || descPlaceholder}](${url || urlPlaceholder})`,
+      text: `![${desc || descPlaceholder}](${
+        url || urlPlaceholder
+      }){width="${width}" height="${height}"}`,
       selected,
     };
   });
