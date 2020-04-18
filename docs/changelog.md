@@ -1,5 +1,19 @@
 # 更新日志
 
+### 1.2.0
+
+`2020-04-18`
+
+**Bug Fixes**
+
+- insertText: 修复 document.execCommand('insertText') 在 Firefox 上不兼容的问题。
+
+**Features**
+
+- image: 新增 image 可自定义图片大小
+- plugin：新增 [katex](/vue-markdown-editor/plugins/katex) 插件
+- plugin：新增 [todo-list](/vue-markdown-editor/plugins/todo-list) 插件
+
 ### 1.1.0
 
 `2020-04-18`
