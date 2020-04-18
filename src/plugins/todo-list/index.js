@@ -5,9 +5,9 @@ import './todo-list';
 
 export default function createEmojiPlugin({
   name = 'todo-list',
-  icon = 'v-md-icon-emoji',
+  icon = 'v-md-icon-checkbox',
   text,
-  title = '插入任务列表',
+  title = '任务列表',
   color = '#3eaf7c',
 } = {}) {
   const toolbar = createToolbar({ commandName: name, title, text, icon });

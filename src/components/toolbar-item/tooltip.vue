@@ -34,9 +34,20 @@ export default {
       };
 
       this.visible = true;
+
+      this.$nextTick(this.caculateLayuout);
     },
     hide () {
       this.visible = false;
+    },
+    caculateLayuout () {
+      // 容器右边框距离可视区域左侧的距离
+      const { right } = this.$el.getBoundingClientRect();
+      const windowWidth = document.documentElement.clientWidth;
+
+      if (windowWidth - right < 0) {
+        this.position.x -= (right - windowWidth);
+      }
     },
   },
 };
