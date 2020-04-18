@@ -114,6 +114,7 @@
   "homepage": "https://github.com/code-farmer-i/vue-markdown-editor#readme",
   "dependencies": {
     "codemirror": "^5.52.2",
+    "insert-text-at-cursor": "^0.3.0",
     "highlight.js": "^9.18.1",
     "katex": "^0.11.1",
     "markdown-it": "^10.0.0",

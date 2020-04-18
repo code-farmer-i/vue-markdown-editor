@@ -2,7 +2,7 @@
   <div>
     <v-md-editor
       v-model="value"
-      right-toolbar="todo-list"
+      right-toolbar="todo-list emoji tip"
       height="500px"
     />
     <v-md-preview :text="value" />

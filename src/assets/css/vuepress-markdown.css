@@ -323,7 +323,7 @@
   display: inline-block;
   color: #aaa;
   font-size: 15px;
-  vertical-align: middle;
+  vertical-align: bottom;
 }
 .vuepress-markdown-body a,
 .vuepress-markdown-body p a code {

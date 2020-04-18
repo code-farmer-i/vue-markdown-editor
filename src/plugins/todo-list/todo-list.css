@@ -1,8 +1,5 @@
-.v-md-editor-preview ul.v-md-editor__todo-list {
-  padding-left: 0;
-}
-
 .v-md-editor-preview li.v-md-editor__todo-list-item {
+  margin-left: -20px;
   list-style: none;
 }
 
@@ -11,6 +8,7 @@
   display: inline-block;
   width: 16px;
   height: 16px;
+  margin-top: -3px;
   margin-right: 4px;
   vertical-align: middle;
   border-style: solid;

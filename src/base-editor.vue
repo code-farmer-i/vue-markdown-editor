@@ -86,11 +86,11 @@ const component = {
     },
     // Must implement
     undo() {
-      this.editorEgine.execCommand('undo');
+      this.editorEgine.undo();
     },
     // Must implement
     redo() {
-      this.editorEgine.execCommand('redo');
+      this.editorEgine.redo();
     },
     // Must implement
     clear() {
@@ -100,7 +100,7 @@ const component = {
     },
     // Must implement
     replaceSelectionText(text) {
-      this.editorEgine.execCommand('insertText', text);
+      this.editorEgine.insertText(text);
     },
     // Must implement
     getCurrentSelectedStr () {
