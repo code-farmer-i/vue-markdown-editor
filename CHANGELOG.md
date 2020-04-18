@@ -1,3 +1,19 @@
+# [1.2.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.1.0...v1.2.0) (2020-04-18)
+
+### Bug Fixes
+
+- **inserttext:** execCommand insertText is doesnt work in firefox ([170ef97](https://github.com/code-farmer-i/vue-markdown-editor/commit/170ef97db977559769ed8bab09459ecff9c09d77))
+
+### Features
+
+- **image:** support image resize ([b923fd5](https://github.com/code-farmer-i/vue-markdown-editor/commit/b923fd54fd4188f272c4cde971613febe6f8008f))
+- **plugin:** add katex plugin ([805b62c](https://github.com/code-farmer-i/vue-markdown-editor/commit/805b62c83eaa9df4d3e7eb191c2265cf8ce90edb))
+- **plugin:** add todo-list plugin ([fa82d25](https://github.com/code-farmer-i/vue-markdown-editor/commit/fa82d256726e9f4f9d497f893cc148e78cb3c2c6))
+
+### Performance Improvements
+
+- optimize ([298152a](https://github.com/code-farmer-i/vue-markdown-editor/commit/298152a0dffa4c2210e24499fee11112a77b20d7))
+
 # [1.1.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.13...v1.1.0) (2020-04-18)
 
 ### Features
