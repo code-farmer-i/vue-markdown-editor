@@ -44,6 +44,8 @@ module.exports = {
         children: [
           ['/plugins/tip', '提示信息'],
           ['/plugins/emoji', 'emoji'],
+          ['/plugins/katex', 'katex'],
+          ['/plugins/todo-list', 'todo-list'],
         ],
       },
       ['/changelog', '更新日志'],

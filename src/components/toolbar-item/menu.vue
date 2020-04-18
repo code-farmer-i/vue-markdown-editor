@@ -122,6 +122,7 @@ export default {
     position: absolute;
     top: 38px;
     z-index: 99;
+    list-style: none;
     background-color: #fff;
     border-radius: 3px;
     box-shadow: $box-shadow-light;

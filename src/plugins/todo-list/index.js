@@ -1,9 +1,9 @@
 import createToolbar from './toolbar';
 import commandHandler from './command';
 import markdownItTodoList from '@/utils/markdown-it-todo-list';
-import './todo-list';
+import './todo-list.css';
 
-export default function createEmojiPlugin({
+export default function createTodoListPlugin({
   name = 'todo-list',
   icon = 'v-md-icon-checkbox',
   text,

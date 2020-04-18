@@ -6,7 +6,7 @@ import Preview from '@/preview';
 import githubTheme from '@/theme/github/index';
 
 import createEmojiPlugin from '@/plugins/emoji/full';
-import createKatexPlugin from '@/plugins/katex/npm';
+import createKatexPlugin from '@/plugins/katex/cdn';
 import createTodoListPlugin from '@/plugins/todo-list/index';
 
 import vuepressTheme from '@/theme/vuepress';
