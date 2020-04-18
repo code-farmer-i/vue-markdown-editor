@@ -53,7 +53,6 @@ import 'codemirror/addon/scroll/simplescrollbars.css';
 import 'codemirror/lib/codemirror.css';
 
 const component = {
-  name: 'v-md-editor',
   mixins: [
     commonMixin,
     vModelMixin,

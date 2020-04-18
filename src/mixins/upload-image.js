@@ -1,5 +1,5 @@
 import UploadImage from '@/components/upload-image';
-import uploadToolbar from '@/toolbar/upload-image';
+import imageToolbar from '@/toolbar/image';
 
 export default {
   components: {
@@ -7,9 +7,7 @@ export default {
   },
   computed: {
     hasUploadImage() {
-      const { leftToolbar, rightToolbar } = this;
-
-      return leftToolbar.includes(uploadToolbar.name) || rightToolbar.includes(uploadToolbar.name);
+      return !this.disabledMenus.includes(`${imageToolbar.name}/upload-image`);
     },
   },
 };

@@ -19,9 +19,7 @@ Component.use = function (optionsOrInstall) {
   return Component;
 };
 
-if (typeof window !== 'undefined' && window.Vue && window.VMdTheme) {
-  Component.use(window.VMdTheme);
-
+if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
 

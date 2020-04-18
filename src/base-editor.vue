@@ -47,7 +47,6 @@ import TextareaEditor from '@/components/textarea-editor';
 import createEditor from './create-editor';
 
 const component = {
-  name: 'v-md-editor',
   components: {
     [TextareaEditor.name]: TextareaEditor,
   },

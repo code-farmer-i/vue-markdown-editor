@@ -9,6 +9,7 @@ export default function createEditor(component) {
   commandWrapper(component);
   toolbarWrapper(component);
 
+  component.name = 'v-md-editor';
   component.theme = Preview.theme;
   component.extendMarkdown = Preview.extendMarkdown;
   component.mixins.push(toolbarMixin(component));

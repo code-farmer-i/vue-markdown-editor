@@ -3,6 +3,7 @@
     <ul
       class="v-md-editor__menu"
       :class="[`v-md-editor__menu--${mode}`]"
+      :style="style"
       v-show="visible"
       @mousemove.stop
       @click.stop
@@ -69,12 +70,31 @@ export default {
     },
     visible: Boolean,
   },
+  data () {
+    return {
+      style: {
+        left: 0,
+      },
+    };
+  },
   computed: {
     rowCount () {
       return Math.ceil(this.menus.length / this.rowNum);
     },
   },
+  watch: {
+    visible () {
+      if (this.visible) this.$nextTick(this.caculateLayout);
+    },
+  },
   methods: {
+    caculateLayout () {
+      // 容器右边框距离可视区域左侧的距离
+      const { right } = this.$el.getBoundingClientRect();
+      const windowWidth = document.documentElement.clientWidth;
+
+      if (windowWidth - right < 0) this.style = { right: 0 };
+    },
     getRowMenus (rowIndex) {
       const end = rowIndex * this.rowNum;
       const start = end - this.rowNum;
@@ -101,7 +121,6 @@ export default {
   &__menu {
     position: absolute;
     top: 38px;
-    left: 0;
     z-index: 99;
     background-color: #fff;
     border-radius: 3px;
