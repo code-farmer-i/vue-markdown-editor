@@ -1,3 +1,20 @@
+# [1.1.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.13...v1.1.0) (2020-04-18)
+
+### Features
+
+- **emoji:** add full emoji plugin ([9846517](https://github.com/code-farmer-i/vue-markdown-editor/commit/98465179d15e99918b7ce354066bb00dd66f291c))
+- **menu:** add tooltip menu ([d2412d5](https://github.com/code-farmer-i/vue-markdown-editor/commit/d2412d57f9e15799d52a3ee3c4062d8531441f52))
+- **plugin:** add emoji plugin ([ed9160d](https://github.com/code-farmer-i/vue-markdown-editor/commit/ed9160d880905e4fbced368de918382e4a9fa068))
+- **props:** add prop disabled-menus ([156e056](https://github.com/code-farmer-i/vue-markdown-editor/commit/156e0560f3928d5c2b213bb344443b860e7a70f2))
+- **tooltip:** add tooltip component ([0f596fe](https://github.com/code-farmer-i/vue-markdown-editor/commit/0f596fe92de6a74fd41b8e7e16307490a4fe2069))
+
+### Performance Improvements
+
+- **menu:** optimize ([6ca5fce](https://github.com/code-farmer-i/vue-markdown-editor/commit/6ca5fcebe55c01ff12144f3d61688d1ae9fc5ea9))
+- **menu:** optimize panel menu ([407a1ae](https://github.com/code-farmer-i/vue-markdown-editor/commit/407a1ae85a2af7572a03660ee0b2840cef16f2f8))
+- **style:** add style variable ([13fba0a](https://github.com/code-farmer-i/vue-markdown-editor/commit/13fba0aaa8d0e4500ed704fb14c703d549a4b7c0))
+- **theme:** vuepress theme code block style ([20f6432](https://github.com/code-farmer-i/vue-markdown-editor/commit/20f6432fc1e5eadb6ccc6aae26b46143bec86242))
+
 ## [1.0.13](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.0.12...v1.0.13) (2020-04-15)
 
 ### Bug Fixes
