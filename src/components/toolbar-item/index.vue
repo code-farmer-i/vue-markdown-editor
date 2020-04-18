@@ -12,6 +12,7 @@
       }
     ]"
     v-clickoutside="hideMenu"
+    @mousedown.prevent
     @mouseleave="handleHideTooltip"
     @mousemove="handleMousemove"
     @click.stop="handleClick"

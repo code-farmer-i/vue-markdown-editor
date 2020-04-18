@@ -1,4 +1,4 @@
-// reference https://github.com/ElemeFE/element/blob/dev/src/utils/clickoutside.js
+// Reference https://github.com/ElemeFE/element/blob/dev/src/utils/clickoutside.js
 import Vue from 'vue';
 
 const nodeList = [];

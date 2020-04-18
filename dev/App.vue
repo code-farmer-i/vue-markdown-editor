@@ -2,7 +2,7 @@
   <div>
     <v-md-editor
       v-model="value"
-      right-toolbar="emoji"
+      right-toolbar="todo-list"
       height="500px"
     />
     <v-md-preview :text="value" />
@@ -15,7 +15,7 @@ import text from './text';
 export default {
   data () {
     return {
-      value: text + ':grinning:',
+      value: '- [x] sda',
     };
   },
   methods: {

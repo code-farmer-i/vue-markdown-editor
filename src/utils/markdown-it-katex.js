@@ -1,4 +1,4 @@
-// refence https://github.com/waylonflinn/markdown-it-katex/blob/master/index.js
+// Refence https://github.com/waylonflinn/markdown-it-katex/blob/master/index.js
 
 /* eslint-disable */
 function isValidDelim(state, pos) {

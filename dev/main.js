@@ -7,14 +7,15 @@ import githubTheme from '@/theme/github/index';
 
 import createEmojiPlugin from '@/plugins/emoji/full';
 import createKatexPlugin from '@/plugins/katex/npm';
+import createTodoListPlugin from '@/plugins/todo-list/index';
 
 import vuepressTheme from '@/theme/vuepress';
 
-VueMarkdownEditor.use(createEmojiPlugin()).use(createKatexPlugin());
+VueMarkdownEditor.use(createEmojiPlugin()).use(createKatexPlugin()).use(createTodoListPlugin());
 console.log(VueMarkdownEditor);
 
-VueMarkdownEditor.use(githubTheme);
-// VueMarkdownEditor.use(vuepressTheme);
+// VueMarkdownEditor.use(githubTheme);
+VueMarkdownEditor.use(vuepressTheme);
 // Preview.use(githubTheme);
 
 Vue.use(VueMarkdownEditor);
