@@ -12,6 +12,8 @@ export default function (md) {
     'hr',
   ];
 
+  const lineMarkup = 'data-v-md-line';
+
   const defaultRender = function (tokens, idx, options, env, self) {
     return self.renderToken(tokens, idx, options);
   };
@@ -20,7 +22,7 @@ export default function (md) {
     return function (tokens, idx, options, env, self) {
       const token = tokens[idx];
 
-      token.attrPush(['data-v-md-line', token.map[0] + 1]);
+      token.attrPush([lineMarkup, token.map[0] + 1]);
 
       return originalRender(tokens, idx, options, env, self);
     };
@@ -37,12 +39,13 @@ export default function (md) {
     return function (tokens, idx, options, env, self) {
       const rawCode = original(tokens, idx, options, env, self);
       const token = tokens[idx];
+      const lineNumber = token.map[0] + 1;
 
       if (rawCode.indexOf('extra-attrs') !== -1) {
-        return rawCode.replace('extra-attrs', `extra-attrs data-v-md-line="${token.map[0] + 1}"`);
+        return rawCode.replace('extra-attrs', `extra-attrs data-v-md-line="${lineNumber}"`);
       }
 
-      return renderLineWrapper(original);
+      return `<div ${lineMarkup}="${lineNumber}">${rawCode}</div>`;
     };
   }
 
