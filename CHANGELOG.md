@@ -1,3 +1,9 @@
+## [1.2.2](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.1...v1.2.2) (2020-04-19)
+
+### Features
+
+- **sync scroll:** add sync scroll ([857d301](https://github.com/code-farmer-i/vue-markdown-editor/commit/857d301b23f806d2e923c14a3b99d9b1f9341ff2))
+
 ## [1.2.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.0...v1.2.1) (2020-04-19)
 
 ### Performance Improvements
