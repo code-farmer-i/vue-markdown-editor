@@ -5,14 +5,19 @@
       ref="textarea"
       :value="value"
       spellcheck="false"
-      @keydown.tab.prevent
       @compositionstart="() => ignoreInput = true"
       @compositionend="() => ignoreInput = false"
-      @input="$emit('input', $event.target.value)"
+      @input="handleInput"
+      @click="updateCurrentHistoryRange"
+      @keydown.tab.prevent
       @keydown.ctrl.z.prevent.exact="undo"
       @keydown.meta.z.prevent.exact="undo"
       @keydown.ctrl.y.prevent.exact="redo"
       @keydown.meta.y.prevent.exact="redo"
+      @keyup.shift.up.exact="updateCurrentHistoryRange"
+      @keyup.shift.down.exact="updateCurrentHistoryRange"
+      @keyup.shift.left.exact="updateCurrentHistoryRange"
+      @keyup.shift.right.exact="updateCurrentHistoryRange"
     />
   </div>
 </template>
@@ -30,11 +35,11 @@ export default {
     value: String,
     historyDebounce: {
       type: Number,
-      default: 500,
+      default: 400,
     },
     historyMax: {
       type: Number,
-      default: 20,
+      default: 30,
     },
   },
   computed: {
@@ -44,11 +49,15 @@ export default {
   },
   watch: {
     value () {
-      if (this.timmer) clearTimeout(this.timmer);
+      this.clearTimeout();
 
       if (!this.triggerInputBySetHistory) {
         this.timmer = setTimeout(() => {
-          if (!this.ignoreInput) this.saveHistory();
+          if (!this.ignoreInput) {
+            this.saveHistory();
+          }
+
+          this.clearTimeout();
         }, this.historyDebounce);
       }
     },
@@ -61,6 +70,21 @@ export default {
     this.saveHistory();
   },
   methods: {
+    clearTimeout () {
+      if (this.timmer) clearTimeout(this.timmer);
+
+      this.timmer = null;
+    },
+    updateCurrentHistoryRange() {
+      if (!this.timmer) {
+        this.updateHistory(this.historyIndex, {
+          range: this.getRange(),
+        });
+      }
+    },
+    handleInput (e) {
+      this.$emit('input', e.target.value);
+    },
     saveHistory () {
       const range = this.getRange();
       const history = {
@@ -72,6 +96,12 @@ export default {
       this.historyStack.push(history);
       if (this.historyStack.length > this.historyMax) this.historyStack.shift();
       this.historyIndex = this.historyStack.length - 1;
+    },
+    updateHistory (index, data) {
+      const history = this.historyStack[index];
+
+      if ('value' in data) history.value = data.value;
+      Object.assign(history.range, data.range);
     },
     goHistory (index) {
       const { value, range } = this.historyStack[index];
@@ -92,6 +122,7 @@ export default {
     },
     setRange({ start, end }) {
       this.textareaEl.setSelectionRange(start, end);
+      this.updateCurrentHistoryRange();
     },
     focus() {
       this.textareaEl.focus();
