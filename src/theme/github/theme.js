@@ -1,6 +1,7 @@
 import markdownItHljs from '@/utils/markdown-it-hljs';
 import MarkdownItLink from '@/utils/markdown-it-link';
 import MarkdownItAttr from 'markdown-it-attrs';
+import MarkdownItLineNumber from '@/utils/markdown-it-line-number';
 
 // style
 import '@/assets/css/github-markdown';
@@ -17,7 +18,8 @@ mdIt
   })
   .use(MarkdownItAttr, {
     allowedAttributes: ['width', 'height'],
-  });
+  })
+  .use(MarkdownItLineNumber);
 
 export default {
   previewClass: 'github-markdown-body',

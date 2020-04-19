@@ -49,11 +49,30 @@ export default {
   },
 
   methods: {
+    getScrollInfo() {
+      const { wrap } = this;
+
+      return {
+        left: wrap.scrollLeft,
+        top: wrap.scrollTop,
+        width: wrap.scrollWidth,
+        height: wrap.scrollHeight,
+        clientWidth: wrap.clientWidth,
+        clientHeight: wrap.clientHeight,
+      };
+    },
+
+    scrollTo(scrollTop) {
+      this.wrap.scrollTop = scrollTop;
+    },
+
     handleScroll() {
       const { wrap } = this;
 
       this.moveY = (wrap.scrollTop * 100) / wrap.clientHeight;
       this.moveX = (wrap.scrollLeft * 100) / wrap.clientWidth;
+
+      this.$emit('scroll');
     },
 
     update() {
@@ -141,6 +160,7 @@ export default {
 .scrollbar {
   height: 100%;
   overflow: hidden;
+  cursor: pointer;
 
   &:active,
   &:focus,

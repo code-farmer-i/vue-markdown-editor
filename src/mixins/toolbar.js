@@ -10,7 +10,7 @@ export default function (Component) {
       },
       rightToolbar: {
         type: String,
-        default: 'fullscreen',
+        default: 'sync-scroll fullscreen',
       },
       toolbar: {
         type: Object,

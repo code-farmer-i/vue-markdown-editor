@@ -1,6 +1,9 @@
 <template>
   <div class="v-md-textarea-editor">
-    <pre><br />{{ value }}</pre>
+    <pre><section
+  v-for="(row, idx) in value.split('\n')"
+  :data-line="idx + 1"
+>{{ row || ' ' }}<br /></section></pre>
     <textarea
       ref="textarea"
       :value="value"
@@ -70,6 +73,11 @@ export default {
     this.saveHistory();
   },
   methods: {
+    heightAtLine (lineIndex) {
+      const el = this.$el.querySelector(`section[data-line="${lineIndex}"]`);
+
+      return el ? el.offsetTop + el.offsetHeight : 0;
+    },
     clearTimeout () {
       if (this.timmer) clearTimeout(this.timmer);
 

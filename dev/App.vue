@@ -2,7 +2,6 @@
   <div>
     <v-md-editor
       v-model="value"
-      right-toolbar="todo-list emoji tip"
       height="500px"
     />
     <v-md-preview :text="value" />
@@ -15,9 +14,7 @@ import text from './text';
 export default {
   data () {
     return {
-      value: `$x_i + y_i = z_i$和$\sum_{i=1}^n a_i=0$
-
-$$\\sum_{i=1}^n a_i=0$$`,
+      value: text,
     };
   },
   methods: {

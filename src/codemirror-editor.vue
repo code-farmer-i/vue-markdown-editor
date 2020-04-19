@@ -16,7 +16,10 @@
       slot="editor"
       ref="codemirrorEditor"
     />
-    <scrollbar slot="preview">
+    <scrollbar
+      slot="preview"
+      ref="previewScroller"
+    >
       <v-md-preview
         :text="text"
         :theme="theme"
@@ -38,6 +41,7 @@ import commonMixin from '@/mixins/common';
 import vModelMixin from '@/mixins/v-model';
 import fullscreenMixin from '@/mixins/fullscreen';
 import uploadImageMixin from '@/mixins/upload-image';
+import syncScrollMixin from '@/mixins/sync-scroll';
 
 import createEditor from './create-editor';
 
@@ -58,6 +62,7 @@ const component = {
     vModelMixin,
     fullscreenMixin,
     uploadImageMixin,
+    syncScrollMixin,
   ],
   props: {
     codemirrorConfig: Object,
@@ -88,6 +93,10 @@ const component = {
 
       this.handleInput(newValue);
     });
+
+    this.codemirrorInstance.on('scroll', () => {
+      this.handleScroll();
+    });
   },
   methods: {
     handleContainerResize() {
@@ -101,6 +110,14 @@ const component = {
       if (start <= number && number <= end) {
         return number - start;
       }
+    },
+    // Must implement
+    getScrollInfo () {
+      return this.codemirrorInstance.getScrollInfo();
+    },
+    // Must implement
+    heightAtLine (...arg) {
+      return this.codemirrorInstance.heightAtLine(...arg);
     },
     // Must implement
     focus() {

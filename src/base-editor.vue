@@ -11,7 +11,11 @@
     @toolbar-menu-click="handleToolbarMenuClick"
     ref="contaner"
   >
-    <scrollbar slot="editor">
+    <scrollbar
+      slot="editor"
+      @scroll="handleScroll"
+      ref="editorScroller"
+    >
       <v-md-textarea-editor
         :value="text"
         @input="handleInput"
@@ -19,7 +23,10 @@
         ref="editorEgine"
       />
     </scrollbar>
-    <scrollbar slot="preview">
+    <scrollbar
+      slot="preview"
+      ref="previewScroller"
+    >
       <v-md-preview
         :text="text"
         :theme="theme"
@@ -41,6 +48,7 @@ import commonMixin from '@/mixins/common';
 import vModelMixin from '@/mixins/v-model';
 import fullscreenMixin from '@/mixins/fullscreen';
 import uploadImageMixin from '@/mixins/upload-image';
+import syncScrollMixin from '@/mixins/sync-scroll';
 
 import TextareaEditor from '@/components/textarea-editor';
 
@@ -55,6 +63,7 @@ const component = {
     vModelMixin,
     fullscreenMixin,
     uploadImageMixin,
+    syncScrollMixin,
   ],
   computed: {
     editorEgine () {
@@ -79,6 +88,14 @@ const component = {
       const { start, end } = selectedRange;
 
       return end > start ? text.slice(start, end) : null;
+    },
+    // Must implement
+    getScrollInfo () {
+      return this.$refs.editorScroller.getScrollInfo();
+    },
+    // Must implement
+    heightAtLine (...arg) {
+      return this.editorEgine.heightAtLine(...arg);
     },
     // Must implement
     focus() {
