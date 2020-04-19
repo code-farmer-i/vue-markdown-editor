@@ -1,5 +1,13 @@
 # 更新日志
 
+### 1.2.3
+
+`2020-04-20`
+
+**Bug Fixes**
+
+- markdown-line-number-plugin：解决 markdown-it 插件渲染的问题
+
 ### 1.2.2
 
 `2020-04-20`
