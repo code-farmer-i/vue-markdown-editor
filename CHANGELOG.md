@@ -1,3 +1,9 @@
+## [1.2.3](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.2...v1.2.3) (2020-04-19)
+
+### Bug Fixes
+
+- **line-number-render:** fix markdown line-number-render bug ([481c07e](https://github.com/code-farmer-i/vue-markdown-editor/commit/481c07efa52965c8c56ec0fafe37a29f74c27b75))
+
 ## [1.2.2](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.1...v1.2.2) (2020-04-19)
 
 ### Features
