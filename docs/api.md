@@ -67,13 +67,14 @@ sidebarDepth: 2
 ### right-toolbar
 
 - 类型：`String`
-- 默认值： `fullscreen`
+- 默认值： `sync-scroll fullscreen`
 
 右侧工具栏
 
-| 名称       | 说明 |
-| ---------- | ---- |
-| fullscreen | 撤销 |
+| 名称        | 说明     |
+| ----------- | -------- |
+| sync-scroll | 同步滚动 |
+| fullscreen  | 撤销     |
 
 ### toolbar
 
