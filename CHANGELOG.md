@@ -1,3 +1,9 @@
+## [1.2.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.0...v1.2.1) (2020-04-19)
+
+### Performance Improvements
+
+- **textarea:** history optimize ([6679ef1](https://github.com/code-farmer-i/vue-markdown-editor/commit/6679ef15b294328d29954ba3d75d611788d73f83))
+
 # [1.2.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.1.0...v1.2.0) (2020-04-18)
 
 ### Bug Fixes
