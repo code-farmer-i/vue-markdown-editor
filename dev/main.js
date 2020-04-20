@@ -11,6 +11,10 @@ import createTodoListPlugin from '@/plugins/todo-list/index';
 
 import vuepressTheme from '@/theme/vuepress';
 
+vuepressTheme.configure((md) => {
+  console.log(md);
+});
+
 VueMarkdownEditor.use(createEmojiPlugin()).use(createKatexPlugin()).use(createTodoListPlugin());
 // VueMarkdownEditor.use(githubTheme);
 VueMarkdownEditor.use(vuepressTheme);

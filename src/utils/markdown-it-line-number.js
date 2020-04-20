@@ -1,24 +1,11 @@
 export default function (md) {
-  const blockMap = [
-    'table_open',
-    'blockquote_open',
-    'bullet_list_open',
-    'ordered_list_open',
-    'reference_open',
-    'heading_open',
-    'lheading_open',
-    'html_block_open',
-    'paragraph_open',
-    'hr',
-  ];
-
   const lineMarkup = 'data-v-md-line';
 
   const defaultRender = function (tokens, idx, options, env, self) {
     return self.renderToken(tokens, idx, options);
   };
 
-  function renderLineWrapper(originalRender) {
+  function addAttrwrapper(originalRender) {
     return function (tokens, idx, options, env, self) {
       const token = tokens[idx];
 
@@ -28,16 +15,9 @@ export default function (md) {
     };
   }
 
-  blockMap.forEach((ruleName) => {
-    const originalRender = md.renderer.rules[ruleName];
-    const render = originalRender || defaultRender;
-
-    md.renderer.rules[ruleName] = renderLineWrapper(render);
-  });
-
-  function codeWrapper(original) {
+  function modifyCodewrapper(originalRender) {
     return function (tokens, idx, options, env, self) {
-      const rawCode = original(tokens, idx, options, env, self);
+      const rawCode = originalRender(tokens, idx, options, env, self);
       const token = tokens[idx];
       const lineNumber = token.map[0] + 1;
 
@@ -49,8 +29,25 @@ export default function (md) {
     };
   }
 
-  const { fence, code_block: codeBlock } = md.renderer.rules;
+  const wrapperMap = {
+    table_open: addAttrwrapper,
+    blockquote_open: addAttrwrapper,
+    bullet_list_open: addAttrwrapper,
+    ordered_list_open: addAttrwrapper,
+    reference_open: addAttrwrapper,
+    heading_open: addAttrwrapper,
+    lheading_open: addAttrwrapper,
+    paragraph_open: addAttrwrapper,
+    hr: addAttrwrapper,
+    html_block: modifyCodewrapper,
+    code_block: modifyCodewrapper,
+    fence: modifyCodewrapper,
+  };
 
-  md.renderer.rules.code_block = codeWrapper(codeBlock);
-  md.renderer.rules.fence = codeWrapper(fence);
+  Object.entries(wrapperMap).forEach(([ruleName, wrapper]) => {
+    const originalRender = md.renderer.rules[ruleName];
+    const render = originalRender || defaultRender;
+
+    md.renderer.rules[ruleName] = wrapper(render);
+  });
 }
