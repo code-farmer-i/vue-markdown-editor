@@ -24,6 +24,13 @@ sidebarDepth: 2
 只有编辑组件支持该属性。
 :::
 
+### mode
+
+- 类型：`String`
+- 默认值: `editable`
+
+模式。可选值：`editable`(编辑模式) `preview`(预览模式)。
+
 ### height
 
 - 类型：`String`
