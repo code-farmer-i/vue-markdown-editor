@@ -1,3 +1,4 @@
+// zoom-in
 .v-md-zoom-in-top-enter-active,
 .v-md-zoom-in-top-leave-active {
   transform: scaleY(1);
@@ -8,5 +9,15 @@
 .v-md-zoom-in-top-enter,
 .v-md-zoom-in-top-leave-active {
   transform: scaleY(0);
+  opacity: 0;
+}
+
+// fade-in
+.v-md-fade-in-enter-active,
+.v-md-fade-in-leave-active {
+  transition: opacity 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.v-md-fade-in-enter,
+.v-md-fade-in-leave-active {
   opacity: 0;
 }

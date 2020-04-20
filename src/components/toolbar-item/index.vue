@@ -119,7 +119,7 @@ export default {
           x: x - 2,
           y: y + 20,
         });
-      }, 300);
+      }, 100);
     },
     handleHideTooltip () {
       if (this.timmer) clearTimeout(this.timmer);

@@ -1,14 +1,16 @@
 <template>
-  <div
-    v-show="visible"
-    :style="{
-      left: `${position.x}px`,
-      top: `${position.y}px`
-    }"
-    class="v-md-editor__tooltip"
-  >
-    {{ text }}
-  </div>
+  <transition name="v-md-fade-in">
+    <div
+      v-show="visible"
+      :style="{
+        left: `${position.x}px`,
+        top: `${position.y}px`
+      }"
+      class="v-md-editor__tooltip"
+    >
+      {{ text }}
+    </div>
+  </transition>
 </template>
 
 <script>
