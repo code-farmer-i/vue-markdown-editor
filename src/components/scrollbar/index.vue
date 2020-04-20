@@ -189,7 +189,6 @@ export default {
 .scrollbar {
   height: 100%;
   overflow: hidden;
-  cursor: pointer;
 
   &:active,
   &:focus,
@@ -234,6 +233,7 @@ export default {
     bottom: 2px;
     z-index: 1;
     border-radius: $scrollbar-border-radius;
+    cursor: pointer;
     opacity: 0;
     transition: opacity $scrollbar-opacity-transition;
 
