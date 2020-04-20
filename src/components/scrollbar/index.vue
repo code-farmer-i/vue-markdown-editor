@@ -11,6 +11,7 @@ export default {
 
   props: {
     native: Boolean,
+    disabled: Boolean,
     wrapStyle: null,
     wrapClass: null,
     viewClass: null,
@@ -38,13 +39,13 @@ export default {
   },
 
   mounted() {
-    if (this.native) return;
+    if (this.native || this.disabled) return;
     this.$nextTick(this.update);
     !this.noresize && addResizeListener(this.$refs.resize, this.update);
   },
 
   beforeDestroy() {
-    if (this.native) return;
+    if (this.native || this.disabled) return;
     !this.noresize && removeResizeListener(this.$refs.resize, this.update);
   },
 
@@ -63,7 +64,33 @@ export default {
     },
 
     scrollTo(scrollTop) {
-      this.wrap.scrollTop = scrollTop;
+      // this.wrap.scrollTop = scrollTop;
+      this.smoothScroll(scrollTop);
+    },
+
+    smoothScroll(scrollTop, percent = 10) {
+      let currentScrollTop = this.wrap.scrollTop;
+      const scrollWay = scrollTop > currentScrollTop ? 'down' : 'up';
+      const step = (scrollTop - currentScrollTop) * (percent / 100);
+      let id;
+
+      const scroll = () => {
+        currentScrollTop += step;
+
+        if (
+          (scrollWay === 'down' && currentScrollTop >= scrollTop)
+          ||
+          (scrollWay === 'up' && currentScrollTop <= scrollTop)
+        ) {
+          this.wrap.scrollTop = scrollTop;
+          window.cancelAnimationFrame(id);
+        } else {
+          this.wrap.scrollTop = currentScrollTop;
+          window.requestAnimationFrame(scroll);
+        }
+      };
+
+      window.requestAnimationFrame(scroll);
     },
 
     handleScroll() {
@@ -88,6 +115,8 @@ export default {
   },
 
   render(h) {
+    if (this.disabled) return this.$slots.default;
+
     const gutter = scrollbarWidth();
     let style = this.wrapStyle;
 

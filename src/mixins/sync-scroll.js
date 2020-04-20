@@ -9,6 +9,8 @@ export default {
   methods: {
     toggleSyncScroll(isEnable = !this.enableSyncScroll) {
       this.enableSyncScroll = isEnable;
+
+      if (isEnable) this.handleScroll();
     },
     previewScrollTo(scrollTop) {
       this.$refs.previewScroller.scrollTo(scrollTop);

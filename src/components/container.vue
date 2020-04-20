@@ -1,10 +1,16 @@
 <template>
   <div
     class="v-md-editor"
-    :class="{ 'v-md-editor--fullscreen': fullscreen }"
+    :class="[
+      `v-md-editor--${mode}`,
+      { 'v-md-editor--fullscreen': fullscreen }
+    ]"
     :style="{ height: heightGetter }"
   >
-    <div class="v-md-editor__toolbar">
+    <div
+      class="v-md-editor__toolbar"
+      v-if="mode === 'editable'"
+    >
       <editor-toolbar
         class="v-md-editor__toolbar-left"
         :groups="leftToolbarGroup"
@@ -25,6 +31,7 @@
     <div class="v-md-editor__main">
       <div
         class="v-md-editor__editor-wrapper"
+        v-if="mode === 'editable'"
         @click="handleEditorWrapperClick"
       >
         <slot name="editor" />
@@ -54,6 +61,10 @@ export default {
     height: String,
     noresize: Boolean,
     disabledMenus: Array,
+    mode: {
+      type: String,
+      default: 'editable',
+    },
   },
   computed: {
     heightGetter() {
@@ -107,6 +118,10 @@ export default {
   background-color: #fff;
   border-radius: 4px;
   box-shadow: $box-shadow-light;
+
+  &--preview {
+    box-shadow: none;
+  }
 
   &--fullscreen {
     position: fixed;

@@ -24,6 +24,10 @@ export default {
   props: {
     height: String,
     theme: Object,
+    mode: {
+      type: String,
+      default: 'editable',
+    },
   },
   methods: {
     // change event

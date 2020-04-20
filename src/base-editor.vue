@@ -6,6 +6,7 @@
     :disabled-menus="disabledMenus"
     :height="height"
     :fullscreen="fullscreen"
+    :mode="mode"
     @editor-wrapper-click="handleEditorWrapperClick"
     @toolbar-item-click="handleToolbarItemClick"
     @toolbar-menu-click="handleToolbarMenuClick"
@@ -25,6 +26,7 @@
     </scrollbar>
     <scrollbar
       slot="preview"
+      :disabled="mode === 'preview'"
       ref="previewScroller"
     >
       <v-md-preview

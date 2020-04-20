@@ -6,6 +6,7 @@
     :disabled-menus="disabledMenus"
     :height="height"
     :fullscreen="fullscreen"
+    :mode="mode"
     @toolbar-item-click="handleToolbarItemClick"
     @toolbar-menu-click="handleToolbarMenuClick"
     @resize="handleContainerResize"
@@ -18,6 +19,7 @@
     />
     <scrollbar
       slot="preview"
+      :disabled="mode === 'preview'"
       ref="previewScroller"
     >
       <v-md-preview
