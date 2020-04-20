@@ -3,6 +3,7 @@ import { addResizeListener, removeResizeListener } from '@/utils/resize-event';
 import scrollbarWidth from '@/utils/scrollbar-width';
 import { arraytoObject } from '@/utils/util';
 import Bar from './bar';
+import smoothScroll from '@/utils/smooth-scroll';
 
 export default {
   name: 'scrollbar',
@@ -65,33 +66,9 @@ export default {
 
     scrollTo(scrollTop) {
       // this.wrap.scrollTop = scrollTop;
-      this.smoothScroll(scrollTop);
+      smoothScroll(this.wrap, scrollTop);
     },
 
-    smoothScroll(scrollTop, percent = 10) {
-      let currentScrollTop = this.wrap.scrollTop;
-      const scrollWay = scrollTop > currentScrollTop ? 'down' : 'up';
-      const step = (scrollTop - currentScrollTop) * (percent / 100);
-      let id;
-
-      const scroll = () => {
-        currentScrollTop += step;
-
-        if (
-          (scrollWay === 'down' && currentScrollTop >= scrollTop)
-          ||
-          (scrollWay === 'up' && currentScrollTop <= scrollTop)
-        ) {
-          this.wrap.scrollTop = scrollTop;
-          window.cancelAnimationFrame(id);
-        } else {
-          this.wrap.scrollTop = currentScrollTop;
-          window.requestAnimationFrame(scroll);
-        }
-      };
-
-      window.requestAnimationFrame(scroll);
-    },
 
     handleScroll() {
       const { wrap } = this;

@@ -77,7 +77,7 @@ export default {
 
           this.previewScrollTo(newScrollTop);
         }
-      }, 200);
+      }, 60);
     },
   },
 };

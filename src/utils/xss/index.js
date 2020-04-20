@@ -1,21 +1,21 @@
 import xss from 'xss';
 import svgTagWhiteList from './svg';
 import kaTexWhiteList from './KaTex';
+import { attrWhiteList, prefixAtteWhiteList, tags } from './common';
 
-xss.whiteList.input = ['type'];
+const tagWhiteList = [tags, ...kaTexWhiteList, ...svgTagWhiteList];
 
-const attrWhiteList = ['style', 'align', 'class', 'id'];
-const tagWhiteList = [...kaTexWhiteList, ...svgTagWhiteList];
+Object.entries(tagWhiteList).forEach(([tagName, attrWhiteList]) => {
+  xss.whiteList[tagName] = attrWhiteList;
+});
 
 const options = {
-  onTagAttr(tag, name, value, isWhiteAttr) {
-    if (isWhiteAttr || attrWhiteList.includes(name)) {
-      return `${name}="${value}"`;
-    }
-  },
-  onTag(tag, html, { isWhite }) {
-    if (isWhite || tagWhiteList.includes(tag)) {
-      return html;
+  onIgnoreTagAttr(tag, name, value) {
+    if (
+      attrWhiteList.find((attr) => attr === name) ||
+      prefixAtteWhiteList.find((prefix) => name.startsWith(prefix))
+    ) {
+      return `${name}="${xss.escapeAttrValue(value)}"`;
     }
   },
 };

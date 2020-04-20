@@ -3,11 +3,13 @@
     v-html="html"
     class="v-md-editor-preview"
     :class="[themeConfig.previewClass]"
+    @click="handleClick"
   />
 </template>
 
 <script>
 import xss from '@/utils/xss/index';
+import smoothScroll from '@/utils/smooth-scroll';
 
 const defaultMarkdownLoader = (text) => text;
 
@@ -19,6 +21,26 @@ const component = {
       default: '',
     },
     theme: Object,
+    scrollToMark: {
+      type: Boolean,
+      default: true,
+    },
+    getScrollContainer: {
+      type: Function,
+      default: () => document.documentElement,
+    },
+    markAttr: {
+      type: String,
+      default: 'data-v-md-anchor-mark',
+    },
+    offsetTop: {
+      type: Number,
+      default: 0,
+    },
+    anchorAttr: {
+      type: String,
+      default: 'data-v-md-anchor',
+    },
   },
   data() {
     return {
@@ -55,6 +77,35 @@ const component = {
     this.handleTextChange();
   },
   methods: {
+    getOffsetTop (target, container) {
+      const rect = target.getBoundingClientRect();
+
+      if (container === window) {
+        container = target.ownerDocument.documentElement;
+
+        return rect.top - container.clientTop;
+      }
+
+      return rect.top - container.getBoundingClientRect().top;
+    },
+    handleClick (e) {
+      if (!this.scrollToMark) return;
+
+      const { target } = e;
+      const container = this.getScrollContainer();
+      let scrollToTargetId = target.getAttribute(this.markAttr);
+
+      if (scrollToTargetId) {
+        scrollToTargetId = scrollToTargetId.split(' ')
+          .map((str) => str.toLowerCase())
+          .join('-');
+        const scrollToTarget = document.querySelector(`[${this.anchorAttr}=${scrollToTargetId}]`);
+        const offsetTop = this.getOffsetTop(scrollToTarget, container);
+        const scrollTop = container.scrollTop + offsetTop;
+
+        smoothScroll(container, scrollTop - this.offsetTop);
+      }
+    },
     handleTextChange () {
       this.html = xss.process(this.markdownLoader(this.text));
 

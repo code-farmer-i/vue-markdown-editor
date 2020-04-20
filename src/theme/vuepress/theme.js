@@ -1,8 +1,8 @@
 import markdownItPrism from '@/utils/markdown-it-prism';
-import MarkdownItLink from '@/utils/markdown-it-link';
-import MarkdownItPreWrapper from '@/utils/markdown-it-pre-wrapper';
-import MarkdownItAttr from 'markdown-it-attrs';
-import MarkdownItLineNumber from '@/utils/markdown-it-line-number';
+import markdownItLink from '@/utils/markdown-it-link';
+import markdownItPreWrapper from '@/utils/markdown-it-pre-wrapper';
+import markdownItAttr from 'markdown-it-attrs';
+import markdownItLineNumber from '@/utils/markdown-it-line-number';
 
 // style
 import '@/assets/css/vuepress-markdown';
@@ -12,20 +12,20 @@ const { mdIt, prism } = markdownItPrism({
 });
 
 mdIt
-  .use(MarkdownItLink, {
+  .use(markdownItLink, {
     externalAttrs: {
       target: '_blank',
     },
     openLinkIcon: true,
     openLinkIconClass: 'v-md-icon-open-in-new',
   })
-  .use(MarkdownItAttr, {
+  .use(markdownItAttr, {
     allowedAttributes: ['width', 'height'],
   })
-  .use(MarkdownItPreWrapper, {
+  .use(markdownItPreWrapper, {
     languagePrefix: 'v-md-prism',
   })
-  .use(MarkdownItLineNumber);
+  .use(markdownItLineNumber);
 
 export default {
   previewClass: 'vuepress-markdown-body',

@@ -1,7 +1,8 @@
 import markdownItHljs from '@/utils/markdown-it-hljs';
-import MarkdownItLink from '@/utils/markdown-it-link';
-import MarkdownItAttr from 'markdown-it-attrs';
-import MarkdownItLineNumber from '@/utils/markdown-it-line-number';
+import markdownItLink from '@/utils/markdown-it-link';
+import markdownItAttr from 'markdown-it-attrs';
+import markdownItLineNumber from '@/utils/markdown-it-line-number';
+import markdownItAnchor from '@/utils/markdown-it-anchor';
 
 // style
 import '@/assets/css/github-markdown';
@@ -11,15 +12,16 @@ const { mdIt, hljs } = markdownItHljs({
 });
 
 mdIt
-  .use(MarkdownItLink, {
+  .use(markdownItLink, {
     externalAttrs: {
       target: '_blank',
     },
   })
-  .use(MarkdownItAttr, {
+  .use(markdownItAttr, {
     allowedAttributes: ['width', 'height'],
   })
-  .use(MarkdownItLineNumber);
+  .use(markdownItAnchor)
+  .use(markdownItLineNumber);
 
 export default {
   previewClass: 'github-markdown-body',
