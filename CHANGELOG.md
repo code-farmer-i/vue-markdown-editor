@@ -1,3 +1,13 @@
+## [1.2.4](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.3...v1.2.4) (2020-04-20)
+
+### Features
+
+- **props:** add mode props ([63838dc](https://github.com/code-farmer-i/vue-markdown-editor/commit/63838dc829e049d63bef301937dcb54429b1dfd0))
+
+### Performance Improvements
+
+- optimize markdown-it-line-number ruler ([7421d1c](https://github.com/code-farmer-i/vue-markdown-editor/commit/7421d1c7884608212fb893d7340c53feda7e6254))
+
 ## [1.2.3](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.2...v1.2.3) (2020-04-19)
 
 ### Bug Fixes
