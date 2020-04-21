@@ -3,7 +3,6 @@
     v-html="html"
     class="v-md-editor-preview"
     :class="[themeConfig.previewClass]"
-    @click="handleClick"
   />
 </template>
 

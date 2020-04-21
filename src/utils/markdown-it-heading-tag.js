@@ -10,8 +10,10 @@ export default function (md, options = {}) {
   function addAttrwrapper(originalRender) {
     return function (tokens, idx, options, env, self) {
       const token = tokens[idx];
-      const { content } = tokens[idx + 1];
-      const marks = getMarks(content);
+      const title = tokens[idx + 1].children
+        .filter((token) => token.type === 'text' || token.type === 'code_inline')
+        .reduce((acc, t) => acc + t.content, '');
+      const marks = getMarks(title);
 
       marks.forEach(({ attr, value }) => {
         token.attrPush([attr, value]);

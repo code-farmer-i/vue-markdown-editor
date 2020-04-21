@@ -22,11 +22,11 @@ mdIt
     allowedAttributes: ['width', 'height'],
   })
   .use(markdownItHeadingTag, {
-    getMarks(content) {
+    getMarks(title) {
       return [
         {
           attr: 'data-v-md-heading',
-          value: kebabCase(content),
+          value: kebabCase(title),
         },
       ];
     },
