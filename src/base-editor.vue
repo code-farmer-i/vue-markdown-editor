@@ -33,6 +33,7 @@
         :text="text"
         :theme="theme"
         @change="handleChange"
+        @click.native="handlePreviewClick"
         ref="preview"
       />
     </scrollbar>
@@ -51,6 +52,7 @@ import vModelMixin from '@/mixins/v-model';
 import fullscreenMixin from '@/mixins/fullscreen';
 import uploadImageMixin from '@/mixins/upload-image';
 import syncScrollMixin from '@/mixins/sync-scroll';
+import previewAnchorMixin from '@/mixins/preview-anchor';
 
 import TextareaEditor from '@/components/textarea-editor';
 
@@ -66,6 +68,7 @@ const component = {
     fullscreenMixin,
     uploadImageMixin,
     syncScrollMixin,
+    previewAnchorMixin,
   ],
   computed: {
     editorEgine () {

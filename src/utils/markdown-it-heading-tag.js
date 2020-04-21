@@ -1,5 +1,7 @@
-export default function (md) {
-  const anchorMarkup = 'data-v-md-anchor';
+export default function (md, options = {}) {
+  const { getMarks } = options;
+
+  if (!getMarks) return;
 
   const defaultRender = function (tokens, idx, options, env, self) {
     return self.renderToken(tokens, idx, options);
@@ -8,13 +10,12 @@ export default function (md) {
   function addAttrwrapper(originalRender) {
     return function (tokens, idx, options, env, self) {
       const token = tokens[idx];
-      let { content } = tokens[idx + 1];
-      content = content
-        .split(' ')
-        .map((str) => str.toLowerCase())
-        .join('-');
+      const { content } = tokens[idx + 1];
+      const marks = getMarks(content);
 
-      token.attrPush([anchorMarkup, content]);
+      marks.forEach(({ attr, value }) => {
+        token.attrPush([attr, value]);
+      });
 
       return originalRender(tokens, idx, options, env, self);
     };

@@ -26,6 +26,13 @@ export function importAll(map, r) {
   });
 }
 
+export function kebabCase(str) {
+  return str
+    .split(' ')
+    .map((str) => str.replace(/\B([A-Z])/g, '-$1').toLowerCase())
+    .join('-');
+}
+
 export function generatorText({
   selected,
   InsertGetter,

@@ -1,5 +1,7 @@
+import { getScrollTop, scrollTo } from './scroll-top';
+
 export default function smoothScroll(target, scrollTop, percent = 10) {
-  let currentScrollTop = target.scrollTop;
+  let currentScrollTop = getScrollTop(target);
   const scrollWay = scrollTop > currentScrollTop ? 'down' : 'up';
   const step = (scrollTop - currentScrollTop) * (percent / 100);
   let id;
@@ -11,15 +13,11 @@ export default function smoothScroll(target, scrollTop, percent = 10) {
       (scrollWay === 'down' && currentScrollTop >= scrollTop) ||
       (scrollWay === 'up' && currentScrollTop <= scrollTop)
     ) {
-      if (target === window) {
-        window.scrollTo(window.pageXOffset, scrollTop);
-      } else {
-        target.scrollTop = scrollTop;
-      }
+      scrollTo(target, scrollTop);
 
       window.cancelAnimationFrame(id);
     } else {
-      target.scrollTop = currentScrollTop;
+      scrollTo(target, currentScrollTop);
       window.requestAnimationFrame(scroll);
     }
   };

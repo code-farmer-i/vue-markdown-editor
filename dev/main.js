@@ -14,10 +14,10 @@ import createTodoListPlugin from '@/plugins/todo-list/index';
 VueMarkdownEditor.use(createEmojiPlugin()).use(createKatexPlugin()).use(createTodoListPlugin());
 VueMarkdownEditor.use(githubTheme);
 // VueMarkdownEditor.use(vuepressTheme);
-// Preview.use(githubTheme);
+Preview.use(githubTheme);
 
 Vue.use(VueMarkdownEditor);
-// Vue.use(Preview);
+Vue.use(Preview);
 
 new Vue({
   el: '#app',

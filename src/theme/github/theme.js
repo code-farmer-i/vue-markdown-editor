@@ -2,7 +2,8 @@ import markdownItHljs from '@/utils/markdown-it-hljs';
 import markdownItLink from '@/utils/markdown-it-link';
 import markdownItAttr from 'markdown-it-attrs';
 import markdownItLineNumber from '@/utils/markdown-it-line-number';
-import markdownItAnchor from '@/utils/markdown-it-anchor';
+import markdownItHeadingTag from '@/utils/markdown-it-heading-tag';
+import { kebabCase } from '@/utils/util';
 
 // style
 import '@/assets/css/github-markdown';
@@ -20,7 +21,16 @@ mdIt
   .use(markdownItAttr, {
     allowedAttributes: ['width', 'height'],
   })
-  .use(markdownItAnchor)
+  .use(markdownItHeadingTag, {
+    getMarks(content) {
+      return [
+        {
+          attr: 'data-v-md-heading',
+          value: kebabCase(content),
+        },
+      ];
+    },
+  })
   .use(markdownItLineNumber);
 
 export default {
