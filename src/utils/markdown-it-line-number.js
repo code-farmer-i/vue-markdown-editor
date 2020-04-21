@@ -1,6 +1,4 @@
-export default function (md) {
-  const lineMarkup = 'data-v-md-line';
-
+export default function (md, { lineMarkup = 'data-line' } = {}) {
   const defaultRender = function (tokens, idx, options, env, self) {
     return self.renderToken(tokens, idx, options);
   };

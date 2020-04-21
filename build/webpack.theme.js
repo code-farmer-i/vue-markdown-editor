@@ -6,6 +6,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = merge(getBaseConfig(), {
   mode: 'production',
   entry: {
+    base: './src/theme/base/base',
+    hljs: './src/theme/base/highlight',
+    prism: './src/theme/base/prism',
     github: './src/theme/github/index',
     vuepress: './src/theme/vuepress/index',
   },
