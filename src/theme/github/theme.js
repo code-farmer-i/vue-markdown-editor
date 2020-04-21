@@ -3,6 +3,7 @@ import markdownItLink from '@/utils/markdown-it-link';
 import markdownItAttr from 'markdown-it-attrs';
 import markdownItLineNumber from '@/utils/markdown-it-line-number';
 import markdownItHeadingTag from '@/utils/markdown-it-heading-tag';
+import markdownItTableOfContent from '@/utils/markdown-it-table-of-content';
 import { kebabCase } from '@/utils/util';
 
 // style
@@ -26,7 +27,19 @@ mdIt
       return [
         {
           attr: 'data-v-md-heading',
-          value: kebabCase(title),
+          value: encodeURIComponent(kebabCase(title)),
+        },
+      ];
+    },
+  })
+  .use(markdownItTableOfContent, {
+    listClass: 'v-md-toc',
+    listItemClass: 'v-md-toc-item',
+    getAnchorAttrs(title) {
+      return [
+        {
+          attr: 'data-v-md-anchor',
+          value: encodeURIComponent(kebabCase(title)),
         },
       ];
     },

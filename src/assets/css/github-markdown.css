@@ -50,7 +50,6 @@
 }
 
 .github-markdown-body a:not([href]) {
-  color: inherit;
   text-decoration: none;
 }
 

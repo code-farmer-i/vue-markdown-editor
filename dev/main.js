@@ -9,12 +9,12 @@ import createEmojiPlugin from '@/plugins/emoji/full';
 import createKatexPlugin from '@/plugins/katex/cdn';
 import createTodoListPlugin from '@/plugins/todo-list/index';
 
-// import vuepressTheme from '@/theme/vuepress';
+import vuepressTheme from '@/theme/vuepress';
 
 VueMarkdownEditor.use(createEmojiPlugin()).use(createKatexPlugin()).use(createTodoListPlugin());
 VueMarkdownEditor.use(githubTheme);
-// VueMarkdownEditor.use(vuepressTheme);
-Preview.use(githubTheme);
+VueMarkdownEditor.use(vuepressTheme);
+// Preview.use(githubTheme);
 
 Vue.use(VueMarkdownEditor);
 Vue.use(Preview);

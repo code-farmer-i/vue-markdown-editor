@@ -18,7 +18,7 @@ import text from './text';
 export default {
   data () {
     return {
-      value: text,
+      value: '[[toc]]' + text,
     };
   },
   methods: {
@@ -29,10 +29,10 @@ export default {
         desc: '111',
       });
     },
-    handlePreviewClick() {
-      const target = this.$refs.preview.$el.querySelector('[data-v-md-heading=install]');
+    handlePreviewClick(e) {
+      const headingId = e.target.getAttribute('data-v-md-anchor');
 
-      this.$refs.preview.scrollToTarget(target, window);
+      this.$refs.preview.scrollToTarget(this.$refs.preview.$el.querySelector(`[data-v-md-heading=${headingId}]`), window);
     },
   },
 };

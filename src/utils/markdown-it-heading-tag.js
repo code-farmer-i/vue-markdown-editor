@@ -13,11 +13,14 @@ export default function (md, options = {}) {
       const title = tokens[idx + 1].children
         .filter((token) => token.type === 'text' || token.type === 'code_inline')
         .reduce((acc, t) => acc + t.content, '');
-      const marks = getMarks(title);
+      const level = Number(token.tag.substr(1));
+      const marks = getMarks(title, level);
 
-      marks.forEach(({ attr, value }) => {
-        token.attrPush([attr, value]);
-      });
+      if (marks) {
+        marks.forEach(({ attr, value }) => {
+          token.attrPush([attr, value]);
+        });
+      }
 
       return originalRender(tokens, idx, options, env, self);
     };
