@@ -6,12 +6,19 @@
     :disabled-menus="disabledMenus"
     :height="height"
     :fullscreen="fullscreen"
+    :left-area-visible="tocVisible"
     :mode="mode"
     @toolbar-item-click="handleToolbarItemClick"
     @toolbar-menu-click="handleToolbarMenuClick"
     @resize="handleContainerResize"
     ref="contaner"
   >
+    <scrollbar slot="left-area">
+      <toc-nav
+        :titles="titles"
+        @nav-click="handleNavClick"
+      />
+    </scrollbar>
     <div
       class="codemirror-wrapper"
       slot="editor"
@@ -38,13 +45,6 @@
 </template>
 
 <script>
-// mixins
-import commonMixin from '@/mixins/common';
-import vModelMixin from '@/mixins/v-model';
-import fullscreenMixin from '@/mixins/fullscreen';
-import uploadImageMixin from '@/mixins/upload-image';
-import syncScrollMixin from '@/mixins/sync-scroll';
-
 import createEditor from './create-editor';
 
 import Codemirror from 'codemirror';
@@ -59,13 +59,6 @@ import 'codemirror/addon/scroll/simplescrollbars.css';
 import 'codemirror/lib/codemirror.css';
 
 const component = {
-  mixins: [
-    commonMixin,
-    vModelMixin,
-    fullscreenMixin,
-    uploadImageMixin,
-    syncScrollMixin,
-  ],
   props: {
     codemirrorConfig: Object,
   },
@@ -97,7 +90,7 @@ const component = {
     });
 
     this.codemirrorInstance.on('scroll', () => {
-      this.handleScroll();
+      this.handleEditorScroll();
     });
   },
   methods: {
@@ -112,6 +105,12 @@ const component = {
       if (start <= number && number <= end) {
         return number - start;
       }
+    },
+    // Must implement
+    editorScrollToLine (lineIndex) {
+      const offsetTop = this.codemirrorInstance.heightAtLine(lineIndex - 1, 'local');
+
+      this.codemirrorInstance.scrollTo(0, offsetTop);
     },
     // Must implement
     getScrollInfo () {

@@ -6,15 +6,22 @@
     :disabled-menus="disabledMenus"
     :height="height"
     :fullscreen="fullscreen"
+    :left-area-visible="tocVisible"
     :mode="mode"
     @editor-wrapper-click="handleEditorWrapperClick"
     @toolbar-item-click="handleToolbarItemClick"
     @toolbar-menu-click="handleToolbarMenuClick"
     ref="contaner"
   >
+    <scrollbar slot="left-area">
+      <toc-nav
+        :titles="titles"
+        @nav-click="handleNavClick"
+      />
+    </scrollbar>
     <scrollbar
       slot="editor"
-      @scroll="handleScroll"
+      @scroll="handleEditorScroll"
       ref="editorScroller"
     >
       <v-md-textarea-editor
@@ -46,14 +53,6 @@
 </template>
 
 <script>
-// mixins
-import commonMixin from '@/mixins/common';
-import vModelMixin from '@/mixins/v-model';
-import fullscreenMixin from '@/mixins/fullscreen';
-import uploadImageMixin from '@/mixins/upload-image';
-import syncScrollMixin from '@/mixins/sync-scroll';
-import previewAnchorMixin from '@/mixins/preview-anchor';
-
 import TextareaEditor from '@/components/textarea-editor';
 
 import createEditor from './create-editor';
@@ -62,14 +61,6 @@ const component = {
   components: {
     [TextareaEditor.name]: TextareaEditor,
   },
-  mixins: [
-    commonMixin,
-    vModelMixin,
-    fullscreenMixin,
-    uploadImageMixin,
-    syncScrollMixin,
-    previewAnchorMixin,
-  ],
   computed: {
     editorEgine () {
       return this.$refs.editorEgine;
@@ -93,6 +84,12 @@ const component = {
       const { start, end } = selectedRange;
 
       return end > start ? text.slice(start, end) : null;
+    },
+    // Must implement
+    editorScrollToLine (lineIndex) {
+      const offsetTop = this.editorEgine.heightAtLine(lineIndex - 1);
+
+      this.$refs.editorScroller.scrollTo(offsetTop);
     },
     // Must implement
     getScrollInfo () {

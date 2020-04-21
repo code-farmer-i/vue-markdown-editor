@@ -4,13 +4,16 @@ export default {
       const { target } = e;
       const previewScrollerEl = this.$refs.previewScroller.$el;
       const previewScrollWrapper = previewScrollerEl.querySelector('.scrollbar__wrap');
+      const scrollContainer = this.mode === 'preview' ? window : previewScrollWrapper;
 
       const scrollToTargetId = target.getAttribute('data-v-md-anchor');
 
       if (scrollToTargetId) {
-        const scrollToTarget = document.querySelector(`[data-v-md-heading=${scrollToTargetId}]`);
+        const scrollToTarget = previewScrollerEl.querySelector(
+          `[data-v-md-heading=${scrollToTargetId}]`
+        );
 
-        this.$refs.preview.scrollToTarget(scrollToTarget, previewScrollWrapper);
+        this.$refs.preview.scrollToTarget(scrollToTarget, scrollContainer);
       }
     },
   },

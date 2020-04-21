@@ -6,6 +6,7 @@ import '@/assets/css/font';
 import Preview from '@/preview';
 import Container from '@/components/container';
 import Scrollbar from '@/components/scrollbar/index';
+import TocNav from '@/components/toc-nav';
 
 export default {
   theme: Preview.theme,
@@ -15,6 +16,7 @@ export default {
     [Preview.name]: Preview,
     [Container.name]: Container,
     [Scrollbar.name]: Scrollbar,
+    [TocNav.name]: TocNav,
   },
   provide() {
     return {

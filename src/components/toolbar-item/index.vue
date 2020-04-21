@@ -93,7 +93,7 @@ export default {
     },
     handleClick() {
       this.$emit('click');
-      this.handleHideTooltip();
+      if (this.hasMenu) this.handleHideTooltip();
       this.menuActive ? this.hideMenu() : this.showMenu();
     },
     handleMousemove(e) {
