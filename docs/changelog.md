@@ -6,8 +6,8 @@
 
 **Features**
 
-- toc：支持 [[toc]] 插入目录。
-- toolbar：新增目录导航功能。
+- toc：支持 [\[toc]] 插入目录。
+- toolbar：新增[目录导航](/vue-markdown-editor/senior/toc)功能。
 
 **Improvement**
 

@@ -41,33 +41,26 @@ sidebarDepth: 2
 ### left-toolbar
 
 - 类型：`String`
-- 默认值： `undo redo clear | bold italic strikethrough quote | h1 h2 h3 h4 h5 h6 | ul ol table | link image code | save`
+- 默认值： `undo redo clear | h bold italic strikethrough quote | ul ol table hr | link image code | save`
 
-| 名称          | 说明                                                     |
-| ------------- | -------------------------------------------------------- |
-| undo          | 撤销                                                     |
-| redo          | 重做                                                     |
-| clear         | 清空                                                     |
-| bold          | 粗体                                                     |
-| italic        | 斜体                                                     |
-| strikethrough | 中划线                                                   |
-| quote         | 引用                                                     |
-| h1            | 一级标题                                                 |
-| h2            | 二级标题                                                 |
-| h3            | 三级标题                                                 |
-| h4            | 四级标题                                                 |
-| h5            | 五级标题                                                 |
-| h6            | 六级标题                                                 |
-| hr            | 分割线                                                   |
-| ul            | 无序列表                                                 |
-| ol            | 有序列表                                                 |
-| table         | 表格                                                     |
-| link          | 链接                                                     |
-| image         | 图片链接                                                 |
-| uploadImage   | [本地图片上传](/vue-markdown-editor/senior/upload-image) |
-| code          | 代码块                                                   |
-| save          | 保存，点击后触发[save](/api.html#save)事件               |
-| tip           | 提示块（注：只有 vuepress 主题才有效）                   |
+| 名称          | 说明                                                 |
+| ------------- | ---------------------------------------------------- |
+| undo          | 撤销                                                 |
+| redo          | 重做                                                 |
+| clear         | 清空                                                 |
+| h             | 标题                                                 |
+| bold          | 粗体                                                 |
+| italic        | 斜体                                                 |
+| strikethrough | 中划线                                               |
+| quote         | 引用                                                 |
+| ul            | 无序列表                                             |
+| ol            | 有序列表                                             |
+| table         | 表格                                                 |
+| hr            | 分割线                                               |
+| link          | 链接                                                 |
+| image         | [插入图片](/vue-markdown-editor/senior/upload-image) |
+| code          | 代码块                                               |
+| save          | 保存，点击后触发[save](/api.html#save)事件           |
 
 左侧工具栏
 
@@ -123,13 +116,6 @@ export default {
 - 默认值：`['image/upload-image']`
 
 禁用的菜单。默认值为 image 工具栏下的上传本地图片菜单。示例：`h/h1` （禁用标题工具栏下的 h1 标题菜单）。
-
-### theme
-
-- 类型：`Object`
-- 默认值：`{}`
-
-主题配置。将会与全局的主题合并。优先级高于全局配置的主题。
 
 ### upload-image-config
 
