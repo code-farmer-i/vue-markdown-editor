@@ -1,3 +1,22 @@
+## [1.2.5](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.4...v1.2.5) (2020-04-22)
+
+### Features
+
+- add heading anchor ([8aacfbf](https://github.com/code-farmer-i/vue-markdown-editor/commit/8aacfbfafde5309504fc9410d25a9fed855edf7e))
+- add toc ([e382862](https://github.com/code-farmer-i/vue-markdown-editor/commit/e382862af95aec4991aae39fbfdc69d0d52d09d1))
+- add toc nav ([2619cc7](https://github.com/code-farmer-i/vue-markdown-editor/commit/2619cc76c3c713a1edebb6d4ce782231c7ae075b))
+
+### Performance Improvements
+
+- optimize ([4b7b906](https://github.com/code-farmer-i/vue-markdown-editor/commit/4b7b9063814e72efafecf20fe9b223d24951dcc7))
+- **toolbar:** optimize toolbar tooltip ([5760d08](https://github.com/code-farmer-i/vue-markdown-editor/commit/5760d081587f994365416b698827623c0d2f6b48))
+- optimize ([5af51fd](https://github.com/code-farmer-i/vue-markdown-editor/commit/5af51fd609c5b579f14be66aa5aa49b6ff5ce6b8))
+- optimize toc ([955258e](https://github.com/code-farmer-i/vue-markdown-editor/commit/955258eecd5f744b1764384d16e0c8361ab023a6))
+- **anchor:** optimize heading anchor ([b1cff38](https://github.com/code-farmer-i/vue-markdown-editor/commit/b1cff38e78a03dbc6ac4da031f8edc4f2766f2ff))
+- **preview:** optimize preview anchor ([1df2ba7](https://github.com/code-farmer-i/vue-markdown-editor/commit/1df2ba7b83207039d4ff5f186c2074b64a7fb03c))
+- **scrollbar:** optimize scrollbar style ([6e68d5a](https://github.com/code-farmer-i/vue-markdown-editor/commit/6e68d5a2997b3d39c435b154ea3a04153239369a))
+- **tooltip:** add transition ([2c69f5d](https://github.com/code-farmer-i/vue-markdown-editor/commit/2c69f5d8cfce9e0e8ef92b56f1d6ed61aab1b621))
+
 ## [1.2.4](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.3...v1.2.4) (2020-04-20)
 
 ### Features
