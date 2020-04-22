@@ -1,3 +1,9 @@
+## [1.2.6](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.5...v1.2.6) (2020-04-22)
+
+### Performance Improvements
+
+- optimize ([cf90ebe](https://github.com/code-farmer-i/vue-markdown-editor/commit/cf90ebecf7e56cb9f69525fa1c9d0822f06779e1))
+
 ## [1.2.5](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.4...v1.2.5) (2020-04-22)
 
 ### Features
