@@ -14,7 +14,7 @@
     v-clickoutside="hideMenu"
     @mousedown.prevent
     @mouseleave="handleHideTooltip"
-    @mousemove="handleMousemove"
+    @mousemove="showTooltip"
     @click.stop="handleClick"
   >
     {{ text }}
@@ -91,12 +91,17 @@ export default {
         this.menuActive = true;
       }
     },
-    handleClick() {
+    handleClick(e) {
       this.$emit('click');
-      if (this.hasMenu) this.handleHideTooltip();
       this.menuActive ? this.hideMenu() : this.showMenu();
+
+      if (this.hasMenu) {
+        this.handleHideTooltip();
+      } else {
+        this.showTooltip(e);
+      }
     },
-    handleMousemove(e) {
+    showTooltip(e) {
       const selfEl = this.$el;
       const { target } = e;
       const { menuCtrl } = this.$refs;
