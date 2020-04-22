@@ -7,6 +7,7 @@
     :height="height"
     :fullscreen="fullscreen"
     :left-area-visible="tocVisible"
+    left-area-title="目录导航"
     :mode="mode"
     @toolbar-item-click="handleToolbarItemClick"
     @toolbar-menu-click="handleToolbarMenuClick"
@@ -46,6 +47,7 @@
 
 <script>
 import createEditor from './create-editor';
+import { smooth } from '@/utils/smooth-scroll';
 
 import Codemirror from 'codemirror';
 // mode
@@ -107,10 +109,14 @@ const component = {
       }
     },
     // Must implement
-    editorScrollToLine (lineIndex) {
-      const offsetTop = this.codemirrorInstance.heightAtLine(lineIndex - 1, 'local');
+    editorScrollToTop (scrollTop) {
+      const currentScrollTop = this.getScrollInfo().top;
 
-      this.codemirrorInstance.scrollTo(0, offsetTop);
+      smooth({
+        currentScrollTop,
+        scrollToTop: scrollTop,
+        scrollFn: scrollTop => this.codemirrorInstance.scrollTo(0, scrollTop),
+      });
     },
     // Must implement
     getScrollInfo () {

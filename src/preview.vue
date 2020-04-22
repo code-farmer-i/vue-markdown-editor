@@ -66,11 +66,15 @@ const component = {
 
       return rect.top - container.getBoundingClientRect().top;
     },
-    scrollToTarget (target, scrollContainer) {
+    scrollToTarget (target, scrollContainer, callback) {
       const offsetTop = this.getOffsetTop(target, scrollContainer);
       const scrollTop = getScrollTop(scrollContainer) + offsetTop;
 
-      smoothScroll(scrollContainer, scrollTop);
+      smoothScroll({
+        scrollTarget: scrollContainer,
+        scrollToTop: scrollTop,
+        onScrollEnd: callback,
+      });
     },
     handleTextChange () {
       this.html = xss.process(this.markdownLoader(this.text));

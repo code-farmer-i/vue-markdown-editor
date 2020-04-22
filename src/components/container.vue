@@ -13,7 +13,15 @@
         width: leftAreaVisible ? leftAreaWidth : 0
       }"
     >
-      <div class="v-md-editor__left-area-title">目录导航</div>
+      <div
+        class="v-md-editor__left-area-title"
+        :style="{
+          height: `${toolbarHeight}px`,
+          lineHeight: `${toolbarHeight}px`,
+        }"
+      >
+        {{ leftAreaTitle }}
+      </div>
       <div class="v-md-editor__left-area-body">
         <slot name="left-area" />
       </div>
@@ -22,6 +30,7 @@
       <div
         class="v-md-editor__toolbar"
         v-if="mode === 'editable'"
+        ref="toolbarWrapper"
       >
         <editor-toolbar
           class="v-md-editor__toolbar-left"
@@ -42,13 +51,17 @@
       </div>
       <div class="v-md-editor__main">
         <div
+          ref="editorWrapper"
           class="v-md-editor__editor-wrapper"
           v-if="mode === 'editable'"
           @click="handleEditorWrapperClick"
         >
           <slot name="editor" />
         </div>
-        <div class="v-md-editor__preview-wrapper">
+        <div
+          class="v-md-editor__preview-wrapper"
+          ref="previewWrapper"
+        >
           <slot name="preview" />
         </div>
         <slot />
@@ -75,14 +88,20 @@ export default {
     noresize: Boolean,
     disabledMenus: Array,
     leftAreaVisible: Boolean,
+    leftAreaTitle: String,
     leftAreaWidth: {
       type: String,
-      default: '240px',
+      default: '200px',
     },
     mode: {
       type: String,
       default: 'editable',
     },
+  },
+  data () {
+    return {
+      toolbarHeight: 0,
+    };
   },
   computed: {
     heightGetter() {
@@ -96,15 +115,19 @@ export default {
     },
   },
   mounted() {
-    !this.noresize && addResizeListener(this.$el, this.handleContainerResize);
+    !this.noresize && addResizeListener(this.$refs.editorWrapper, this.handleResize);
+    addResizeListener(this.$refs.toolbarWrapper, this.handleToolbarWrapperResize);
   },
-
   beforeDestroy() {
-    !this.noresize && removeResizeListener(this.$el, this.handleContainerResize);
+    !this.noresize && removeResizeListener(this.$refs.editorWrapper, this.handleResize);
+    removeResizeListener(this.$refs.toolbarWrapper, this.handleToolbarWrapperResize);
   },
   methods: {
-    handleContainerResize() {
+    handleResize() {
       this.$emit('resize');
+    },
+    handleToolbarWrapperResize() {
+      this.toolbarHeight = this.$refs.toolbarWrapper.offsetHeight;
     },
     getToolbarConfig(toolbarStr) {
       return toolbarStr
@@ -152,7 +175,7 @@ export default {
     &-title {
       position: relative;
       height: 41px;
-      padding: 0 6px;
+      padding: 0 14px;
       color: $text-color;
       font-size: 14px;
       line-height: 41px;
@@ -170,7 +193,7 @@ export default {
 
     &-body {
       flex: 1;
-      padding: 6px;
+      padding: 8px 14px;
       overflow: hidden;
     }
   }

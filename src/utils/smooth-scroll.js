@@ -1,26 +1,38 @@
 import { getScrollTop, scrollTo } from './scroll-top';
 
-export default function smoothScroll(target, scrollTop, percent = 10) {
-  let currentScrollTop = getScrollTop(target);
-  const scrollWay = scrollTop > currentScrollTop ? 'down' : 'up';
-  const step = (scrollTop - currentScrollTop) * (percent / 100);
+export function smooth({ currentScrollTop, scrollToTop, scrollFn, percent = 10, onScrollEnd }) {
+  const scrollWay = scrollToTop > currentScrollTop ? 'down' : 'up';
+  const step = (scrollToTop - currentScrollTop) * (percent / 100);
   let id;
 
   const scroll = () => {
     currentScrollTop += step;
 
     if (
-      (scrollWay === 'down' && currentScrollTop >= scrollTop) ||
-      (scrollWay === 'up' && currentScrollTop <= scrollTop)
+      (scrollWay === 'down' && currentScrollTop >= scrollToTop) ||
+      (scrollWay === 'up' && currentScrollTop <= scrollToTop)
     ) {
-      scrollTo(target, scrollTop);
+      scrollFn(scrollToTop);
 
       window.cancelAnimationFrame(id);
+      if (onScrollEnd) window.requestAnimationFrame(onScrollEnd);
     } else {
-      scrollTo(target, currentScrollTop);
+      scrollFn(currentScrollTop);
       window.requestAnimationFrame(scroll);
     }
   };
 
   window.requestAnimationFrame(scroll);
+}
+
+export default function smoothScroll({ scrollTarget, scrollToTop, percent = 10, onScrollEnd }) {
+  const currentScrollTop = getScrollTop(scrollTarget);
+
+  smooth({
+    currentScrollTop,
+    scrollToTop,
+    scrollFn: (scrollTop) => scrollTo(scrollTarget, scrollTop),
+    percent,
+    onScrollEnd,
+  });
 }

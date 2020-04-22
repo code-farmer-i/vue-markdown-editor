@@ -18,7 +18,7 @@ import text from './text';
 export default {
   data () {
     return {
-      value: text,
+      value: '[[toc]]' + text,
     };
   },
   methods: {

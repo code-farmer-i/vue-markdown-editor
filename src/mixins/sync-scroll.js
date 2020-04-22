@@ -12,16 +12,6 @@ export default {
 
       if (isEnable) this.previewSyncScroll();
     },
-    previewScrollTo(scrollTop) {
-      this.$refs.previewScroller.scrollTo(scrollTop);
-    },
-    scrollToLine(lineIndex) {
-      this.editorScrollToLine(lineIndex);
-
-      if (!this.enableSyncScroll) {
-        this.handleEditorScroll(true);
-      }
-    },
     previewSyncScroll() {
       const previewEl = this.$refs.preview.$el;
       const previewScrollerEl = this.$refs.previewScroller.$el;
@@ -80,7 +70,7 @@ export default {
       }
     },
     handleEditorScroll() {
-      if (!this.enableSyncScroll) return;
+      if (!this.enableSyncScroll || this.ignoreSyncScroll) return;
 
       clearTimeout(this.scrollTimmer);
 

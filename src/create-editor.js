@@ -11,6 +11,7 @@ import previewAnchorMixin from '@/mixins/preview-anchor';
 import toolbarMixin from '@/mixins/toolbar';
 import commandMixin from '@/mixins/command';
 import tocMixin from '@/mixins/toc';
+import scrollMixin from '@/mixins/scroll';
 
 import Preview from '@/preview';
 
@@ -31,5 +32,6 @@ export default function createEditor(component) {
     syncScrollMixin,
     previewAnchorMixin,
     tocMixin,
+    scrollMixin,
   ];
 }

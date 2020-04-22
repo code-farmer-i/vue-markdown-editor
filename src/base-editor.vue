@@ -7,6 +7,7 @@
     :height="height"
     :fullscreen="fullscreen"
     :left-area-visible="tocVisible"
+    left-area-title="目录导航"
     :mode="mode"
     @editor-wrapper-click="handleEditorWrapperClick"
     @toolbar-item-click="handleToolbarItemClick"
@@ -86,10 +87,8 @@ const component = {
       return end > start ? text.slice(start, end) : null;
     },
     // Must implement
-    editorScrollToLine (lineIndex) {
-      const offsetTop = this.editorEgine.heightAtLine(lineIndex - 1);
-
-      this.$refs.editorScroller.scrollTo(offsetTop);
+    editorScrollToTop (scrollTop) {
+      this.$refs.editorScroller.scrollTo(scrollTop);
     },
     // Must implement
     getScrollInfo () {

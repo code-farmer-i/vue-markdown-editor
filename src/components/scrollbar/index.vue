@@ -65,8 +65,10 @@ export default {
     },
 
     scrollTo(scrollTop) {
-      // this.wrap.scrollTop = scrollTop;
-      smoothScroll(this.wrap, scrollTop);
+      smoothScroll({
+        scrollTarget: this.wrap,
+        scrollToTop: scrollTop,
+      });
     },
 
 

@@ -2,18 +2,13 @@ export default {
   methods: {
     handlePreviewClick(e) {
       const { target } = e;
-      const previewScrollerEl = this.$refs.previewScroller.$el;
-      const previewScrollWrapper = previewScrollerEl.querySelector('.scrollbar__wrap');
-      const scrollContainer = this.mode === 'preview' ? window : previewScrollWrapper;
-
+      const { preview } = this.$refs;
       const scrollToTargetId = target.getAttribute('data-v-md-anchor');
+      const scrollToTarget = preview.$el.querySelector(`[data-v-md-heading=${scrollToTargetId}]`);
+      const scrollToTargetLineNumber = scrollToTarget.getAttribute('data-v-md-line');
 
-      if (scrollToTargetId) {
-        const scrollToTarget = previewScrollerEl.querySelector(
-          `[data-v-md-heading=${scrollToTargetId}]`
-        );
-
-        this.$refs.preview.scrollToTarget(scrollToTarget, scrollContainer);
+      if (typeof scrollToTargetLineNumber !== 'undefined') {
+        this.previewScrollToLine(scrollToTargetLineNumber);
       }
     },
   },
