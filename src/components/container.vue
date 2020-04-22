@@ -8,6 +8,7 @@
     :style="{ height: heightGetter }"
   >
     <div
+      v-if="mode === 'editable'"
       class="v-md-editor__left-area"
       :style="{
         width: leftAreaVisible ? leftAreaWidth : 0,
@@ -116,12 +117,16 @@ export default {
     },
   },
   mounted() {
-    !this.noresize && addResizeListener(this.$refs.editorWrapper, this.handleResize);
-    addResizeListener(this.$refs.toolbarWrapper, this.handleToolbarWrapperResize);
+    if (!this.noresize && this.mode === 'editable') {
+      addResizeListener(this.$refs.editorWrapper, this.handleResize);
+      addResizeListener(this.$refs.toolbarWrapper, this.handleToolbarWrapperResize);
+    }
   },
   beforeDestroy() {
-    !this.noresize && removeResizeListener(this.$refs.editorWrapper, this.handleResize);
-    removeResizeListener(this.$refs.toolbarWrapper, this.handleToolbarWrapperResize);
+    if (!this.noresize && this.mode === 'editable') {
+      removeResizeListener(this.$refs.editorWrapper, this.handleResize);
+      removeResizeListener(this.$refs.toolbarWrapper, this.handleToolbarWrapperResize);
+    }
   },
   methods: {
     handleResize() {

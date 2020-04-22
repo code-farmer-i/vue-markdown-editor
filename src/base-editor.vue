@@ -40,8 +40,8 @@
       <v-md-preview
         :text="text"
         :theme="theme"
+        :scroll-container="getPreviewScrollContainer"
         @change="handleChange"
-        @click.native="handlePreviewClick"
         ref="preview"
       />
     </scrollbar>

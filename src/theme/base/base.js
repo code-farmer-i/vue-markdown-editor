@@ -2,6 +2,7 @@ import markdownItAttr from 'markdown-it-attrs';
 import markdownItLineNumber from '@/utils/markdown-it-line-number';
 import markdownItHeadingTag from '@/utils/markdown-it-heading-tag';
 import markdownItTableOfContent from '@/utils/markdown-it-table-of-content';
+import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants';
 import { kebabCase } from '@/utils/util';
 
 // style
@@ -21,7 +22,7 @@ export default function createBaseTheme() {
       getMarks(title) {
         return [
           {
-            attr: 'data-v-md-heading',
+            attr: HEADING_MARKUP,
             value: encodeURIComponent(kebabCase(title)),
           },
         ];
@@ -33,14 +34,14 @@ export default function createBaseTheme() {
       getAnchorAttrs(title) {
         return [
           {
-            attr: 'data-v-md-anchor',
+            attr: ANCHOR_MARKUP,
             value: encodeURIComponent(kebabCase(title)),
           },
         ];
       },
     })
     .use(markdownItLineNumber, {
-      lineMarkup: 'data-v-md-line',
+      lineMarkup: LINE_MARKUP,
     });
 
   return {

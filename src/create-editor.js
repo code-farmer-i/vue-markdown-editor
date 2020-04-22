@@ -7,7 +7,6 @@ import vModelMixin from '@/mixins/v-model';
 import fullscreenMixin from '@/mixins/fullscreen';
 import uploadImageMixin from '@/mixins/upload-image';
 import syncScrollMixin from '@/mixins/sync-scroll';
-import previewAnchorMixin from '@/mixins/preview-anchor';
 import toolbarMixin from '@/mixins/toolbar';
 import commandMixin from '@/mixins/command';
 import tocMixin from '@/mixins/toc';
@@ -30,7 +29,6 @@ export default function createEditor(component) {
     fullscreenMixin,
     uploadImageMixin,
     syncScrollMixin,
-    previewAnchorMixin,
     tocMixin,
     scrollMixin,
   ];

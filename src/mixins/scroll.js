@@ -1,4 +1,19 @@
 export default {
+  props: {
+    previewScrollContainer: Function,
+  },
+  computed: {
+    getPreviewScrollContainer() {
+      return () => {
+        const previewScrollContainer = this.$refs.previewScroller.$el.querySelector(
+          '.scrollbar__wrap'
+        );
+        const defaultContainer = this.mode === 'preview' ? window : previewScrollContainer;
+
+        return this.previewScrollContainer ? this.previewScrollContainer() : defaultContainer;
+      };
+    },
+  },
   methods: {
     previewScrollTo(scrollTop) {
       this.$refs.previewScroller.scrollTo(scrollTop);
@@ -9,8 +24,11 @@ export default {
       }
 
       this.ignoreSyncScroll = true;
-      this.previewScrollToLine(lineIndex, () => {
-        this.ignoreSyncScroll = false;
+      this.previewScrollToLine({
+        lineIndex,
+        onScrollEnd: () => {
+          this.ignoreSyncScroll = false;
+        },
       });
     },
     editorScrollToLine(lineIndex) {
@@ -21,17 +39,8 @@ export default {
     previewScrollToTarget(...arg) {
       this.$refs.preview.scrollToTarget(...arg);
     },
-    previewScrollToLine(lineIndex, onScrollEnd) {
-      if (lineIndex) {
-        const { preview } = this.$refs;
-        const previewScrollerEl = this.$refs.previewScroller.$el;
-        const previewScrollWrapper = previewScrollerEl.querySelector('.scrollbar__wrap');
-
-        const target = preview.$el.querySelector(`[data-v-md-line="${lineIndex}"]`);
-        const scrollContainer = this.mode === 'preview' ? window : previewScrollWrapper;
-
-        if (target) preview.scrollToTarget({ target, scrollContainer, onScrollEnd });
-      }
+    previewScrollToLine({ lineIndex, onScrollEnd }) {
+      this.$refs.preview.scrollToLine({ lineIndex, onScrollEnd });
     },
   },
 };

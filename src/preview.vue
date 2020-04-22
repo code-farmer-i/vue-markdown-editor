@@ -3,6 +3,7 @@
     v-html="html"
     class="v-md-editor-preview"
     :class="[themeConfig.previewClass]"
+    @click="handlePreviewClick"
   />
 </template>
 
@@ -10,6 +11,7 @@
 import xss from '@/utils/xss/index';
 import { getScrollTop } from '@/utils/scroll-top';
 import smoothScroll from '@/utils/smooth-scroll';
+import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants';
 
 const defaultMarkdownLoader = (text) => text;
 
@@ -21,6 +23,14 @@ const component = {
       default: '',
     },
     theme: Object,
+    scrollContainer: {
+      type: Function,
+      default: () => window,
+    },
+    top: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
@@ -57,6 +67,19 @@ const component = {
     this.handleTextChange();
   },
   methods: {
+    handlePreviewClick (e) {
+      const { target } = e;
+      const scrollToTargetId = target.getAttribute(ANCHOR_MARKUP);
+      const scrollToTarget = this.$el.querySelector(`[${HEADING_MARKUP}=${scrollToTargetId}]`);
+
+      if (scrollToTarget) {
+        this.scrollToTarget({
+          target: scrollToTarget,
+          scrollContainer: this.scrollContainer(),
+          top: this.top,
+        });
+      }
+    },
     getOffsetTop (target, container) {
       const rect = target.getBoundingClientRect();
 
@@ -66,7 +89,7 @@ const component = {
 
       return rect.top - container.getBoundingClientRect().top;
     },
-    scrollToTarget ({ target, scrollContainer, top = 0, onScrollEnd }) {
+    scrollToTarget ({ target, scrollContainer = this.scrollContainer(), top = 0, onScrollEnd }) {
       const offsetTop = this.getOffsetTop(target, scrollContainer);
       const scrollTop = getScrollTop(scrollContainer) + offsetTop - top;
 
@@ -75,6 +98,13 @@ const component = {
         scrollToTop: scrollTop,
         onScrollEnd,
       });
+    },
+    scrollToLine ({ lineIndex, onScrollEnd }) {
+      if (lineIndex) {
+        const target = this.$el.querySelector(`[${LINE_MARKUP}="${lineIndex}"]`);
+
+        if (target) this.scrollToTarget({ target, onScrollEnd });
+      }
     },
     handleTextChange () {
       this.html = xss.process(this.markdownLoader(this.text));

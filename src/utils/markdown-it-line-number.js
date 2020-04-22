@@ -19,10 +19,6 @@ export default function (md, { lineMarkup = 'data-line' } = {}) {
       const token = tokens[idx];
       const lineNumber = token.map[0] + 1;
 
-      if (rawCode.indexOf('extra-attrs') !== -1) {
-        return rawCode.replace('extra-attrs', `extra-attrs data-v-md-line="${lineNumber}"`);
-      }
-
       return `<div ${lineMarkup}="${lineNumber}">${rawCode}</div>`;
     };
   }

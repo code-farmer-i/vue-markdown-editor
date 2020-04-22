@@ -1,4 +1,4 @@
-const lineMarkup = 'data-v-md-line';
+import { LINE_MARKUP } from '@/utils/constants';
 
 export default {
   data() {
@@ -15,7 +15,7 @@ export default {
     previewSyncScroll() {
       const previewEl = this.$refs.preview.$el;
       const previewScrollerEl = this.$refs.previewScroller.$el;
-      const previewLines = previewEl.querySelectorAll(`[${lineMarkup}]`);
+      const previewLines = previewEl.querySelectorAll(`[${LINE_MARKUP}]`);
       const {
         clientHeight: editorClientHeight,
         top: editorScrollTop,
@@ -33,7 +33,7 @@ export default {
         let nextLine;
 
         for (let i = 0; i < previewLines.length; i++) {
-          const lineNumber = previewLines[i].getAttribute(lineMarkup);
+          const lineNumber = previewLines[i].getAttribute(LINE_MARKUP);
           const height = this.heightAtLine(lineNumber - 1, 'local');
 
           if (height < editorScrollTop) {
@@ -57,11 +57,11 @@ export default {
         let newNextLineTop = previewScrollWrapper.scrollHeight - previewScrollWrapper.clientHeight;
 
         if (currentLine) {
-          newLineTop = previewEl.querySelector(`[${lineMarkup}="${currentLine}"]`).offsetTop;
+          newLineTop = previewEl.querySelector(`[${LINE_MARKUP}="${currentLine}"]`).offsetTop;
         }
 
         if (nextLine) {
-          newNextLineTop = previewEl.querySelector(`[${lineMarkup}="${nextLine}"]`).offsetTop;
+          newNextLineTop = previewEl.querySelector(`[${LINE_MARKUP}="${nextLine}"]`).offsetTop;
         }
 
         const newScrollTop = newLineTop + (newNextLineTop - newLineTop) * percent;

@@ -1,3 +1,5 @@
+import { LINE_MARKUP } from '@/utils/constants';
+
 export default {
   data() {
     return {
@@ -39,7 +41,7 @@ export default {
 
       this.titles = titles.map((el) => ({
         title: el.innerText,
-        lineIndex: el.getAttribute('data-v-md-line'),
+        lineIndex: el.getAttribute(LINE_MARKUP),
         indent: hTags.indexOf(el.tagName),
       }));
     },

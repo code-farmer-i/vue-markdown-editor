@@ -8,7 +8,6 @@
     <v-md-preview
       :text="value"
       ref="preview"
-      @click.native="handlePreviewClick"
     />
   </div>
 </template>
@@ -31,15 +30,6 @@ export default {
 
       insertImage({
         desc: '111',
-      });
-    },
-    handlePreviewClick(e) {
-      const headingId = e.target.getAttribute('data-v-md-anchor');
-
-      this.$refs.preview.scrollToTarget({
-        target: this.$refs.preview.$el.querySelector(`[data-v-md-heading=${headingId}]`),
-        scrollContainer: window,
-        top: 60,
       });
     },
   },
