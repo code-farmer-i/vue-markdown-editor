@@ -8,7 +8,13 @@ export default {
   watch: {
     text: {
       immediate: true,
-      handler() {
+      handler(newval, oldVal) {
+        // render in the first time
+        if (typeof oldVal === 'undefined') {
+          this.$nextTick(this.updateTocNav);
+          return;
+        }
+
         if (this.updateTocNavTimmer) clearTimeout(this.updateTocNavTimmer);
 
         this.updateTocNavTimmer = setTimeout(this.updateTocNav, 800);

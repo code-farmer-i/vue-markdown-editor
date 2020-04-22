@@ -3,6 +3,7 @@
     <v-md-editor
       v-model="value"
       height="500px"
+      ref="editor"
     />
     <v-md-preview
       :text="value"
@@ -21,6 +22,9 @@ export default {
       value: '[[toc]]' + text,
     };
   },
+  mounted () {
+    this.$refs.editor.toggleToc();
+  },
   methods: {
     handleImageUpload(e, insertImage) {
       console.log(e);
@@ -32,7 +36,11 @@ export default {
     handlePreviewClick(e) {
       const headingId = e.target.getAttribute('data-v-md-anchor');
 
-      this.$refs.preview.scrollToTarget(this.$refs.preview.$el.querySelector(`[data-v-md-heading=${headingId}]`), window);
+      this.$refs.preview.scrollToTarget({
+        target: this.$refs.preview.$el.querySelector(`[data-v-md-heading=${headingId}]`),
+        scrollContainer: window,
+        top: 60,
+      });
     },
   },
 };

@@ -5,9 +5,9 @@ export default {
       const { preview } = this.$refs;
       const scrollToTargetId = target.getAttribute('data-v-md-anchor');
       const scrollToTarget = preview.$el.querySelector(`[data-v-md-heading=${scrollToTargetId}]`);
-      const scrollToTargetLineNumber = scrollToTarget.getAttribute('data-v-md-line');
+      const scrollToTargetLineNumber = scrollToTarget?.getAttribute('data-v-md-line');
 
-      if (typeof scrollToTargetLineNumber !== 'undefined') {
+      if (scrollToTargetLineNumber) {
         this.previewScrollToLine(scrollToTargetLineNumber);
       }
     },

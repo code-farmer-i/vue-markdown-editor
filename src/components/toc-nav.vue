@@ -47,13 +47,13 @@ export default {
     }
 
     &-item:hover &-title {
-      font-size: 16px;
+      font-size: 18px;
       transform-origin: center center;
     }
 
     &-title {
       position: relative;
-      font-size: 14px;
+      font-size: 16px;
       transition: 0.3s;
     }
   }

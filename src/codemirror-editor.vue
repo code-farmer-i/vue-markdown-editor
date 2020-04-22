@@ -34,6 +34,7 @@
         :text="text"
         :theme="theme"
         @change="handleChange"
+        @click.native="handlePreviewClick"
         ref="preview"
       />
     </scrollbar>

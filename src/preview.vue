@@ -66,14 +66,14 @@ const component = {
 
       return rect.top - container.getBoundingClientRect().top;
     },
-    scrollToTarget (target, scrollContainer, callback) {
+    scrollToTarget ({ target, scrollContainer, top = 0, onScrollEnd }) {
       const offsetTop = this.getOffsetTop(target, scrollContainer);
-      const scrollTop = getScrollTop(scrollContainer) + offsetTop;
+      const scrollTop = getScrollTop(scrollContainer) + offsetTop - top;
 
       smoothScroll({
         scrollTarget: scrollContainer,
         scrollToTop: scrollTop,
-        onScrollEnd: callback,
+        onScrollEnd,
       });
     },
     handleTextChange () {

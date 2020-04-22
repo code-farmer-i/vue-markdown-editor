@@ -36,6 +36,8 @@ module.exports = {
         children: [
           ['/senior/toolbar', '自定义工具栏'],
           ['/senior/upload-image', '图片上传'],
+          ['/senior/toc', '目录导航'],
+          ['/senior/anchor', '自定义锚点'],
         ],
       },
       {

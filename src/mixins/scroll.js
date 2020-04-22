@@ -18,7 +18,10 @@ export default {
 
       this.editorScrollToTop(offsetTop);
     },
-    previewScrollToLine(lineIndex, callback) {
+    previewScrollToTarget(...arg) {
+      this.$refs.preview.scrollToTarget(...arg);
+    },
+    previewScrollToLine(lineIndex, onScrollEnd) {
       if (lineIndex) {
         const { preview } = this.$refs;
         const previewScrollerEl = this.$refs.previewScroller.$el;
@@ -27,7 +30,7 @@ export default {
         const target = preview.$el.querySelector(`[data-v-md-line="${lineIndex}"]`);
         const scrollContainer = this.mode === 'preview' ? window : previewScrollWrapper;
 
-        if (target) preview.scrollToTarget(target, scrollContainer, callback);
+        if (target) preview.scrollToTarget({ target, scrollContainer, onScrollEnd });
       }
     },
   },

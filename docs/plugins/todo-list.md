@@ -6,7 +6,7 @@
   <plugin-todo-list />
 </ClientOnly>
 
-## 引入：
+### 引入：
 
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
@@ -15,7 +15,7 @@ import createTodoListPlugin from '@kangc/v-md-editor/lib/plugins/todo-list/index
 VueMarkdownEditor.use(createTodoListPlugin());
 ```
 
-## 使用：
+### 使用：
 
 ```vue
 <template>
@@ -33,7 +33,7 @@ export default {
 </script>
 ```
 
-## Options
+### Options
 
 createTodoListPlugin 时可以传入的参数。例如 createTodoListPlugin({ color: '' })
 

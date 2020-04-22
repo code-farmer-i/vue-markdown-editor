@@ -8,6 +8,12 @@ export default `<h1 align="center">Markdown Editor built on Vue</h1>
   <a href="https://www.npmjs.com/package/@kangc/v-md-editor"><img src="https://img.shields.io/npm/l/@kangc/v-md-editor.svg?sanitize=true" alt="License"></a>
 </p>
 
+## Links
+
+- [Demo](https://code-farmer-i.github.io/vue-markdown-editor/examples/base-editor.html)
+- [Documentation](https://code-farmer-i.github.io/vue-markdown-editor/)
+- [Changelog](https://code-farmer-i.github.io/vue-markdown-editor/changelog.html)
+
 ## Install
 
 \`\`\`bash
@@ -31,7 +37,7 @@ VueMarkdownEditor.use(vuepressTheme);
 Vue.use(VueMarkdownEditor);
 \`\`\`
 
-## Useage
+## Usage
 
 \`\`\`html
 <template>
@@ -49,8 +55,8 @@ Vue.use(VueMarkdownEditor);
 </script>
 \`\`\`
 
-## Links
+## Refrence
 
-- [Documentation](https://code-farmer-i.github.io/vue-markdown-editor/)
-- [Changelog](https://code-farmer-i.github.io/vue-markdown-editor/changelog.html)
+- [ElementUi Scrollbar Component](https://github.com/ElemeFE/element/tree/dev/packages/scrollbar)
+- [vuepress-plugin-container](https://vuepress.github.io/zh/plugins/container/)
 `;

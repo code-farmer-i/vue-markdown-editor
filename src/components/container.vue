@@ -10,7 +10,8 @@
     <div
       class="v-md-editor__left-area"
       :style="{
-        width: leftAreaVisible ? leftAreaWidth : 0
+        width: leftAreaVisible ? leftAreaWidth : 0,
+        borderWidth: leftAreaVisible? '1px' : 0
       }"
     >
       <div
