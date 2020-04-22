@@ -177,7 +177,8 @@ export default {
       height: 41px;
       padding: 0 14px;
       color: $text-color;
-      font-size: 14px;
+      font-weight: 600;
+      font-size: 16px;
       line-height: 41px;
       white-space: nowrap;
 

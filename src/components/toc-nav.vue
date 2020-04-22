@@ -4,7 +4,7 @@
       v-for="item in titles"
       class="v-md-editor__toc-nav-item"
       :style="{
-        paddingLeft: `${indent * (item.indent + 1)}px`
+        paddingLeft: `${indent * (item.indent)}px`
       }"
       @click="$emit('nav-click', item)"
     >
@@ -37,28 +37,24 @@ export default {
 
     &-item {
       position: relative;
+      height: 38px;
       overflow: hidden;
       color: $text-color;
-      line-height: 27px;
+      line-height: 38px;
       white-space: nowrap;
       text-overflow: ellipsis;
       cursor: pointer;
     }
 
+    &-item:hover &-title {
+      font-size: 16px;
+      transform-origin: center center;
+    }
+
     &-title {
       position: relative;
-
-      &::before {
-        position: absolute;
-        top: 50%;
-        left: -16px;
-        width: 6px;
-        height: 6px;
-        background: $text-color;
-        border-radius: 50%;
-        transform: translateY(-50%);
-        content: '';
-      }
+      font-size: 14px;
+      transition: 0.3s;
     }
   }
 }
