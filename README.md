@@ -6,10 +6,6 @@
   <a href="https://www.npmjs.com/package/@kangc/v-md-editor"><img src="https://img.shields.io/npm/l/@kangc/v-md-editor.svg?sanitize=true" alt="License"></a>
 </p>
 
-## QQ Group
-
-798884474
-
 ## Links
 
 - [Demo](https://code-farmer-i.github.io/vue-markdown-editor/examples/base-editor.html)
@@ -61,3 +57,7 @@ Vue.use(VueMarkdownEditor);
 
 - [ElementUi Scrollbar Component](https://github.com/ElemeFE/element/tree/dev/packages/scrollbar)
 - [vuepress-plugin-container](https://vuepress.github.io/zh/plugins/container/)
+
+## Communication
+
+qq group: 798884474
