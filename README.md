@@ -6,6 +6,10 @@
   <a href="https://www.npmjs.com/package/@kangc/v-md-editor"><img src="https://img.shields.io/npm/l/@kangc/v-md-editor.svg?sanitize=true" alt="License"></a>
 </p>
 
+## QQ Group
+
+798884474
+
 ## Links
 
 - [Demo](https://code-farmer-i.github.io/vue-markdown-editor/examples/base-editor.html)
