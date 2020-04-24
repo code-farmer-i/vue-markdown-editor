@@ -48,6 +48,7 @@ module.exports = {
           ['/plugins/emoji', 'emoji'],
           ['/plugins/katex', 'katex'],
           ['/plugins/todo-list', 'todo-list'],
+          ['/plugins/line-number', '代码行号'],
         ],
       },
       ['/changelog', '更新日志'],
