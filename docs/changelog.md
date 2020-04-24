@@ -1,5 +1,13 @@
 # 更新日志
 
+### 1.2.7
+
+`2020-04-24`
+
+**Features**
+
+- plugin：新增 [代码行号](/vue-markdown-editor/plugins/line-number) 插件。
+
 ### 1.2.6
 
 `2020-04-23`
