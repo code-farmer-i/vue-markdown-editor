@@ -1,3 +1,9 @@
+## [1.2.7](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.6...v1.2.7) (2020-04-24)
+
+### Features
+
+- **plugin:** add line-numbers plugin ([d5d6578](https://github.com/code-farmer-i/vue-markdown-editor/commit/d5d6578467f38266f9455e2827be9bcff58a6b79))
+
 ## [1.2.6](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.5...v1.2.6) (2020-04-22)
 
 ### Performance Improvements
