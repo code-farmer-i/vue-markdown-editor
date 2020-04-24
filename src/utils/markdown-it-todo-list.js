@@ -1,4 +1,4 @@
-// Refrence https://github.com/revin/markdown-it-task-lists/blob/master/index.js
+// Modified from https://github.com/revin/markdown-it-task-lists/blob/master/index.js
 
 /* eslint-disable */
 module.exports = function (md, options = {}) {

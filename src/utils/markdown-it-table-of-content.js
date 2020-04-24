@@ -1,4 +1,4 @@
-// Refrence https://github.com/Oktavilla/markdown-it-table-of-contents/blob/master/index.js
+// Modified from https://github.com/Oktavilla/markdown-it-table-of-contents/blob/master/index.js
 
 /* eslint-disable */
 const defaults = {

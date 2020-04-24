@@ -8,12 +8,16 @@ import githubTheme from '@/theme/github/index';
 import createEmojiPlugin from '@/plugins/emoji/full';
 import createKatexPlugin from '@/plugins/katex/cdn';
 import createTodoListPlugin from '@/plugins/todo-list/index';
+import createLineNumberPlugin from '@/plugins//line-number/index';
 
 import vuepressTheme from '@/theme/vuepress';
 
-VueMarkdownEditor.use(createEmojiPlugin()).use(createKatexPlugin()).use(createTodoListPlugin());
+VueMarkdownEditor.use(createEmojiPlugin())
+  .use(createKatexPlugin())
+  .use(createTodoListPlugin())
+  .use(createLineNumberPlugin());
 VueMarkdownEditor.use(githubTheme);
-VueMarkdownEditor.use(vuepressTheme);
+// VueMarkdownEditor.use(vuepressTheme);
 // Preview.use(githubTheme);
 
 Vue.use(VueMarkdownEditor);

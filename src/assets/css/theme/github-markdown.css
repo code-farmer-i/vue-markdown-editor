@@ -392,6 +392,29 @@
   text-decoration: inherit;
 }
 
+.github-markdown-body div[class*='v-md-pre-wrapper-'] {
+  position: relative;
+}
+
+.github-markdown-body div[class*='v-md-pre-wrapper-'].line-numbers-mode pre {
+  margin-bottom: 0;
+  padding-left: 4.5rem;
+}
+
+.github-markdown-body div[class*='v-md-pre-wrapper-'].line-numbers-mode .line-numbers-wrapper {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 3.5rem;
+  padding: 16px 0;
+  color: #909399;
+  font-size: 85%;
+  line-height: 1.45;
+  text-align: center;
+  background: #f6f8fa;
+  border-right: 1px solid #dcdfe6;
+}
+
 .github-markdown-body pre {
   word-wrap: normal;
 }

@@ -1,4 +1,4 @@
-// Refrence https://github.com/vuejs/vuepress/blob/master/packages/%40vuepress/markdown/lib/link.js
+// Modified from https://github.com/vuejs/vuepress/blob/master/packages/%40vuepress/markdown/lib/link.js
 
 export default function (md, { externalAttrs, openLinkIcon, openLinkIconClass }) {
   let hasOpenExternalLink = false;

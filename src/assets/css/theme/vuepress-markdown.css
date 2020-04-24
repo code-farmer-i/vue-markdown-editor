@@ -120,12 +120,12 @@
   background-color: initial;
   border-radius: 0;
 }
-.vuepress-markdown-body div[class*='v-md-prism-'] {
+.vuepress-markdown-body div[class*='v-md-pre-wrapper-'] {
   position: relative;
   background-color: #282c34;
   border-radius: 6px;
 }
-.vuepress-markdown-body div[class*='v-md-prism-'] .highlight-lines {
+.vuepress-markdown-body div[class*='v-md-pre-wrapper-'] .highlight-lines {
   position: absolute;
   top: 0;
   left: 0;
@@ -136,16 +136,16 @@
   -ms-user-select: none;
   user-select: none;
 }
-.vuepress-markdown-body div[class*='v-md-prism-'] .highlight-lines .highlighted {
+.vuepress-markdown-body div[class*='v-md-pre-wrapper-'] .highlight-lines .highlighted {
   background-color: rgba(0, 0, 0, 0.66);
 }
-.vuepress-markdown-body div[class*='v-md-prism-'] pre,
-.vuepress-markdown-body div[class*='v-md-prism-'] pre[class*='v-md-prism-'] {
+.vuepress-markdown-body div[class*='v-md-pre-wrapper-'] pre,
+.vuepress-markdown-body div[class*='v-md-pre-wrapper-'] pre[class*='v-md-prism-'] {
   position: relative;
   z-index: 1;
   background: transparent;
 }
-.vuepress-markdown-body div[class*='v-md-prism-']::before {
+.vuepress-markdown-body div[class*='v-md-pre-wrapper-']::before {
   position: absolute;
   top: 0.8em;
   right: 1em;
@@ -153,14 +153,19 @@
   color: hsla(0, 0%, 100%, 0.4);
   font-size: 0.75rem;
 }
-.vuepress-markdown-body div[class*='v-md-prism-']:not(.line-numbers-mode) .line-numbers-wrapper {
+.vuepress-markdown-body
+  div[class*='v-md-pre-wrapper-']:not(.line-numbers-mode)
+  .line-numbers-wrapper {
   display: none;
 }
-.vuepress-markdown-body div[class*='v-md-prism-'].line-numbers-mode .highlight-lines .highlighted {
+.vuepress-markdown-body
+  div[class*='v-md-pre-wrapper-'].line-numbers-mode
+  .highlight-lines
+  .highlighted {
   position: relative;
 }
 .vuepress-markdown-body
-  div[class*='v-md-prism-'].line-numbers-mode
+  div[class*='v-md-pre-wrapper-'].line-numbers-mode
   .highlight-lines
   .highlighted::before {
   position: absolute;
@@ -173,26 +178,29 @@
   background-color: rgba(0, 0, 0, 0.66);
   content: ' ';
 }
-.vuepress-markdown-body div[class*='v-md-prism-'].line-numbers-mode pre {
+.vuepress-markdown-body div[class*='v-md-pre-wrapper-'].line-numbers-mode pre {
   padding-left: 4.5rem;
   vertical-align: middle;
 }
-.vuepress-markdown-body div[class*='v-md-prism-'].line-numbers-mode .line-numbers-wrapper {
+.vuepress-markdown-body div[class*='v-md-pre-wrapper-'].line-numbers-mode .line-numbers-wrapper {
   position: absolute;
   top: 0;
+  z-index: 1;
   width: 3.5rem;
   padding: 1.25rem 0;
   color: hsla(0, 0%, 100%, 0.3);
   line-height: 1.4;
   text-align: center;
+  background: #282c34;
+  border-right: 1px solid rgba(0, 0, 0, 0.66);
 }
-.vuepress-markdown-body div[class*='v-md-prism-'].line-numbers-mode .line-numbers-wrapper br {
+.vuepress-markdown-body div[class*='v-md-pre-wrapper-'].line-numbers-mode .line-numbers-wrapper br {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 .vuepress-markdown-body
-  div[class*='v-md-prism-'].line-numbers-mode
+  div[class*='v-md-pre-wrapper-'].line-numbers-mode
   .line-numbers-wrapper
   .line-number {
   position: relative;
@@ -202,100 +210,88 @@
   -ms-user-select: none;
   user-select: none;
 }
-.vuepress-markdown-body div[class*='v-md-prism-'].line-numbers-mode::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 3.5rem;
-  height: 100%;
-  background-color: #282c34;
-  border-right: 1px solid rgba(0, 0, 0, 0.66);
-  border-radius: 6px 0 0 6px;
-  content: '';
-}
-.vuepress-markdown-body div[class~='v-md-prism-js']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-js']::before {
   content: 'js';
 }
-.vuepress-markdown-body div[class~='v-md-prism-ts']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-ts']::before {
   content: 'ts';
 }
-.vuepress-markdown-body div[class~='v-md-prism-html']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-html']::before {
   content: 'html';
 }
-.vuepress-markdown-body div[class~='v-md-prism-md']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-md']::before {
   content: 'md';
 }
-.vuepress-markdown-body div[class~='v-md-prism-vue']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-vue']::before {
   content: 'vue';
 }
-.vuepress-markdown-body div[class~='v-md-prism-css']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-css']::before {
   content: 'css';
 }
-.vuepress-markdown-body div[class~='v-md-prism-sass']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-sass']::before {
   content: 'sass';
 }
-.vuepress-markdown-body div[class~='v-md-prism-scss']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-scss']::before {
   content: 'scss';
 }
-.vuepress-markdown-body div[class~='v-md-prism-less']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-less']::before {
   content: 'less';
 }
-.vuepress-markdown-body div[class~='v-md-prism-stylus']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-stylus']::before {
   content: 'stylus';
 }
-.vuepress-markdown-body div[class~='v-md-prism-go']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-go']::before {
   content: 'go';
 }
-.vuepress-markdown-body div[class~='v-md-prism-java']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-java']::before {
   content: 'java';
 }
-.vuepress-markdown-body div[class~='v-md-prism-c']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-c']::before {
   content: 'c';
 }
-.vuepress-markdown-body div[class~='v-md-prism-sh']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-sh']::before {
   content: 'sh';
 }
-.vuepress-markdown-body div[class~='v-md-prism-yaml']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-yaml']::before {
   content: 'yaml';
 }
-.vuepress-markdown-body div[class~='v-md-prism-py']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-py']::before {
   content: 'py';
 }
-.vuepress-markdown-body div[class~='v-md-prism-docker']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-docker']::before {
   content: 'docker';
 }
-.vuepress-markdown-body div[class~='v-md-prism-dockerfile']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-dockerfile']::before {
   content: 'dockerfile';
 }
-.vuepress-markdown-body div[class~='v-md-prism-makefile']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-makefile']::before {
   content: 'makefile';
 }
-.vuepress-markdown-body div[class~='v-md-prism-javascript']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-javascript']::before {
   content: 'js';
 }
-.vuepress-markdown-body div[class~='v-md-prism-typescript']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-typescript']::before {
   content: 'ts';
 }
-.vuepress-markdown-body div[class~='v-md-prism-markup']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-markup']::before {
   content: 'html';
 }
-.vuepress-markdown-body div[class~='v-md-prism-markdown']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-markdown']::before {
   content: 'md';
 }
-.vuepress-markdown-body div[class~='v-md-prism-json']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-json']::before {
   content: 'json';
 }
-.vuepress-markdown-body div[class~='v-md-prism-ruby']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapperruby']::before {
   content: 'rb';
 }
-.vuepress-markdown-body div[class~='v-md-prism-python']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-python']::before {
   content: 'py';
 }
-.vuepress-markdown-body div[class~='v-md-prism-bash']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-bash']::before {
   content: 'sh';
 }
-.vuepress-markdown-body div[class~='v-md-prism-php']::before {
+.vuepress-markdown-body div[class~='v-md-pre-wrapper-php']::before {
   content: 'php';
 }
 .vuepress-markdown-body {
