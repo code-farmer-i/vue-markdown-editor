@@ -1,10 +1,10 @@
-import { name } from '@/command/undo';
+import { undo } from '@/utils/constants/command';
 
 export default {
-  name,
+  name: undo,
   icon: 'v-md-icon-undo',
-  title: '撤销',
+  title: '撤销（Ctrl+Z）',
   action(editor) {
-    editor.execCommand(name);
+    editor.execCommand(undo);
   },
 };

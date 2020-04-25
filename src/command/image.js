@@ -1,4 +1,4 @@
-export const name = 'image';
+export { image as name } from '@/utils/constants/command.js';
 
 export default function (editor, { url, desc, width = 'auto', height = 'auto' } = {}) {
   editor.insert(() => {

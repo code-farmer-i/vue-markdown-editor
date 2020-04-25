@@ -1,4 +1,4 @@
-export const name = 'table';
+export { table as name } from '@/utils/constants/command.js';
 
 export default function (editor) {
   editor.insert(() => {

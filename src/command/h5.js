@@ -1,6 +1,6 @@
 import { generatorText } from '@/utils/util';
 
-export const name = 'h5';
+export { h5 as name } from '@/utils/constants/command.js';
 
 export default function (editor) {
   editor.insert((selected) => {

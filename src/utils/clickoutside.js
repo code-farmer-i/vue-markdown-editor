@@ -1,13 +1,12 @@
 // Reference https://github.com/ElemeFE/element/blob/dev/src/utils/clickoutside.js
-import Vue from 'vue';
-
 const nodeList = [];
 const ctx = '@@clickoutsideContext';
+const isServer = typeof window === 'undefined';
 
 let startClick;
 let seed = 0;
 
-if (!Vue.prototype.$isServer) {
+if (!isServer) {
   document.addEventListener('mousedown', (e) => {
     startClick = e;
   });

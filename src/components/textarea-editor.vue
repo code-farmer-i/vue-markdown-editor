@@ -27,6 +27,7 @@
 
 <script>
 import insertTextAtCursor from 'insert-text-at-cursor';
+import HotKeys from '@/utils/hotkeys';
 import Vue from 'vue';
 
 Vue.config.keyCodes.z = 90;
@@ -68,11 +69,23 @@ export default {
   created () {
     this.historyStack = [];
     this.historyIndex = 0;
+    this.hotkeysManager = new HotKeys();
   },
   mounted () {
     this.saveHistory();
+
+    this.$refs.textarea.addEventListener('keydown', this.handleKeydown, false);
+  },
+  beforeDestroy () {
+    this.$refs.textarea.removeEventListener('keydown', this.handleKeydown, false);
   },
   methods: {
+    registerHotkeys (...arg) {
+      this.hotkeysManager.registerHotKeys(...arg);
+    },
+    handleKeydown (e) {
+      this.hotkeysManager.dispatch(e);
+    },
     heightAtLine (lineIndex) {
       const el = this.$el.querySelector(`section[data-line="${lineIndex}"]`);
 

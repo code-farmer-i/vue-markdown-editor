@@ -87,6 +87,10 @@ const component = {
       return end > start ? text.slice(start, end) : null;
     },
     // Must implement
+    editorRegisterHotkeys (...arg) {
+      this.$refs.editorEgine.registerHotkeys(...arg);
+    },
+    // Must implement
     editorScrollToTop (scrollTop) {
       this.$refs.editorScroller.scrollTo(scrollTop);
     },

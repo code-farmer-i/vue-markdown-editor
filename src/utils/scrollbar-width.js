@@ -1,9 +1,8 @@
-import Vue from 'vue';
-
 let scrollBarWidth;
+const isServer = typeof window === 'undefined';
 
 export default function () {
-  if (Vue.prototype.$isServer) return 0;
+  if (isServer) return 0;
   if (scrollBarWidth !== undefined) return scrollBarWidth;
 
   const outer = document.createElement('div');

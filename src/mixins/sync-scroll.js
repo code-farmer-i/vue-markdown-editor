@@ -1,4 +1,4 @@
-import { LINE_MARKUP } from '@/utils/constants';
+import { LINE_MARKUP } from '@/utils/constants/markup';
 
 export default {
   data() {

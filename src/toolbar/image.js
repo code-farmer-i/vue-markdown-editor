@@ -1,7 +1,7 @@
-import { name as image } from '@/command/image';
+import { image } from '@/utils/constants/command';
 
 export default {
-  name: 'image',
+  name: image,
   icon: 'v-md-icon-img',
   title: '插入图片',
   menus: [

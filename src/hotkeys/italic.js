@@ -1,9 +1,8 @@
 import { italic } from '@/utils/constants/command';
 
 export default {
-  name: italic,
-  icon: 'v-md-icon-italic',
-  title: '斜体（Ctrl+I）',
+  modifier: 'ctrl',
+  key: 'i',
   action(editor) {
     editor.execCommand(italic);
   },

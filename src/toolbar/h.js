@@ -1,14 +1,9 @@
-import { name as h1 } from '@/command/h1';
-import { name as h2 } from '@/command/h2';
-import { name as h3 } from '@/command/h3';
-import { name as h4 } from '@/command/h4';
-import { name as h5 } from '@/command/h5';
-import { name as h6 } from '@/command/h6';
+import { h1, h2, h3, h4, h5, h6 } from '@/utils/constants/command';
 
 export default {
   name: 'h',
   text: 'H',
-  title: '标题',
+  title: '标题（Ctrl+1~6）',
   menus: [
     {
       name: h1,

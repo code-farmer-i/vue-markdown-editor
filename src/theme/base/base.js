@@ -3,7 +3,7 @@ import markdownItLineNumber from '@/utils/markdown-it-line-number';
 import markdownItHeadingTag from '@/utils/markdown-it-heading-tag';
 import markdownItTableOfContent from '@/utils/markdown-it-table-of-content';
 import markdownItPreWrapper from '@/utils/markdown-it-pre-wrapper';
-import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants';
+import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants/markup';
 import { kebabCase } from '@/utils/util';
 
 // style

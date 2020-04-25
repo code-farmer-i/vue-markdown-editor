@@ -11,6 +11,7 @@ import toolbarMixin from '@/mixins/toolbar';
 import commandMixin from '@/mixins/command';
 import tocMixin from '@/mixins/toc';
 import scrollMixin from '@/mixins/scroll';
+import hotkeysMixin from '@/mixins/hotkeys';
 
 import Preview from '@/preview';
 
@@ -21,11 +22,16 @@ export default function createEditor(component) {
   component.name = 'v-md-editor';
   component.theme = Preview.theme;
   component.extendMarkdown = Preview.extendMarkdown;
+  component.hotkeys = [];
+  component.hotkey = function (config) {
+    component.hotkeys.push(config);
+  };
   component.mixins = [
     commonMixin,
     vModelMixin,
     toolbarMixin(component),
     commandMixin(component),
+    hotkeysMixin(component),
     fullscreenMixin,
     uploadImageMixin,
     syncScrollMixin,

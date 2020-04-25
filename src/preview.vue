@@ -11,7 +11,7 @@
 import xss from '@/utils/xss/index';
 import { getScrollTop } from '@/utils/scroll-top';
 import smoothScroll from '@/utils/smooth-scroll';
-import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants';
+import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants/markup';
 
 const defaultMarkdownLoader = (text) => text;
 

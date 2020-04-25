@@ -7,7 +7,7 @@ export default function createTodoListPlugin({
   name = 'todo-list',
   icon = 'v-md-icon-checkbox',
   text,
-  title = '任务列表',
+  title = '任务列表（Ctrl+Shift+U）',
   color = '#3eaf7c',
 } = {}) {
   const toolbar = createToolbar({ commandName: name, title, text, icon });
@@ -36,6 +36,15 @@ export default function createTodoListPlugin({
     install(VMdEditor) {
       if (VMdEditor.command) VMdEditor.command(name, commandHandler);
       if (VMdEditor.toolbar) VMdEditor.toolbar(name, toolbar);
+      if (VMdEditor.hotkey) {
+        VMdEditor.hotkey({
+          modifier: 'ctrlShift',
+          key: 'u',
+          action(editor) {
+            editor.execCommand(name);
+          },
+        });
+      }
 
       VMdEditor.extendMarkdown(extendMarkdown);
     },

@@ -1,6 +1,6 @@
 import { generatorText } from '@/utils/util';
 
-export default function commandHandler(editor, { type = 'todo' }) {
+export default function commandHandler(editor, { type = 'todo' } = {}) {
   editor.insert((selected) => {
     const placeholder = '任务列表';
     const markup = type === 'todo' ? ' ' : 'x';

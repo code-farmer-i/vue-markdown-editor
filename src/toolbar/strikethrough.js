@@ -1,10 +1,10 @@
-import { name } from '@/command/strikethrough';
+import { strikethrough } from '@/utils/constants/command';
 
 export default {
-  name,
+  name: strikethrough,
   icon: 'v-md-icon-strikethrough',
   title: '删除线',
   action(editor) {
-    editor.execCommand(name);
+    editor.execCommand(strikethrough);
   },
 };

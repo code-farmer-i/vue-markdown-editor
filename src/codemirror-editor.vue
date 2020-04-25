@@ -49,6 +49,7 @@
 <script>
 import createEditor from './create-editor';
 import { smooth } from '@/utils/smooth-scroll';
+import HotKeys from '@/utils/hotkeys';
 
 import Codemirror from 'codemirror';
 // mode
@@ -73,6 +74,9 @@ const component = {
       }
     },
   },
+  created () {
+    this.hotkeysManager = new HotKeys();
+  },
   mounted() {
     this.codemirrorInstance = new Codemirror(this.$refs.codemirrorEditor, {
       tabSize: 2,
@@ -95,6 +99,10 @@ const component = {
     this.codemirrorInstance.on('scroll', () => {
       this.handleEditorScroll();
     });
+
+    this.codemirrorInstance.on('keydown', (_, e) => {
+      this.hotkeysManager.dispatch(e);
+    });
   },
   methods: {
     handleContainerResize() {
@@ -108,6 +116,10 @@ const component = {
       if (start <= number && number <= end) {
         return number - start;
       }
+    },
+    // Must implement
+    editorRegisterHotkeys (...arg) {
+      this.hotkeysManager.registerHotKeys(...arg);
     },
     // Must implement
     editorScrollToTop (scrollTop) {

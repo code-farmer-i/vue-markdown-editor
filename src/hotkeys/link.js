@@ -1,9 +1,8 @@
 import { link } from '@/utils/constants/command';
 
 export default {
-  name: link,
-  icon: 'v-md-icon-link',
-  title: '插入链接（Ctrl+L）',
+  modifier: 'ctrl',
+  key: 'l',
   action(editor) {
     editor.execCommand(link);
   },
