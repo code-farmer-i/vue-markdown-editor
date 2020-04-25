@@ -1,3 +1,15 @@
+## [1.2.8](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.7...v1.2.8) (2020-04-25)
+
+### Features
+
+- **hotkey:** add hotkey ([33f3842](https://github.com/code-farmer-i/vue-markdown-editor/commit/33f3842e9497af8af6aa71980c2fbf2d981d5d76))
+
+### Performance Improvements
+
+- update ([a814117](https://github.com/code-farmer-i/vue-markdown-editor/commit/a814117897550c15960f032ee072c81d749915e7))
+- **style:** optimize style ([6543e4b](https://github.com/code-farmer-i/vue-markdown-editor/commit/6543e4b006c16a427205d3d82a7bf77c26757919))
+- **style:** todo-list style ([b722268](https://github.com/code-farmer-i/vue-markdown-editor/commit/b722268e392d17d833896fda92c66acb005b07c7))
+
 ## [1.2.7](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.6...v1.2.7) (2020-04-24)
 
 ### Features
