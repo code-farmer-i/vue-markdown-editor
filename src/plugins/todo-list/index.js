@@ -12,7 +12,8 @@ export default function createTodoListPlugin({
 } = {}) {
   const toolbar = createToolbar({ commandName: name, title, text, icon });
 
-  const border = `border-color: ${color}`;
+  const defaultBorderColor = '#d9d9d9';
+  const border = (type) => `border-color: ${type === 'todo' ? defaultBorderColor : color}`;
   const background = `background-color: ${color}`;
   const extendMarkdown = function (mdParser) {
     if (mdParser) {
@@ -20,7 +21,7 @@ export default function createTodoListPlugin({
       mdParser.use(markdownItTodoList, {
         renderCheckbox(type) {
           const checkboxClass = 'v-md-editor__todo-list-checkbox';
-          const style = type === 'todo' ? `${border}` : `${border};${background}`;
+          const style = type === 'todo' ? `${border(type)}` : `${border(type)};${background}`;
 
           return `<span class="${checkboxClass}${
             type === 'todo' ? '' : ` ${checkboxClass}--checked`
