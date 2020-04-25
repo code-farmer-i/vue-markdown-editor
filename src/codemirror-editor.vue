@@ -247,6 +247,7 @@ export default component;
 
       pre {
         padding: 0 12px;
+        word-break: break-all;
       }
     }
 
