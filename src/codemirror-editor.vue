@@ -119,7 +119,7 @@ const component = {
     },
     // Must implement
     editorRegisterHotkeys (...arg) {
-      this.hotkeysManager.registerHotKeys(...arg);
+      this.hotkeysManager.registerHotkeys(...arg);
     },
     // Must implement
     editorScrollToTop (scrollTop) {

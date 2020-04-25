@@ -81,7 +81,7 @@ export default {
   },
   methods: {
     registerHotkeys (...arg) {
-      this.hotkeysManager.registerHotKeys(...arg);
+      this.hotkeysManager.registerHotkeys(...arg);
     },
     handleKeydown (e) {
       this.hotkeysManager.dispatch(e);

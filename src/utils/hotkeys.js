@@ -67,7 +67,7 @@ class Hotkeys {
     return e.altKey;
   }
 
-  registerHotKeys({ modifier, key, action }) {
+  registerHotkeys({ modifier, key, action }) {
     if (modifier) {
       this.hotkeys[modifier][key] = action;
     } else {
