@@ -118,6 +118,20 @@ const component = {
       }
     },
     // Must implement
+    delLineLeft () {
+      this.codemirrorInstance.execCommand('delLineLeft');
+    },
+    // Must implement
+    getCursorLineLeftText () {
+      const { codemirrorInstance } = this;
+      const { line: startLine, ch: startCh } = codemirrorInstance.getCursor('from');
+      const { line: endLine, ch: endCh } = codemirrorInstance.getCursor('to');
+
+      if (startLine !== endLine || startCh !== endCh) return;
+
+      return codemirrorInstance.getLine(startLine).slice(0, startCh);
+    },
+    // Must implement
     editorRegisterHotkeys (...arg) {
       this.hotkeysManager.registerHotkeys(...arg);
     },
@@ -156,8 +170,8 @@ const component = {
       this.codemirrorInstance.setValue('');
     },
     // Must implement
-    replaceSelectionText(text) {
-      this.codemirrorInstance.replaceSelection(text, 'around');
+    replaceSelectionText(text, type = 'around') {
+      this.codemirrorInstance.replaceSelection(text, type);
     },
     // Must implement
     changeSelctionTo(insertText, selectedText) {

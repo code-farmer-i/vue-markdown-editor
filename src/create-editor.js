@@ -12,6 +12,7 @@ import commandMixin from '@/mixins/command';
 import tocMixin from '@/mixins/toc';
 import scrollMixin from '@/mixins/scroll';
 import hotkeysMixin from '@/mixins/hotkeys';
+import listMixin from '@/mixins/list';
 
 import Preview from '@/preview';
 
@@ -37,5 +38,6 @@ export default function createEditor(component) {
     syncScrollMixin,
     tocMixin,
     scrollMixin,
+    listMixin,
   ];
 }

@@ -84,11 +84,11 @@ export default {
   },
   watch: {
     visible () {
-      if (this.visible) this.$nextTick(this.caculateLayout);
+      if (this.visible) this.$nextTick(this.calculateLayout);
     },
   },
   methods: {
-    caculateLayout () {
+    calculateLayout () {
       // 容器右边框距离可视区域左侧的距离
       const { right } = this.$el.getBoundingClientRect();
       const windowWidth = document.documentElement.clientWidth;

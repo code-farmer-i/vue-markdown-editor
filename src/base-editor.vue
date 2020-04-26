@@ -81,10 +81,19 @@ const component = {
         end: this.text.length,
       });
     },
-    getSelectedStr(text, selectedRange) {
-      const { start, end } = selectedRange;
+    // Must implement
+    delLineLeft () {
+      const { start } = this.editorEgine.getRange();
 
-      return end > start ? text.slice(start, end) : null;
+      const leftText = this.getCursorLineLeftText();
+      this.editorEgine.setRange({ start: start - leftText.length - 1, end: start });
+      this.replaceSelectionText('\n');
+    },
+    // Must implement
+    getCursorLineLeftText () {
+      const { start, end } = this.editorEgine.getRange();
+
+      return start === end ? this.text.slice(0, start).split('\n').pop() : null;
     },
     // Must implement
     editorRegisterHotkeys (...arg) {

@@ -37,12 +37,12 @@ export default {
 
       this.visible = true;
 
-      this.$nextTick(this.caculateLayuout);
+      this.$nextTick(this.calculateLayout);
     },
     hide () {
       this.visible = false;
     },
-    caculateLayuout () {
+    calculateLayout () {
       // 容器右边框距离可视区域左侧的距离
       const { right } = this.$el.getBoundingClientRect();
       const windowWidth = document.documentElement.clientWidth;
