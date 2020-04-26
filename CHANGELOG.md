@@ -1,3 +1,9 @@
+## [1.2.9](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.8...v1.2.9) (2020-04-26)
+
+### Performance Improvements
+
+- ol ul optimize ([6387b7a](https://github.com/code-farmer-i/vue-markdown-editor/commit/6387b7ad7c85055b434f00944a77a46c6b62e8d9))
+
 ## [1.2.8](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.7...v1.2.8) (2020-04-25)
 
 ### Features
