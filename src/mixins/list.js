@@ -43,9 +43,4 @@ export default {
       },
     });
   },
-  methods: {
-    checkList(e) {
-      console.log(e);
-    },
-  },
 };
