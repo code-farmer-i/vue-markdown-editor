@@ -79,23 +79,25 @@ export default function (md, o) {
   };
 
   md.renderer.rules.toc_body = function (tokens, index) {
+    const slugs = {};
+
     if (options.forceFullToc) {
       let tocBody = '';
       let pos = 0;
       const tokenLength = gstate && gstate.tokens && gstate.tokens.length;
 
       while (pos < tokenLength) {
-        const tocHierarchy = renderChildsTokens(pos, gstate.tokens);
+        const tocHierarchy = renderChildsTokens(pos, gstate.tokens, slugs);
         pos = tocHierarchy[0];
         tocBody += tocHierarchy[1];
       }
 
       return tocBody;
     }
-    return renderChildsTokens(0, gstate.tokens)[1];
+    return renderChildsTokens(0, gstate.tokens, slugs)[1];
   };
 
-  function renderChildsTokens(pos, tokens) {
+  function renderChildsTokens(pos, tokens, slugs) {
     const headings = [];
     let buffer = '';
     let currentLevel;
@@ -118,7 +120,7 @@ export default function (md, o) {
         currentLevel = level; // We init with the first found level
       } else {
         if (level > currentLevel) {
-          subHeadings = renderChildsTokens(i, tokens);
+          subHeadings = renderChildsTokens(i, tokens, slugs);
           buffer += subHeadings[1];
           i = subHeadings[0];
           continue;
@@ -141,14 +143,14 @@ export default function (md, o) {
         }
       }
 
-      const title = heading.children
-        .filter((token) => token.type === 'text' || token.type === 'code_inline')
-        .reduce((acc, t) => acc + t.content, '');
-      const anchorAttrs = options.getAnchorAttrs(title, level);
+      const content = heading.children.reduce((acc, t) => acc + t.content, '');
+      const title = heading.content;
+      const unique = (slugs[title] = title in slugs ? Number(slugs[title]) + 1 : '');
+      const anchorAttrs = options.getAnchorAttrs(title, level, unique);
 
       buffer = `<li class="${options.listItemClass}">
       <a ${anchorAttrs.map(({ attr, value }) => `${attr}="${value}"`).join(' ')}>`;
-      buffer += title;
+      buffer += content;
       buffer += '</a>';
       i++;
     }

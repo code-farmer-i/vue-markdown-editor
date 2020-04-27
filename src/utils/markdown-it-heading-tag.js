@@ -3,30 +3,26 @@ export default function (md, options = {}) {
 
   if (!getMarks) return;
 
-  const defaultRender = function (tokens, idx, options, env, self) {
-    return self.renderToken(tokens, idx, options);
-  };
+  md.core.ruler.push('anchor', (state) => {
+    const slugs = {};
+    const { tokens } = state;
 
-  function addAttrwrapper(originalRender) {
-    return function (tokens, idx, options, env, self) {
-      const token = tokens[idx];
-      const title = tokens[idx + 1].children
-        .filter((token) => token.type === 'text' || token.type === 'code_inline')
-        .reduce((acc, t) => acc + t.content, '');
-      const level = Number(token.tag.substr(1));
-      const marks = getMarks(title, level);
+    tokens
+      .filter((token) => token.type === 'heading_open')
+      .forEach((token) => {
+        // Aggregate the next token children text.
+        const heading = tokens[tokens.indexOf(token) + 1];
+        const title = heading.content;
+        const level = Number(token.tag.substr(1));
 
-      if (marks) {
-        marks.forEach(({ attr, value }) => {
-          token.attrPush([attr, value]);
-        });
-      }
+        slugs[title] = title in slugs ? Number(slugs[title]) + 1 : '';
+        const marks = getMarks(title, level, slugs[title]);
 
-      return originalRender(tokens, idx, options, env, self);
-    };
-  }
-
-  const originalRender = md.renderer.rules.heading_open;
-  const render = originalRender || defaultRender;
-  md.renderer.rules.heading_open = addAttrwrapper(render);
+        if (marks) {
+          marks.forEach(({ attr, value }) => {
+            token.attrPush([attr, value]);
+          });
+        }
+      });
+  });
 }

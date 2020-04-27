@@ -70,7 +70,7 @@ const component = {
     handlePreviewClick (e) {
       const { target } = e;
       const scrollToTargetId = target.getAttribute(ANCHOR_MARKUP);
-      const scrollToTarget = this.$el.querySelector(`[${HEADING_MARKUP}=${scrollToTargetId}]`);
+      const scrollToTarget = this.$el.querySelector(`[${HEADING_MARKUP}="${scrollToTargetId}"]`);
 
       if (scrollToTarget) {
         this.scrollToTarget({

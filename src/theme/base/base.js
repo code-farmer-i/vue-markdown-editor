@@ -4,7 +4,7 @@ import markdownItHeadingTag from '@/utils/markdown-it-heading-tag';
 import markdownItTableOfContent from '@/utils/markdown-it-table-of-content';
 import markdownItPreWrapper from '@/utils/markdown-it-pre-wrapper';
 import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants/markup';
-import { kebabCase } from '@/utils/util';
+import slugify from '@vuepress/shared-utils/lib/slugify';
 
 // style
 import '@/assets/css/theme/base';
@@ -24,11 +24,11 @@ export default function createBaseTheme() {
       allowedAttributes: ['width', 'height'],
     })
     .use(markdownItHeadingTag, {
-      getMarks(title) {
+      getMarks(title, level, unique) {
         return [
           {
             attr: HEADING_MARKUP,
-            value: encodeURIComponent(kebabCase(title)),
+            value: `${slugify(title)}${unique ? `-${unique}` : ''}`,
           },
         ];
       },
@@ -36,11 +36,11 @@ export default function createBaseTheme() {
     .use(markdownItTableOfContent, {
       listClass: 'v-md-toc',
       listItemClass: 'v-md-toc-item',
-      getAnchorAttrs(title) {
+      getAnchorAttrs(title, level, unique) {
         return [
           {
             attr: ANCHOR_MARKUP,
-            value: encodeURIComponent(kebabCase(title)),
+            value: `${slugify(title)}${unique ? `-${unique}` : ''}`,
           },
         ];
       },
