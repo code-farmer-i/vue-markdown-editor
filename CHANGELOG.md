@@ -1,3 +1,9 @@
+## [1.2.10](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.9...v1.2.10) (2020-04-27)
+
+### Bug Fixes
+
+- **anchor:** fix when heading is chinese the anchor is doesnt work ([b6c6947](https://github.com/code-farmer-i/vue-markdown-editor/commit/b6c694728b42d547e27ddd944ffd8a8938cfc7d9))
+
 ## [1.2.9](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.8...v1.2.9) (2020-04-26)
 
 ### Performance Improvements
