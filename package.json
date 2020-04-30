@@ -1,13 +1,14 @@
 {
   "name": "@kangc/v-md-editor",
-  "version": "1.2.11-beta.0",
+  "version": "1.2.11-beta.1",
   "description": "A markdown editor built on Vue",
   "main": "lib/base-editor.js",
   "unpkg": "lib/base-editor.js",
   "typings": "types/index.d.ts",
   "files": [
     "src",
-    "lib"
+    "lib",
+    "types"
   ],
   "scripts": {
     "dev": "npm run build:entry && webpack-dev-server --config build/webpack.dev.js",
