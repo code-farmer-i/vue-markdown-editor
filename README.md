@@ -69,3 +69,7 @@ Vue.use(VueMarkdownEditor);
 ## Communication
 
 qq group: 798884474
+
+## License
+
+[MIT](https://github.com/code-farmer-i/vue-markdown-editor/blob/dev/LICENSE)
