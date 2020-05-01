@@ -1,3 +1,9 @@
+## [1.2.11](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.11-beta.2...v1.2.11) (2020-05-01)
+
+### Performance Improvements
+
+- **license:** add refrence and MIT Liscense ([1eb81fc](https://github.com/code-farmer-i/vue-markdown-editor/commit/1eb81fc332363c4e1b2e7a9ca4583c8c6e996077))
+
 ## [1.2.11-beta.2](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.11-beta.1...v1.2.11-beta.2) (2020-04-30)
 
 ## [1.2.11-beta.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.11-beta.0...v1.2.11-beta.1) (2020-04-30)
