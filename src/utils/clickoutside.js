@@ -1,4 +1,5 @@
-// Reference https://github.com/ElemeFE/element/blob/dev/src/utils/clickoutside.js
+// Modified from https://github.com/ElemeFE/element/blob/dev/src/utils/clickoutside.js
+
 const nodeList = [];
 const ctx = '@@clickoutsideContext';
 const isServer = typeof window === 'undefined';

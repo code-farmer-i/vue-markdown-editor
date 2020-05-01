@@ -1,3 +1,5 @@
+// Modified from https://github.com/ElemeFE/element/blob/dev/src/utils/scrollbar-width.js
+
 let scrollBarWidth;
 const isServer = typeof window === 'undefined';
 

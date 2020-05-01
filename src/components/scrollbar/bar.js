@@ -1,3 +1,5 @@
+// Modified from https://github.com/ElemeFE/element/tree/dev/packages/scrollbar
+
 import { renderThumbStyle, BAR_MAP } from './util';
 
 /* istanbul ignore next */

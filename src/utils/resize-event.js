@@ -1,3 +1,5 @@
+// Modified from https://github.com/ElemeFE/element/blob/dev/src/utils/resize-event.js
+
 /* eslint-disable no-underscore-dangle */
 import ResizeObserver from 'resize-observer-polyfill';
 
@@ -29,10 +31,7 @@ export const addResizeListener = function (element, fn) {
 /* istanbul ignore next */
 export const removeResizeListener = function (element, fn) {
   if (!element || !element.__resizeListeners__) return;
-  element.__resizeListeners__.splice(
-    element.__resizeListeners__.indexOf(fn),
-    1
-  );
+  element.__resizeListeners__.splice(element.__resizeListeners__.indexOf(fn), 1);
   if (!element.__resizeListeners__.length) {
     element.__ro__.disconnect();
   }

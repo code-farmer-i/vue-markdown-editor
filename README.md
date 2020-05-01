@@ -55,8 +55,16 @@ Vue.use(VueMarkdownEditor);
 
 ## Refrence
 
+- [ElementUi Utils clickoutside](https://github.com/ElemeFE/element/blob/dev/src/utils/clickoutside.js)
+- [ElementUi Utils resize-event](https://github.com/ElemeFE/element/blob/dev/src/utils/resize-event.js)
+- [ElementUi Utils scrollbar-width](https://github.com/ElemeFE/element/blob/dev/src/utils/scrollbar-width.js)
 - [ElementUi Scrollbar Component](https://github.com/ElemeFE/element/tree/dev/packages/scrollbar)
-- [vuepress-plugin-container](https://vuepress.github.io/zh/plugins/container/)
+- [vuepress-plugin-container](https://github.com/vuepress/vuepress-community/blob/master/packages/vuepress-plugin-container/src/markdown-it-container.ts)
+- [vuepress markdown preWrapper](https://github.com/vuejs/vuepress/blob/master/packages/%40vuepress/markdown/lib/preWrapper.js)
+- [vuepress markdown link](https://github.com/vuejs/vuepress/blob/master/packages/%40vuepress/markdown/lib/link.js)
+- [markdown-it-katex](https://github.com/waylonflinn/markdown-it-katex/blob/master/index.js)
+- [markdown-it-table-of-contents](https://github.com/Oktavilla/markdown-it-table-of-contents/blob/master/index.js)
+- [markdown-it-task-lists](https://github.com/revin/markdown-it-task-lists/blob/master/index.js)
 
 ## Communication
 

@@ -1,3 +1,5 @@
+// Modified from https://github.com/ElemeFE/element/tree/dev/packages/scrollbar
+
 export const BAR_MAP = {
   vertical: {
     offset: 'offsetHeight',

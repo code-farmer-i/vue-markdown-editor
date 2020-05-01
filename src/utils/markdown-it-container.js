@@ -1,3 +1,5 @@
+// Modified from https://github.com/vuepress/vuepress-community/blob/master/packages/vuepress-plugin-container/src/markdown-it-container.ts
+
 import container from 'markdown-it-container';
 
 function wrapRenderPlaceFunction(func) {
