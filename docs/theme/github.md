@@ -20,14 +20,14 @@ import VueMarkdownEditor from '@kangc/v-md-editor';
 import json from 'highlight.js/lib/languages/json';
 import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
 
-githubTheme.configure((md, hljs) => {
-  // md为 markdown-it 实例，可以在此处进行修改配置,并使用 plugin 进行语法扩展
-  // md.set(option).use(plugin);
-  // 注册语言包
-  hljs.registerLanguage('json', json);
+VueMarkdownEditor.use(githubTheme, {
+  extend(md, hljs) {
+    // md为 markdown-it 实例，可以在此处进行修改配置,并使用 plugin 进行语法扩展
+    // md.set(option).use(plugin);
+    // 注册语言包
+    hljs.registerLanguage('json', json);
+  },
 });
-
-VueMarkdownEditor.use(githubTheme);
 ```
 
 [查看 highlight.js 支持的语言包](https://github.com/highlightjs/highlight.js/tree/master/src/languages)

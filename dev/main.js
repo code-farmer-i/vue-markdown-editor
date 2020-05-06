@@ -19,7 +19,13 @@ VueMarkdownEditor.use(createEmojiPlugin())
   .use(createTodoListPlugin())
   .use(createLineNumberPlugin());
 
-VueMarkdownEditor.use(githubTheme);
+VueMarkdownEditor.use(githubTheme, {
+  config: {
+    toc: {
+      includeLevel: [3, 4],
+    },
+  },
+});
 // VueMarkdownEditor.use(vuepressTheme);
 // Preview.use(githubTheme);
 

@@ -38,6 +38,13 @@ sidebarDepth: 2
 
 正常模式下编辑器的高度。
 
+### include-level
+
+- 类型: `Array`
+- 默认值: `[2, 3]`
+
+目录导航生成时包含的标题。默认包含 2 级、3 级标题。
+
 ### left-toolbar
 
 - 类型：`String`
