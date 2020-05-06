@@ -1,3 +1,9 @@
+## [1.2.12](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.12-beta.0...v1.2.12) (2020-05-06)
+
+### Features
+
+- **props:** include-level ([61817ea](https://github.com/code-farmer-i/vue-markdown-editor/commit/61817ea84317c5502791314309f6d10f37b06241))
+
 ## [1.2.12-beta.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.11...v1.2.12-beta.0) (2020-05-06)
 
 ### Bug Fixes
