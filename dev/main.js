@@ -12,10 +12,16 @@ import createLineNumberPlugin from '@/plugins//line-number/index';
 
 import vuepressTheme from '@/theme/vuepress';
 
+import markdownItMermaid from '@liradb2000/markdown-it-mermaid';
+
 VueMarkdownEditor.use(createEmojiPlugin())
   .use(createKatexPlugin())
   .use(createTodoListPlugin())
   .use(createLineNumberPlugin());
+
+githubTheme.configure((md) => {
+  md.use(markdownItMermaid);
+});
 VueMarkdownEditor.use(githubTheme);
 // VueMarkdownEditor.use(vuepressTheme);
 // Preview.use(githubTheme);
