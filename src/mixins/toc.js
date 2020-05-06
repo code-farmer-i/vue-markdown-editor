@@ -29,15 +29,18 @@ export default {
       },
     },
   },
+  computed: {
+    anchorsSelector() {
+      return this.includeLevel.map((level) => `h${level}`).join(',');
+    },
+  },
   methods: {
     toggleToc(visible = !this.tocVisible) {
       this.tocVisible = visible;
     },
     updateTocNav() {
       const previewEl = this.$refs.preview.$el;
-      const anchors = previewEl.querySelectorAll(
-        this.includeLevel.map((level) => `h${level}`).join(',')
-      );
+      const anchors = previewEl.querySelectorAll(this.anchorsSelector);
       const titles = Array.from(anchors).filter((title) => !!title.innerText.trim());
 
       if (!titles.length) {

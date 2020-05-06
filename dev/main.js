@@ -10,23 +10,21 @@ import createKatexPlugin from '@/plugins/katex/cdn';
 import createTodoListPlugin from '@/plugins/todo-list/index';
 import createLineNumberPlugin from '@/plugins//line-number/index';
 
-// import vuepressTheme from '@/theme/vuepress';
-
-import markdownItMermaid from '@liradb2000/markdown-it-mermaid';
+import vuepressTheme from '@/theme/vuepress';
 
 VueMarkdownEditor.use(createEmojiPlugin())
   .use(createKatexPlugin())
   .use(createTodoListPlugin())
   .use(createLineNumberPlugin());
 
-VueMarkdownEditor.use(githubTheme, {
-  config: {
-    toc: {
-      includeLevel: [3, 4],
-    },
-  },
-});
-// VueMarkdownEditor.use(vuepressTheme);
+// VueMarkdownEditor.use(githubTheme, {
+//   config: {
+//     toc: {
+//       includeLevel: [3, 4],
+//     },
+//   },
+// });
+VueMarkdownEditor.use(vuepressTheme);
 // Preview.use(githubTheme);
 
 Vue.use(VueMarkdownEditor);
