@@ -1,3 +1,9 @@
+## [1.2.12-beta.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.11...v1.2.12-beta.0) (2020-05-06)
+
+### Bug Fixes
+
+- **xss:** fix svg tag attrs is filtered by xss ([9ddd266](https://github.com/code-farmer-i/vue-markdown-editor/commit/9ddd2663b391280420adc1bc7546d559b08aef7c))
+
 ## [1.2.11](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.11-beta.2...v1.2.11) (2020-05-01)
 
 ### Performance Improvements
