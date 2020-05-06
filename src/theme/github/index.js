@@ -1,6 +1,12 @@
-import theme from './theme';
+import createGithubTheme from './theme';
 
-const install = function (VMdEditor) {
+const install = function (VMdEditor, options = {}) {
+  const { extend, config } = options;
+  const theme = createGithubTheme({
+    baseConfig: config,
+  });
+
+  if (extend) theme.extend(extend);
   VMdEditor.theme(theme);
 };
 
@@ -9,6 +15,5 @@ if (typeof window !== 'undefined' && window.VMdEditor) {
 }
 
 export default {
-  ...theme,
   install,
 };

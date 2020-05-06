@@ -13,9 +13,6 @@ import '../../../lib/style/base-editor.css'
 import vuepressTheme from '../../../lib/theme/vuepress.js'
 import 'prismjs/components/prism-bash';
 
-import createTipPlugin from '../../../lib/plugins/tip'
-VMdEditor.use(createTipPlugin({ icon: 'v-md-icon-tip' }))
-
 const text = `::: tip 
   你可以点击 toolbar 中的 tip 来快速插入
 :::

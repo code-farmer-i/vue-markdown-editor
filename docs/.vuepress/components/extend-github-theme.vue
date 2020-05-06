@@ -12,8 +12,10 @@ import '../../../lib/style/base-editor.css'
 import json from 'highlight.js/lib/languages/json';
 import githubTheme from '../../../lib/theme/github.js'
 
-githubTheme.configure((md, hljs) => {
-  hljs.registerLanguage('json', json);
+VMdEditor.use(githubTheme, {
+  extend (md, hljs) {
+    hljs.registerLanguage('json', json);
+  }
 })
 
 const text = `\`\`\`json

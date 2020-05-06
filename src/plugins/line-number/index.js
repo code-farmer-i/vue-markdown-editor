@@ -8,7 +8,6 @@ const extendMarkdown = function (mdParser) {
 
 export default function () {
   return {
-    extendMarkdown,
     install(VMdEditor) {
       VMdEditor.extendMarkdown(extendMarkdown);
     },

@@ -7,6 +7,12 @@ export default {
       titles: [],
     };
   },
+  props: {
+    includeLevel: {
+      type: Array,
+      default: () => [2, 3],
+    },
+  },
   watch: {
     text: {
       immediate: true,
@@ -29,7 +35,9 @@ export default {
     },
     updateTocNav() {
       const previewEl = this.$refs.preview.$el;
-      const anchors = previewEl.querySelectorAll('h2,h3');
+      const anchors = previewEl.querySelectorAll(
+        this.includeLevel.map((level) => `h${level}`).join(',')
+      );
       const titles = Array.from(anchors).filter((title) => !!title.innerText.trim());
 
       if (!titles.length) {

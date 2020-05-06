@@ -8,7 +8,7 @@ export default {
         const previewScrollContainer = this.$refs.previewScroller.$el.querySelector(
           '.scrollbar__wrap'
         );
-        const defaultContainer = this.mode === 'preview' ? window : previewScrollContainer;
+        const defaultContainer = this.isPreviewMode ? window : previewScrollContainer;
 
         return this.previewScrollContainer ? this.previewScrollContainer() : defaultContainer;
       };
@@ -19,7 +19,7 @@ export default {
       this.$refs.previewScroller.scrollTo(scrollTop);
     },
     scrollToLine(lineIndex) {
-      if (this.mode === 'editable') {
+      if (!this.isPreviewMode) {
         this.editorScrollToLine(lineIndex);
       }
 

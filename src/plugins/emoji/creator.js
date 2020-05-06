@@ -25,10 +25,11 @@ export default function creator({ emojiJson, mdEmojiPlugin }) {
     };
 
     return {
-      extendMarkdown,
       install(VMdEditor) {
-        if (VMdEditor.command) VMdEditor.command(name, commandHandler);
-        if (VMdEditor.toolbar) VMdEditor.toolbar(name, toolbar);
+        if (VMdEditor.name === 'v-md-editor') {
+          VMdEditor.command(name, commandHandler);
+          VMdEditor.toolbar(name, toolbar);
+        }
 
         VMdEditor.extendMarkdown(extendMarkdown);
       },

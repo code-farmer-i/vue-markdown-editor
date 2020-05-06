@@ -27,12 +27,11 @@
     />
     <scrollbar
       slot="preview"
-      :disabled="mode === 'preview'"
+      :disabled="isPreviewMode"
       ref="previewScroller"
     >
       <v-md-preview
         :text="text"
-        :theme="theme"
         :scroll-container="getPreviewScrollContainer"
         @change="handleChange"
         ref="preview"

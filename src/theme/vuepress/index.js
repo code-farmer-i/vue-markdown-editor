@@ -1,12 +1,16 @@
-import theme from './theme';
+import createVuepressTheme from './theme';
 import createTipPlugin from '@/plugins/tip/index';
 import '@/plugins/tip/tip.css';
 
-const tipPlugin = createTipPlugin();
+const install = function (VMdEditor, options = {}) {
+  const { extend, config } = options;
+  const theme = createVuepressTheme({
+    baseConfig: config,
+  });
+  const tipPlugin = createTipPlugin();
 
-const install = function (VMdEditor) {
+  if (extend) theme.extend(extend);
   VMdEditor.use(tipPlugin);
-
   VMdEditor.theme(theme);
 };
 
@@ -15,7 +19,5 @@ if (typeof window !== 'undefined' && window.VMdEditor) {
 }
 
 export default {
-  ...theme,
-  markdownExtenders: [tipPlugin.extendMarkdown],
   install,
 };

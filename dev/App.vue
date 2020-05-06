@@ -3,6 +3,7 @@
     <v-md-editor
       v-model="value"
       height="500px"
+      :include-level="[3, 4]"
       ref="editor"
     />
     <v-md-preview

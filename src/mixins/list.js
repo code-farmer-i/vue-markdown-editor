@@ -6,6 +6,8 @@ const olSyntax = /([\d])+\.( \[[ xX]])? /;
 
 export default {
   mounted() {
+    if (this.isPreviewMode) return;
+
     this.registerHotkeys({
       key: 'enter',
       action: () => {

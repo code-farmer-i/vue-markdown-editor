@@ -8,7 +8,7 @@
     :style="{ height: heightGetter }"
   >
     <div
-      v-if="mode === 'editable'"
+      v-if="!isPreviewMode"
       class="v-md-editor__left-area"
       :style="{
         width: leftAreaVisible ? leftAreaWidth : 0,
@@ -31,7 +31,7 @@
     <div class="v-md-editor__right-area">
       <div
         class="v-md-editor__toolbar"
-        v-if="mode === 'editable'"
+        v-if="!isPreviewMode"
         ref="toolbarWrapper"
       >
         <editor-toolbar
@@ -55,7 +55,7 @@
         <div
           ref="editorWrapper"
           class="v-md-editor__editor-wrapper"
-          v-if="mode === 'editable'"
+          v-if="!isPreviewMode"
           @click="handleEditorWrapperClick"
         >
           <slot name="editor" />
@@ -75,6 +75,7 @@
 <script>
 import Toolbar from '@/components/toolbar';
 import { addResizeListener, removeResizeListener } from '@/utils/resize-event';
+import EDITOR_MODE from '@/utils/constants/editor-mode';
 
 export default {
   name: 'v-md-container',
@@ -97,7 +98,7 @@ export default {
     },
     mode: {
       type: String,
-      default: 'editable',
+      default: EDITOR_MODE.EDITABLE,
     },
   },
   data () {
@@ -115,15 +116,18 @@ export default {
     rightToolbarGroup() {
       return this.getToolbarConfig(this.rightToolbar);
     },
+    isPreviewMode () {
+      return this.mode === EDITOR_MODE.PREVIEW;
+    },
   },
   mounted() {
-    if (!this.noresize && this.mode === 'editable') {
+    if (!this.noresize && !this.isPreviewMode) {
       addResizeListener(this.$refs.editorWrapper, this.handleResize);
       addResizeListener(this.$refs.toolbarWrapper, this.handleToolbarWrapperResize);
     }
   },
   beforeDestroy() {
-    if (!this.noresize && this.mode === 'editable') {
+    if (!this.noresize && !this.isPreviewMode) {
       removeResizeListener(this.$refs.editorWrapper, this.handleResize);
       removeResizeListener(this.$refs.toolbarWrapper, this.handleToolbarWrapperResize);
     }

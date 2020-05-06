@@ -9,11 +9,11 @@ const install = (Vue) => {
 
 Component.version = version;
 Component.install = install;
-Component.use = function (optionsOrInstall) {
+Component.use = function (optionsOrInstall, opt) {
   if (typeof optionsOrInstall === 'function') {
-    optionsOrInstall(Component);
+    optionsOrInstall(Component, opt);
   } else {
-    optionsOrInstall.install(Component);
+    optionsOrInstall.install(Component, opt);
   }
 
   return Component;

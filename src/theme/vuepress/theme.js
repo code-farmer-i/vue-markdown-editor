@@ -1,27 +1,25 @@
 import createPrismTheme from '@/theme/base/prism';
-import markdownItLink from '@/utils/markdown-it-link';
 
 // style
 import '@/assets/css/theme/vuepress-markdown';
 
-const prismTheme = createPrismTheme({
-  codeBlockClass: (lang) => `v-md-prism-${lang}`,
-});
-
-prismTheme.configure((md) => {
-  md.use(markdownItLink, {
-    externalAttrs: {
-      target: '_blank',
+export default function createVuepressTheme(config) {
+  const prismTheme = createPrismTheme({
+    codeBlockClass: config.codeBlockClass || ((lang) => `v-md-prism-${lang}`),
+    baseConfig: {
+      link: {
+        openLinkIcon: true,
+        openLinkIconClass: 'v-md-icon-open-in-new',
+      },
+      ...config.baseConfig,
     },
-    openLinkIcon: true,
-    openLinkIconClass: 'v-md-icon-open-in-new',
   });
-});
 
-export default {
-  previewClass: 'vuepress-markdown-body',
-  configure(callback) {
-    prismTheme.configure(callback);
-  },
-  markdownParser: prismTheme.markdownParser,
-};
+  return {
+    previewClass: 'vuepress-markdown-body',
+    extend(callback) {
+      prismTheme.extend(callback);
+    },
+    markdownParser: prismTheme.markdownParser,
+  };
+}

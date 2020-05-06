@@ -12,7 +12,6 @@ export default function (katex) {
     };
 
     return {
-      extendMarkdown,
       install(VMdEditor) {
         VMdEditor.extendMarkdown(extendMarkdown);
       },

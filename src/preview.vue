@@ -39,7 +39,7 @@ const component = {
   },
   computed: {
     themeConfig() {
-      return this.theme || component.themeConfig || {};
+      return component.themeConfig || {};
     },
     markdownParser () {
       return this.themeConfig.markdownParser;
@@ -54,10 +54,12 @@ const component = {
     },
   },
   created () {
+    if (this.theme) component.use(this.theme);
+
     if (typeof this.markdownLoader !== 'function' || this.markdownLoader === defaultMarkdownLoader) {
       console.warn('Please configure your markdown parser');
     } else {
-      const markdownExtenders = [...(this.theme?.markdownExtenders || []), ...component.markdownExtenders];
+      const { markdownExtenders } = component;
 
       markdownExtenders.forEach(extender => {
         extender(this.markdownParser);

@@ -45,6 +45,7 @@ import Tooltip from './tooltip';
 import Menu from './menu';
 import Clickoutside from '@/utils/clickoutside';
 import { isObject } from '@/utils/util';
+import MENU_MODE from '@/utils/constants/menu-mode';
 
 export default {
   name: 'toolbar-item',
@@ -77,7 +78,7 @@ export default {
       return menus?.filter(({ name: menuName }) => !this.disabledMenus?.includes(`${this.name}/${menuName}`));
     },
     menuMode () {
-      return isObject(this.menus) ? this.menus.mode : 'list';
+      return isObject(this.menus) ? this.menus.mode : MENU_MODE.LIST;
     },
   },
   methods: {

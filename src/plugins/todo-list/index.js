@@ -32,11 +32,10 @@ export default function createTodoListPlugin({
   };
 
   return {
-    extendMarkdown,
     install(VMdEditor) {
-      if (VMdEditor.command) VMdEditor.command(name, commandHandler);
-      if (VMdEditor.toolbar) VMdEditor.toolbar(name, toolbar);
-      if (VMdEditor.hotkey) {
+      if (VMdEditor.name === 'v-md-editor') {
+        VMdEditor.command(name, commandHandler);
+        VMdEditor.toolbar(name, toolbar);
         VMdEditor.hotkey({
           modifier: 'ctrlShift',
           key: 'u',

@@ -6,6 +6,8 @@ importAll(defaultHotkeys, require.context('@/hotkeys', false, /\.(js)$/));
 export default function (Component) {
   return {
     mounted() {
+      if (this.isPreviewMode) return;
+
       const { hotkeys } = Component;
 
       Object.values(defaultHotkeys).forEach((module) => {

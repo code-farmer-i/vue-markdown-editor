@@ -8,9 +8,9 @@ import Container from '@/components/container';
 import Scrollbar from '@/components/scrollbar/index';
 import TocNav from '@/components/toc-nav';
 
+import EDITOR_MODE from '@/utils/constants/editor-mode';
+
 export default {
-  theme: Preview.theme,
-  extendMarkdown: Preview.extendMarkdown,
   inheritAttrs: false,
   components: {
     [Preview.name]: Preview,
@@ -28,7 +28,15 @@ export default {
     theme: Object,
     mode: {
       type: String,
-      default: 'editable',
+      default: EDITOR_MODE.EDITABLE,
+    },
+  },
+  created() {
+    if (this.theme) this.$options.use(this.theme);
+  },
+  computed: {
+    isPreviewMode() {
+      return this.mode === EDITOR_MODE.PREVIEW;
     },
   },
   methods: {

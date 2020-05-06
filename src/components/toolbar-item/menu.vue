@@ -8,7 +8,7 @@
       @mousemove.stop
       @click.stop
     >
-      <template v-if="mode === 'list'">
+      <template v-if="isListMode">
         <li
           v-for="item in menus"
           :key="item.name"
@@ -48,6 +48,7 @@
 
 <script>
 import Render from '@/components/render';
+import MENU_MODE from '@/utils/constants/menu-mode';
 
 export default {
   name: 'v-md-menu',
@@ -57,7 +58,7 @@ export default {
   props: {
     mode: {
       type: String,
-      default: 'panel',
+      default: MENU_MODE.PANEL,
     },
     menus: Array,
     itemWidth: {
@@ -80,6 +81,9 @@ export default {
   computed: {
     rowCount () {
       return Math.ceil(this.menus.length / this.rowNum);
+    },
+    isListMode () {
+      return this.mode === MENU_MODE.LIST;
     },
   },
   watch: {
