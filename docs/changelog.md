@@ -1,5 +1,21 @@
 # 更新日志
 
+### 1.2.12
+
+`2020-05-06`
+
+**Bug Fixes**
+
+- xss: 修复 svg 相关标签的属性被过滤的问题。
+
+**Features**
+
+- props: 新增 include-level 属性用来配置生成目录导航时所要包含的标题等级。
+
+:::warning 注意
+扩展主题的 api 有细微调整，有使用到的请注意。[查看详情](/vue-markdown-editor/theme/github)
+:::
+
 ### 1.2.11
 
 `2020-05-01`
