@@ -1,3 +1,9 @@
+## [1.2.13-beta.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.13-beta.0...v1.2.13-beta.1) (2020-05-11)
+
+### Bug Fixes
+
+- fix edit mode markdown parse error ([9aa3552](https://github.com/code-farmer-i/vue-markdown-editor/commit/9aa3552be1a4040e05258edc761f76f199ee1485))
+
 ## [1.2.13-beta.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.12...v1.2.13-beta.0) (2020-05-11)
 
 ### Features
