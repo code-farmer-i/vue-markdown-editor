@@ -14,8 +14,6 @@ export function createHighlightRender({
     if (lang) {
       if (hasLang(lang)) {
         res = highlight(str, lang);
-      } else {
-        console.error(`markdown highlight code: missing the language pack：${lang}`);
       }
     }
 
