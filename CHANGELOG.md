@@ -1,3 +1,14 @@
+## [1.2.13-beta.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.12...v1.2.13-beta.0) (2020-05-11)
+
+### Features
+
+- **props:** add mode type 'edit' ([33bf408](https://github.com/code-farmer-i/vue-markdown-editor/commit/33bf40822290a86c0ad027980519273ef0fd4c59))
+- image preview ([5525e47](https://github.com/code-farmer-i/vue-markdown-editor/commit/5525e470b3315912586880da8ddb23e04600d042))
+
+### Performance Improvements
+
+- optimize ([2d9d94c](https://github.com/code-farmer-i/vue-markdown-editor/commit/2d9d94c591831ee5e3829def8d23704b5602d39b))
+
 ## [1.2.12](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.12-beta.0...v1.2.12) (2020-05-06)
 
 ### Features
