@@ -1,6 +1,6 @@
 export { image as name } from '@/utils/constants/command.js';
 
-export default function (editor, { url, desc, width = 'auto', height = 'auto' } = {}) {
+export default function (editor, { url, desc, width = '100%', height = 'auto' } = {}) {
   editor.insert(() => {
     const urlPlaceholder = 'http://';
     const descPlaceholder = 'Description';
