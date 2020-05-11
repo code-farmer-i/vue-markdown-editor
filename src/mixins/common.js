@@ -38,6 +38,9 @@ export default {
     isPreviewMode() {
       return this.mode === EDITOR_MODE.PREVIEW;
     },
+    isEditMode() {
+      return this.mode === EDITOR_MODE.EDIT;
+    },
   },
   methods: {
     // change event

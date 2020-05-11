@@ -23,13 +23,15 @@ export default {
         this.editorScrollToLine(lineIndex);
       }
 
-      this.ignoreSyncScroll = true;
-      this.previewScrollToLine({
-        lineIndex,
-        onScrollEnd: () => {
-          this.ignoreSyncScroll = false;
-        },
-      });
+      if (!this.isEditMode) {
+        this.ignoreSyncScroll = true;
+        this.previewScrollToLine({
+          lineIndex,
+          onScrollEnd: () => {
+            this.ignoreSyncScroll = false;
+          },
+        });
+      }
     },
     editorScrollToLine(lineIndex) {
       const offsetTop = this.heightAtLine(lineIndex - 1, 'local');

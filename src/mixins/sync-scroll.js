@@ -13,6 +13,8 @@ export default {
       if (isEnable) this.previewSyncScroll();
     },
     previewSyncScroll() {
+      if (this.isEditMode) return;
+
       const previewEl = this.$refs.preview.$el;
       const previewScrollerEl = this.$refs.previewScroller.$el;
       const previewLines = previewEl.querySelectorAll(`[${LINE_MARKUP}]`);

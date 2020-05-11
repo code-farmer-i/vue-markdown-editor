@@ -3,6 +3,7 @@
     <v-md-editor
       v-model="value"
       height="500px"
+      mode="edit"
       ref="editor"
     />
     <v-md-preview

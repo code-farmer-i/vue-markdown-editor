@@ -8,7 +8,7 @@
     :style="{ height: heightGetter }"
   >
     <div
-      v-if="!isPreviewMode"
+      v-if="!isPreviewMode && !isEditMode"
       class="v-md-editor__left-area"
       :style="{
         width: leftAreaVisible ? leftAreaWidth : 0,
@@ -61,6 +61,7 @@
           <slot name="editor" />
         </div>
         <div
+          v-if="!isEditMode"
           class="v-md-editor__preview-wrapper"
           ref="previewWrapper"
         >
@@ -118,6 +119,9 @@ export default {
     },
     isPreviewMode () {
       return this.mode === EDITOR_MODE.PREVIEW;
+    },
+    isEditMode () {
+      return this.mode === EDITOR_MODE.EDIT;
     },
   },
   mounted() {
