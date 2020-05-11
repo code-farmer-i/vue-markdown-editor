@@ -1,3 +1,9 @@
+## [1.2.14-beta.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.13...v1.2.14-beta.0) (2020-05-11)
+
+### Performance Improvements
+
+- add import tip.css ext ([824bbcc](https://github.com/code-farmer-i/vue-markdown-editor/commit/824bbcc763a474ea6697abe32a39f68ae3143cde))
+
 ## [1.2.13](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.13-beta.2...v1.2.13) (2020-05-11)
 
 ### Performance Improvements
