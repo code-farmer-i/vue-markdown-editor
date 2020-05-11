@@ -1,3 +1,9 @@
+## [1.2.13](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.13-beta.2...v1.2.13) (2020-05-11)
+
+### Performance Improvements
+
+- enable toc when use the edit mode ([3416643](https://github.com/code-farmer-i/vue-markdown-editor/commit/341664362d4f14b4ebdd9559ac3ad9a141b9da44))
+
 ## [1.2.13-beta.2](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.13-beta.1...v1.2.13-beta.2) (2020-05-11)
 
 ### Performance Improvements
