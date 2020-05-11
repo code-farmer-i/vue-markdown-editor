@@ -61,7 +61,7 @@
           <slot name="editor" />
         </div>
         <div
-          v-if="!isEditMode"
+          v-show="!isEditMode"
           class="v-md-editor__preview-wrapper"
           ref="previewWrapper"
         >
