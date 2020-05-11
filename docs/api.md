@@ -29,7 +29,7 @@ sidebarDepth: 2
 - 类型：`String`
 - 默认值: `editable`
 
-模式。可选值：`editable`(编辑模式) `preview`(预览模式)。
+模式。可选值：`editable`(纯编辑模式) `editable`(编辑与预览模式) `preview`(纯预览模式)。
 
 ### height
 
