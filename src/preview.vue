@@ -1,10 +1,16 @@
 <template>
   <div
-    v-html="html"
     class="v-md-editor-preview"
     :class="[themeConfig.previewClass]"
     @click="handlePreviewClick"
-  />
+  >
+    <div v-html="html" />
+    <v-md-image-preview
+      v-if="previewSrc"
+      :src="previewSrc"
+      :on-close="() => previewSrc = ''"
+    />
+  </div>
 </template>
 
 <script>
@@ -12,6 +18,7 @@ import xss from '@/utils/xss/index';
 import { getScrollTop } from '@/utils/scroll-top';
 import smoothScroll from '@/utils/smooth-scroll';
 import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants/markup';
+import ImagePreview from '@/components/image-preview';
 
 const defaultMarkdownLoader = (text) => text;
 
@@ -32,9 +39,13 @@ const component = {
       default: 0,
     },
   },
+  components: {
+    [ImagePreview.name]: ImagePreview,
+  },
   data() {
     return {
       html: '',
+      previewSrc: '',
     };
   },
   computed: {
@@ -71,6 +82,15 @@ const component = {
   methods: {
     handlePreviewClick (e) {
       const { target } = e;
+
+      // image preview
+      if (target.tagName === 'IMG') {
+        const src = target.getAttribute('src');
+
+        this.previewSrc = src;
+        return;
+      }
+
       const scrollToTargetId = target.getAttribute(ANCHOR_MARKUP);
       const scrollToTarget = this.$el.querySelector(`[${HEADING_MARKUP}="${scrollToTargetId}"]`);
 
