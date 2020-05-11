@@ -8,7 +8,7 @@
     :style="{ height: heightGetter }"
   >
     <div
-      v-if="!isPreviewMode && !isEditMode"
+      v-if="!isPreviewMode"
       class="v-md-editor__left-area"
       :style="{
         width: leftAreaVisible ? leftAreaWidth : 0,
