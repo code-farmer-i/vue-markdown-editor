@@ -8,7 +8,7 @@
     <v-md-image-preview
       v-if="previewSrc"
       :src="previewSrc"
-      :on-close="() => previewSrc = ''"
+      :on-close="handleClosePreview"
     />
   </div>
 </template>
@@ -80,6 +80,9 @@ const component = {
     this.handleTextChange();
   },
   methods: {
+    handleClosePreview () {
+      this.previewSrc = '';
+    },
     handlePreviewClick (e) {
       const { target } = e;
 

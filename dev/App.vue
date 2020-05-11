@@ -1,14 +1,9 @@
 <template>
   <div>
     <v-md-editor
-      v-model="value"
+      v-model="text"
       height="500px"
-      mode="edit"
       ref="editor"
-    />
-    <v-md-preview
-      :text="value"
-      ref="preview"
     />
   </div>
 </template>
@@ -19,11 +14,8 @@ import text from './text';
 export default {
   data () {
     return {
-      value: '[[toc]]' + text,
+      text: '',
     };
-  },
-  mounted () {
-    this.$refs.editor.toggleToc();
   },
   methods: {
     handleImageUpload(e, insertImage) {
