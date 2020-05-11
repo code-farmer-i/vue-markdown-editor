@@ -12,7 +12,6 @@ import VMdEditor from '../../../lib/base-editor'
 import '../../../lib/style/base-editor.css'
 import githubTheme from '../../../lib/theme/github.js'
 import createTipPlugin from '../../../lib/plugins/tip/index'
-import '../../../lib/plugins/tip/tip.css'
 
 VMdEditor.use(createTipPlugin())
 

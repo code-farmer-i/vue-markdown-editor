@@ -1,5 +1,5 @@
 import markdownItContainer from '@/utils/markdown-it-container';
-import './tip';
+import './tip.css';
 
 export default function createTipPlugin({
   name = 'tip',
