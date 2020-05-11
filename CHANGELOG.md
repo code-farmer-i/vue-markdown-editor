@@ -1,3 +1,10 @@
+## [1.2.13-beta.2](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.13-beta.1...v1.2.13-beta.2) (2020-05-11)
+
+### Performance Improvements
+
+- change the image size default width auto -> 100% ([b14f9fd](https://github.com/code-farmer-i/vue-markdown-editor/commit/b14f9fd1356b570812f2ce2756fe64c1fc1689d7))
+- remove the console when highlight code missing the language pack ([b8d3fd7](https://github.com/code-farmer-i/vue-markdown-editor/commit/b8d3fd769a4c1b77702ca75d1c8d7adf9406ed39))
+
 ## [1.2.13-beta.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.13-beta.0...v1.2.13-beta.1) (2020-05-11)
 
 ### Bug Fixes
