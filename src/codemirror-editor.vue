@@ -27,7 +27,6 @@
     />
     <scrollbar
       slot="preview"
-      :disabled="isPreviewMode"
       ref="previewScroller"
     >
       <v-md-preview
