@@ -72,6 +72,10 @@ const component = {
   },
   methods: {
     handleEditorWrapperClick() {
+      this.setFocusEnd();
+    },
+    // Must implement
+    editorFocusEnd () {
       this.focus();
 
       this.editorEgine.setRange({

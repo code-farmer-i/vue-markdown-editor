@@ -30,6 +30,7 @@ export default {
       type: String,
       default: EDITOR_MODE.EDITABLE,
     },
+    autofocus: Boolean,
   },
   created() {
     if (this.theme) this.$options.use(this.theme);
@@ -42,7 +43,17 @@ export default {
       return this.mode === EDITOR_MODE.EDIT;
     },
   },
+  mounted() {
+    if (this.autofocus) {
+      this.$nextTick(this.setFocusEnd);
+    }
+  },
   methods: {
+    setFocusEnd() {
+      this.editorFocusEnd();
+      this.editorScrollToTop(9999);
+      this.previewScrollTo(9999);
+    },
     // change event
     handleChange(text, html) {
       this.$emit('change', text, html);

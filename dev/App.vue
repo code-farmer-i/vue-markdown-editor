@@ -3,6 +3,7 @@
     <v-md-editor
       v-model="text"
       height="500px"
+      autofocus
       ref="editor"
     />
   </div>
@@ -14,7 +15,7 @@ import text from './text';
 export default {
   data () {
     return {
-      text: '',
+      text,
     };
   },
   methods: {

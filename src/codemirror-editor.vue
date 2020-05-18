@@ -168,6 +168,15 @@ const component = {
       this.codemirrorInstance.setValue('');
     },
     // Must implement
+    editorFocusEnd () {
+      this.focus();
+
+      const lastLineIndex = this.codemirrorInstance.lastLine();
+      const lastLineContent = this.codemirrorInstance.getLine(lastLineIndex);
+
+      this.codemirrorInstance.setCursor({ line: lastLineIndex, ch: lastLineContent.length });
+    },
+    // Must implement
     replaceSelectionText(text, type = 'around') {
       this.codemirrorInstance.replaceSelection(text, type);
     },
