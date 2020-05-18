@@ -7,6 +7,7 @@
     <textarea
       ref="textarea"
       :value="value"
+      :placeholder="placeholder"
       spellcheck="false"
       @compositionstart="() => ignoreInput = true"
       @compositionend="() => ignoreInput = false"
@@ -37,6 +38,7 @@ export default {
   name: 'v-md-textarea-editor',
   props: {
     value: String,
+    placeholder: String,
     historyDebounce: {
       type: Number,
       default: 400,
@@ -201,6 +203,10 @@ export default {
     outline: none;
     resize: none;
     @include common;
+
+    &::placeholder {
+      color: $text-color-placeholder;
+    }
   }
 }
 </style>

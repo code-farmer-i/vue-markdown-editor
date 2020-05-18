@@ -27,6 +27,7 @@
     >
       <v-md-textarea-editor
         :value="text"
+        :placeholder="placeholder"
         @input="handleInput"
         @click.native.stop
         ref="editorEgine"

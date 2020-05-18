@@ -52,6 +52,8 @@ import HotKeys from '@/utils/hotkeys';
 import Codemirror from 'codemirror';
 // mode
 import 'codemirror/mode/markdown/markdown';
+// placeholder
+import 'codemirror/addon/display/placeholder';
 // active-line
 import 'codemirror/addon/selection/active-line';
 // scrollbar
@@ -82,6 +84,7 @@ const component = {
       styleActiveLine: true,
       ...this.codemirrorConfig,
       value: this.text,
+      placeholder: this.placeholder,
       mode: 'markdown',
       lineWrapping: 'wrap',
       scrollbarStyle: 'overlay',
@@ -270,6 +273,10 @@ export default component;
         padding: 0 12px;
         word-break: break-all;
       }
+    }
+
+    .CodeMirror-empty {
+      color: $text-color-placeholder;
     }
 
     .cm-header,

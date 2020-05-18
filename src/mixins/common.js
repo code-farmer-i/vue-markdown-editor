@@ -31,6 +31,7 @@ export default {
       default: EDITOR_MODE.EDITABLE,
     },
     autofocus: Boolean,
+    placeholder: String,
   },
   created() {
     if (this.theme) this.$options.use(this.theme);
