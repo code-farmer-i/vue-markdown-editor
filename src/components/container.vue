@@ -246,9 +246,12 @@ export default {
   }
 
   &__editor-wrapper {
-    border-right: 1px solid $border-color;
     cursor: text;
     user-select: none;
+  }
+
+  &--editable &__editor-wrapper {
+    border-right: 1px solid $border-color;
   }
 }
 </style>

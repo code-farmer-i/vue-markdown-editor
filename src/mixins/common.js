@@ -33,15 +33,30 @@ export default {
     autofocus: Boolean,
     placeholder: String,
   },
+  data() {
+    return {
+      currentMode: this.mode,
+    };
+  },
+  watch: {
+    mode() {
+      this.currentMode = this.mode;
+    },
+    currentMode() {
+      if (this.currentMode === EDITOR_MODE.EDITABLE && this.enableSyncScroll) {
+        this.$nextTick(this.previewSyncScroll);
+      }
+    },
+  },
   created() {
     if (this.theme) this.$options.use(this.theme);
   },
   computed: {
     isPreviewMode() {
-      return this.mode === EDITOR_MODE.PREVIEW;
+      return this.currentMode === EDITOR_MODE.PREVIEW;
     },
     isEditMode() {
-      return this.mode === EDITOR_MODE.EDIT;
+      return this.currentMode === EDITOR_MODE.EDIT;
     },
   },
   mounted() {
