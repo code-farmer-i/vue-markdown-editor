@@ -1,3 +1,14 @@
+## [1.2.14-beta.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.14-beta.0...v1.2.14-beta.1) (2020-05-18)
+
+### Features
+
+- **props:** add props autofocus ([edb812d](https://github.com/code-farmer-i/vue-markdown-editor/commit/edb812dd16dbf562e1e4cfabc2e777c5d34a5480))
+- **props:** add props placeholder ([f199bf8](https://github.com/code-farmer-i/vue-markdown-editor/commit/f199bf88557fcbf1b7404ed1644365bbe6bc06aa))
+
+### Performance Improvements
+
+- doesnt disabled preview scroll when the mode is preview ([45dc5f0](https://github.com/code-farmer-i/vue-markdown-editor/commit/45dc5f0892f2f510a4173cd41b55ad2343f663a2))
+
 ## [1.2.14-beta.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.13...v1.2.14-beta.0) (2020-05-11)
 
 ### Performance Improvements
