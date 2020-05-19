@@ -76,10 +76,10 @@ export default {
   mounted () {
     this.saveHistory();
 
-    this.$refs.textarea.addEventListener('keydown', this.handleKeydown, false);
+    this.textareaEl.addEventListener('keydown', this.handleKeydown, false);
   },
   beforeDestroy () {
-    this.$refs.textarea.removeEventListener('keydown', this.handleKeydown, false);
+    this.textareaEl.removeEventListener('keydown', this.handleKeydown, false);
   },
   methods: {
     registerHotkeys (...arg) {
@@ -151,7 +151,7 @@ export default {
       this.textareaEl.focus();
     },
     insertText (text) {
-      insertTextAtCursor(this.$refs.textarea, text);
+      insertTextAtCursor(this.textareaEl, text);
     },
     undo () {
       if (this.historyIndex > 0) {

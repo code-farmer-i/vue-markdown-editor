@@ -61,11 +61,6 @@ const component = {
   components: {
     [TextareaEditor.name]: TextareaEditor,
   },
-  computed: {
-    editorEgine () {
-      return this.$refs.editorEgine;
-    },
-  },
   watch: {
     value() {
       this.text = this.value;
@@ -79,22 +74,23 @@ const component = {
     editorFocusEnd () {
       this.focus();
 
-      this.editorEgine.setRange({
+      this.$refs.editorEgine.setRange({
         start: this.text.length,
         end: this.text.length,
       });
     },
     // Must implement
     delLineLeft () {
-      const { start } = this.editorEgine.getRange();
+      const { editorEgine } = this.$refs;
+      const { start } = editorEgine.getRange();
 
       const leftText = this.getCursorLineLeftText();
-      this.editorEgine.setRange({ start: start - leftText.length - 1, end: start });
+      editorEgine.setRange({ start: start - leftText.length - 1, end: start });
       this.replaceSelectionText('\n');
     },
     // Must implement
     getCursorLineLeftText () {
-      const { start, end } = this.editorEgine.getRange();
+      const { start, end } = this.$refs.editorEgine.getRange();
 
       return start === end ? this.text.slice(0, start).split('\n').pop() : null;
     },
@@ -112,19 +108,19 @@ const component = {
     },
     // Must implement
     heightAtLine (...arg) {
-      return this.editorEgine.heightAtLine(...arg);
+      return this.$refs.editorEgine.heightAtLine(...arg);
     },
     // Must implement
     focus() {
-      this.editorEgine.focus();
+      this.$refs.editorEgine.focus();
     },
     // Must implement
     undo() {
-      this.editorEgine.undo();
+      this.$refs.editorEgine.undo();
     },
     // Must implement
     redo() {
-      this.editorEgine.redo();
+      this.$refs.editorEgine.redo();
     },
     // Must implement
     clear() {
@@ -134,11 +130,11 @@ const component = {
     },
     // Must implement
     replaceSelectionText(text) {
-      this.editorEgine.insertText(text);
+      this.$refs.editorEgine.insertText(text);
     },
     // Must implement
     getCurrentSelectedStr () {
-      const { start, end } = this.editorEgine.getRange();
+      const { start, end } = this.$refs.editorEgine.getRange();
 
       return end > start ? this.text.slice(start, end) : null;
     },
@@ -155,7 +151,7 @@ const component = {
       const rangeStartIndex = insertTextIndex + selectedIndexOfStr;
       const rangeEndIndex = rangeStartIndex + selectedText.length;
 
-      this.editorEgine.setRange({
+      this.$refs.editorEgine.setRange({
         start: rangeStartIndex,
         end: rangeEndIndex,
       });

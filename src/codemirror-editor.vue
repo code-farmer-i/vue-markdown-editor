@@ -105,6 +105,11 @@ const component = {
       this.hotkeysManager.dispatch(e);
     });
   },
+  beforeDestory() {
+    const element = this.codemirrorInstance.doc.cm.getWrapperElement();
+
+    element?.remove?.();
+  },
   methods: {
     handleContainerResize() {
       // 容器大小变化的时候刷新 codemirror 解决滚动条的显示问题
