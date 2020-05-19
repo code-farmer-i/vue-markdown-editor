@@ -1,3 +1,13 @@
+## [1.2.14-beta.2](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.14-beta.1...v1.2.14-beta.2) (2020-05-19)
+
+### Bug Fixes
+
+- fix the bug when change the mode prop ([60c5581](https://github.com/code-farmer-i/vue-markdown-editor/commit/60c55815ec5380bb87e2c92c6dcb5fe91fbfbdf2))
+
+### Features
+
+- **toolbar:** add toolbar preview ([a147acb](https://github.com/code-farmer-i/vue-markdown-editor/commit/a147acb65b5b2db20e565e97bd12568861fbb96e))
+
 ## [1.2.14-beta.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.14-beta.0...v1.2.14-beta.1) (2020-05-18)
 
 ### Features
