@@ -12,6 +12,7 @@
 
 - toolbar: 新增 preview 工具栏用来开启和关闭预览。
 - image-upload: 新增拖放图片上传。
+- props: 新增 placeholder autofocus 属性。
 - event: 新增 fullscreen-change 事件。
 - hotkey: 新增 save 快捷键 CTRL + S。
 

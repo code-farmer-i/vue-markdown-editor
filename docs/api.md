@@ -38,6 +38,17 @@ sidebarDepth: 2
 
 正常模式下编辑器的高度。
 
+### placeholder
+
+- 类型：`String`
+
+### autofocus
+
+- 类型：`Boolean`
+- 默认值： `false`
+
+编辑器加载完是否自动聚焦。
+
 ### include-level
 
 - 类型: `Array`
