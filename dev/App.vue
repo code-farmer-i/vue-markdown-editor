@@ -4,6 +4,8 @@
       v-model="text"
       height="500px"
       autofocus
+      :disabled-menus="[]"
+      @upload-image="handleUploadImage"
       ref="editor"
     />
   </div>
@@ -19,8 +21,8 @@ export default {
     };
   },
   methods: {
-    handleImageUpload(e, insertImage) {
-      console.log(e);
+    handleUploadImage(e, insertImage, files) {
+      console.log(files);
 
       insertImage({
         desc: '111',

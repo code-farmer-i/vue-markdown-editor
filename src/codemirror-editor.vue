@@ -36,10 +36,10 @@
         ref="preview"
       />
     </scrollbar>
-    <v-md-upload-img
+    <v-md-upload-file
       v-if="hasUploadImage"
-      :upload-image-config="$attrs['upload-image-config'] || $attrs.uploadImageConfig"
-      ref="uploadImage"
+      :upload-config="uploadConfig"
+      ref="uploadFile"
     />
   </v-md-container>
 </template>
@@ -88,7 +88,6 @@ const component = {
       mode: 'markdown',
       lineWrapping: 'wrap',
       scrollbarStyle: 'overlay',
-      dragDrop: false,
     });
 
     this.codemirrorInstance.on('change', () => {
@@ -103,6 +102,10 @@ const component = {
 
     this.codemirrorInstance.on('keydown', (_, e) => {
       this.hotkeysManager.dispatch(e);
+    });
+
+    this.codemirrorInstance.on('drop', (_, e) => {
+      this.handleDrop(e);
     });
   },
   beforeDestory() {

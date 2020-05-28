@@ -30,6 +30,7 @@
         :placeholder="placeholder"
         @input="handleInput"
         @click.native.stop
+        @drop.native="handleDrop"
         ref="editorEgine"
       />
     </scrollbar>
@@ -44,10 +45,10 @@
         ref="preview"
       />
     </scrollbar>
-    <v-md-upload-img
+    <v-md-upload-file
       v-if="hasUploadImage"
-      :upload-image-config="$attrs['upload-image-config'] || $attrs.uploadImageConfig"
-      ref="uploadImage"
+      :upload-config="uploadConfig"
+      ref="uploadFile"
     />
   </v-md-container>
 </template>

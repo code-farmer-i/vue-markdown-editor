@@ -36,6 +36,7 @@ export default {
   data() {
     return {
       currentMode: this.mode,
+      uploadConfig: {},
     };
   },
   watch: {

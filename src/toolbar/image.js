@@ -1,4 +1,5 @@
 import { image } from '@/utils/constants/command';
+import { filesFilter } from '@/utils/file';
 
 export default {
   name: image,
@@ -15,11 +16,13 @@ export default {
     {
       name: 'upload-image',
       text: '上传本地图片',
-      async action(editor) {
-        const event = await editor.$refs.uploadImage.upload();
+      action(editor) {
+        editor.uploadConfig = editor.uploadImgConfig;
+        editor.$nextTick(async () => {
+          const event = await editor.$refs.uploadFile.upload();
+          const files = filesFilter(event.target.files, editor.uploadImgConfig);
 
-        editor.$emit('upload-image', event, ({ url, desc }) => {
-          editor.execCommand(image, { url, desc });
+          editor.emitUploadImage(event, files);
         });
       },
     },
