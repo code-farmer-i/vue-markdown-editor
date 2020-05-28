@@ -35,8 +35,8 @@ export default {
   },
   methods: {
     handleUploadImage(event, insertImage) {
-      const { files } = event.target;
-      // 拿到 File 对象之后上传到文件服务器，然后向编辑框中插入对应的内容
+      // 拿到 files 之后上传到文件服务器，然后向编辑框中插入对应的内容
+      console.log(files);
 
       // 此处只做示例
       insertImage({
