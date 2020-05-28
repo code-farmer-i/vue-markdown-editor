@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.14-beta.2...v1.3.0) (2020-05-28)
+
+### Features
+
+- **event:** add event fullscreen-change ([f98ed8c](https://github.com/code-farmer-i/vue-markdown-editor/commit/f98ed8c6544195079964ae0a66202e3ace859604))
+- **hotkey:** add save hotkey ([f747246](https://github.com/code-farmer-i/vue-markdown-editor/commit/f747246252d3d6c6c8854ea40acf8265d7129597))
+- add drag upload image ([7b2d54c](https://github.com/code-farmer-i/vue-markdown-editor/commit/7b2d54cbefd2cb02407d90390e7a35b07c019936))
+
 ## [1.2.14-beta.2](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.14-beta.1...v1.2.14-beta.2) (2020-05-19)
 
 ### Bug Fixes
