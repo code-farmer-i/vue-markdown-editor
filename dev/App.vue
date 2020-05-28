@@ -6,6 +6,7 @@
       autofocus
       :disabled-menus="[]"
       @upload-image="handleUploadImage"
+      @fullscreen-change="handleFullscreenChange"
       ref="editor"
     />
   </div>
@@ -21,6 +22,9 @@ export default {
     };
   },
   methods: {
+    handleFullscreenChange (v) {
+      console.log(v);
+    },
     handleUploadImage(e, insertImage, files) {
       console.log(files);
 
