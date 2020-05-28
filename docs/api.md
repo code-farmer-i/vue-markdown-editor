@@ -80,6 +80,7 @@ sidebarDepth: 2
 
 | 名称        | 说明     |
 | ----------- | -------- |
+| preview     | 预览     |
 | toc         | 目录导航 |
 | sync-scroll | 同步滚动 |
 | fullscreen  | 撤销     |
@@ -206,6 +207,12 @@ editor.insert((selected) => {
 - 回调参数：`(text, html)`
 
 点击 save toolbar 时触发的事件。
+
+### fullscreen-change
+
+- 回调参数：`(isFullscreen)`
+
+切换全屏状态时触发的事件。
 
 ### upload-image
 

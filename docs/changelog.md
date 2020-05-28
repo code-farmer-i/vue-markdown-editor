@@ -1,5 +1,20 @@
 # 更新日志
 
+### 1.3.0
+
+`2020-05-28`
+
+**Bug Fixes**
+
+- mode: 修复动态切换 mode 属性出现的问题。
+
+**Features**
+
+- toolbar: 新增 preview 工具栏用来开启和关闭预览。
+- image-upload: 新增拖放图片上传。
+- event: 新增 fullscreen-change 事件。
+- hotkey: 新增 save 快捷键 CTRL + S。
+
 ### 1.2.13
 
 `2020-05-11`
