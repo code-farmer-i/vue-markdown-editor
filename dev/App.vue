@@ -7,6 +7,7 @@
       :disabled-menus="[]"
       @upload-image="handleUploadImage"
       @fullscreen-change="handleFullscreenChange"
+      @save="handleSave"
       ref="editor"
     />
   </div>
@@ -31,6 +32,9 @@ export default {
       insertImage({
         desc: '111',
       });
+    },
+    handleSave (v, html) {
+      console.log(v, html);
     },
   },
 };
