@@ -1,3 +1,9 @@
+## [1.3.1-beta.2](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.1-beta.1...v1.3.1-beta.2) (2020-05-29)
+
+### Bug Fixes
+
+- fix ([1c2f0f1](https://github.com/code-farmer-i/vue-markdown-editor/commit/1c2f0f1fb1fcd06e6cfabf30d2bc5417be9e67a6))
+
 ## [1.3.1-beta.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.1-beta.0...v1.3.1-beta.1) (2020-05-29)
 
 ### Bug Fixes
