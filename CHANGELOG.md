@@ -1,3 +1,9 @@
+## [1.3.1-beta.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.1-beta.0...v1.3.1-beta.1) (2020-05-29)
+
+### Bug Fixes
+
+- **index.d.ts:** fix error when use ts ([c4ae598](https://github.com/code-farmer-i/vue-markdown-editor/commit/c4ae59855e6ebd6e23f1496c8de5bd01405981b4))
+
 ## [1.3.1-beta.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.0...v1.3.1-beta.0) (2020-05-29)
 
 ### Bug Fixes
