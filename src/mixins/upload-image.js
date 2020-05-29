@@ -1,6 +1,6 @@
 import UploadFile from '@/components/upload-file';
 import imageToolbar from '@/toolbar/image';
-import { filesFilter } from '@/utils/file';
+import { filesFilter, getFilesFromClipboardData } from '@/utils/file';
 import { image } from '@/utils/constants/command';
 
 const defaultConfig = {
@@ -31,8 +31,14 @@ export default {
 
       this.emitUploadImage(e, files);
     },
+    handlePaste(e) {
+      const { clipboardData } = e;
+      const files = filesFilter(getFilesFromClipboardData(clipboardData), this.uploadImgConfig);
+
+      this.emitUploadImage(e, files);
+    },
     emitUploadImage(e, files) {
-      if (files.length) {
+      if (this.hasUploadImage && files.length) {
         this.$emit(
           'upload-image',
           e,

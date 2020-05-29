@@ -107,6 +107,10 @@ const component = {
     this.codemirrorInstance.on('drop', (_, e) => {
       this.handleDrop(e);
     });
+
+    this.codemirrorInstance.on('paste', (_, e) => {
+      this.handlePaste(e);
+    });
   },
   beforeDestory() {
     const element = this.codemirrorInstance.doc.cm.getWrapperElement();

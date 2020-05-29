@@ -30,6 +30,7 @@ export default {
       console.log(files);
 
       insertImage({
+        url: '111',
         desc: '111',
       });
     },
