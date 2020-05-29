@@ -7,6 +7,7 @@
     <textarea
       ref="textarea"
       :value="value"
+      :placeholder="placeholder"
       spellcheck="false"
       @compositionstart="() => ignoreInput = true"
       @compositionend="() => ignoreInput = false"
@@ -37,6 +38,7 @@ export default {
   name: 'v-md-textarea-editor',
   props: {
     value: String,
+    placeholder: String,
     historyDebounce: {
       type: Number,
       default: 400,
@@ -74,10 +76,10 @@ export default {
   mounted () {
     this.saveHistory();
 
-    this.$refs.textarea.addEventListener('keydown', this.handleKeydown, false);
+    this.textareaEl.addEventListener('keydown', this.handleKeydown, false);
   },
   beforeDestroy () {
-    this.$refs.textarea.removeEventListener('keydown', this.handleKeydown, false);
+    this.textareaEl.removeEventListener('keydown', this.handleKeydown, false);
   },
   methods: {
     registerHotkeys (...arg) {
@@ -149,7 +151,7 @@ export default {
       this.textareaEl.focus();
     },
     insertText (text) {
-      insertTextAtCursor(this.$refs.textarea, text);
+      insertTextAtCursor(this.textareaEl, text);
     },
     undo () {
       if (this.historyIndex > 0) {
@@ -201,6 +203,10 @@ export default {
     outline: none;
     resize: none;
     @include common;
+
+    &::placeholder {
+      color: $text-color-placeholder;
+    }
   }
 }
 </style>

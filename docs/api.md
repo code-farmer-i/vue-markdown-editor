@@ -38,6 +38,17 @@ sidebarDepth: 2
 
 正常模式下编辑器的高度。
 
+### placeholder
+
+- 类型：`String`
+
+### autofocus
+
+- 类型：`Boolean`
+- 默认值： `false`
+
+编辑器加载完是否自动聚焦。
+
 ### include-level
 
 - 类型: `Array`
@@ -80,6 +91,7 @@ sidebarDepth: 2
 
 | 名称        | 说明     |
 | ----------- | -------- |
+| preview     | 预览     |
 | toc         | 目录导航 |
 | sync-scroll | 同步滚动 |
 | fullscreen  | 撤销     |
@@ -206,6 +218,12 @@ editor.insert((selected) => {
 - 回调参数：`(text, html)`
 
 点击 save toolbar 时触发的事件。
+
+### fullscreen-change
+
+- 回调参数：`(isFullscreen)`
+
+切换全屏状态时触发的事件。
 
 ### upload-image
 

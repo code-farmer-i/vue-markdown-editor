@@ -8,7 +8,7 @@
     :style="{ height: heightGetter }"
   >
     <div
-      v-if="!isPreviewMode"
+      v-show="!isPreviewMode"
       class="v-md-editor__left-area"
       :style="{
         width: leftAreaVisible ? leftAreaWidth : 0,
@@ -30,8 +30,8 @@
     </div>
     <div class="v-md-editor__right-area">
       <div
+        v-show="!isPreviewMode"
         class="v-md-editor__toolbar"
-        v-if="!isPreviewMode"
         ref="toolbarWrapper"
       >
         <editor-toolbar
@@ -55,7 +55,7 @@
         <div
           ref="editorWrapper"
           class="v-md-editor__editor-wrapper"
-          v-if="!isPreviewMode"
+          v-show="!isPreviewMode"
           @click="handleEditorWrapperClick"
         >
           <slot name="editor" />
@@ -125,13 +125,13 @@ export default {
     },
   },
   mounted() {
-    if (!this.noresize && !this.isPreviewMode) {
+    if (!this.noresize) {
       addResizeListener(this.$refs.editorWrapper, this.handleResize);
       addResizeListener(this.$refs.toolbarWrapper, this.handleToolbarWrapperResize);
     }
   },
   beforeDestroy() {
-    if (!this.noresize && !this.isPreviewMode) {
+    if (!this.noresize) {
       removeResizeListener(this.$refs.editorWrapper, this.handleResize);
       removeResizeListener(this.$refs.toolbarWrapper, this.handleToolbarWrapperResize);
     }
@@ -141,7 +141,9 @@ export default {
       this.$emit('resize');
     },
     handleToolbarWrapperResize() {
-      this.toolbarHeight = this.$refs.toolbarWrapper.offsetHeight;
+      const { toolbarWrapper } = this.$refs;
+
+      if (toolbarWrapper) this.toolbarHeight = toolbarWrapper.offsetHeight;
     },
     getToolbarConfig(toolbarStr) {
       return toolbarStr
@@ -246,9 +248,12 @@ export default {
   }
 
   &__editor-wrapper {
-    border-right: 1px solid $border-color;
     cursor: text;
     user-select: none;
+  }
+
+  &--editable &__editor-wrapper {
+    border-right: 1px solid $border-color;
   }
 }
 </style>

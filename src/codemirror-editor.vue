@@ -8,7 +8,7 @@
     :fullscreen="fullscreen"
     :left-area-visible="tocVisible"
     left-area-title="目录导航"
-    :mode="mode"
+    :mode="currentMode"
     @toolbar-item-click="handleToolbarItemClick"
     @toolbar-menu-click="handleToolbarMenuClick"
     @resize="handleContainerResize"
@@ -27,7 +27,6 @@
     />
     <scrollbar
       slot="preview"
-      :disabled="isPreviewMode"
       ref="previewScroller"
     >
       <v-md-preview
@@ -37,10 +36,10 @@
         ref="preview"
       />
     </scrollbar>
-    <v-md-upload-img
+    <v-md-upload-file
       v-if="hasUploadImage"
-      :upload-image-config="$attrs['upload-image-config'] || $attrs.uploadImageConfig"
-      ref="uploadImage"
+      :upload-config="uploadConfig"
+      ref="uploadFile"
     />
   </v-md-container>
 </template>
@@ -53,6 +52,8 @@ import HotKeys from '@/utils/hotkeys';
 import Codemirror from 'codemirror';
 // mode
 import 'codemirror/mode/markdown/markdown';
+// placeholder
+import 'codemirror/addon/display/placeholder';
 // active-line
 import 'codemirror/addon/selection/active-line';
 // scrollbar
@@ -83,10 +84,10 @@ const component = {
       styleActiveLine: true,
       ...this.codemirrorConfig,
       value: this.text,
+      placeholder: this.placeholder,
       mode: 'markdown',
       lineWrapping: 'wrap',
       scrollbarStyle: 'overlay',
-      dragDrop: false,
     });
 
     this.codemirrorInstance.on('change', () => {
@@ -102,6 +103,15 @@ const component = {
     this.codemirrorInstance.on('keydown', (_, e) => {
       this.hotkeysManager.dispatch(e);
     });
+
+    this.codemirrorInstance.on('drop', (_, e) => {
+      this.handleDrop(e);
+    });
+  },
+  beforeDestory() {
+    const element = this.codemirrorInstance.doc.cm.getWrapperElement();
+
+    element?.remove?.();
   },
   methods: {
     handleContainerResize() {
@@ -167,6 +177,15 @@ const component = {
     // Must implement
     clear() {
       this.codemirrorInstance.setValue('');
+    },
+    // Must implement
+    editorFocusEnd () {
+      this.focus();
+
+      const lastLineIndex = this.codemirrorInstance.lastLine();
+      const lastLineContent = this.codemirrorInstance.getLine(lastLineIndex);
+
+      this.codemirrorInstance.setCursor({ line: lastLineIndex, ch: lastLineContent.length });
     },
     // Must implement
     replaceSelectionText(text, type = 'around') {
@@ -262,6 +281,10 @@ export default component;
         padding: 0 12px;
         word-break: break-all;
       }
+    }
+
+    .CodeMirror-empty {
+      color: $text-color-placeholder;
     }
 
     .cm-header,

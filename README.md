@@ -12,6 +12,10 @@
 - [Documentation](https://code-farmer-i.github.io/vue-markdown-editor/)
 - [Changelog](https://code-farmer-i.github.io/vue-markdown-editor/changelog.html)
 
+## Communication
+
+qq group: 798884474
+
 ## Install
 
 ```bash
@@ -65,10 +69,6 @@ Vue.use(VueMarkdownEditor);
 - [markdown-it-katex](https://github.com/waylonflinn/markdown-it-katex/blob/master/index.js)
 - [markdown-it-table-of-contents](https://github.com/Oktavilla/markdown-it-table-of-contents/blob/master/index.js)
 - [markdown-it-task-lists](https://github.com/revin/markdown-it-task-lists/blob/master/index.js)
-
-## Communication
-
-qq group: 798884474
 
 ## License
 

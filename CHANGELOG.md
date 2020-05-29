@@ -1,3 +1,32 @@
+# [1.3.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.14-beta.2...v1.3.0) (2020-05-28)
+
+### Features
+
+- **event:** add event fullscreen-change ([f98ed8c](https://github.com/code-farmer-i/vue-markdown-editor/commit/f98ed8c6544195079964ae0a66202e3ace859604))
+- **hotkey:** add save hotkey ([f747246](https://github.com/code-farmer-i/vue-markdown-editor/commit/f747246252d3d6c6c8854ea40acf8265d7129597))
+- add drag upload image ([7b2d54c](https://github.com/code-farmer-i/vue-markdown-editor/commit/7b2d54cbefd2cb02407d90390e7a35b07c019936))
+
+## [1.2.14-beta.2](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.14-beta.1...v1.2.14-beta.2) (2020-05-19)
+
+### Bug Fixes
+
+- fix the bug when change the mode prop ([60c5581](https://github.com/code-farmer-i/vue-markdown-editor/commit/60c55815ec5380bb87e2c92c6dcb5fe91fbfbdf2))
+
+### Features
+
+- **toolbar:** add toolbar preview ([a147acb](https://github.com/code-farmer-i/vue-markdown-editor/commit/a147acb65b5b2db20e565e97bd12568861fbb96e))
+
+## [1.2.14-beta.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.14-beta.0...v1.2.14-beta.1) (2020-05-18)
+
+### Features
+
+- **props:** add props autofocus ([edb812d](https://github.com/code-farmer-i/vue-markdown-editor/commit/edb812dd16dbf562e1e4cfabc2e777c5d34a5480))
+- **props:** add props placeholder ([f199bf8](https://github.com/code-farmer-i/vue-markdown-editor/commit/f199bf88557fcbf1b7404ed1644365bbe6bc06aa))
+
+### Performance Improvements
+
+- doesnt disabled preview scroll when the mode is preview ([45dc5f0](https://github.com/code-farmer-i/vue-markdown-editor/commit/45dc5f0892f2f510a4173cd41b55ad2343f663a2))
+
 ## [1.2.14-beta.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.13...v1.2.14-beta.0) (2020-05-11)
 
 ### Performance Improvements

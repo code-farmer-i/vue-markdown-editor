@@ -4,6 +4,11 @@ export default {
       fullscreen: false,
     };
   },
+  watch: {
+    fullscreen() {
+      this.$emit('fullscreen-change', this.fullscreen);
+    },
+  },
   mounted() {
     window.addEventListener('keyup', this.handleWindowKeyup, false);
   },

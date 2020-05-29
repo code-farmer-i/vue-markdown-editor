@@ -30,19 +30,47 @@ export default {
       type: String,
       default: EDITOR_MODE.EDITABLE,
     },
+    autofocus: Boolean,
+    placeholder: String,
+  },
+  data() {
+    return {
+      currentMode: this.mode,
+      uploadConfig: {},
+    };
+  },
+  watch: {
+    mode() {
+      this.currentMode = this.mode;
+    },
+    currentMode() {
+      if (this.currentMode === EDITOR_MODE.EDITABLE && this.enableSyncScroll) {
+        this.$nextTick(this.previewSyncScroll);
+      }
+    },
   },
   created() {
     if (this.theme) this.$options.use(this.theme);
   },
   computed: {
     isPreviewMode() {
-      return this.mode === EDITOR_MODE.PREVIEW;
+      return this.currentMode === EDITOR_MODE.PREVIEW;
     },
     isEditMode() {
-      return this.mode === EDITOR_MODE.EDIT;
+      return this.currentMode === EDITOR_MODE.EDIT;
     },
   },
+  mounted() {
+    if (this.autofocus) {
+      this.$nextTick(this.setFocusEnd);
+    }
+  },
   methods: {
+    setFocusEnd() {
+      this.editorFocusEnd();
+      this.editorScrollToTop(9999);
+      this.previewScrollTo(9999);
+    },
     // change event
     handleChange(text, html) {
       this.$emit('change', text, html);
