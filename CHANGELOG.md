@@ -1,3 +1,9 @@
+## [1.3.1-beta.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.0...v1.3.1-beta.0) (2020-05-29)
+
+### Bug Fixes
+
+- fix updateNav error ([e705547](https://github.com/code-farmer-i/vue-markdown-editor/commit/e705547c1577005f911fcfa8b17adceb51543fc0))
+
 # [1.3.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.14-beta.2...v1.3.0) (2020-05-28)
 
 ### Features
