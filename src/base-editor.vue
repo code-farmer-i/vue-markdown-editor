@@ -31,6 +31,7 @@
         @input="handleInput"
         @click.native.stop
         @drop.native="handleDrop"
+        @paste="handlePaste"
         ref="editorEgine"
       />
     </scrollbar>

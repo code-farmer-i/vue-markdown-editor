@@ -121,7 +121,7 @@ export default {
       const y = e.clientY - selfElRect.top;
 
       this.timmer = setTimeout(() => {
-        this.$refs.tooltip.show({
+        this.$refs.tooltip?.show({
           x: x - 2,
           y: y + 20,
         });

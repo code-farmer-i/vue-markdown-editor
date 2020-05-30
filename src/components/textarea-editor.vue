@@ -13,6 +13,7 @@
       @compositionend="() => ignoreInput = false"
       @input="handleInput"
       @click="updateCurrentHistoryRange"
+      @paste="handlePaste"
       @keydown.tab.prevent
       @keydown.ctrl.z.prevent.exact="undo"
       @keydown.meta.z.prevent.exact="undo"
@@ -82,6 +83,9 @@ export default {
     this.textareaEl.removeEventListener('keydown', this.handleKeydown, false);
   },
   methods: {
+    handlePaste (e) {
+      this.$emit('paste', e);
+    },
     registerHotkeys (...arg) {
       this.hotkeysManager.registerHotkeys(...arg);
     },

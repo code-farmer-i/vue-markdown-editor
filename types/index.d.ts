@@ -11,6 +11,6 @@ interface VMdEditor extends PluginObject<any> {
   use: (options: install | options) => VMdEditor;
 }
 
-const VMdEditor: VMdEditor;
+declare const VMdEditor: VMdEditor;
 
 export default VMdEditor;

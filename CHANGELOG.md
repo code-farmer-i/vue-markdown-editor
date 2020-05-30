@@ -1,3 +1,21 @@
+## [1.3.1-beta.2](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.1-beta.1...v1.3.1-beta.2) (2020-05-29)
+
+### Bug Fixes
+
+- fix ([1c2f0f1](https://github.com/code-farmer-i/vue-markdown-editor/commit/1c2f0f1fb1fcd06e6cfabf30d2bc5417be9e67a6))
+
+## [1.3.1-beta.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.1-beta.0...v1.3.1-beta.1) (2020-05-29)
+
+### Bug Fixes
+
+- **index.d.ts:** fix error when use ts ([c4ae598](https://github.com/code-farmer-i/vue-markdown-editor/commit/c4ae59855e6ebd6e23f1496c8de5bd01405981b4))
+
+## [1.3.1-beta.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.0...v1.3.1-beta.0) (2020-05-29)
+
+### Bug Fixes
+
+- fix updateNav error ([e705547](https://github.com/code-farmer-i/vue-markdown-editor/commit/e705547c1577005f911fcfa8b17adceb51543fc0))
+
 # [1.3.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.2.14-beta.2...v1.3.0) (2020-05-28)
 
 ### Features

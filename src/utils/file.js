@@ -32,3 +32,9 @@ export function filesFilter(files, config) {
 
   return files;
 }
+
+export function getFilesFromClipboardData(clipboardData) {
+  return Object.values(clipboardData.items)
+    .filter((item) => item.kind === 'file')
+    .map((item) => item.getAsFile());
+}

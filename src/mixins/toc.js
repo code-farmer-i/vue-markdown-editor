@@ -39,7 +39,10 @@ export default {
       this.tocVisible = visible;
     },
     updateTocNav() {
-      const previewEl = this.$refs.preview.$el;
+      const previewEl = this.$refs.preview?.$el;
+
+      if (!previewEl) return;
+
       const anchors = previewEl.querySelectorAll(this.anchorsSelector);
       const titles = Array.from(anchors).filter((title) => !!title.innerText.trim());
 
