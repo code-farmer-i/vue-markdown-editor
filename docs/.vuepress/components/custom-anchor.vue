@@ -1,13 +1,12 @@
 <template>
   <div>
-    <ul>
-      <li
-        v-for="anchor in anchorList"
-        @click="handleAnchorClick(anchor)"
-      >
-        <a style="cursor: pointer">{{anchor}}</a>
-      </li>
-    </ul>
+    <div
+      v-for="anchor in titles"
+      :style="{ padding: `10px 0 10px ${anchor.indent * 20}px` }"
+      @click="handleAnchorClick(anchor)"
+    >
+      <a style="cursor: pointer">{{anchor.title}}</a>
+    </div>
     <v-md-editor
       v-model="text"
       mode="preview"
@@ -21,7 +20,36 @@
 import VMdEditor from '../../../lib/base-editor'
 import '../../../lib/style/base-editor.css'
 import githubTheme from '../../../lib/theme/github.js'
-import text from '../../../dev/text'
+
+const text = `
+# 一级标题
+内容内容内容内容内容内容
+内容内容内容内容内容内容
+内容内容内容内容内容内容
+内容内容内容内容内容内容
+
+## 二级标题1
+内容内容内容内容内容内容
+内容内容内容内容内容内容
+内容内容内容内容内容
+内容内容内容内容内容
+
+### 三级标题
+内容内容内容内容内容
+内容内容内容内容内容
+内容内容内容内容内容
+
+## 二级标题2
+内容内容内容内容内容内容
+内容内容内容内容内容内容
+内容内容内容内容内容
+内容内容内容内容内容
+
+### 三级标题
+内容内容内容内容内容
+内容内容内容内容内容
+内容内容内容内容内容内容内容内容内容内容
+`
 
 export default {
   components: {
@@ -32,18 +60,32 @@ export default {
 
     return {
       text,
-      anchorList: ['Links', 'Install', 'Quick Start', 'Usage', 'Refrence']
+      titles: []
     }
+  },
+  mounted () {
+    const anchors = this.$refs.editor.$el.querySelectorAll('.v-md-editor-preview h1,h2,h3,h4,h5,h6');
+    const titles = Array.from(anchors).filter((title) => !!title.innerText.trim());
+
+    if (!titles.length) {
+      this.titles = [];
+      return;
+    }
+
+    const hTags = Array.from(new Set(titles.map((title) => title.tagName))).sort();
+
+    this.titles = titles.map((el) => ({
+      title: el.innerText,
+      lineIndex: el.getAttribute('data-v-md-line'),
+      indent: hTags.indexOf(el.tagName),
+    }));
   },
   methods: {
     handleAnchorClick(anchor) {
       const { editor } = this.$refs;
-      anchor = anchor
-        .split(' ')
-        .map((str) => str.replace(/\B([A-Z])/g, '-$1').toLowerCase())
-        .join('-');
+      const { lineIndex } = anchor;
 
-      const heading = editor.$el.querySelector(`[data-v-md-heading=${anchor}]`); 
+      const heading = editor.$el.querySelector(`.v-md-editor-preview [data-v-md-line="${lineIndex}"]`); 
 
       if (heading) editor.previewScrollToTarget({
         target: heading,
