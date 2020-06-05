@@ -18,7 +18,6 @@
     v-model="text"
     left-toolbar="undo redo | image"
     :disabled-menus="[]"
-    :upload-image-config="uploadImageConfig"
     @upload-image="handleUploadImage"
     height="500px"
   />
@@ -27,8 +26,6 @@
 <script>
 export default {
   data() {
-    this.uploadImageConfig = { accept: 'image/jpeg' };
-
     return {
       text: '',
     };

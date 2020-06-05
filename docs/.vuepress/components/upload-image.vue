@@ -3,7 +3,6 @@
     v-model="text"
     left-toolbar="undo redo | image"
     :disabled-menus="[]"
-    :upload-image-config="uploadImageConfig"
     :theme="theme"
     @upload-image="handleUploadImage"
     height="500px"
@@ -21,7 +20,6 @@ export default {
   },
   data () {
     this.theme = githubTheme;
-    this.uploadImageConfig = { accept: 'image/jpeg' };
 
     return {
       text: ''
