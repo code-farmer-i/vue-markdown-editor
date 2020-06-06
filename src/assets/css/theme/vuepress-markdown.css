@@ -303,11 +303,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.vuepress-markdown-body.custom {
-  margin: 0;
-  padding: 0;
-}
-.vuepress-markdown-body.custom img {
+.vuepress-markdown-body img {
   max-width: 100%;
 }
 .vuepress-markdown-body a {
