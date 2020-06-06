@@ -1,3 +1,9 @@
+## [1.3.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.1-beta.3...v1.3.1) (2020-06-06)
+
+### Performance Improvements
+
+- optimize vuepress theme style ([0e82e69](https://github.com/code-farmer-i/vue-markdown-editor/commit/0e82e690110d2aeb7263ebe97da3aedfef566624))
+
 ## [1.3.1-beta.3](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.1-beta.2...v1.3.1-beta.3) (2020-06-06)
 
 ### Bug Fixes
