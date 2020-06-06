@@ -46,3 +46,7 @@ export default {
 };
 </script>
 ```
+
+## 如何自定义导航来定位到对应标题所在的位置？
+
+具体实现思路参考自定义锚点示例：[自定义锚点](/vue-markdown-editor/senior/anchor)
