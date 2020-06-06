@@ -96,6 +96,8 @@ export default {
         transition: enableTransition ? 'transform .3s' : '',
         'margin-left': `${offsetX}px`,
         'margin-top': `${offsetY}px`,
+        maxWidth: '100%',
+        maxHeight: '100%',
       };
       return style;
     },
