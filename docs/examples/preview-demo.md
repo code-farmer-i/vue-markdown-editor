@@ -6,6 +6,33 @@
   <preview-demo />
 </ClientOnly>
 
-参考:
+## 引入
 
-- [示例代码](https://github.com/code-farmer-i/vue-markdown-editor/tree/dev/docs/.vuepress/components/preview-demo.vue)
+```js
+import Vue from 'vue';
+import VMdPreview from '@kangc/v-md-editor/preview';
+import '@kangc/v-md-editor/lib/style/preview.css';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+
+VMdPreview.use(githubTheme);
+
+Vue.use(VMdPreview);
+```
+
+## 使用
+
+```vue
+<template>
+  <v-md-preview :text="text"></v-md-preview>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      text: '',
+    };
+  },
+};
+</script>
+```

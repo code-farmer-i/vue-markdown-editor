@@ -18,7 +18,7 @@ export default {
 </script>
 ```
 
-如果你的项目不需编辑功能，只需要渲染 markdown 你可以只引入 preview 组件来渲染。例如：
+如果你的项目不需要编辑功能，只需要渲染 markdown 你可以只引入 preview 组件来渲染。例如：
 
 ```js
 // main.js
@@ -27,8 +27,8 @@ import '@kangc/v-md-editor/lib/style/preview.css';
 // 引入你所使用的主题 此处以 github 主题为例
 import githubTheme from '@kangc/v-md-editor/lib/theme/github';
 
-Preview.use(githubTheme);
-Vue.use(Preview);
+VMdPreview.use(githubTheme);
+Vue.use(VMdPreview);
 ```
 
 ```vue
