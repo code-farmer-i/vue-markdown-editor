@@ -85,7 +85,7 @@ sidebarDepth: 2
 ### right-toolbar
 
 - 类型：`String`
-- 默认值： `toc sync-scroll fullscreen`
+- 默认值： `preview toc sync-scroll fullscreen`
 
 右侧工具栏
 
@@ -229,6 +229,6 @@ editor.insert((selected) => {
 
 - 回调参数：`(event, insertImage)`
 
-toolbar 中使用上传图片之后，用户选择完图片会触发该事件。
+toolbar 中使用上传图片之后，用户触发图片上传动作时会触发该事件（例如：选择图片上传，拖拽图片到编辑器中，截图后粘贴到编辑器中）。
 
 参考高级用法：[如何插入本地图片](/vue-markdown-editor/senior/upload-image)

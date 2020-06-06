@@ -11,6 +11,8 @@ module.exports = {
     ],
     sidebar: [
       ['/', '介绍'],
+      ['/question', '常见问题'],
+      ['/changelog', '更新日志'],
       {
         title: '示例',
         collapsable: false,
@@ -51,7 +53,6 @@ module.exports = {
           ['/plugins/line-number', '代码行号'],
         ],
       },
-      ['/changelog', '更新日志'],
     ],
   },
 };
