@@ -1,7 +1,5 @@
 // base css
 import '@/styles/index.scss';
-// font css
-import '@/assets/css/font';
 
 import Preview from '@/preview';
 import Container from '@/components/container';

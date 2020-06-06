@@ -10,6 +10,8 @@ const entryFiles = ['base-editor', 'codemirror-editor', 'preview'];
 function buildEntry(filename) {
   const content = `${tips}
 import Component from './${filename}.vue';
+// font css
+import '@/assets/css/font';
 
 const version = '${version}';
 

@@ -52,7 +52,6 @@
 
 <script>
 // Modifred from https://github.com/ElemeFE/element/blob/dev/packages/image/src/image-viewer.vue
-
 const isFirefox = function() {
   return window !== undefined && !!window.navigator.userAgent.match(/firefox/i);
 };

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-md-editor
+    <!-- <v-md-editor
       v-model="text"
       height="500px"
       autofocus
@@ -9,7 +9,8 @@
       @fullscreen-change="handleFullscreenChange"
       @save="handleSave"
       ref="editor"
-    />
+    />-->
+    <v-md-preview :text="text" />
   </div>
 </template>
 
