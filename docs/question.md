@@ -50,3 +50,52 @@ export default {
 ## 如何自定义导航来定位到对应标题所在的位置？
 
 具体实现思路参考自定义锚点示例：[自定义锚点](/vue-markdown-editor/senior/anchor)
+
+## 如何自定义渲染样式？
+
+如果你不需要使用 github 或者 vuepress 主题。按照下面的方法使用，可以在保留编辑器基础功能的情况下不包含任何 html 样式。
+
+如果你代码高亮选择使用 hljs：
+
+```js
+// main.js
+import Vue from 'vue';
+import VueMarkdownEditor from '@kangc/v-md-editor';
+import '@kangc/v-md-editor/lib/style/base-editor.css';
+import createHljsTheme from '@kangc/v-md-editor/lib/theme/hljs';
+// 按需引入 highlightjs 的语言包，此处以 json 为例
+import json from 'highlight.js/lib/languages/json';
+
+const hljsTheme = createHljsTheme();
+hljsTheme.extend((md, hljs) => {
+  // md为 markdown-it 实例，可以在此处进行修改配置,并使用 plugin 进行语法扩展
+  // md.set(option).use(plugin);
+
+  // 注册语言包
+  hljs.registerLanguage('json', json);
+});
+VueMarkdownEditor.theme(hljsTheme);
+
+Vue.use(VueMarkdownEditor);
+```
+
+如果你代码高亮选择使用 prism：
+
+```js
+// main.js
+import Vue from 'vue';
+import VueMarkdownEditor from '@kangc/v-md-editor';
+import '@kangc/v-md-editor/lib/style/base-editor.css';
+import creatPrismTheme from '@kangc/v-md-editor/lib/theme/prism';
+// 直接按需引入 prism 的语言包即可，此处以 json 为例
+import 'prismjs/components/prism-json';
+
+const prismTheme = creatPrismTheme();
+prismTheme.extend((md) => {
+  // md为 markdown-it 实例，可以在此处进行修改配置,并使用 plugin 进行语法扩展
+  // md.set(option).use(plugin);
+});
+VueMarkdownEditor.theme(prismTheme);
+
+Vue.use(VueMarkdownEditor);
+```
