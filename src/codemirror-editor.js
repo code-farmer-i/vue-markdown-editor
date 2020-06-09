@@ -3,7 +3,7 @@ import Component from './codemirror-editor.vue';
 // font css
 import '@/assets/css/font';
 
-const version = '1.3.2-beta.0';
+const version = '1.3.2';
 
 const install = (Vue) => {
   Vue.component(Component.name, Component);
