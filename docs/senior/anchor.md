@@ -18,7 +18,7 @@
     >
       <a style="cursor: pointer">{{ anchor.title }}</a>
     </div>
-    <v-md-editor v-model="text" mode="preview" :theme="theme" ref="editor" />
+    <v-md-editor v-model="text" mode="preview" ref="editor" />
   </div>
 </template>
 

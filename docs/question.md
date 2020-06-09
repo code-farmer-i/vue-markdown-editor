@@ -55,7 +55,7 @@ export default {
 
 如果你不需要使用 github 或者 vuepress 主题。按照下面的方法使用，可以在保留编辑器基础功能的情况下不包含任何 html 样式。
 
-如果你代码高亮选择使用 hljs：
+如果你代码高亮选择使用 highlight.js：
 
 ```js
 // main.js
@@ -79,7 +79,7 @@ VueMarkdownEditor.theme(hljsTheme);
 Vue.use(VueMarkdownEditor);
 ```
 
-如果你代码高亮选择使用 prism：
+如果你代码高亮选择使用 prismjs：
 
 ```js
 // main.js
