@@ -2,7 +2,7 @@ import Prism from 'prismjs';
 import createBaseTheme from './base';
 import { createHighlightRender } from '@/utils/markdown-it';
 
-export default function createHljsTheme({ baseConfig, codeBlockClass }) {
+export default function createPrismTheme({ baseConfig, codeBlockClass } = {}) {
   const baseTheme = createBaseTheme(baseConfig);
 
   baseTheme.extend((md) => {
