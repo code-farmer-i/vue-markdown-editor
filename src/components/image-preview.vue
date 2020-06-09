@@ -52,7 +52,6 @@
 
 <script>
 // Modifred from https://github.com/ElemeFE/element/blob/dev/packages/image/src/image-viewer.vue
-
 const isFirefox = function() {
   return window !== undefined && !!window.navigator.userAgent.match(/firefox/i);
 };
@@ -96,6 +95,8 @@ export default {
         transition: enableTransition ? 'transform .3s' : '',
         'margin-left': `${offsetX}px`,
         'margin-top': `${offsetY}px`,
+        maxWidth: '100%',
+        maxHeight: '100%',
       };
       return style;
     },

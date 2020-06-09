@@ -1,5 +1,22 @@
 # 更新日志
 
+### 1.3.1
+
+`2020-06-06`
+
+**Bug Fixes**
+
+- index.d.ts: 修复使用 ts 编译时报错的问题。
+- image preview: 修复图片太大预览时图片溢出的问题。
+
+**Features**
+
+- image upload: 新增粘贴截图触发上传图片的交互。
+
+**Improvement**
+
+- vuepress theme: 优化 vuepress 主题中图片的样式。
+
 ### 1.3.0
 
 `2020-05-28`

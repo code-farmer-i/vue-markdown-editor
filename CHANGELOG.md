@@ -1,3 +1,25 @@
+## [1.3.2-beta.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.1...v1.3.2-beta.0) (2020-06-06)
+
+### Bug Fixes
+
+- fix preview component lose font css ([5cf9834](https://github.com/code-farmer-i/vue-markdown-editor/commit/5cf98347cb0ed1075f5563a75a40bf4c504d8b55))
+
+## [1.3.1](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.1-beta.3...v1.3.1) (2020-06-06)
+
+### Performance Improvements
+
+- optimize vuepress theme style ([0e82e69](https://github.com/code-farmer-i/vue-markdown-editor/commit/0e82e690110d2aeb7263ebe97da3aedfef566624))
+
+## [1.3.1-beta.3](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.1-beta.2...v1.3.1-beta.3) (2020-06-06)
+
+### Bug Fixes
+
+- fix image preview when the image size greater than window ([fed2597](https://github.com/code-farmer-i/vue-markdown-editor/commit/fed2597d49e93c7cd9eb3c3fcd5a367136a1be71))
+
+### Features
+
+- support paste image upload ([90e5fdd](https://github.com/code-farmer-i/vue-markdown-editor/commit/90e5fddeacb5e7ea22a07f16f1ca23fc7ef8af7e))
+
 ## [1.3.1-beta.2](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.1-beta.1...v1.3.1-beta.2) (2020-05-29)
 
 ### Bug Fixes

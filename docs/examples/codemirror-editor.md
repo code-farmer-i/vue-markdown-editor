@@ -6,7 +6,37 @@
   <codemirror-editor />
 </ClientOnly>
 
+## 引入
+
+```js
+import Vue from 'vue';
+import VMdEditor from '@kangc/v-md-editor/codemirror-editor';
+import '@kangc/v-md-editor/lib/style/codemirror-editor.css';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+
+VMdEditor.use(githubTheme);
+
+Vue.use(VMdEditor);
+```
+
+## 使用
+
+```vue
+<template>
+  <v-md-editor v-model="text" height="400px"></v-md-editor>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      text: '',
+    };
+  },
+};
+</script>
+```
+
 参考:
 
-- [示例代码](https://github.com/code-farmer-i/vue-markdown-editor/tree/dev/docs/.vuepress/components/codemirror-editor.vue)
 - [CodeMirror](https://codemirror.net/)

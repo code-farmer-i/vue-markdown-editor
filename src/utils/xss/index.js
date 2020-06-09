@@ -1,7 +1,7 @@
 import xss from 'xss';
 import svgTagWhiteList from './svg';
 import kaTexWhiteList from './KaTex';
-import { attrWhiteList, prefixAtteWhiteList, tags } from './common';
+import { attrWhiteList, prefixAttrWhiteList, tags } from './common';
 
 const tagWhiteList = { tags, ...kaTexWhiteList, ...svgTagWhiteList };
 
@@ -15,7 +15,7 @@ const options = {
       svgTagWhiteList[tag] ||
       kaTexWhiteList[tag] ||
       attrWhiteList.find((attr) => attr === name) ||
-      prefixAtteWhiteList.find((prefix) => name.startsWith(prefix))
+      prefixAttrWhiteList.find((prefix) => name.startsWith(prefix))
     ) {
       return `${name}="${xss.escapeAttrValue(value)}"`;
     }
