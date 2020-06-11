@@ -1,6 +1,6 @@
 import App from './App';
 import Vue from 'vue';
-import VueMarkdownEditor, { xss } from '@/base-editor';
+import VueMarkdownEditor from '@/base-editor';
 // import VueMarkdownEditor from '@/codemirror-editor';
 // import Preview from '@/preview';
 // import githubTheme from '@/theme/github/index';
@@ -25,7 +25,6 @@ VueMarkdownEditor.use(createEmojiPlugin())
 //   },
 // });
 VueMarkdownEditor.use(vuepressTheme);
-console.log(VueMarkdownEditor.markdownParser.render('<img onerror>'));
 // Preview.use(githubTheme);
 
 Vue.use(VueMarkdownEditor);

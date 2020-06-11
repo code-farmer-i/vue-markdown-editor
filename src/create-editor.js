@@ -21,7 +21,10 @@ export default function createEditor(component) {
   toolbarWrapper(component);
 
   component.name = 'v-md-editor';
-  component.theme = Preview.theme;
+  component.theme = function (themeConfig) {
+    component.themeConfig = themeConfig;
+    Preview.theme(themeConfig);
+  };
   component.extendMarkdown = Preview.extendMarkdown;
   component.hotkeys = [];
   component.hotkey = function (config) {
