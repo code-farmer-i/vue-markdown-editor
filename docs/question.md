@@ -99,3 +99,16 @@ VueMarkdownEditor.theme(prismTheme);
 
 Vue.use(VueMarkdownEditor);
 ```
+
+## 如何调用函数将 markdown 转为 html？
+
+```js
+import VueMarkdownEditor, { xss } from '@kangc/v-md-editor';
+
+// 调用方法将 markdown 转换成 html 并使用 xss 过滤
+const html = xss.process(VueMarkdownEditor.markdownParser.render('### 标题'));
+```
+
+::: warning 注意
+markdownParser.render 方法只有在使用主题之后才能调用
+:::
