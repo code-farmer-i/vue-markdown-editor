@@ -10,6 +10,7 @@ const entryFiles = ['base-editor', 'codemirror-editor', 'preview'];
 function buildEntry(filename) {
   const content = `${tips}
 import Component from './${filename}.vue';
+import xss from '@/utils/xss/index';
 // font css
 import '@/assets/css/font';
 
@@ -34,6 +35,8 @@ Component.use = function (optionsOrInstall, opt) {
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue);
 }
+
+export { version, xss };
 
 export default Component;
 `;

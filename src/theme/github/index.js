@@ -8,6 +8,7 @@ const install = function (VMdEditor, options = {}) {
 
   if (extend) theme.extend(extend);
   VMdEditor.theme(theme);
+  VMdEditor.markdownParser = theme.markdownParser;
 };
 
 if (typeof window !== 'undefined' && window.VMdEditor) {
