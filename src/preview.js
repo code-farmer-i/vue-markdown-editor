@@ -4,7 +4,7 @@ import xss from '@/utils/xss/index';
 // font css
 import '@/assets/css/font';
 
-const version = '1.3.3';
+const version = '1.3.4-beta.0';
 
 const install = (Vue) => {
   Vue.component(Component.name, Component);
