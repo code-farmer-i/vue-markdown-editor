@@ -1,3 +1,9 @@
+## [1.3.4-beta.0](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.3...v1.3.4-beta.0) (2020-06-11)
+
+### Bug Fixes
+
+- fix import xss from index is undefined ([d3a1fe6](https://github.com/code-farmer-i/vue-markdown-editor/commit/d3a1fe6f02d0f577c9b7cc7b0850158c5fefe8ea))
+
 ## [1.3.3](https://github.com/code-farmer-i/vue-markdown-editor/compare/v1.3.2...v1.3.3) (2020-06-11)
 
 ### Features
