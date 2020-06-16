@@ -6,7 +6,7 @@ export default function (editor) {
   editor.insert((selected) => {
     const prefix = '**';
     const suffix = '**';
-    const placeholder = '粗体';
+    const { placeholder } = editor.langConfig.bold;
 
     const selectedGetter = (selected) => selected || placeholder;
     const { insertContent, newSelected } = generatorText({

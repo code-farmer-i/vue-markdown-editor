@@ -3,7 +3,11 @@ import EDITOR_MODE from '@/utils/constants/editor-mode';
 export default {
   name: 'preview',
   icon: 'v-md-icon-preview',
-  title: (editor) => (editor.currentMode === EDITOR_MODE.EDITABLE ? '关闭预览' : '开启预览'),
+  title: (editor) => {
+    const previewLang = editor.langConfig.preview;
+
+    return editor.currentMode === EDITOR_MODE.EDITABLE ? previewLang.disabled : previewLang.enabled;
+  },
   active: (editor) => editor.currentMode === EDITOR_MODE.EDITABLE,
   action(editor) {
     editor.currentMode =

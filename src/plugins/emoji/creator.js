@@ -6,7 +6,7 @@ export default function creator({ emojiJson, mdEmojiPlugin }) {
     name = 'emoji',
     icon = 'v-md-icon-emoji',
     text,
-    title = '插入emoji表情',
+    title = (editor) => editor.langConfig.emoji,
     customEmoji,
   } = {}) {
     const toolbar = createToolbar({ commandName: name, title, text, icon, emojiJson });
@@ -29,6 +29,14 @@ export default function creator({ emojiJson, mdEmojiPlugin }) {
         if (VMdEditor.name === 'v-md-editor') {
           VMdEditor.command(name, commandHandler);
           VMdEditor.toolbar(name, toolbar);
+          VMdEditor.lang.add({
+            'zh-CN': {
+              emoji: '插入emoji表情',
+            },
+            'en-US': {
+              emoji: 'Insert emoji',
+            },
+          });
         }
 
         VMdEditor.extendMarkdown(extendMarkdown);

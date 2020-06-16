@@ -1,3 +1,5 @@
+import Lang from '@/lang/';
+
 import { commandWrapper } from '@/utils/command';
 import { toolbarWrapper } from '@/utils/toolbar';
 
@@ -13,6 +15,7 @@ import tocMixin from '@/mixins/toc';
 import scrollMixin from '@/mixins/scroll';
 import hotkeysMixin from '@/mixins/hotkeys';
 import listMixin from '@/mixins/list';
+import langMixin from '@/mixins/lang';
 
 import Preview from '@/preview';
 
@@ -21,6 +24,7 @@ export default function createEditor(component) {
   toolbarWrapper(component);
 
   component.name = 'v-md-editor';
+  component.lang = Lang;
   component.theme = function (themeConfig) {
     component.themeConfig = themeConfig;
     Preview.theme(themeConfig);
@@ -42,5 +46,6 @@ export default function createEditor(component) {
     tocMixin,
     scrollMixin,
     listMixin,
+    langMixin,
   ];
 }

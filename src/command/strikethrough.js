@@ -6,7 +6,7 @@ export default function (editor) {
   editor.insert((selected) => {
     const prefix = '~~';
     const suffix = '~~';
-    const placeholder = '删除线';
+    const { placeholder } = editor.langConfig.strikethrough;
 
     const selectedGetter = (selected) => selected || placeholder;
     const { insertContent, newSelected } = generatorText({

@@ -5,7 +5,7 @@ export { h2 as name } from '@/utils/constants/command.js';
 export default function (editor) {
   editor.insert((selected) => {
     const prefix = '##';
-    const placeholder = '二级标题';
+    const { placeholder } = editor.langConfig.h2;
 
     const selectedGetter = (selected) => selected || placeholder;
     const { insertContent, newSelected } = generatorText({

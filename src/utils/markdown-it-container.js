@@ -49,8 +49,9 @@ export default function (
       let info = token.info.trim().slice(type.length).trim();
 
       if (!info && defaultTitle) {
-        if (typeof defaultTitle === 'string') {
-          // const
+        if (typeof defaultTitle === 'function') {
+          info = defaultTitle();
+        } else {
           info = defaultTitle;
         }
       }
