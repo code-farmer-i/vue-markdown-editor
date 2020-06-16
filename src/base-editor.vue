@@ -7,7 +7,7 @@
     :height="height"
     :fullscreen="fullscreen"
     :left-area-visible="tocVisible"
-    left-area-title="目录导航"
+    :left-area-title="langConfig.toc.title"
     :mode="currentMode"
     @editor-wrapper-click="handleEditorWrapperClick"
     @toolbar-item-click="handleToolbarItemClick"

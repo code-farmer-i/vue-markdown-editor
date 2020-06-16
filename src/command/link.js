@@ -4,7 +4,7 @@ export { link as name } from '@/utils/constants/command.js';
 
 export default function (editor) {
   editor.insert((selected) => {
-    const descPlaceholder = '链接';
+    const { descPlaceholder } = editor.langConfig.link;
     const linkPlaceholder = 'http://';
 
     const { insertContent, newSelected } = generatorText({

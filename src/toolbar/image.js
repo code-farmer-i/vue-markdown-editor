@@ -4,18 +4,18 @@ import { filesFilter } from '@/utils/file';
 export default {
   name: image,
   icon: 'v-md-icon-img',
-  title: '插入图片',
+  title: (editor) => editor.langConfig.image.toolbar,
   menus: [
     {
       name: 'image-link',
-      text: '添加图片链接',
+      text: (editor) => editor.langConfig.imageLink.toolbar,
       action(editor) {
         editor.execCommand(image);
       },
     },
     {
       name: 'upload-image',
-      text: '上传本地图片',
+      text: (editor) => editor.langConfig.uploadImage.toolbar,
       action(editor) {
         editor.uploadConfig = editor.uploadImgConfig;
         editor.$nextTick(async () => {

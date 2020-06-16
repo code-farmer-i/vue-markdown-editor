@@ -18,9 +18,10 @@
         >
           <v-md-render
             :render="item.render"
+            :editor="$self"
             v-if="item.render"
           />
-          <template v-else>{{ item.text }}</template>
+          <template v-else>{{ getText(item.text) }}</template>
         </li>
       </template>
       <template v-else>
@@ -55,6 +56,7 @@ export default {
   components: {
     [Render.name]: Render,
   },
+  inject: ['markdownEditor'],
   props: {
     mode: {
       type: String,
@@ -104,6 +106,13 @@ export default {
       const start = end - this.rowNum;
 
       return this.menus.slice(start, end);
+    },
+    getText (text) {
+      if (typeof text === 'function') {
+        return text(this.markdownEditor);
+      }
+
+      return text;
     },
     hide() {
       this.$emit('update:visible', false);

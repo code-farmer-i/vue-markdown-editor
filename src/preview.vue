@@ -20,10 +20,14 @@ import smoothScroll from '@/utils/smooth-scroll';
 import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants/markup';
 import ImagePreview from '@/components/image-preview';
 
+// mixins
+import langMixins from '@/mixins/lang';
+
 const defaultMarkdownLoader = (text) => text;
 
 const component = {
   name: 'v-md-preview',
+  mixins: [langMixins],
   props: {
     text: {
       type: String,
@@ -63,6 +67,9 @@ const component = {
     text () {
       this.handleTextChange();
     },
+    langConfig () {
+      this.handleTextChange();
+    },
   },
   created () {
     if (this.theme) component.use(this.theme);
@@ -73,7 +80,7 @@ const component = {
       const { markdownExtenders } = component;
 
       markdownExtenders.forEach(extender => {
-        extender(this.markdownParser);
+        extender(this.markdownParser, () => this.langConfig);
       });
     }
 

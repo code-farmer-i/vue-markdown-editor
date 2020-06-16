@@ -3,7 +3,6 @@
     <v-md-editor
       v-model="text"
       height="500px"
-      mode="edit"
       autofocus
       :disabled-menus="[]"
       @upload-image="handleUploadImage"

@@ -4,7 +4,7 @@ export { ol as name } from '@/utils/constants/command.js';
 
 export default function (editor) {
   editor.insert((selected) => {
-    const placeholder = '有序列表';
+    const { placeholder } = editor.langConfig.ol;
 
     const selectedGetter = (selected) => selected || placeholder;
     const { insertContent, newSelected } = generatorText({

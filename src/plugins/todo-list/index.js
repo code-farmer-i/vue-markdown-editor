@@ -7,10 +7,14 @@ export default function createTodoListPlugin({
   name = 'todo-list',
   icon = 'v-md-icon-checkbox',
   text,
-  title = '任务列表（Ctrl+Shift+U）',
   color = '#3eaf7c',
 } = {}) {
-  const toolbar = createToolbar({ commandName: name, title, text, icon });
+  const toolbar = createToolbar({
+    commandName: name,
+    title: (editor) => `${editor.langConfig.task.toolbar}（Ctrl+Shift+U）`,
+    text,
+    icon,
+  });
 
   const defaultBorderColor = '#d9d9d9';
   const border = (type) => `border-color: ${type === 'todo' ? defaultBorderColor : color}`;
@@ -41,6 +45,20 @@ export default function createTodoListPlugin({
           key: 'u',
           action(editor) {
             editor.execCommand(name);
+          },
+        });
+        VMdEditor.lang.add({
+          'zh-CN': {
+            task: {
+              toolbar: '任务列表',
+              placeholder: '任务列表',
+            },
+          },
+          'en-US': {
+            task: {
+              toolbar: 'Task',
+              placeholder: 'Task',
+            },
           },
         });
       }
