@@ -10,6 +10,7 @@
 
 - [Demo](https://code-farmer-i.github.io/vue-markdown-editor/examples/base-editor.html)
 - [Documentation](https://code-farmer-i.github.io/vue-markdown-editor/)
+- [中文文档](https://code-farmer-i.github.io/vue-markdown-editor/zh/)
 - [Changelog](https://code-farmer-i.github.io/vue-markdown-editor/changelog.html)
 
 ## Communication
