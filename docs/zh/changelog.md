@@ -4,6 +4,10 @@
 
 `2020-06-17`
 
+**Bug Fixes**
+
+- index: 修复从入口文件导出 xss 的值为 undefined 的问题。
+
 **Features**
 
 - 国际化: 支持[国际化](./Internationalization.md)，多语言。
