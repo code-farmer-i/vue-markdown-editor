@@ -21,12 +21,6 @@ async function release() {
     // commit
     await runTasks(['git add .', `git commit -m "chore: release ${releaseVersion}"`]);
 
-    // changelog
-    await runTasks(['npm run changelog']);
-
-    // commit
-    await runTasks(['git add .', `git commit -m "docs(changelog): ${releaseVersion}"`]);
-
     // tag
     await runTasks([`git tag v${releaseVersion}`]);
 
