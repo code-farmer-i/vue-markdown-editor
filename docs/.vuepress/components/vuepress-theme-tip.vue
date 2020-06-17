@@ -13,7 +13,7 @@ import '../../../lib/style/base-editor.css'
 import vuepressTheme from '../../../lib/theme/vuepress.js'
 import 'prismjs/components/prism-bash';
 
-const text = `::: tip 
+const zhCNText = `::: tip 
   你可以点击 toolbar 中的 tip 来快速插入
 :::
 
@@ -34,6 +34,27 @@ const text = `::: tip
 :::
 `
 
+const enUSText = `::: tip 
+  You can click on the tip in the toolbar to quickly insert
+:::
+
+::: warning
+  This is a warning
+:::
+
+::: danger
+  This is a danger warning
+:::
+
+::: tip Custom title
+  You can also customize the title
+:::
+
+::: danger STOP
+  Hazardous areas, no traffic
+:::
+`
+
 export default {
   components: {
     [VMdEditor.name]: VMdEditor
@@ -42,7 +63,14 @@ export default {
     this.theme = vuepressTheme;
 
     return {
-      text
+      text: ''
+    }
+  },
+  created () {
+    if (this.$lang === 'en-US') {
+      this.text = enUSText;
+    } else {
+      this.text = zhCNText;
     }
   }
 }

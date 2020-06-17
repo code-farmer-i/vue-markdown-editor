@@ -1,10 +1,12 @@
-# Preview Component
+# 预览组件
+
+当你的项目中只需要解析预览 markdown 的时候，可以直接使用此组件。
 
 <ClientOnly>
   <preview-demo />
 </ClientOnly>
 
-## Import
+## 引入
 
 ```js
 import Vue from 'vue';
@@ -17,7 +19,7 @@ VMdPreview.use(githubTheme);
 Vue.use(VMdPreview);
 ```
 
-## Usage
+## 使用
 
 ```vue
 <template>

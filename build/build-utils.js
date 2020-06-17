@@ -30,7 +30,7 @@ function compile(dir) {
   });
 }
 
-['utils', 'plugins'].forEach((folderName) => {
+['utils', 'plugins', 'lang'].forEach((folderName) => {
   const libDir = path.join(__dirname, `../lib/${folderName}`);
   const srcDir = path.join(__dirname, `../src/${folderName}`);
 

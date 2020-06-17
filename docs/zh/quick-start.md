@@ -1,14 +1,14 @@
-## Install
+## 安装
 
 ```bash
-# use npm
+# 使用 npm
 npm i @kangc/v-md-editor -S
 
-# use yarn
+# 使用yarn
 yarn add @kangc/v-md-editor
 ```
 
-## Quick Start
+## 快速开始
 
 ```js
 import Vue from 'vue';
@@ -21,7 +21,7 @@ VueMarkdownEditor.use(vuepressTheme);
 Vue.use(VueMarkdownEditor);
 ```
 
-## Usage
+## 使用
 
 ```vue
 <template>

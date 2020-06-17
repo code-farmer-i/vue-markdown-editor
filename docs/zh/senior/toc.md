@@ -1,12 +1,14 @@
-# Toc
+# 目录导航
+
+开启目录导航来提升编辑效率。
 
 <ClientOnly>
   <toc-nav />
 </ClientOnly>
 
-## Related configuration
+## 相关配置
 
-Configure the titles included when generating directory navigation. The default is [2, 3].
+配置生成目录导航时包含的标题，默认值为[2, 3]。
 
 ```vue
 <template>
@@ -14,7 +16,7 @@ Configure the titles included when generating directory navigation. The default 
 </template>
 ```
 
-Configure toc to generate the title included in the navigation, the default value is [2, 3].
+配置 toc 生成导航时包含的标题，默认值为[2, 3]。
 
 ```js
 VMdEditor.use(githubTheme, {

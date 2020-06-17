@@ -1,10 +1,12 @@
-# Custom Toolbar
+# 自定义工具栏
+
+可以使用自定义工具栏向编辑器内插入你想要快捷输入的文本，如下：
 
 <ClientOnly>
   <extend-toolbar />
 </ClientOnly>
 
-example：
+示例代码：
 
 ```vue
 <template>
@@ -21,13 +23,13 @@ export default {
   data() {
     this.toolbar = {
       customToolbar1: {
-        title: 'base',
+        title: '基础工具栏',
         icon: 'v-md-icon-tip',
         action(editor) {
           editor.insert(function (selected) {
             const prefix = '(((';
             const suffix = ')))';
-            const placeholder = 'placeholder';
+            const placeholder = '请输入文本';
             const content = selected || placeholder;
 
             return {
@@ -38,27 +40,27 @@ export default {
         },
       },
       customToolbar2: {
-        title: 'menu',
+        title: '工具栏菜单',
         icon: 'v-md-icon-tip',
         menus: [
           {
             name: 'menu1',
-            text: 'menu1',
+            text: '菜单1',
             action() {
-              console.log('click menu1');
+              console.log('你点击了菜单1');
             },
           },
           {
             name: 'menu2',
-            text: 'menu2',
+            text: '菜单2',
             action() {
-              console.log('click menu2');
+              console.log('你点击了菜单2');
             },
           },
         ],
       },
       customToolbar3: {
-        title: 'panel',
+        title: '工具栏面板',
         icon: 'v-md-icon-tip',
         menus: {
           mode: 'panel',

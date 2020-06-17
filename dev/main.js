@@ -8,12 +8,12 @@ import VueMarkdownEditor from '@/base-editor';
 import createEmojiPlugin from '@/plugins/emoji/full';
 import createKatexPlugin from '@/plugins/katex/cdn';
 import createTodoListPlugin from '@/plugins/todo-list/index';
-import createLineNumberPlugin from '@/plugins//line-number/index';
+import createLineNumberPlugin from '@/plugins/line-number/index';
 
 import vuepressTheme from '@/theme/vuepress';
-import EnUS from '@/lang/en-US';
+import enUS from '@/lang/en-US';
 
-VueMarkdownEditor.lang.use('en-US', EnUS);
+VueMarkdownEditor.lang.use('en-US', enUS);
 
 VueMarkdownEditor.use(createEmojiPlugin())
   .use(createKatexPlugin())

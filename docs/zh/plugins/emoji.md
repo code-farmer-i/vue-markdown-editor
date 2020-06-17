@@ -1,10 +1,12 @@
-# Emoji
+# Emoji 表情插件
+
+可以引入 `emoji` 插件来支持插入 emoji 表情：
 
 <ClientOnly>
   <plugin-emoji />
 </ClientOnly>
 
-### Import：
+### 引入：
 
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
@@ -13,7 +15,7 @@ import createEmojiPlugin from '@kangc/v-md-editor/lib/plugins/emoji/index';
 VueMarkdownEditor.use(createEmojiPlugin());
 ```
 
-### Usage：
+### 使用：
 
 ```vue
 <template>

@@ -1,6 +1,6 @@
-## How the saved markdown text is rendered on the page？
+## 保存后的 markdown 文本如何渲染在页面上？
 
-If an editor is introduced in your project. You can directly use the editor's preview mode to render.
+如果你的项目中引入了编辑器。你可以直接使用编辑器的预览模式来渲染。例如：
 
 ```vue
 <template>
@@ -11,20 +11,20 @@ If an editor is introduced in your project. You can directly use the editor's pr
 export default {
   data() {
     return {
-      markdown: '### title',
+      markdown: '### 标题',
     };
   },
 };
 </script>
 ```
 
-If your project does not require editing functions and only needs to render markdown, you can only introduce the preview component to render.
+如果你的项目不需要编辑功能，只需要渲染 markdown 你可以只引入 preview 组件来渲染。例如：
 
 ```js
 // main.js
 import VMdPreview from '@kangc/v-md-editor/lib/preview';
 import '@kangc/v-md-editor/lib/style/preview.css';
-// Introduce the theme you use. Take the github theme as an example here
+// 引入你所使用的主题 此处以 github 主题为例
 import githubTheme from '@kangc/v-md-editor/lib/theme/github';
 
 VMdPreview.use(githubTheme);
@@ -40,22 +40,22 @@ Vue.use(VMdPreview);
 export default {
   data() {
     return {
-      markdown: '### title',
+      markdown: '### 标题',
     };
   },
 };
 </script>
 ```
 
-## How to customize navigation to locate the corresponding title？
+## 如何自定义导航来定位到对应标题所在的位置？
 
-For specific implementation ideas, refer to the example of custom anchor point: [Custom Anchor](/vue-markdown-editor/senior/anchor)
+具体实现思路参考自定义锚点示例：[自定义锚点](/vue-markdown-editor/senior/anchor)
 
-## How to customize the rendering style？
+## 如何自定义渲染样式？
 
-If you don't need to use github or vuepress theme. Use the following method, you can not include any html style while retaining the basic functions of the editor.
+如果你不需要使用 github 或者 vuepress 主题。按照下面的方法使用，可以在保留编辑器基础功能的情况下不包含任何 html 样式。
 
-If your code highlighting chooses to use highlight.js:
+如果你代码高亮选择使用 highlight.js：
 
 ```js
 // main.js
@@ -63,15 +63,15 @@ import Vue from 'vue';
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import createHljsTheme from '@kangc/v-md-editor/lib/theme/hljs';
-// Introduce highlightjs language packs as needed, here is json as an example
+// 按需引入 highlightjs 的语言包，此处以 json 为例
 import json from 'highlight.js/lib/languages/json';
 
 const hljsTheme = createHljsTheme();
 hljsTheme.extend((md, hljs) => {
-  // md is a markdown-it instance, you can modify the configuration here, and use plugin for syntax expansion
+  // md为 markdown-it 实例，可以在此处进行修改配置,并使用 plugin 进行语法扩展
   // md.set(option).use(plugin);
 
-  // Register Language Pack
+  // 注册语言包
   hljs.registerLanguage('json', json);
 });
 VueMarkdownEditor.theme(hljsTheme);
@@ -79,7 +79,7 @@ VueMarkdownEditor.theme(hljsTheme);
 Vue.use(VueMarkdownEditor);
 ```
 
-If your code highlighting chooses to use prismjs:
+如果你代码高亮选择使用 prismjs：
 
 ```js
 // main.js
@@ -87,12 +87,12 @@ import Vue from 'vue';
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import creatPrismTheme from '@kangc/v-md-editor/lib/theme/prism';
-// Introduce prism language packs as needed, here is json as an example
+// 直接按需引入 prism 的语言包即可，此处以 json 为例
 import 'prismjs/components/prism-json';
 
 const prismTheme = creatPrismTheme();
 prismTheme.extend((md) => {
-  // md is a markdown-it instance, you can modify the configuration here, and use plugin for syntax expansion
+  // md为 markdown-it 实例，可以在此处进行修改配置,并使用 plugin 进行语法扩展
   // md.set(option).use(plugin);
 });
 VueMarkdownEditor.theme(prismTheme);
@@ -100,15 +100,15 @@ VueMarkdownEditor.theme(prismTheme);
 Vue.use(VueMarkdownEditor);
 ```
 
-## How to call a function to convert markdown to html？
+## 如何调用函数将 markdown 转为 html？
 
 ```js
 import VueMarkdownEditor, { xss } from '@kangc/v-md-editor';
 
-// Call method to convert markdown to html and use xss filtering
+// 调用方法将 markdown 转换成 html 并使用 xss 过滤
 const html = xss.process(VueMarkdownEditor.themeConfig.markdownParser.render('### 标题'));
 ```
 
-::: warning
-themeConfig.markdownParser.render method can only be called after using the theme
+::: warning 注意
+themeConfig.markdownParser.render 方法只有在使用主题之后才能调用
 :::

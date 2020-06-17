@@ -1,4 +1,6 @@
-# LineNumber
+# LineNumber 代码行号
+
+可以引入 `line-number` 插件来支持显示代码行号：
 
 github:
 
@@ -12,7 +14,7 @@ vuepress:
   <line-number-vuepress />
 </ClientOnly>
 
-### Import：
+### 引入：
 
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';

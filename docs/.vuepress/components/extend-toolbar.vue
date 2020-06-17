@@ -21,13 +21,13 @@ export default {
     this.theme = githubTheme;
     this.toolbar = {
       customToolbar1: {
-        title: '基础工具栏',
+        title: 'base',
         icon: 'v-md-icon-tip',
         action (editor) {
           editor.insert(function(selected){
             const prefix = '(((';
             const suffix = ')))';
-            const placeholder = '请输入文本';
+            const placeholder = 'placeholder';
             const content = selected || placeholder;
 
             return {
@@ -38,24 +38,24 @@ export default {
         }
       },
       customToolbar2: {
-        title: '工具栏菜单',
+        title: 'menu',
         icon: 'v-md-icon-tip',
         menus: [{
           name: 'menu1',
-          text: '菜单1',
+          text: 'menu1',
           action(){
-            console.log('你点击了菜单1');
+            console.log('click menu1');
           }
         }, {
           name: 'menu2',
-          text: '菜单2',
+          text: 'menu2',
           action(){
-            console.log('你点击了菜单2');
+            console.log('click menu2');
           }
         }]
       },
       customToolbar3: {
-         title: '工具栏面板',
+         title: 'panel',
          icon: 'v-md-icon-tip',
          menus: {
            mode: 'panel',

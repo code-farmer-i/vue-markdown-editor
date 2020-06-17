@@ -1,39 +1,31 @@
-# 介绍
+# Introduction
 
-v-md-editor 是基于 Vue 开发的 markdown 编辑器组件
+v-md-editor is a markdown editor component developed based on Vue
 
-## 轻量版编辑器
+## Base Editor
 
-轻量版编辑器左侧编辑区域使用 textarea 实现。
+The editing area on the left of the base editor is implemented using textarea.
 
-优点：
+Advantage:
 
-- 足够轻量
+- lightweight
 
-缺点：
+Disadvantages:
 
-- 不支持更为丰富的编辑区功能扩展。例如：无法根据不同的语法在输入框内显示不同的样式。
+- The editing experience is not good enough。
 
-## 进阶版编辑器
+## CodeMirror
 
-进阶版编辑器左侧编辑区域使用 [CodeMirror](https://codemirror.net/) 实现。
+The editing area on the left of the base editor is implemented using [CodeMirror](https://codemirror.net/).
 
-优点：
+Advantage:
 
-- 可以根据 CodeMirror 提供的 Api 来自定义扩展编辑区域功能，提高编辑体验。
+- Good editing experience。
 
-缺点：
+Disadvantages:
 
-- 文件体积远大于轻量版
+- Larger resources
 
-## 预览组件
+## Preview Component
 
-当你只需要对 markdown 语法进行解析并预览的时候，可以使用该组件。
-
-## 特性
-
-1. 高度可定制化
-2. 高度可扩展性
-3. 支持自定义主题包
-4. 提供开箱即用的主题包
-5. 提供多个组件。可按需使用。
+If you only need to preview markdown, you can use this component.

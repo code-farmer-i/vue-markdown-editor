@@ -1,12 +1,10 @@
-# 进阶版
-
-编辑器由 CodeMirror 实现，拥有较为良好的编辑体验，但是包的体积会变大。
+# CodeMirror Editor
 
 <ClientOnly>
   <codemirror-editor />
 </ClientOnly>
 
-## 引入
+## Import
 
 ```js
 import Vue from 'vue';
@@ -19,7 +17,7 @@ VMdEditor.use(githubTheme);
 Vue.use(VMdEditor);
 ```
 
-## 使用
+## Usage
 
 ```vue
 <template>
@@ -37,6 +35,6 @@ export default {
 </script>
 ```
 
-参考:
+Reference:
 
 - [CodeMirror](https://codemirror.net/)

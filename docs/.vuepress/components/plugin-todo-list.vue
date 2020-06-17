@@ -23,7 +23,7 @@ export default {
     this.theme = githubTheme;
 
     return {
-      text: '- [x] 任务列表'
+      text: '- [x] Task'
     }
   }
 }

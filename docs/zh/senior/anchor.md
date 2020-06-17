@@ -1,3 +1,14 @@
+# 自定义锚点
+
+本示例展示了如何在预览模式下通过外部锚点来定位到文档标题位置。
+
+<ClientOnly>
+  <custom-anchor />
+</ClientOnly>
+
+示例代码：
+
+```vue
 <template>
   <div>
     <div
@@ -5,22 +16,13 @@
       :style="{ padding: `10px 0 10px ${anchor.indent * 20}px` }"
       @click="handleAnchorClick(anchor)"
     >
-      <a style="cursor: pointer">{{anchor.title}}</a>
+      <a style="cursor: pointer">{{ anchor.title }}</a>
     </div>
-    <v-md-editor
-      v-model="text"
-      mode="preview"
-      :theme="theme"
-      ref="editor"
-    />
+    <v-md-editor v-model="text" mode="preview" ref="editor" />
   </div>
 </template>
 
 <script>
-import VMdEditor from '../../../lib/base-editor'
-import '../../../lib/style/base-editor.css'
-import githubTheme from '../../../lib/theme/github.js'
-
 const text = `
 # heading 1
 contentcontentcontent
@@ -56,22 +58,19 @@ contentcontentcontent
 contentcontentcontent
 contentcontentcontent
 contentcontentcontent
-`
+`;
 
 export default {
-  components: {
-    [VMdEditor.name]: VMdEditor
-  },
-  data () {
-    this.theme = githubTheme;
-
+  data() {
     return {
       text,
-      titles: []
-    }
+      titles: [],
+    };
   },
-  mounted () {
-    const anchors = this.$refs.editor.$el.querySelectorAll('.v-md-editor-preview h1,h2,h3,h4,h5,h6');
+  mounted() {
+    const anchors = this.$refs.editor.$el.querySelectorAll(
+      '.v-md-editor-preview h1,h2,h3,h4,h5,h6'
+    );
     const titles = Array.from(anchors).filter((title) => !!title.innerText.trim());
 
     if (!titles.length) {
@@ -92,14 +91,19 @@ export default {
       const { editor } = this.$refs;
       const { lineIndex } = anchor;
 
-      const heading = editor.$el.querySelector(`.v-md-editor-preview [data-v-md-line="${lineIndex}"]`); 
+      const heading = editor.$el.querySelector(
+        `.v-md-editor-preview [data-v-md-line="${lineIndex}"]`
+      );
 
-      if (heading) editor.previewScrollToTarget({
-        target: heading,
-        scrollContainer: window,
-        top: 60
-      });
-    }
-  }
-}
+      if (heading) {
+        editor.previewScrollToTarget({
+          target: heading,
+          scrollContainer: window,
+          top: 60,
+        });
+      }
+    },
+  },
+};
 </script>
+```

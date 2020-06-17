@@ -1,12 +1,12 @@
-# 自定义锚点
+# Custom Anchor
 
-本示例展示了如何在预览模式下通过外部锚点来定位到文档标题位置。
+This example shows how to use the custom anchor to locate the title of the document in preview mode.
 
 <ClientOnly>
   <custom-anchor />
 </ClientOnly>
 
-示例代码：
+code：
 
 ```vue
 <template>
@@ -24,33 +24,40 @@
 
 <script>
 const text = `
-# 一级标题
-内容内容内容内容内容内容
-内容内容内容内容内容内容
-内容内容内容内容内容内容
-内容内容内容内容内容内容
+# heading 1
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
 
-## 二级标题1
-内容内容内容内容内容内容
-内容内容内容内容内容内容
-内容内容内容内容内容
-内容内容内容内容内容
+## heading 2
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
 
-### 三级标题
-内容内容内容内容内容
-内容内容内容内容内容
-内容内容内容内容内容
+### heading 3
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
 
-## 二级标题2
-内容内容内容内容内容内容
-内容内容内容内容内容内容
-内容内容内容内容内容
-内容内容内容内容内容
+## heading 2
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
 
-### 三级标题
-内容内容内容内容内容
-内容内容内容内容内容
-内容内容内容内容内容内容内容内容内容内容
+### heading 3
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
+contentcontentcontent
 `;
 
 export default {

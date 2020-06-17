@@ -1,10 +1,12 @@
-# TodoList
+# TodoList 任务列表
+
+可以引入 `todo-list` 插件来支持插入 任务列表：
 
 <ClientOnly>
   <plugin-todo-list />
 </ClientOnly>
 
-### Import：
+### 引入：
 
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
@@ -13,7 +15,7 @@ import createTodoListPlugin from '@kangc/v-md-editor/lib/plugins/todo-list/index
 VueMarkdownEditor.use(createTodoListPlugin());
 ```
 
-### Usage：
+### 使用：
 
 ```vue
 <template>
@@ -24,7 +26,7 @@ VueMarkdownEditor.use(createTodoListPlugin());
 export default {
   data() {
     return {
-      text: '- [x] Task',
+      text: '- [x] 任务列表',
     };
   },
 };
@@ -33,11 +35,11 @@ export default {
 
 ### Options
 
-Parameters that can be passed in when creatingTodoListPlugin. For example: createTodoListPlugin({ color:'' })
+createTodoListPlugin 时可以传入的参数。例如 createTodoListPlugin({ color: '' })
 
 ### color
 
-- type: `String`。
-- default: `#3eaf7c`。
+- 类型: `String`。
+- 默认值: `#3eaf7c`。
 
-checkbox color。
+checkbox 的颜色。

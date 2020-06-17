@@ -1,10 +1,12 @@
-# Tip
+# Tip 提示插件
+
+可以引入 `tip` 插件来支持插入提示信息：
 
 <ClientOnly>
   <plugin-tip />
 </ClientOnly>
 
-### Import：
+### 引入：
 
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
@@ -13,7 +15,7 @@ import createTipPlugin from '@kangc/v-md-editor/lib/plugins/tip/index';
 VueMarkdownEditor.use(createTipPlugin());
 ```
 
-### Usage：
+### 使用：
 
 ```vue
 <template>
@@ -31,6 +33,6 @@ export default {
 </script>
 ```
 
-::: warning
-This plugin is already built into the vuePress theme
+::: warning 注意
+vuepress 主题已内置此插件
 :::

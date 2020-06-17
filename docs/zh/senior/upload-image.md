@@ -1,16 +1,16 @@
-# Upload Image
+# 上传本地图片
 
-upload the picture to the file server, and insert the relevant information of the returned picture into the editing area after the upload is successful.
+原理：上传图片至文件服务器，上传成功后将返回的图片相关信息插入编辑区域。
 
 <ClientOnly>
   <upload-image />
 </ClientOnly>
 
-::: warning
-The upload image menu is disabled by default. Set disabled-menus to an empty array to enable it.
+::: warning 注意
+上传图片菜单默认为禁用状态 设置 disabled-menus 为空数组可以开启。
 :::
 
-example：
+示例代码：
 
 ```vue
 <template>
@@ -32,14 +32,14 @@ export default {
   },
   methods: {
     handleUploadImage(event, insertImage, files) {
-      // Get the files and upload them to the file server, then insert the corresponding content into the editor
+      // 拿到 files 之后上传到文件服务器，然后向编辑框中插入对应的内容
       console.log(files);
 
-      // Here is just an example
+      // 此处只做示例
       insertImage({
         url:
           'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1269952892,3525182336&fm=26&gp=0.jpg',
-        desc: 'desc',
+        desc: '七龙珠',
       });
     },
   },
