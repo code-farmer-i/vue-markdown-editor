@@ -11,6 +11,7 @@ function buildEntry(filename) {
   const content = `${tips}
 import Component from './${filename}.vue';
 import xss from '@/utils/xss/index';
+import Lang from '@/lang/';
 // font css
 import '@/assets/css/font';
 
@@ -23,6 +24,7 @@ const install = (Vue) => {
 Component.version = version;
 Component.install = install;
 Component.xss = xss;
+Component.lang = Lang;
 Component.use = function (optionsOrInstall, opt) {
   if (typeof optionsOrInstall === 'function') {
     optionsOrInstall(Component, opt);

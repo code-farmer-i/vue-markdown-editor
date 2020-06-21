@@ -1,4 +1,5 @@
 import Lang from '@/lang/';
+import zhCNConfig from '@/lang/zh-CN';
 
 import { commandWrapper } from '@/utils/command';
 import { toolbarWrapper } from '@/utils/toolbar';
@@ -19,12 +20,15 @@ import langMixin from '@/mixins/lang';
 
 import Preview from '@/preview';
 
+Lang.add({
+  'zh-CN': zhCNConfig,
+});
+
 export default function createEditor(component) {
   commandWrapper(component);
   toolbarWrapper(component);
 
   component.name = 'v-md-editor';
-  component.lang = Lang;
   component.theme = function (themeConfig) {
     component.themeConfig = themeConfig;
     Preview.theme(themeConfig);

@@ -74,49 +74,50 @@ export default function createTipPlugin({ name = 'tip', icon = 'v-md-icon-tip', 
       if (VMdEditor.name === 'v-md-editor') {
         VMdEditor.command(name, commandHandler);
         VMdEditor.toolbar(name, toolbar);
-        VMdEditor.lang.add({
-          'zh-CN': {
-            tip: {
-              toolbar: '插入提示',
-              tip: {
-                toolbar: '提示',
-                defaultTitle: '提示',
-                placeholder: '在此输入内容',
-              },
-              warning: {
-                toolbar: '注意',
-                defaultTitle: '注意',
-                placeholder: '在此输入内容',
-              },
-              danger: {
-                toolbar: '警告',
-                defaultTitle: '警告',
-                placeholder: '在此输入内容',
-              },
-            },
-          },
-          'en-US': {
-            tip: {
-              toolbar: 'Insert tip',
-              tip: {
-                toolbar: 'Tip',
-                defaultTitle: 'TIP',
-                placeholder: 'Insert content',
-              },
-              warning: {
-                toolbar: 'Warning',
-                defaultTitle: 'WARNING',
-                placeholder: 'Insert content',
-              },
-              danger: {
-                toolbar: 'Danger',
-                defaultTitle: 'DANGER',
-                placeholder: 'Insert content',
-              },
-            },
-          },
-        });
       }
+
+      VMdEditor.lang.add({
+        'zh-CN': {
+          tip: {
+            toolbar: '插入提示',
+            tip: {
+              toolbar: '提示',
+              defaultTitle: '提示',
+              placeholder: '在此输入内容',
+            },
+            warning: {
+              toolbar: '注意',
+              defaultTitle: '注意',
+              placeholder: '在此输入内容',
+            },
+            danger: {
+              toolbar: '警告',
+              defaultTitle: '警告',
+              placeholder: '在此输入内容',
+            },
+          },
+        },
+        'en-US': {
+          tip: {
+            toolbar: 'Insert tip',
+            tip: {
+              toolbar: 'Tip',
+              defaultTitle: 'TIP',
+              placeholder: 'Insert content',
+            },
+            warning: {
+              toolbar: 'Warning',
+              defaultTitle: 'WARNING',
+              placeholder: 'Insert content',
+            },
+            danger: {
+              toolbar: 'Danger',
+              defaultTitle: 'DANGER',
+              placeholder: 'Insert content',
+            },
+          },
+        },
+      });
 
       VMdEditor.extendMarkdown(extendMarkdown);
     },
