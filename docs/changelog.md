@@ -1,5 +1,13 @@
 # Changelog
 
+### 1.4.2
+
+`2020-06-28`
+
+**Improvement**
+
+- Compatible ie10 and ie11.
+
 ### 1.4.1
 
 `2020-06-21`
