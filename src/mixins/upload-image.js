@@ -33,6 +33,9 @@ export default {
     },
     handlePaste(e) {
       const { clipboardData } = e;
+
+      if (!clipboardData) return;
+
       const files = filesFilter(getFilesFromClipboardData(clipboardData), this.uploadImgConfig);
 
       this.emitUploadImage(e, files);
