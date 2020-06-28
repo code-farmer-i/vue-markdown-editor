@@ -1,7 +1,7 @@
 export function generatorMenuItems(emojiJson, commandName) {
-  return Object.entries(emojiJson).map(([emojiType, unicode]) => ({
+  return Object.keys(emojiJson).map((emojiType) => ({
     name: emojiType,
-    text: unicode,
+    text: emojiJson[emojiType],
     action(editor) {
       editor.execCommand(commandName, emojiType);
     },

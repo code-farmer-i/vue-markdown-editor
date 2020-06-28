@@ -5,8 +5,8 @@ import { attrWhiteList, prefixAttrWhiteList, tags } from './common';
 
 const tagWhiteList = { tags, ...kaTexWhiteList, ...svgTagWhiteList };
 
-Object.entries(tagWhiteList).forEach(([tagName, attrWhiteList]) => {
-  xss.whiteList[tagName] = attrWhiteList;
+Object.keys(tagWhiteList).forEach((tagName) => {
+  xss.whiteList[tagName] = tagWhiteList[tagName];
 });
 
 const options = {

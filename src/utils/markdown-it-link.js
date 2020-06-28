@@ -13,8 +13,8 @@ export default function (md, { externalAttrs, openLinkIcon, openLinkIconClass })
       const isExternal = /^https?:/.test(href);
 
       if (isExternal) {
-        Object.entries(externalAttrs).forEach(([key, val]) => {
-          token.attrSet(key, val);
+        Object.keys(externalAttrs).forEach((key) => {
+          token.attrSet(key, externalAttrs[key]);
         });
         if (/_blank/i.test(externalAttrs.target)) {
           hasOpenExternalLink = true;

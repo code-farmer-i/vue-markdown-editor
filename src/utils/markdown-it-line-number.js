@@ -38,10 +38,10 @@ export default function (md, { lineMarkup = 'data-line' } = {}) {
     fence: modifyCodewrapper,
   };
 
-  Object.entries(wrapperMap).forEach(([ruleName, wrapper]) => {
+  Object.keys(wrapperMap).forEach((ruleName) => {
     const originalRender = md.renderer.rules[ruleName];
     const render = originalRender || defaultRender;
 
-    md.renderer.rules[ruleName] = wrapper(render);
+    md.renderer.rules[ruleName] = wrapperMap[ruleName](render);
   });
 }

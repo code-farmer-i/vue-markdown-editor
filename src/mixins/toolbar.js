@@ -26,12 +26,12 @@ export default function (Component) {
 
       this.toolbars = {};
 
-      Object.entries(toolbars).forEach(([name, toolbar]) => {
-        this.registerToolbar(name, toolbar);
+      Object.keys(toolbars).forEach((name) => {
+        this.registerToolbar(name, toolbars[name]);
       });
 
-      Object.entries(this.toolbar).forEach(([name, toolbar]) => {
-        this.registerToolbar(name, toolbar);
+      Object.keys(this.toolbar).forEach((name) => {
+        this.registerToolbar(name, this.toolbar[name]);
       });
     },
     methods: {
