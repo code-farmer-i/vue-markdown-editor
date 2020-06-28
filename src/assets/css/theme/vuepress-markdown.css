@@ -122,6 +122,7 @@
 }
 .vuepress-markdown-body div[class*='v-md-pre-wrapper-'] {
   position: relative;
+  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
   background-color: #282c34;
   border-radius: 6px;
 }
