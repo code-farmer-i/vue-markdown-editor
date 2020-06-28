@@ -22,7 +22,8 @@ export function toolbarWrapper(component) {
     registerToolbar(component.toolbars, name, config);
   };
 
-  Object.values(defaultToolbars).forEach((module) => {
+  Object.keys(defaultToolbars).forEach((key) => {
+    const module = defaultToolbars[key];
     const { default: config } = module;
 
     component.toolbar(config.name, config);

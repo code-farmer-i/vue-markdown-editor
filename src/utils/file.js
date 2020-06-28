@@ -2,7 +2,8 @@
 export function filesFilter(files, config) {
   const { accept } = config;
 
-  files = Object.values(files).filter((file) => {
+  files = Object.keys(files).filter((key) => {
+    const file = files[key];
     const { type, name } = file;
     const extension = name.indexOf('.') > -1 ? `.${name.split('.').pop()}` : '';
     const baseType = type.replace(/\/.*$/, '');
@@ -34,7 +35,7 @@ export function filesFilter(files, config) {
 }
 
 export function getFilesFromClipboardData(clipboardData) {
-  return Object.values(clipboardData.items)
-    .filter((item) => item.kind === 'file')
-    .map((item) => item.getAsFile());
+  return Object.keys(clipboardData.items)
+    .filter((key) => clipboardData.items[key].kind === 'file')
+    .map((key) => clipboardData.items[key].getAsFile());
 }
