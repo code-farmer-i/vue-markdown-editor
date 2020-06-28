@@ -13,7 +13,7 @@
           v-for="item in menus"
           :key="item.name"
           class="v-md-editor__menu-item"
-          :class="[`v-md-editor__menu-item-${item.name}`]"
+          :class="[`v-md-editor__menu-item-${item.name}`, item.class]"
           @click.stop="handleClick(item)"
         >
           <v-md-render
@@ -37,7 +37,7 @@
                 width: itemWidth
               }"
               class="v-md-editor__menu-item"
-              :class="[`v-md-editor__menu-item-${item.name}`]"
+              :class="[`v-md-editor__menu-item-${item.name}`, item.class]"
               @click.stop="handleClick(item)"
             >{{ item.text }}</span>
           </div>
