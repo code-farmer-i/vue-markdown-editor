@@ -270,6 +270,7 @@
   box-sizing: initial;
   max-width: 100%;
   background-color: #fff;
+  border: 0;
 }
 
 .github-markdown-body img[align='right'] {

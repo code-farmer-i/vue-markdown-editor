@@ -306,6 +306,7 @@
 }
 .vuepress-markdown-body img {
   max-width: 100%;
+  border: 0;
 }
 .vuepress-markdown-body a {
   font-weight: 500;
