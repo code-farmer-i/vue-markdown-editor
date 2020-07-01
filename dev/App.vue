@@ -8,6 +8,7 @@
       @upload-image="handleUploadImage"
       @fullscreen-change="handleFullscreenChange"
       @save="handleSave"
+      @copy-code-success="handleCopyCodeSuccess"
       ref="editor"
     />
   </div>
@@ -36,6 +37,9 @@ export default {
     },
     handleSave (v, html) {
       console.log(v, html);
+    },
+    handleCopyCodeSuccess (code) {
+      console.log(code);
     },
   },
 };

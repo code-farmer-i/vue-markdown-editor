@@ -5,4 +5,5 @@ export const prefixAttrWhiteList = ['data-'];
 export const tags = {
   input: ['type'],
   ol: ['reversed', 'start', 'type'],
+  button: [],
 };

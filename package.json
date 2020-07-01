@@ -117,6 +117,7 @@
   "dependencies": {
     "@vuepress/markdown": "^1.4.1",
     "codemirror": "^5.52.2",
+    "copy-to-clipboard": "^3.3.1",
     "highlight.js": "^9.18.1",
     "insert-text-at-cursor": "^0.3.0",
     "katex": "^0.11.1",

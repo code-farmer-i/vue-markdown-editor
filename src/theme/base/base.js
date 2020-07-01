@@ -24,7 +24,7 @@ export default function createBaseTheme({ toc, link } = {}) {
     })
     .use(markdownItPreWrapper, {
       getWrapperClass(lang) {
-        return `v-md-pre-wrapper-${lang}`;
+        return `v-md-pre-wrapper v-md-pre-wrapper-${lang}`;
       },
     })
     .use(markdownItAttr, {
