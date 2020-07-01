@@ -3,7 +3,7 @@ import svgTagWhiteList from './svg';
 import kaTexWhiteList from './KaTex';
 import { attrWhiteList, prefixAttrWhiteList, tags } from './common';
 
-const tagWhiteList = { tags, ...kaTexWhiteList, ...svgTagWhiteList };
+const tagWhiteList = { ...tags, ...kaTexWhiteList, ...svgTagWhiteList };
 
 Object.keys(tagWhiteList).forEach((tagName) => {
   xss.whiteList[tagName] = tagWhiteList[tagName];
