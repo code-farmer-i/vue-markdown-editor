@@ -26,7 +26,8 @@ export function commandWrapper(component) {
     registerCommand(component.commands, commandName, callback);
   };
 
-  Object.values(defaultCommands).forEach((module) => {
+  Object.keys(defaultCommands).forEach((key) => {
+    const module = defaultCommands[key];
     const { name, default: callback } = module;
 
     component.command(name, callback);

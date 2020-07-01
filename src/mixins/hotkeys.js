@@ -10,8 +10,8 @@ export default function (Component) {
 
       const { hotkeys } = Component;
 
-      Object.values(defaultHotkeys).forEach((module) => {
-        this.registerHotkeys(module.default);
+      Object.keys(defaultHotkeys).forEach((key) => {
+        this.registerHotkeys(defaultHotkeys[key].default);
       });
 
       hotkeys.forEach((config) => {

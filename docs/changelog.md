@@ -1,6 +1,6 @@
 # Changelog
 
-### 1.4.2
+### 1.4.3
 
 `2020-07-01`
 
@@ -11,6 +11,14 @@
 **Features**
 
 - plugin: Add [copy code](./plugins/copy-code.md) plugin。
+
+### 1.4.2
+
+`2020-06-28`
+
+**Improvement**
+
+- Compatible ie10 and ie11.
 
 ### 1.4.1
 

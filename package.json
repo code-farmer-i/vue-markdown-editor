@@ -1,6 +1,6 @@
 {
   "name": "@kangc/v-md-editor",
-  "version": "1.4.2-beta.0",
+  "version": "1.4.2",
   "description": "A markdown editor built on Vue",
   "main": "lib/base-editor.js",
   "unpkg": "lib/base-editor.js",
@@ -93,7 +93,7 @@
     "url-loader": "^4.0.0",
     "vue-loader": "^15.9.1",
     "vue-style-loader": "^4.1.2",
-    "vuepress": "^1.4.0",
+    "vuepress": "^1.5.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "3.9.0",
