@@ -1,5 +1,17 @@
 # 更新日志
 
+### 1.4.2
+
+`2020-07-01`
+
+**Bug Fixes**
+
+- xss: 修复 ol 标签 start 属性被 xss 过滤导致某些场景下序号显示不正确的问题。
+
+**Features**
+
+- plugin: 新增 [copy code](./plugins/copy-code.md) 插件。
+
 ### 1.4.1
 
 `2020-06-21`

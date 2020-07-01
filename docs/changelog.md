@@ -1,5 +1,17 @@
 # Changelog
 
+### 1.4.2
+
+`2020-07-01`
+
+**Bug Fixes**
+
+- xss: Fix the problem that the start attribute of the ol tag is filtered by xss。
+
+**Features**
+
+- plugin: Add [copy code](./plugins/copy-code.md) plugin。
+
 ### 1.4.1
 
 `2020-06-21`
