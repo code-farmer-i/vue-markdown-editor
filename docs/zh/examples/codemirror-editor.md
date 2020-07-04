@@ -10,7 +10,7 @@
 
 ```js
 import Vue from 'vue';
-import VMdEditor from '@kangc/v-md-editor/codemirror-editor';
+import VMdEditor from '@kangc/v-md-editor/lib/codemirror-editor';
 import '@kangc/v-md-editor/lib/style/codemirror-editor.css';
 import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
 
