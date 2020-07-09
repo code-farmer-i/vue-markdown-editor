@@ -16,7 +16,8 @@ module.exports = (md) => {
     </button>`;
 
     const finalCode = rawCode
-      .replace('<!--beforeend-->', `${button}<!--beforeend-->`);
+      .replace('<!--beforeend-->', `${button}<!--beforeend-->`)
+      .replace('v-md-pre-wrapper', 'v-md-pre-wrapper copy-code-mode');
 
     return finalCode;
   };
