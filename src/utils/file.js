@@ -2,7 +2,7 @@
 export function filesFilter(files, config) {
   const { accept } = config;
 
-  files = Object.keys(files).filter((key) => {
+  const filesKeys = Object.keys(files).filter((key) => {
     const file = files[key];
     const { type, name } = file;
     const extension = name.indexOf('.') > -1 ? `.${name.split('.').pop()}` : '';
@@ -31,7 +31,7 @@ export function filesFilter(files, config) {
       });
   });
 
-  return files;
+  return filesKeys.map((key) => files[key]);
 }
 
 export function getFilesFromClipboardData(clipboardData) {
