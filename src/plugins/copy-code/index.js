@@ -14,19 +14,6 @@ function findCodeWrapperEl(el) {
   return findCodeWrapperEl(el.parentNode);
 }
 
-function handleClick({ target }) {
-  if (isCopyButton(target)) {
-    const codeWrapper = findCodeWrapperEl(target.parentNode);
-
-    if (codeWrapper) {
-      const code = codeWrapper.querySelector('code').innerText;
-
-      copyToClipboard(code);
-      this.$emit('copy-code-success', code);
-    }
-  }
-}
-
 export default function createCopyCodePlugin() {
   return {
     install(VMdEditor) {
@@ -39,19 +26,33 @@ export default function createCopyCodePlugin() {
       VMdEditor.mixins.push({
         mounted() {
           this.$nextTick(() => {
-            const previewEl = document.querySelector('.v-md-editor-preview');
+            const previewEl = this.$el.querySelector('.v-md-editor-preview');
 
             if (previewEl) {
-              previewEl.addEventListener('click', handleClick.bind(this));
+              previewEl.addEventListener('click', this.handleCopyCodeClick);
             }
           });
         },
         beforeDestroy() {
-          const previewEl = document.querySelector('.v-md-editor-preview');
+          const previewEl = this.$el.querySelector('.v-md-editor-preview');
 
           if (previewEl) {
-            previewEl.removeEventListener('click', handleClick.bind(this));
+            previewEl.removeEventListener('click', this.handleCopyCodeClick);
           }
+        },
+        methods: {
+          handleCopyCodeClick({ target }) {
+            if (isCopyButton(target)) {
+              const codeWrapper = findCodeWrapperEl(target.parentNode);
+
+              if (codeWrapper) {
+                const code = codeWrapper.querySelector('code').innerText;
+
+                copyToClipboard(code);
+                this.$emit('copy-code-success', code);
+              }
+            }
+          },
         },
       });
     },
