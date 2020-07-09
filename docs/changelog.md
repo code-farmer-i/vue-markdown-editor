@@ -1,12 +1,20 @@
 # Changelog
 
+### 1.4.4
+
+`2020-07-09`
+
+**Bug Fixes**
+
+- upload-image: Fix the problem that the uploaded image can not get the file object.
+
 ### 1.4.3
 
 `2020-07-01`
 
 **Bug Fixes**
 
-- xss: Fix the problem that the start attribute of the ol tag is filtered by xss。
+- xss: Fix the problem that the start attribute of the ol tag is filtered by xss.
 
 **Features**
 
