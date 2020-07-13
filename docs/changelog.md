@@ -1,5 +1,13 @@
 # Changelog
 
+### 1.4.5
+
+`2020-07-13`
+
+**Bug Fixes**
+
+- copy-code-plugin: Fix the problem of copying code failure in some scenarios.
+
 ### 1.4.4
 
 `2020-07-09`
