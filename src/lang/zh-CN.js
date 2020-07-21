@@ -41,9 +41,11 @@ export default {
   },
   italic: {
     toolbar: '斜体',
+    placeholder: '斜体',
   },
   strikethrough: {
     toolbar: '删除线',
+    placeholder: '删除线',
   },
   quote: {
     toolbar: '插入引用',
@@ -51,6 +53,7 @@ export default {
   },
   ul: {
     toolbar: '无序列表',
+    placeholder: '无序列表',
   },
   ol: {
     toolbar: '有序列表',
