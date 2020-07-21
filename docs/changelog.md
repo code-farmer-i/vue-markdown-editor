@@ -1,5 +1,13 @@
 # Changelog
 
+### 1.4.6
+
+`2020-07-21`
+
+**Bug Fixes**
+
+- lang/zh-CN.js: Fix the problem of missing italic and unordered list configuration.
+
 ### 1.4.5
 
 `2020-07-13`
