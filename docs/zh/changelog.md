@@ -1,5 +1,18 @@
 # 更新日志
 
+### 1.4.7
+
+`2020-07-22`
+
+**Features**
+
+- plugin: 新增 [highlight lines](./plugins/highlight-lines.md) 插件.
+
+**Improvement**
+
+- image: 移除插入图片时的默认宽高属性。
+- image size: 设置图片宽高的通配符由 { 调整为 {{{。
+
 ### 1.4.6
 
 `2020-07-21`

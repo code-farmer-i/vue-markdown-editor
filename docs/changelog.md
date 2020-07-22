@@ -1,5 +1,18 @@
 # Changelog
 
+### 1.4.7
+
+`2020-07-22`
+
+**Features**
+
+- plugin: Add [highlight lines](./plugins/highlight-lines.md) plugin.
+
+**Improvement**
+
+- image: Remove the default width and height attributes when inserting pictures.
+- image size: Adjust the wildcard for setting the image width and height from { to {{{.
+
 ### 1.4.6
 
 `2020-07-21`
