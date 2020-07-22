@@ -67,7 +67,7 @@ module.exports = {
               ['/plugins/katex', 'Katex'],
               ['/plugins/todo-list', 'Todo List'],
               ['/plugins/line-number', 'Line Number'],
-              ['/zh/plugins/highlight-lines', 'Highlight Lines'],
+              ['/plugins/highlight-lines', 'Highlight Lines'],
               ['/plugins/copy-code', 'Copy Code'],
             ],
           },
