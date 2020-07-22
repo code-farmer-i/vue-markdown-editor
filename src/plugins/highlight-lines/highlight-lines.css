@@ -49,7 +49,7 @@
   display: block;
   width: 3.5rem;
   height: 100%;
-  background-color: #fffbdd;
+  background-color: rgba(208, 213, 221, 0.66);
   content: ' ';
 }
 .github-markdown-body div[class*='v-md-pre-wrapper-'] .highlight-lines {
@@ -65,5 +65,5 @@
   user-select: none;
 }
 .github-markdown-body div[class*='v-md-pre-wrapper-'] .highlight-lines .highlighted {
-  background-color: #fffbdd;
+  background-color: rgba(208, 213, 221, 0.66);
 }
