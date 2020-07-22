@@ -1,10 +1,24 @@
 export { image as name } from '@/utils/constants/command.js';
 
-export default function (editor, { url, desc, width = '100%', height = 'auto' } = {}) {
+export default function (editor, { url, desc, width, height } = {}) {
   editor.insert(() => {
     const urlPlaceholder = 'http://';
     const descPlaceholder = 'Description';
     let selected = urlPlaceholder;
+    let text = `![${desc || descPlaceholder}](${url || urlPlaceholder})`;
+    const style = [];
+
+    if (width) {
+      style.push(`width="${width}"`);
+    }
+
+    if (height) {
+      style.push(`height="${height}"`);
+    }
+
+    if (style.length) {
+      text += `{{{${style.join(' ')}}}}`;
+    }
 
     if (url && desc) {
       selected = null;
@@ -15,9 +29,7 @@ export default function (editor, { url, desc, width = '100%', height = 'auto' } 
     }
 
     return {
-      text: `![${desc || descPlaceholder}](${
-        url || urlPlaceholder
-      }){width="${width}" height="${height}"}`,
+      text,
       selected,
     };
   });
