@@ -53,6 +53,7 @@ module.exports = {
             children: [
               ['/senior/toolbar', 'Custom Toolbar'],
               ['/senior/upload-image', 'Upload Image'],
+              ['/senior/image-size', 'Image Size'],
               ['/senior/toc', 'Toc'],
               ['/senior/anchor', 'Custom Anchor'],
             ],
@@ -111,6 +112,7 @@ module.exports = {
             children: [
               ['/zh/senior/toolbar', '自定义工具栏'],
               ['/zh/senior/upload-image', '图片上传'],
+              ['/zh/senior/image-size', '设置图片大小'],
               ['/zh/senior/toc', '目录导航'],
               ['/zh/senior/anchor', '自定义锚点'],
             ],
