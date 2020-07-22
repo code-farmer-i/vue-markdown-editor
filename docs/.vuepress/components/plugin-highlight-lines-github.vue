@@ -14,12 +14,11 @@ import createHighlightLinesPlugin from '../../../lib/plugins/highlight-lines/ind
 
 VMdEditor.use(createHighlightLinesPlugin());
 
-const text = `\`\`\` bash {1,3}
-# use npm
-npm i @kangc/v-md-editor -S
+const text = `\`\`\` js {1,3}
+import VueMarkdownEditor from '@kangc/v-md-editor';
+import createHighlightLinesPlugin from '@kangc/v-md-editor/lib/plugins/highlight-lines/index';
 
-# use yarn
-yarn add @kangc/v-md-editor
+VueMarkdownEditor.use(createHighlightLinesPlugin());
 \`\`\``;
 
 export default {
