@@ -154,6 +154,18 @@
   color: hsla(0, 0%, 100%, 0.4);
   font-size: 0.75rem;
 }
+.vuepress-markdown-body div[class*='v-md-pre-wrapper-'].line-numbers-mode::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 3.5rem;
+  height: 100%;
+  background-color: #282c34;
+  border-right: 1px solid rgba(0, 0, 0, 0.66);
+  border-radius: 6px 0 0 6px;
+  content: '';
+}
 .vuepress-markdown-body
   div[class*='v-md-pre-wrapper-']:not(.line-numbers-mode)
   .line-numbers-wrapper {
@@ -186,7 +198,6 @@
 .vuepress-markdown-body div[class*='v-md-pre-wrapper-'].line-numbers-mode .line-numbers-wrapper {
   position: absolute;
   top: 0;
-  z-index: 1;
   width: 3.5rem;
   padding: 1.25rem 0;
   color: hsla(0, 0%, 100%, 0.3);
