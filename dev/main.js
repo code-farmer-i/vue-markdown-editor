@@ -10,6 +10,7 @@ import createKatexPlugin from '@/plugins/katex/cdn';
 import createTodoListPlugin from '@/plugins/todo-list/index';
 import createLineNumberPlugin from '@/plugins/line-number/index';
 import createCopyCodePlugin from '@/plugins/copy-code/index';
+import createHighLinesPlugin from '@/plugins/highlight-lines/';
 
 import vuepressTheme from '@/theme/vuepress';
 import enUS from '@/lang/en-US';
@@ -20,10 +21,11 @@ VueMarkdownEditor.use(createEmojiPlugin())
   .use(createKatexPlugin())
   .use(createTodoListPlugin())
   .use(createLineNumberPlugin())
-  .use(createCopyCodePlugin());
+  .use(createCopyCodePlugin())
+  .use(createHighLinesPlugin());
 
-// VueMarkdownEditor.use(githubTheme);
-VueMarkdownEditor.use(vuepressTheme);
+VueMarkdownEditor.use(githubTheme);
+// VueMarkdownEditor.use(vuepressTheme);
 // Preview.use(githubTheme);
 
 Vue.use(VueMarkdownEditor);

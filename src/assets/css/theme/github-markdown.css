@@ -395,6 +395,14 @@
 
 .github-markdown-body div[class*='v-md-pre-wrapper-'] {
   position: relative;
+  background-color: #f6f8fa;
+}
+
+.github-markdown-body div[class*='v-md-pre-wrapper-'] pre,
+.github-markdown-body div[class*='v-md-pre-wrapper-'] pre[class*='v-md-prism-'] {
+  position: relative;
+  z-index: 1;
+  background: transparent;
 }
 
 .github-markdown-body div[class*='v-md-pre-wrapper-'].line-numbers-mode pre {
@@ -402,22 +410,49 @@
   padding-left: 4.5rem;
 }
 
+.github-markdown-body div[class*='v-md-pre-wrapper-'].line-numbers-mode::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 3.5rem;
+  height: 100%;
+  background-color: #f6f8fa;
+  border-right: 1px solid #dcdfe6;
+  border-radius: 6px 0 0 6px;
+  content: '';
+}
+
 .github-markdown-body div[class*='v-md-pre-wrapper-'].line-numbers-mode .line-numbers-wrapper {
   position: absolute;
   top: 0;
-  z-index: 1;
   width: 3.5rem;
   padding: 16px 0;
   color: #909399;
   font-size: 85%;
   line-height: 1.45;
   text-align: center;
-  background: #f6f8fa;
-  border-right: 1px solid #dcdfe6;
+}
+
+.github-markdown-body
+  div[class*='v-md-pre-wrapper-'].line-numbers-mode
+  .line-numbers-wrapper
+  .line-number {
+  position: relative;
+  z-index: 4;
+  font-size: 0.85em;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .github-markdown-body pre {
   word-wrap: normal;
+}
+
+.github-markdown-body pre,
+.github-markdown-body code {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
 }
 
 .github-markdown-body pre > code {

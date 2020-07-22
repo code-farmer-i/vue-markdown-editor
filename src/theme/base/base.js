@@ -28,6 +28,8 @@ export default function createBaseTheme({ toc, link } = {}) {
       },
     })
     .use(markdownItAttr, {
+      leftDelimiter: '{{{',
+      rightDelimiter: '}}}',
       allowedAttributes: ['width', 'height'],
     })
     .use(markdownItHeadingTag, {

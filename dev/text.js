@@ -26,7 +26,7 @@ yarn add @kangc/v-md-editor
 
 ## Quick Start
 
-\`\`\`js {1}
+\`\`\`js
 import Vue from 'vue';
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
