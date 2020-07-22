@@ -12,7 +12,7 @@ import '@/assets/css/theme/base';
 
 import markdownIt from '@/utils/markdown-it';
 
-export default function createBaseTheme({ toc, link } = {}) {
+export default function createBaseTheme({ toc, link, attrs } = {}) {
   const mdIt = markdownIt();
 
   mdIt
@@ -30,7 +30,8 @@ export default function createBaseTheme({ toc, link } = {}) {
     .use(markdownItAttr, {
       leftDelimiter: '{{{',
       rightDelimiter: '}}}',
-      allowedAttributes: ['width', 'height'],
+      ...attrs,
+      allowedAttributes: ['width', 'height', ...attrs?.allowedAttributes],
     })
     .use(markdownItHeadingTag, {
       getMarks(title, level, unique) {
