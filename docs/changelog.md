@@ -1,5 +1,13 @@
 # Changelog
 
+### 1.4.8
+
+`2020-07-24`
+
+**Bug Fixes**
+
+- copy code plugin: Fix the problem that when the editor is nested under the form tag, clicking the copy code button will cause the page to refresh.
+
 ### 1.4.7
 
 `2020-07-22`
