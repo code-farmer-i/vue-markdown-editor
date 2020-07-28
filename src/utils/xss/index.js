@@ -5,11 +5,11 @@ import { attrWhiteList, prefixAttrWhiteList, tags } from './common';
 
 const tagWhiteList = { ...tags, ...kaTexWhiteList, ...svgTagWhiteList };
 
-Object.keys(tagWhiteList).forEach((tagName) => {
-  xss.whiteList[tagName] = tagWhiteList[tagName];
-});
-
 const options = {
+  whiteList: {
+    ...xss.getDefaultWhiteList(),
+    ...tagWhiteList,
+  },
   onIgnoreTagAttr(tag, name, value) {
     if (
       svgTagWhiteList[tag] ||
@@ -22,4 +22,36 @@ const options = {
   },
 };
 
-export default new xss.FilterXSS(options);
+const xssFilterInstance = new xss.FilterXSS(options);
+
+xssFilterInstance.extend = function (extendOptions) {
+  const instanceOptions = xssFilterInstance.options;
+
+  Object.keys(extendOptions).forEach((optionName) => {
+    // extend whiteList
+    if (optionName === 'whiteList') {
+      Object.keys(extendOptions.whiteList).forEach((tagName) => {
+        const tagAttrWhiteList = extendOptions.whiteList[tagName];
+        const instanceWhiteList = instanceOptions.whiteList;
+
+        if (instanceWhiteList[tagName]) {
+          instanceWhiteList[tagName] = [...instanceWhiteList[tagName], ...tagAttrWhiteList];
+        } else {
+          instanceWhiteList[tagName] = tagAttrWhiteList;
+        }
+      });
+    } else if (optionName === 'onIgnoreTagAttr') {
+      const oldHandler = instanceOptions.onIgnoreTagAttr;
+      instanceOptions.onIgnoreTagAttr = function (...arg) {
+        const oldReturnVal = oldHandler.call(this, ...arg);
+        const newReturnVal = extendOptions.onIgnoreTagAttr.call(this, ...arg);
+
+        return oldReturnVal || newReturnVal;
+      };
+    } else {
+      instanceOptions[optionName] = extendOptions[optionName];
+    }
+  });
+};
+
+export default xssFilterInstance;
