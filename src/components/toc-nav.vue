@@ -1,12 +1,12 @@
 <template>
   <ul class="v-md-editor__toc-nav">
     <li
-      v-for="item in titles"
-      class="v-md-editor__toc-nav-item"
       :style="{
         paddingLeft: `${indent * (item.indent)}px`
       }"
       @click="$emit('nav-click', item)"
+      class="v-md-editor__toc-nav-item"
+      v-for="item in titles"
     >
       <span class="v-md-editor__toc-nav-title">{{ item.title }}</span>
     </li>
@@ -47,7 +47,7 @@ export default {
     }
 
     &-item:hover &-title {
-      font-size: 18px;
+      font-size: 17px;
       transform-origin: center center;
     }
 
