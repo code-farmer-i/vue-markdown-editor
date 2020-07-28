@@ -56,6 +56,7 @@ module.exports = {
               ['/senior/image-size', 'Image Size'],
               ['/senior/toc', 'Toc'],
               ['/senior/anchor', 'Custom Anchor'],
+              ['/senior/xss-extend', 'Xss Extension'],
             ],
           },
           {
@@ -115,6 +116,7 @@ module.exports = {
               ['/zh/senior/image-size', '设置图片大小'],
               ['/zh/senior/toc', '目录导航'],
               ['/zh/senior/anchor', '自定义锚点'],
+              ['/zh/senior/xss-extend', '扩展xss规则'],
             ],
           },
           {
