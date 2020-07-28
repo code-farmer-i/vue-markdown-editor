@@ -1,5 +1,13 @@
 # Changelog
 
+### 1.4.9
+
+`2020-07-28`
+
+**Features**
+
+- xss: Support xss rule [extension](./senior/xss-extend.md).
+
 ### 1.4.8
 
 `2020-07-24`
