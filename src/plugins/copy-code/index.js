@@ -14,6 +14,12 @@ function findCodeWrapperEl(el) {
   return findCodeWrapperEl(el.parentNode);
 }
 
+function getPreviewEl(el) {
+  const previewElClass = 'v-md-editor-preview';
+
+  return el.classList.contains(previewElClass) ? el : el.querySelector(`.${previewElClass}`);
+}
+
 export default function createCopyCodePlugin() {
   return {
     install(VMdEditor) {
@@ -26,19 +32,15 @@ export default function createCopyCodePlugin() {
       VMdEditor.mixins.push({
         mounted() {
           this.$nextTick(() => {
-            const previewEl = this.$el.querySelector('.v-md-editor-preview');
+            const previewEl = getPreviewEl(this.$el);
 
-            if (previewEl) {
-              previewEl.addEventListener('click', this.handleCopyCodeClick);
-            }
+            previewEl.addEventListener('click', this.handleCopyCodeClick);
           });
         },
         beforeDestroy() {
-          const previewEl = this.$el.querySelector('.v-md-editor-preview');
+          const previewEl = getPreviewEl(this.$el);
 
-          if (previewEl) {
-            previewEl.removeEventListener('click', this.handleCopyCodeClick);
-          }
+          previewEl.removeEventListener('click', this.handleCopyCodeClick);
         },
         methods: {
           handleCopyCodeClick({ target }) {
