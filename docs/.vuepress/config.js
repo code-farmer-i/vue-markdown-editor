@@ -88,6 +88,7 @@ module.exports = {
           ['/zh/question', '常见问题'],
           ['/zh/changelog', '更新日志'],
           ['/zh/Internationalization', '国际化'],
+          ['/zh/communication', '交流群'],
           {
             title: '示例',
             collapsable: false,
