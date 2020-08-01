@@ -1,5 +1,13 @@
 # Changelog
 
+### 1.4.10
+
+`2020-08-01`
+
+**Bug Fixes**
+
+- copy code plugin: Fix the issue that copy-code-plugin is invalid when used in the preview component.
+
 ### 1.4.9
 
 `2020-07-28`
