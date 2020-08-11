@@ -12,28 +12,28 @@ export default {
     toolbar: '헤딩',
   },
   h1: {
-    toolbar: 'Heading 1',
-    placeholder: 'Heading 1',
+    toolbar: '헤딩 1',
+    placeholder: '헤딩 1',
   },
   h2: {
-    toolbar: 'Heading 2',
-    placeholder: 'Heading 2',
+    toolbar: '헤딩 2',
+    placeholder: '헤딩 2',
   },
   h3: {
-    toolbar: 'Heading 3',
-    placeholder: 'Heading 3',
+    toolbar: '헤딩 3',
+    placeholder: '헤딩 3',
   },
   h4: {
-    toolbar: 'Heading 4',
-    placeholder: 'Heading 4',
+    toolbar: '헤딩 4',
+    placeholder: '헤딩 4',
   },
   h5: {
-    toolbar: 'Heading 5',
-    placeholder: 'Heading 5',
+    toolbar: '헤딩 5',
+    placeholder: '헤딩 5',
   },
   h6: {
-    toolbar: 'Heading 6',
-    placeholder: 'Heading 6',
+    toolbar: '헤딩 6',
+    placeholder: '헤딩 6',
   },
   bold: {
     toolbar: '굵게',
