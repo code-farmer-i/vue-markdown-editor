@@ -241,6 +241,8 @@
   display: block;
   width: 100%;
   overflow: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 .github-markdown-body table th {
