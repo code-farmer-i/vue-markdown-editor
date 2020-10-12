@@ -49,6 +49,13 @@ sidebarDepth: 2
 
 编辑器加载完是否自动聚焦。
 
+### default-fullscreen
+
+- type：`Boolean`
+- default： `false`
+
+是否默认开启全屏。
+
 ### include-level
 
 - 类型: `Array`

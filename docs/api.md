@@ -43,6 +43,13 @@ Optional value：`edit` `editable` `preview`。
 - type：`Boolean`
 - default： `false`
 
+### default-fullscreen
+
+- type：`Boolean`
+- default： `false`
+
+Whether to enable full screen by default.
+
 ### include-level
 
 - type: `Array`
