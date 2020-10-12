@@ -1,5 +1,18 @@
 # 更新日志
 
+### 1.4.11
+
+`2020-10-12`
+
+**Features**
+
+- props: 新增 [default-fullscreen](./api.md#default-fullscreen) 属性。
+- lang: 新增 [韩语](./Internationalization.md#配置文件) 语言包。
+
+**Improvement**
+
+- github.css: 优化 github 主题的表格样式。
+
 ### 1.4.10
 
 `2020-08-01`
