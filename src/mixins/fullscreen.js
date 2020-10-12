@@ -1,4 +1,7 @@
 export default {
+  props: {
+    defaultFullscreen: Boolean,
+  },
   data() {
     return {
       fullscreen: false,
@@ -11,6 +14,10 @@ export default {
   },
   mounted() {
     window.addEventListener('keyup', this.handleWindowKeyup, false);
+
+    if (this.defaultFullscreen) {
+      this.toggleFullScreen();
+    }
   },
   beforeDestroy() {
     window.removeEventListener('keyup', this.handleWindowKeyup, false);
