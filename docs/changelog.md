@@ -1,5 +1,18 @@
 # Changelog
 
+### 1.4.11
+
+`2020-10-12`
+
+**Features**
+
+- props: Add [default-fullscreen](./api.md#default-fullscreen) prop.
+- lang: Add [Korean](./Internationalization.md#config-files) translations.
+
+**Improvement**
+
+- github.css: Optimize the table style of github theme.
+
 ### 1.4.10
 
 `2020-08-01`
