@@ -29,7 +29,7 @@ async function release() {
 
     // publish
     if (isBeta) {
-      runTasks(['npm publish --tag beta --access=public']);
+      runTasks(['npm publish --tag next-beta --access=public']);
     } else {
       runTasks(['npm publish --tag next --access=public']);
     }
