@@ -4,7 +4,7 @@
 
 `2020-10-14`
 
-2.x version supports vue3
+2.x 版本支持 vue3
 
 ### 1.4.11
 
