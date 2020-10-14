@@ -14,28 +14,31 @@
     @resize="handleContainerResize"
     ref="contaner"
   >
-    <scrollbar #left-area>
-      <toc-nav
-        :titles="titles"
-        @nav-click="handleNavClick"
+    <template #left-area>
+      <scrollbar>
+        <toc-nav
+          #default
+          :titles="titles"
+          @nav-click="handleNavClick"
+        />
+      </scrollbar>
+    </template>
+    <template #editor>
+      <div
+        class="codemirror-wrapper"
+        ref="codemirrorEditor"
       />
-    </scrollbar>
-    <div
-      class="codemirror-wrapper"
-      #editor
-      ref="codemirrorEditor"
-    />
-    <scrollbar
-      #preview
-      ref="previewScroller"
-    >
-      <v-md-preview
-        :text="text"
-        :scroll-container="getPreviewScrollContainer"
-        @change="handleChange"
-        ref="preview"
-      />
-    </scrollbar>
+    </template>
+    <template #preview>
+      <scrollbar ref="previewScroller">
+        <v-md-preview
+          :text="text"
+          :scroll-container="getPreviewScrollContainer"
+          @change="handleChange"
+          ref="preview"
+        />
+      </scrollbar>
+    </template>
     <v-md-upload-file
       v-if="hasUploadImage"
       :upload-config="uploadConfig"
