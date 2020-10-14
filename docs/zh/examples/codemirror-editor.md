@@ -19,6 +19,21 @@ VMdEditor.use(githubTheme);
 Vue.use(VMdEditor);
 ```
 
+## 在 vue3 中引入
+
+```js
+import { creatApp } from 'vue';
+import VMdEditor from '@kangc/v-md-editor/lib/codemirror-editor';
+import '@kangc/v-md-editor/lib/style/codemirror-editor.css';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+
+VMdEditor.use(githubTheme);
+
+const app = creatApp(/*...*/);
+
+app.use(VMdEditor);
+```
+
 ## 使用
 
 ```vue
