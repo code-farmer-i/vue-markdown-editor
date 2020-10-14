@@ -1,21 +1,22 @@
-import Vue from 'vue';
+import { reactive } from 'vue';
 import { deepAssign } from '@/utils/deep-assign';
 
-const proto = Vue.prototype;
-const { defineReactive } = Vue.util;
-
-defineReactive(proto, '$vMdEditorLang', 'zh-CN');
-defineReactive(proto, '$vMdEditorLangConfig', {
-  'zh-CN': {},
+const vMdEditorlangConfig = reactive({
+  lang: 'zh-CN',
+  langConfig: {
+    'zh-CN': {},
+  },
 });
+
+export { vMdEditorlangConfig };
 
 export default {
   use(lang, config) {
-    proto.$vMdEditorLang = lang;
+    vMdEditorlangConfig.lang = lang;
     this.add({ [lang]: config });
   },
 
   add(config = {}) {
-    deepAssign(proto.$vMdEditorLangConfig, config);
+    deepAssign(vMdEditorlangConfig.langConfig, config);
   },
 };

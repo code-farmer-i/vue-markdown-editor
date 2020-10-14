@@ -15,6 +15,7 @@ export default {
   props: {
     uploadImageConfig: Object,
   },
+  emits: ['upload-image'],
   computed: {
     uploadImgConfig() {
       return { ...defaultConfig, ...this.uploadImageConfig };

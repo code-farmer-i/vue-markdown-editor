@@ -1,17 +1,17 @@
 <template>
   <div class="v-md-textarea-editor">
     <pre><section
-  v-for="(row, idx) in value.split('\n')"
+  v-for="(row, idx) in modelValue.split('\n')"
   :data-line="idx + 1"
 >{{ row || ' ' }}<br /></section></pre>
     <textarea
       ref="textarea"
-      :value="value"
+      :value="modelValue"
       :placeholder="placeholder"
       spellcheck="false"
       @compositionstart="() => ignoreInput = true"
       @compositionend="() => ignoreInput = false"
-      @input="handleInput"
+      @update:modelValue="handleInput"
       @click="updateCurrentHistoryRange"
       @paste="handlePaste"
       @keydown.tab.prevent
@@ -30,15 +30,11 @@
 <script>
 import insertTextAtCursor from 'insert-text-at-cursor';
 import HotKeys from '@/utils/hotkeys';
-import Vue from 'vue';
-
-Vue.config.keyCodes.z = 90;
-Vue.config.keyCodes.y = 89;
 
 export default {
   name: 'v-md-textarea-editor',
   props: {
-    value: String,
+    modelValue: String,
     placeholder: String,
     historyDebounce: {
       type: Number,
@@ -50,12 +46,12 @@ export default {
     },
   },
   computed: {
-    textareaEl () {
+    textareaEl() {
       return this.$refs.textarea;
     },
   },
   watch: {
-    value () {
+    modelValue() {
       this.clearTimeout();
 
       if (!this.triggerInputBySetHistory) {
@@ -69,35 +65,35 @@ export default {
       }
     },
   },
-  created () {
+  created() {
     this.historyStack = [];
     this.historyIndex = 0;
     this.hotkeysManager = new HotKeys();
   },
-  mounted () {
+  mounted() {
     this.saveHistory();
 
     this.textareaEl.addEventListener('keydown', this.handleKeydown, false);
   },
-  beforeDestroy () {
+  beforeUnmount() {
     this.textareaEl.removeEventListener('keydown', this.handleKeydown, false);
   },
   methods: {
-    handlePaste (e) {
+    handlePaste(e) {
       this.$emit('paste', e);
     },
-    registerHotkeys (...arg) {
+    registerHotkeys(...arg) {
       this.hotkeysManager.registerHotkeys(...arg);
     },
-    handleKeydown (e) {
+    handleKeydown(e) {
       this.hotkeysManager.dispatch(e);
     },
-    heightAtLine (lineIndex) {
+    heightAtLine(lineIndex) {
       const el = this.$el.querySelector(`section[data-line="${lineIndex}"]`);
 
       return el ? el.offsetTop + el.offsetHeight : 0;
     },
-    clearTimeout () {
+    clearTimeout() {
       if (this.timmer) clearTimeout(this.timmer);
 
       this.timmer = null;
@@ -109,13 +105,13 @@ export default {
         });
       }
     },
-    handleInput (e) {
-      this.$emit('input', e.target.value);
+    handleInput(e) {
+      this.$emit('update:modelValue', e.target.value);
     },
-    saveHistory () {
+    saveHistory() {
       const range = this.getRange();
       const history = {
-        value: this.value,
+        value: this.modelValue,
         range,
       };
 
@@ -124,16 +120,16 @@ export default {
       if (this.historyStack.length > this.historyMax) this.historyStack.shift();
       this.historyIndex = this.historyStack.length - 1;
     },
-    updateHistory (index, data) {
+    updateHistory(index, data) {
       const history = this.historyStack[index];
 
       if ('value' in data) history.value = data.value;
       Object.assign(history.range, data.range);
     },
-    goHistory (index) {
+    goHistory(index) {
       const { value, range } = this.historyStack[index];
 
-      this.$emit('input', value);
+      this.$emit('update:modelValue', value);
       this.triggerInputBySetHistory = true;
 
       this.$nextTick(() => {
@@ -154,10 +150,10 @@ export default {
     focus() {
       this.textareaEl.focus();
     },
-    insertText (text) {
+    insertText(text) {
       insertTextAtCursor(this.textareaEl, text);
     },
-    undo () {
+    undo() {
       if (this.historyIndex > 0) {
         this.historyIndex--;
         this.goHistory(this.historyIndex);

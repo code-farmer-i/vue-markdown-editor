@@ -14,7 +14,7 @@
     @resize="handleContainerResize"
     ref="contaner"
   >
-    <scrollbar slot="left-area">
+    <scrollbar #left-area>
       <toc-nav
         :titles="titles"
         @nav-click="handleNavClick"
@@ -22,11 +22,11 @@
     </scrollbar>
     <div
       class="codemirror-wrapper"
-      slot="editor"
+      #editor
       ref="codemirrorEditor"
     />
     <scrollbar
-      slot="preview"
+      #preview
       ref="previewScroller"
     >
       <v-md-preview
@@ -67,14 +67,14 @@ const component = {
     codemirrorConfig: Object,
   },
   watch: {
-    value() {
-      if (this.value !== this.text) {
-        this.text = this.value;
+    modelValue() {
+      if (this.modelValue !== this.text) {
+        this.text = this.modelValue;
         this.codemirrorInstance.setValue(this.text);
       }
     },
   },
-  created () {
+  created() {
     this.hotkeysManager = new HotKeys();
   },
   mounted() {
@@ -131,11 +131,11 @@ const component = {
       }
     },
     // Must implement
-    delLineLeft () {
+    delLineLeft() {
       this.codemirrorInstance.execCommand('delLineLeft');
     },
     // Must implement
-    getCursorLineLeftText () {
+    getCursorLineLeftText() {
       const { codemirrorInstance } = this;
       const { line: startLine, ch: startCh } = codemirrorInstance.getCursor('from');
       const { line: endLine, ch: endCh } = codemirrorInstance.getCursor('to');
@@ -145,25 +145,25 @@ const component = {
       return codemirrorInstance.getLine(startLine).slice(0, startCh);
     },
     // Must implement
-    editorRegisterHotkeys (...arg) {
+    editorRegisterHotkeys(...arg) {
       this.hotkeysManager.registerHotkeys(...arg);
     },
     // Must implement
-    editorScrollToTop (scrollTop) {
+    editorScrollToTop(scrollTop) {
       const currentScrollTop = this.getScrollInfo().top;
 
       smooth({
         currentScrollTop,
         scrollToTop: scrollTop,
-        scrollFn: scrollTop => this.codemirrorInstance.scrollTo(0, scrollTop),
+        scrollFn: (scrollTop) => this.codemirrorInstance.scrollTo(0, scrollTop),
       });
     },
     // Must implement
-    getScrollInfo () {
+    getScrollInfo() {
       return this.codemirrorInstance.getScrollInfo();
     },
     // Must implement
-    heightAtLine (...arg) {
+    heightAtLine(...arg) {
       return this.codemirrorInstance.heightAtLine(...arg);
     },
     // Must implement
@@ -183,7 +183,7 @@ const component = {
       this.codemirrorInstance.setValue('');
     },
     // Must implement
-    editorFocusEnd () {
+    editorFocusEnd() {
       this.focus();
 
       const lastLineIndex = this.codemirrorInstance.lastLine();
@@ -243,11 +243,10 @@ const component = {
         return start.ch !== null && end.ch !== null;
       });
 
-
       this.codemirrorInstance.setSelection(end, start);
     },
     // Must implement
-    getCurrentSelectedStr () {
+    getCurrentSelectedStr() {
       return this.codemirrorInstance.getSelection();
     },
   },

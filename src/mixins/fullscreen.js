@@ -2,6 +2,7 @@ export default {
   props: {
     defaultFullscreen: Boolean,
   },
+  emits: ['fullscreen-change'],
   data() {
     return {
       fullscreen: false,
@@ -19,7 +20,7 @@ export default {
       this.toggleFullScreen();
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('keyup', this.handleWindowKeyup, false);
   },
   methods: {

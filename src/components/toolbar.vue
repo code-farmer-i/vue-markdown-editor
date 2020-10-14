@@ -36,6 +36,7 @@ export default {
     toolbars: Object,
     disabledMenus: Array,
   },
+  emits: ['item-click', 'toolbar-menu-click'],
   methods: {
     getConfig(toolbarName, configName) {
       const toolbarConfig = this.toolbars[toolbarName];

@@ -1,5 +1,5 @@
 export default async ({ Vue }) => {
-  const { default: Lang } = await import('../../lib/lang/index');
+  const { default: Lang, vMdEditorlangConfig } = await import('../../lib/lang/index');
   const { default: enUS } = await import('../../lib/lang/en-US');
 
   Lang.add({
@@ -11,7 +11,7 @@ export default async ({ Vue }) => {
       $lang: {
         immediate: true,
         handler() {
-          if (this.$vMdEditorLang !== this.$lang) this.$vMdEditorLang = this.$lang;
+          if (vMdEditorlangConfig.lang !== this.$lang) vMdEditorlangConfig.lang = this.$lang;
         },
       },
     },

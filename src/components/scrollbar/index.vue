@@ -1,6 +1,7 @@
 <script>
 // Modified from https://github.com/ElemeFE/element/tree/dev/packages/scrollbar
 
+import { h } from 'vue';
 import { addResizeListener, removeResizeListener } from '@/utils/resize-event';
 import scrollbarWidth from '@/utils/scrollbar-width';
 import { arraytoObject } from '@/utils/util';
@@ -26,6 +27,8 @@ export default {
     },
   },
 
+  emits: ['scroll'],
+
   data() {
     return {
       sizeWidth: '0',
@@ -47,7 +50,7 @@ export default {
     !this.noresize && addResizeListener(this.$refs.resize, this.update);
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     if (this.native || this.disabled) return;
     !this.noresize && removeResizeListener(this.$refs.resize, this.update);
   },
@@ -73,7 +76,6 @@ export default {
       });
     },
 
-
     handleScroll() {
       const { wrap } = this;
 
@@ -95,8 +97,8 @@ export default {
     },
   },
 
-  render(h) {
-    if (this.disabled) return this.$slots.default;
+  render() {
+    if (this.disabled) return this.$slots.default();
 
     const gutter = scrollbarWidth();
     let style = this.wrapStyle;
@@ -125,6 +127,7 @@ export default {
         style = gutterStyle;
       }
     }
+
     const view = h(
       this.tag,
       {
@@ -132,7 +135,7 @@ export default {
         style: this.viewStyle,
         ref: 'resize',
       },
-      this.$slots.default
+      this.$slots.default()
     );
     const wrap = (
       <div

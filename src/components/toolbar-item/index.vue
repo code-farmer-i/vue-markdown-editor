@@ -63,21 +63,24 @@ export default {
     menus: [Array, Object],
     disabledMenus: Array,
   },
-  data () {
+  emits: ['click', 'menu-click'],
+  data() {
     return {
       menuActive: false,
     };
   },
   computed: {
-    hasMenu () {
+    hasMenu() {
       return this.menuItems?.length;
     },
-    menuItems () {
+    menuItems() {
       const menus = isObject(this.menus) ? this.menus.items : this.menus;
 
-      return menus?.filter(({ name: menuName }) => !this.disabledMenus?.includes(`${this.name}/${menuName}`));
+      return menus?.filter(
+        ({ name: menuName }) => !this.disabledMenus?.includes(`${this.name}/${menuName}`)
+      );
     },
-    menuMode () {
+    menuMode() {
       return isObject(this.menus) ? this.menus.mode : MENU_MODE.LIST;
     },
   },
@@ -87,7 +90,7 @@ export default {
         this.menuActive = false;
       }
     },
-    showMenu () {
+    showMenu() {
       if (this.hasMenu) {
         this.menuActive = true;
       }
@@ -113,7 +116,6 @@ export default {
         return;
       }
 
-
       if (this.timmer) clearTimeout(this.timmer);
 
       const selfElRect = selfEl.getBoundingClientRect();
@@ -127,7 +129,7 @@ export default {
         });
       }, 100);
     },
-    handleHideTooltip () {
+    handleHideTooltip() {
       if (this.timmer) clearTimeout(this.timmer);
 
       this.$refs.tooltip.hide();

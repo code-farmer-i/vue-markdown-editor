@@ -1,10 +1,7 @@
-export default {
-  name: 'v-md-render',
-  functional: true,
-  props: {
-    render: Function,
-  },
-  render(h, { data, props }) {
-    return props.render(h, ...data.$attrs);
-  },
+const renderFn = function (props, { data }) {
+  return props.render(...data.$attrs);
 };
+
+renderFn.props = ['render'];
+
+export default renderFn;

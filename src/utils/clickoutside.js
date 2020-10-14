@@ -40,7 +40,7 @@ function createDocumentHandler(el, binding, vnode) {
 }
 
 export default {
-  bind(el, binding, vnode) {
+  beforeMount(el, binding, vnode) {
     nodeList.push(el);
     const id = seed++;
     el[ctx] = {
@@ -51,13 +51,13 @@ export default {
     };
   },
 
-  update(el, binding, vnode) {
+  updated(el, binding, vnode) {
     el[ctx].documentHandler = createDocumentHandler(el, binding, vnode);
     el[ctx].methodName = binding.expression;
     el[ctx].bindingFn = binding.value;
   },
 
-  unbind(el) {
+  unmounted(el) {
     const len = nodeList.length;
 
     for (let i = 0; i < len; i++) {

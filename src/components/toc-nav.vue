@@ -23,6 +23,7 @@ export default {
       default: 16,
     },
   },
+  emits: ['nav-click'],
 };
 </script>
 

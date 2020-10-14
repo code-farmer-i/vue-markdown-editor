@@ -30,6 +30,7 @@ export default function createCopyCodePlugin() {
       if (!VMdEditor.mixins) VMdEditor.mixins = [];
 
       VMdEditor.mixins.push({
+        emits: ['copy-code-success'],
         mounted() {
           this.$nextTick(() => {
             const previewEl = getPreviewEl(this.$el);
@@ -37,7 +38,7 @@ export default function createCopyCodePlugin() {
             previewEl.addEventListener('click', this.handleCopyCodeClick);
           });
         },
-        beforeDestroy() {
+        beforeUnmount() {
           const previewEl = getPreviewEl(this.$el);
 
           previewEl.removeEventListener('click', this.handleCopyCodeClick);

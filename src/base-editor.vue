@@ -14,39 +14,43 @@
     @toolbar-menu-click="handleToolbarMenuClick"
     ref="contaner"
   >
-    <scrollbar slot="left-area">
-      <toc-nav
-        :titles="titles"
-        @nav-click="handleNavClick"
-      />
-    </scrollbar>
-    <scrollbar
-      slot="editor"
-      @scroll="handleEditorScroll"
-      ref="editorScroller"
-    >
-      <v-md-textarea-editor
-        :value="text"
-        :placeholder="placeholder"
-        @input="handleInput"
-        @click.native.stop
-        @drop.native="handleDrop"
-        @paste="handlePaste"
-        ref="editorEgine"
-      />
-    </scrollbar>
-    <scrollbar
-      slot="preview"
-      ref="previewScroller"
-    >
-      <v-md-preview
-        :text="text"
-        :scroll-container="getPreviewScrollContainer"
-        @change="handleChange"
-        ref="preview"
-      />
-    </scrollbar>
+    <template #left-area>
+      <scrollbar>
+        <toc-nav
+          #default
+          :titles="titles"
+          @nav-click="handleNavClick"
+        />
+      </scrollbar>
+    </template>
+    <template #editor>
+      <scrollbar
+        @scroll="handleEditorScroll"
+        ref="editorScroller"
+      >
+        <v-md-textarea-editor
+          :model-value="text"
+          :placeholder="placeholder"
+          @update:modelValue="handleInput"
+          @click.native.stop
+          @drop.native="handleDrop"
+          @paste="handlePaste"
+          ref="editorEgine"
+        />
+      </scrollbar>
+    </template>
+    <template #preview>
+      <scrollbar ref="previewScroller">
+        <v-md-preview
+          :text="text"
+          :scroll-container="getPreviewScrollContainer"
+          @change="handleChange"
+          ref="preview"
+        />
+      </scrollbar>
+    </template>
     <v-md-upload-file
+      #default
       v-if="hasUploadImage"
       :upload-config="uploadConfig"
       ref="uploadFile"
@@ -64,8 +68,8 @@ const component = {
     [TextareaEditor.name]: TextareaEditor,
   },
   watch: {
-    value() {
-      this.text = this.value;
+    modelValue() {
+      this.text = this.modelValue;
     },
   },
   methods: {
@@ -73,7 +77,7 @@ const component = {
       this.setFocusEnd();
     },
     // Must implement
-    editorFocusEnd () {
+    editorFocusEnd() {
       this.focus();
 
       this.$refs.editorEgine.setRange({
@@ -82,7 +86,7 @@ const component = {
       });
     },
     // Must implement
-    delLineLeft () {
+    delLineLeft() {
       const { editorEgine } = this.$refs;
       const { start } = editorEgine.getRange();
 
@@ -91,25 +95,25 @@ const component = {
       this.replaceSelectionText('\n');
     },
     // Must implement
-    getCursorLineLeftText () {
+    getCursorLineLeftText() {
       const { start, end } = this.$refs.editorEgine.getRange();
 
       return start === end ? this.text.slice(0, start).split('\n').pop() : null;
     },
     // Must implement
-    editorRegisterHotkeys (...arg) {
+    editorRegisterHotkeys(...arg) {
       this.$refs.editorEgine.registerHotkeys(...arg);
     },
     // Must implement
-    editorScrollToTop (scrollTop) {
+    editorScrollToTop(scrollTop) {
       this.$refs.editorScroller.scrollTo(scrollTop);
     },
     // Must implement
-    getScrollInfo () {
+    getScrollInfo() {
       return this.$refs.editorScroller.getScrollInfo();
     },
     // Must implement
-    heightAtLine (...arg) {
+    heightAtLine(...arg) {
       return this.$refs.editorEgine.heightAtLine(...arg);
     },
     // Must implement
@@ -135,7 +139,7 @@ const component = {
       this.$refs.editorEgine.insertText(text);
     },
     // Must implement
-    getCurrentSelectedStr () {
+    getCurrentSelectedStr() {
       const { start, end } = this.$refs.editorEgine.getRange();
 
       return end > start ? this.text.slice(start, end) : null;

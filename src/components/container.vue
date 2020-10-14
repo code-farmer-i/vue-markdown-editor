@@ -102,7 +102,8 @@ export default {
       default: EDITOR_MODE.EDITABLE,
     },
   },
-  data () {
+  emits: ['resize', 'editor-wrapper-click', 'toolbar-item-click', 'toolbar-menu-click'],
+  data() {
     return {
       toolbarHeight: 0,
     };
@@ -117,10 +118,10 @@ export default {
     rightToolbarGroup() {
       return this.getToolbarConfig(this.rightToolbar);
     },
-    isPreviewMode () {
+    isPreviewMode() {
       return this.mode === EDITOR_MODE.PREVIEW;
     },
-    isEditMode () {
+    isEditMode() {
       return this.mode === EDITOR_MODE.EDIT;
     },
   },
@@ -130,7 +131,7 @@ export default {
       addResizeListener(this.$refs.toolbarWrapper, this.handleToolbarWrapperResize);
     }
   },
-  beforeDestroy() {
+  beforeUnmount() {
     if (!this.noresize) {
       removeResizeListener(this.$refs.editorWrapper, this.handleResize);
       removeResizeListener(this.$refs.toolbarWrapper, this.handleToolbarWrapperResize);

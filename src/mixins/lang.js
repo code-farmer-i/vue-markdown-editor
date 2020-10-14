@@ -1,7 +1,9 @@
+import { vMdEditorlangConfig } from '@/lang/';
+
 export default {
   computed: {
     langConfig() {
-      return this.$vMdEditorLangConfig[this.$vMdEditorLang];
+      return vMdEditorlangConfig.langConfig[vMdEditorlangConfig.lang];
     },
   },
 };

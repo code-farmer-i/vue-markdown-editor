@@ -48,13 +48,13 @@
 </template>
 
 <script>
-import Render from '@/components/render';
+import VMdRender from '@/components/render';
 import MENU_MODE from '@/utils/constants/menu-mode';
 
 export default {
   name: 'v-md-menu',
   components: {
-    [Render.name]: Render,
+    VMdRender,
   },
   inject: ['markdownEditor'],
   props: {
@@ -73,7 +73,8 @@ export default {
     },
     visible: Boolean,
   },
-  data () {
+  emits: ['update:visible', 'item-click'],
+  data() {
     return {
       style: {
         left: 0,
@@ -81,33 +82,33 @@ export default {
     };
   },
   computed: {
-    rowCount () {
+    rowCount() {
       return Math.ceil(this.menus.length / this.rowNum);
     },
-    isListMode () {
+    isListMode() {
       return this.mode === MENU_MODE.LIST;
     },
   },
   watch: {
-    visible () {
+    visible() {
       if (this.visible) this.$nextTick(this.calculateLayout);
     },
   },
   methods: {
-    calculateLayout () {
+    calculateLayout() {
       // 容器右边框距离可视区域左侧的距离
       const { right } = this.$el.getBoundingClientRect();
       const windowWidth = document.documentElement.clientWidth;
 
       if (windowWidth - right < 0) this.style = { right: 0 };
     },
-    getRowMenus (rowIndex) {
+    getRowMenus(rowIndex) {
       const end = rowIndex * this.rowNum;
       const start = end - this.rowNum;
 
       return this.menus.slice(start, end);
     },
-    getText (text) {
+    getText(text) {
       if (typeof text === 'function') {
         return text(this.markdownEditor);
       }
@@ -117,7 +118,7 @@ export default {
     hide() {
       this.$emit('update:visible', false);
     },
-    handleClick (item) {
+    handleClick(item) {
       this.$emit('item-click', item);
 
       this.hide();

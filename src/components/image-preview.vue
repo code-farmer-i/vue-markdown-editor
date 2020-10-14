@@ -52,7 +52,7 @@
 
 <script>
 // Modifred from https://github.com/ElemeFE/element/blob/dev/packages/image/src/image-viewer.vue
-const isFirefox = function() {
+const isFirefox = function () {
   return window !== undefined && !!window.navigator.userAgent.match(/firefox/i);
 };
 
@@ -110,7 +110,7 @@ export default {
     prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
   },
-  beforeDestroy() {
+  beforeUnmount() {
     document.body.style.overflow = prevOverflow;
   },
   methods: {
@@ -119,7 +119,7 @@ export default {
       this.onClose();
     },
     deviceSupportInstall() {
-      this.keyDownHandler = e => {
+      this.keyDownHandler = (e) => {
         const { keyCode } = e;
         switch (keyCode) {
           // UP_ARROW
@@ -132,7 +132,7 @@ export default {
             break;
         }
       };
-      this.mouseWheelHandler = e => {
+      this.mouseWheelHandler = (e) => {
         const delta = e.wheelDelta ? e.wheelDelta : -e.detail;
         if (delta > 0) {
           this.handleActions('zoomIn', {
@@ -168,7 +168,7 @@ export default {
       const { offsetX, offsetY } = this.transform;
       const startX = e.pageX;
       const startY = e.pageY;
-      this.dragHandler = ev => {
+      this.dragHandler = (ev) => {
         this.transform.offsetX = offsetX + ev.pageX - startX;
         this.transform.offsetY = offsetY + ev.pageY - startY;
       };

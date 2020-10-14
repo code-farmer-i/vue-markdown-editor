@@ -95,7 +95,7 @@ export default {
     },
   },
 
-  destroyed() {
+  unmounted() {
     document.removeEventListener('mouseup', this.mouseUpDocumentHandler, false);
   },
 };

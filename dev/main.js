@@ -1,5 +1,5 @@
 import App from './App';
-import Vue from 'vue';
+import { createApp } from 'vue';
 import VueMarkdownEditor from '@/base-editor';
 // import VueMarkdownEditor from '@/codemirror-editor';
 // import Preview from '@/preview';
@@ -15,6 +15,8 @@ import createHighLinesPlugin from '@/plugins/highlight-lines/';
 import vuepressTheme from '@/theme/vuepress';
 import enUS from '@/lang/en-US';
 
+const app = createApp(App);
+
 VueMarkdownEditor.lang.use('en-US', enUS);
 
 VueMarkdownEditor.use(createEmojiPlugin())
@@ -28,11 +30,8 @@ VueMarkdownEditor.use(githubTheme);
 // VueMarkdownEditor.use(vuepressTheme);
 // Preview.use(githubTheme);
 
-Vue.use(VueMarkdownEditor);
+app.use(VueMarkdownEditor);
+
+app.mount('#app');
 
 // Vue.use(Preview);
-
-new Vue({
-  el: '#app',
-  render: (h) => h(App),
-});

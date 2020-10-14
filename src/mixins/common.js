@@ -31,6 +31,7 @@ export default {
     autofocus: Boolean,
     placeholder: String,
   },
+  emits: ['change', 'save'],
   data() {
     return {
       currentMode: this.mode,

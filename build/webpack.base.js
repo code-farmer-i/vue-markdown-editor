@@ -33,6 +33,7 @@ module.exports = function getBaseConfig(config = {}) {
                 compilerOptions: {
                   preserveWhitespace: false,
                 },
+                babelParserPlugins: ['jsx'],
               },
             },
           ],

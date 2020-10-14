@@ -15,14 +15,9 @@ module.exports = function (api) {
           modules: useESModules ? false : 'commonjs',
         },
       ],
-      [
-        '@vue/babel-preset-jsx',
-        {
-          functional: false,
-        },
-      ],
     ],
     plugins: [
+      '@vue/babel-plugin-jsx',
       [
         '@babel/plugin-transform-runtime',
         {
