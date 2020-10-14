@@ -31,7 +31,7 @@ async function release() {
     if (isBeta) {
       runTasks(['npm publish --tag beta --access=public']);
     } else {
-      runTasks(['npm publish --access=public']);
+      runTasks(['npm publish --tag next --access=public']);
     }
   } catch (e) {
     // rollback version and delete local tag
