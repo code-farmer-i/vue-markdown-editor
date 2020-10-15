@@ -1,7 +1,20 @@
 import App from './App';
 import Vue from 'vue';
-import VueMarkdownEditor from '@/base-editor';
-// import VueMarkdownEditor from '@/codemirror-editor';
+// import VueMarkdownEditor from '@/base-editor';
+import VueMarkdownEditor from '@/codemirror-editor';
+
+import Codemirror from 'codemirror';
+// mode
+import 'codemirror/mode/markdown/markdown';
+// placeholder
+import 'codemirror/addon/display/placeholder';
+// active-line
+import 'codemirror/addon/selection/active-line';
+// scrollbar
+import 'codemirror/addon/scroll/simplescrollbars';
+import 'codemirror/addon/scroll/simplescrollbars.css';
+// style
+import 'codemirror/lib/codemirror.css';
 // import Preview from '@/preview';
 import githubTheme from '@/theme/github/index';
 
@@ -15,6 +28,7 @@ import createHighLinesPlugin from '@/plugins/highlight-lines/';
 import vuepressTheme from '@/theme/vuepress';
 import enUS from '@/lang/en-US';
 
+VueMarkdownEditor.Codemirror = Codemirror;
 VueMarkdownEditor.lang.use('en-US', enUS);
 
 VueMarkdownEditor.use(createEmojiPlugin())

@@ -18,13 +18,13 @@
 import text from './text';
 
 export default {
-  data () {
+  data() {
     return {
       text,
     };
   },
   methods: {
-    handleFullscreenChange (v) {
+    handleFullscreenChange(v) {
       console.log(v);
     },
     handleUploadImage(e, insertImage, files) {
@@ -35,10 +35,10 @@ export default {
         desc: '111',
       });
     },
-    handleSave (v, html) {
+    handleSave(v, html) {
       console.log(v, html);
     },
-    handleCopyCodeSuccess (code) {
+    handleCopyCodeSuccess(code) {
       console.log(code);
     },
   },

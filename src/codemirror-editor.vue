@@ -22,6 +22,9 @@
     </scrollbar>
     <div
       class="codemirror-wrapper"
+      :class="{
+        'codemirror-reset': codemirrorStyleReset
+      }"
       slot="editor"
       ref="codemirrorEditor"
     />
@@ -49,22 +52,13 @@ import createEditor from './create-editor';
 import { smooth } from '@/utils/smooth-scroll';
 import HotKeys from '@/utils/hotkeys';
 
-import Codemirror from 'codemirror';
-// mode
-import 'codemirror/mode/markdown/markdown';
-// placeholder
-import 'codemirror/addon/display/placeholder';
-// active-line
-import 'codemirror/addon/selection/active-line';
-// scrollbar
-import 'codemirror/addon/scroll/simplescrollbars';
-import 'codemirror/addon/scroll/simplescrollbars.css';
-// style
-import 'codemirror/lib/codemirror.css';
-
 const component = {
   props: {
     codemirrorConfig: Object,
+    codemirrorStyleReset: {
+      type: Boolean,
+      default: true,
+    },
   },
   watch: {
     value() {
@@ -74,20 +68,28 @@ const component = {
       }
     },
   },
-  created () {
+  created() {
     this.hotkeysManager = new HotKeys();
   },
   mounted() {
+    const { Codemirror } = this.$options;
+
+    if (!Codemirror) {
+      return console.error(
+        '1.5.0与2.1.0版本之后Codemirror将由用户自己配置，请配置Codemirror，如何配置请参考相关文档'
+      );
+    }
+
     this.codemirrorInstance = new Codemirror(this.$refs.codemirrorEditor, {
       tabSize: 2,
       lineNumbers: true,
       styleActiveLine: true,
-      ...this.codemirrorConfig,
       value: this.text,
       placeholder: this.placeholder,
       mode: 'markdown',
       lineWrapping: 'wrap',
       scrollbarStyle: 'overlay',
+      ...this.codemirrorConfig,
     });
 
     this.codemirrorInstance.on('change', () => {
@@ -131,11 +133,11 @@ const component = {
       }
     },
     // Must implement
-    delLineLeft () {
+    delLineLeft() {
       this.codemirrorInstance.execCommand('delLineLeft');
     },
     // Must implement
-    getCursorLineLeftText () {
+    getCursorLineLeftText() {
       const { codemirrorInstance } = this;
       const { line: startLine, ch: startCh } = codemirrorInstance.getCursor('from');
       const { line: endLine, ch: endCh } = codemirrorInstance.getCursor('to');
@@ -145,25 +147,25 @@ const component = {
       return codemirrorInstance.getLine(startLine).slice(0, startCh);
     },
     // Must implement
-    editorRegisterHotkeys (...arg) {
+    editorRegisterHotkeys(...arg) {
       this.hotkeysManager.registerHotkeys(...arg);
     },
     // Must implement
-    editorScrollToTop (scrollTop) {
+    editorScrollToTop(scrollTop) {
       const currentScrollTop = this.getScrollInfo().top;
 
       smooth({
         currentScrollTop,
         scrollToTop: scrollTop,
-        scrollFn: scrollTop => this.codemirrorInstance.scrollTo(0, scrollTop),
+        scrollFn: (scrollTop) => this.codemirrorInstance.scrollTo(0, scrollTop),
       });
     },
     // Must implement
-    getScrollInfo () {
+    getScrollInfo() {
       return this.codemirrorInstance.getScrollInfo();
     },
     // Must implement
-    heightAtLine (...arg) {
+    heightAtLine(...arg) {
       return this.codemirrorInstance.heightAtLine(...arg);
     },
     // Must implement
@@ -183,7 +185,7 @@ const component = {
       this.codemirrorInstance.setValue('');
     },
     // Must implement
-    editorFocusEnd () {
+    editorFocusEnd() {
       this.focus();
 
       const lastLineIndex = this.codemirrorInstance.lastLine();
@@ -243,11 +245,10 @@ const component = {
         return start.ch !== null && end.ch !== null;
       });
 
-
       this.codemirrorInstance.setSelection(end, start);
     },
     // Must implement
-    getCurrentSelectedStr () {
+    getCurrentSelectedStr() {
       return this.codemirrorInstance.getSelection();
     },
   },
@@ -267,79 +268,84 @@ export default component;
 
     .CodeMirror {
       height: 100%;
-      color: $text-color;
-      font-size: $editor-font-size;
-      font-family: $editor-font-family;
-      line-height: $editor-line-height;
+    }
 
-      &:hover {
-        .CodeMirror-overlayscroll-vertical,
-        .CodeMirror-overlayscroll-horizontal {
-          & > div {
-            opacity: 1;
+    &.codemirror-reset {
+      .CodeMirror {
+        color: $text-color;
+        font-size: $editor-font-size;
+        font-family: $editor-font-family;
+        line-height: $editor-line-height;
+
+        &:hover {
+          .CodeMirror-overlayscroll-vertical,
+          .CodeMirror-overlayscroll-horizontal {
+            & > div {
+              opacity: 1;
+            }
+          }
+        }
+
+        pre {
+          padding: 0 12px;
+          word-break: break-all;
+        }
+      }
+
+      .CodeMirror-empty {
+        color: $text-color-placeholder;
+      }
+
+      .cm-header,
+      .cm-url,
+      .cm-link {
+        color: #1890ff;
+      }
+
+      .cm-link {
+        text-decoration: none;
+      }
+
+      .cm-url {
+        text-decoration: underline;
+      }
+
+      .cm-quote,
+      .cm-comment,
+      .cm-variable-2:not(.cm-url),
+      .cm-link {
+        color: $text-color;
+      }
+
+      // 选中代码的高亮背景色
+      .CodeMirror-selected {
+        background: mix(#e8f2ff, #000, 90%);
+      }
+
+      .CodeMirror-linenumbers {
+        padding: 0 5px;
+      }
+
+      // 滚动条样式
+      .CodeMirror-overlayscroll-vertical,
+      .CodeMirror-overlayscroll-horizontal {
+        & > div {
+          background-color: $scrollbar-background-color;
+          border-radius: $scrollbar-border-radius;
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity $scrollbar-opacity-transition,
+            background-color $scrollbar-background-transition;
+
+          &:hover {
+            background-color: $scrollbar-active-background-color;
           }
         }
       }
 
-      pre {
-        padding: 0 12px;
-        word-break: break-all;
+      .CodeMirror-overlayscroll-vertical {
+        right: 2px;
       }
-    }
-
-    .CodeMirror-empty {
-      color: $text-color-placeholder;
-    }
-
-    .cm-header,
-    .cm-url,
-    .cm-link {
-      color: #1890ff;
-    }
-
-    .cm-link {
-      text-decoration: none;
-    }
-
-    .cm-url {
-      text-decoration: underline;
-    }
-
-    .cm-quote,
-    .cm-comment,
-    .cm-variable-2:not(.cm-url),
-    .cm-link {
-      color: $text-color;
-    }
-
-    // 选中代码的高亮背景色
-    .CodeMirror-selected {
-      background: mix(#e8f2ff, #000, 90%);
-    }
-
-    .CodeMirror-linenumbers {
-      padding: 0 5px;
-    }
-
-    // 滚动条样式
-    .CodeMirror-overlayscroll-vertical,
-    .CodeMirror-overlayscroll-horizontal {
-      & > div {
-        background-color: $scrollbar-background-color;
-        border-radius: $scrollbar-border-radius;
-        cursor: pointer;
-        opacity: 0;
-        transition: opacity $scrollbar-opacity-transition,
-          background-color $scrollbar-background-transition;
-
-        &:hover {
-          background-color: $scrollbar-active-background-color;
-        }
-      }
-    }
-
-    .CodeMirror-overlayscroll-vertical {
-      right: 2px;
     }
   }
 }
