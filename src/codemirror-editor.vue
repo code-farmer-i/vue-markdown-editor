@@ -52,19 +52,6 @@ import createEditor from './create-editor';
 import { smooth } from '@/utils/smooth-scroll';
 import HotKeys from '@/utils/hotkeys';
 
-import Codemirror from 'codemirror';
-// mode
-import 'codemirror/mode/markdown/markdown';
-// placeholder
-import 'codemirror/addon/display/placeholder';
-// active-line
-import 'codemirror/addon/selection/active-line';
-// scrollbar
-import 'codemirror/addon/scroll/simplescrollbars';
-import 'codemirror/addon/scroll/simplescrollbars.css';
-// style
-import 'codemirror/lib/codemirror.css';
-
 const component = {
   props: {
     codemirrorConfig: Object,
@@ -80,8 +67,19 @@ const component = {
   created() {
     this.hotkeysManager = new HotKeys();
   },
+  computed: {
+    Codemirror() {
+      return this.$options.Codemirror;
+    },
+  },
   mounted() {
-    this.codemirrorInstance = new Codemirror(this.$refs.codemirrorEditor, {
+    if (!this.Codemirror) {
+      return console.error(
+        '1.5.0与2.1.0版本之后Codemirror将由用户自己配置，请配置Codemirror，如何配置请参考相关文档'
+      );
+    }
+
+    this.codemirrorInstance = new this.Codemirror(this.$refs.codemirrorEditor, {
       tabSize: 2,
       lineNumbers: true,
       styleActiveLine: true,
@@ -122,6 +120,7 @@ const component = {
   },
   methods: {
     handleContainerResize() {
+      if (!this.Codemirror) return;
       // 容器大小变化的时候刷新 codemirror 解决滚动条的显示问题
       this.codemirrorInstance.refresh();
     },

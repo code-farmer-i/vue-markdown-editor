@@ -1,7 +1,7 @@
 import App from './App';
 import { createApp } from 'vue';
-import VueMarkdownEditor from '@/base-editor';
-// import VueMarkdownEditor from '@/codemirror-editor';
+// import VueMarkdownEditor from '@/base-editor';
+import VueMarkdownEditor from '@/codemirror-editor';
 // import Preview from '@/preview';
 import githubTheme from '@/theme/github/index';
 
@@ -15,6 +15,20 @@ import createHighLinesPlugin from '@/plugins/highlight-lines/';
 import vuepressTheme from '@/theme/vuepress';
 import enUS from '@/lang/en-US';
 
+// codemirror 编辑器的相关资源
+import Codemirror from 'codemirror';
+// mode
+import 'codemirror/mode/markdown/markdown';
+// placeholder
+import 'codemirror/addon/display/placeholder';
+// active-line
+import 'codemirror/addon/selection/active-line';
+// scrollbar
+import 'codemirror/addon/scroll/simplescrollbars';
+import 'codemirror/addon/scroll/simplescrollbars.css';
+// style
+import 'codemirror/lib/codemirror.css';
+
 const app = createApp(App);
 
 VueMarkdownEditor.lang.use('en-US', enUS);
@@ -27,6 +41,8 @@ VueMarkdownEditor.use(createEmojiPlugin())
   .use(createHighLinesPlugin());
 
 VueMarkdownEditor.use(githubTheme);
+
+VueMarkdownEditor.Codemirror = Codemirror;
 // VueMarkdownEditor.use(vuepressTheme);
 // Preview.use(githubTheme);
 
