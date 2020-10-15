@@ -1,5 +1,21 @@
 # Changelog
 
+### 1.5.0 & 2.1.0
+
+`2020-10-15`
+
+**Features**
+
+- props: Add [codemirror-style-reset](./api.md#codemirror-style-reset) prop.
+
+**Improvement**
+
+- codemirror-editor: codemirror is configured by users。
+
+:::danger Important
+In order to enable developers to configure the relevant resources of the codemirror editor more flexibly, starting from this version, the codemirror editor will be manually introduced by the user in the project [View Details](./examples/codemirror-editor.md#import)
+:::
+
 ### 2.0.1
 
 `2020-10-14`

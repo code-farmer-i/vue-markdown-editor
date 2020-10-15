@@ -1,5 +1,21 @@
 # 更新日志
 
+### 1.5.0 & 2.1.0
+
+`2020-10-15`
+
+**Features**
+
+- props: 新增 [codemirror-style-reset](./api.md#codemirror-style-reset) 属性。
+
+**Improvement**
+
+- codemirror-editor: codemirror 由用户自定义配置。
+
+:::danger 重要
+为了使开发者更灵活的配置 codemirror 编辑器的相关资源，从该版本开始，codemirror 编辑器将由用户在项目中手动引入[查看详情](./examples/codemirror-editor.md#引入)
+:::
+
 ### 2.0.1
 
 `2020-10-14`
