@@ -7,21 +7,21 @@
 </template>
 
 <script>
-import VMdEditor from '../../../lib/codemirror-editor'
-import '../../../lib/style/codemirror-editor.css'
-import githubTheme from '../../../lib/theme/github.js'
-import text from '../../../dev/text'
+import VMdEditor from '../../../lib/codemirror-editor';
+import '../../../lib/style/codemirror-editor.css';
+import githubTheme from '../../../lib/theme/github.js';
+import text from '../../../dev/text';
 
 export default {
   components: {
-    [VMdEditor.name]: VMdEditor
+    [VMdEditor.name]: VMdEditor,
   },
-  data () {
+  data() {
     this.theme = githubTheme;
 
     return {
-      text
-    }
-  }
-}
+      text,
+    };
+  },
+};
 </script>

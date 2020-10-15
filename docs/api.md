@@ -129,7 +129,7 @@ Disabled menu. default is the upload local image menu under the image toolbar. E
 - type：`Object`
 - default：`{ accept: 'image/*' }`
 
-### codemirrorConfig
+### codemirror-config
 
 - type：`Object`
 - default：`{}`
@@ -139,14 +139,21 @@ new Codemirror(this.$refs.codemirrorEditor, {
   tabSize: 2,
   lineNumbers: true,
   styleActiveLine: true,
-  ...this.codemirrorConfig,
   value: this.text,
   mode: 'markdown',
   lineWrapping: 'wrap',
   scrollbarStyle: 'overlay',
   dragDrop: false,
+  ...this.codemirrorConfig,
 });
 ```
+
+### codemirror-style-reset
+
+- type：`Boolean`
+- default：`true`
+
+Whether to optimize some styles of the codemirror editor. If closed, the default style of the codemirror editor will be restored.
 
 ## Methods
 

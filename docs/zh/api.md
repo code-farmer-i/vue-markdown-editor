@@ -154,7 +154,7 @@ export default {
 
 上传本地图片的相关配置。参考高级用法：[如何插入本地图片](./senior/upload-image.md)
 
-### codemirrorConfig
+### codemirror-config
 
 - 类型：`Object`
 - 默认值：`{}`
@@ -166,17 +166,28 @@ new Codemirror(this.$refs.codemirrorEditor, {
   tabSize: 2,
   lineNumbers: true,
   styleActiveLine: true,
-  // 传入的配置将会在此合并
-  ...this.codemirrorConfig,
   value: this.text,
   mode: 'markdown',
   lineWrapping: 'wrap',
   scrollbarStyle: 'overlay',
   dragDrop: false,
+  // 传入的配置将会在此合并
+  ...this.codemirrorConfig,
 });
 ```
 
 [查看可用属性文档](https://codemirror.net/doc/manual.html#config)
+
+::: warning 注意
+只有进阶版支持该属性。
+:::
+
+### codemirror-style-reset
+
+- 类型：`Boolean`
+- 默认值：`true`
+
+是否对 codemirror 编辑器的部分样式进行优化。若关闭，则会恢复 codemirror 编辑器默认的样式。
 
 ::: warning 注意
 只有进阶版支持该属性。
