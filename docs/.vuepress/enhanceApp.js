@@ -1,20 +1,22 @@
-import Codemirror from 'codemirror';
-// mode
-import 'codemirror/mode/markdown/markdown';
-// placeholder
-import 'codemirror/addon/display/placeholder';
-// active-line
-import 'codemirror/addon/selection/active-line';
-// scrollbar
-import 'codemirror/addon/scroll/simplescrollbars';
-import 'codemirror/addon/scroll/simplescrollbars.css';
-// style
-import 'codemirror/lib/codemirror.css';
+// import Codemirror from 'codemirror';
 
 export default async ({ Vue }) => {
+  const { default: Codemirror } = await import('codemirror');
   const { default: CodemirrorEditor } = await import('../../lib/codemirror-editor');
   const { default: Lang } = await import('../../lib/lang/index');
   const { default: enUS } = await import('../../lib/lang/en-US');
+
+  // mode
+  await import('codemirror/mode/markdown/markdown');
+  // placeholder
+  await import('codemirror/addon/display/placeholder');
+  // active-line
+  await import('codemirror/addon/selection/active-line');
+  // scrollbar
+  await import('codemirror/addon/scroll/simplescrollbars');
+  await import('codemirror/addon/scroll/simplescrollbars.css');
+  // style
+  await import('codemirror/lib/codemirror.css');
 
   Lang.add({
     'en-US': enUS,
