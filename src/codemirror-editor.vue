@@ -71,16 +71,19 @@ const component = {
   created() {
     this.hotkeysManager = new HotKeys();
   },
+  computed: {
+    Codemirror() {
+      return this.$options.Codemirror;
+    },
+  },
   mounted() {
-    const { Codemirror } = this.$options;
-
-    if (!Codemirror) {
+    if (!this.Codemirror) {
       return console.error(
         '1.5.0与2.1.0版本之后Codemirror将由用户自己配置，请配置Codemirror，如何配置请参考相关文档'
       );
     }
 
-    this.codemirrorInstance = new Codemirror(this.$refs.codemirrorEditor, {
+    this.codemirrorInstance = new this.Codemirror(this.$refs.codemirrorEditor, {
       tabSize: 2,
       lineNumbers: true,
       styleActiveLine: true,
@@ -121,6 +124,7 @@ const component = {
   },
   methods: {
     handleContainerResize() {
+      if (!this.Codemirror) return;
       // 容器大小变化的时候刷新 codemirror 解决滚动条的显示问题
       this.codemirrorInstance.refresh();
     },
