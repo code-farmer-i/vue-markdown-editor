@@ -6,7 +6,7 @@
 
 **Bug Fixes**
 
-- toolbar menu: 修复 toolbar menu 在点击行为失效的问题。
+- toolbar menu: 修复 toolbar menu 点击行为失效的问题。
 
 ### 1.5.0 & 2.1.0
 
