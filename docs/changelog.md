@@ -1,5 +1,13 @@
 # Changelog
 
+### 2.1.1
+
+`2020-10-21`
+
+**Bug Fixes**
+
+- toolbar menu: Fix the problem that toolbar menu does not work when clicking.
+
 ### 1.5.0 & 2.1.0
 
 `2020-10-15`
