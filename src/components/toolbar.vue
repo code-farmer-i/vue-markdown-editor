@@ -12,7 +12,7 @@
         :menus="getConfig(toolbarName, 'menus')"
         :disabled-menus="disabledMenus"
         @click="$emit('item-click', toolbars[toolbarName])"
-        @menu-click="$emit('toolbar-menu-click', arguments[0])"
+        @menu-click="$emit('toolbar-menu-click', $event)"
       />
       <li
         v-if="idx !== groups.length - 1"

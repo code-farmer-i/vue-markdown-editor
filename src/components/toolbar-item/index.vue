@@ -29,8 +29,9 @@
       :menus="menuItems"
       :item-width="menus.itemWidth"
       :row-num="menus.rowNum"
-      :visible.sync="menuActive"
-      @item-click="$emit('menu-click', arguments[0])"
+      :visible="menuActive"
+      @update:visible="menuActive = $event"
+      @item-click="$emit('menu-click', $event)"
     />
     <i
       v-if="hasMenu"
