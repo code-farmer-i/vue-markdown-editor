@@ -3,6 +3,22 @@
   "version": "2.1.1",
   "description": "A markdown editor built on Vue",
   "main": "lib/base-editor.js",
+  "keywords": [
+    "javascript",
+    "vue3",
+    "vue",
+    "html",
+    "markdown",
+    "editor",
+    "vue-markdown-editor",
+    "vue3-markdown-editor",
+    "vue-markdown",
+    "vue3-markdown",
+    "markdown-it",
+    "vue-editor",
+    "vue3-editor",
+    "markdown-editor"
+  ],
   "unpkg": "lib/base-editor.js",
   "typings": "types/index.d.ts",
   "files": [
@@ -103,11 +119,6 @@
     "type": "git",
     "url": "git+https://github.com/code-farmer-i/vue-markdown-editor.git"
   },
-  "keywords": [
-    "vue",
-    "markdown",
-    "editor"
-  ],
   "author": "",
   "license": "MIT",
   "bugs": {
