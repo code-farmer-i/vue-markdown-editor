@@ -1,5 +1,13 @@
 # Changelog
 
+### 2.1.2
+
+`2020-10-24`
+
+**Bug Fixes**
+
+- base-editor: Fix the problem of base-editor v-model failure.
+
 ### 2.1.1
 
 `2020-10-21`
