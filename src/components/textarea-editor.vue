@@ -9,9 +9,9 @@
       :value="modelValue"
       :placeholder="placeholder"
       spellcheck="false"
-      @compositionstart="() => ignoreInput = true"
-      @compositionend="() => ignoreInput = false"
-      @update:modelValue="handleInput"
+      @compositionstart="() => (ignoreInput = true)"
+      @compositionend="() => (ignoreInput = false)"
+      @input="handleInput"
       @click="updateCurrentHistoryRange"
       @paste="handlePaste"
       @keydown.tab.prevent
