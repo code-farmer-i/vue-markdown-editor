@@ -35,10 +35,6 @@ Component.use = function (optionsOrInstall, opt) {
   return Component;
 };
 
-if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
-}
-
 export default Component;
 `;
 
