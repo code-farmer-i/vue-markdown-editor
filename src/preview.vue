@@ -20,7 +20,7 @@ import { getScrollTop } from '@/utils/scroll-top';
 import smoothScroll from '@/utils/smooth-scroll';
 import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants/markup';
 import ImagePreview from '@/components/image-preview';
-import { VMdParser } from '@/v-md-parser';
+import { VMdParser } from '@/utils/v-md-parser';
 
 const component = {
   name: 'v-md-preview',

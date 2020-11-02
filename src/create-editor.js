@@ -1,4 +1,4 @@
-import Lang from '@/lang/';
+import Lang from '@/utils/lang';
 import zhCNConfig from '@/lang/zh-CN';
 import { reactive } from 'vue';
 
