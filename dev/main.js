@@ -33,6 +33,10 @@ const app = createApp(App);
 
 VueMarkdownEditor.lang.use('en-US', enUS);
 
+// VueMarkdownEditor.use(githubTheme);
+VueMarkdownEditor.use(vuepressTheme);
+// Preview.use(githubTheme);
+
 VueMarkdownEditor.use(createEmojiPlugin())
   .use(createKatexPlugin())
   .use(createTodoListPlugin())
@@ -40,14 +44,9 @@ VueMarkdownEditor.use(createEmojiPlugin())
   .use(createCopyCodePlugin())
   .use(createHighLinesPlugin());
 
-VueMarkdownEditor.use(githubTheme);
-
 VueMarkdownEditor.Codemirror = Codemirror;
-// VueMarkdownEditor.use(vuepressTheme);
-// Preview.use(githubTheme);
 
 app.use(VueMarkdownEditor);
+// app.use(Preview);
 
 app.mount('#app');
-
-// Vue.use(Preview);

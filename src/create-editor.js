@@ -1,5 +1,6 @@
 import Lang from '@/lang/';
 import zhCNConfig from '@/lang/zh-CN';
+import { reactive } from 'vue';
 
 import { commandWrapper } from '@/utils/command';
 import { toolbarWrapper } from '@/utils/toolbar';
@@ -20,7 +21,13 @@ import langMixin from '@/mixins/lang';
 
 import Preview from '@/preview';
 
-Lang.add({
+const lang = new Lang({
+  afterUse(lang) {
+    Preview.vMdParser.lang.config.lang = lang;
+  },
+});
+lang.config = reactive(lang.config);
+lang.add({
   'zh-CN': zhCNConfig,
 });
 
@@ -29,11 +36,8 @@ export default function createEditor(component) {
   toolbarWrapper(component);
 
   component.name = 'v-md-editor';
-  component.theme = function (themeConfig) {
-    component.themeConfig = themeConfig;
-    Preview.theme(themeConfig);
-  };
-  component.extendMarkdown = Preview.extendMarkdown;
+  component.lang = lang;
+  component.vMdParser = Preview.vMdParser;
   component.hotkeys = [];
   component.hotkey = function (config) {
     component.hotkeys.push(config);

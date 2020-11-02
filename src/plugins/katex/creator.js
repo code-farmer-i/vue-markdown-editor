@@ -1,19 +1,8 @@
-import markdownItKatex from '@/utils/markdown-it-katex';
-
-export default function (katex) {
-  return function createKatexPlugin(options) {
-    const extendMarkdown = function (mdParser) {
-      if (mdParser && katex) {
-        mdParser.use(markdownItKatex, {
-          ...options,
-          katex,
-        });
-      }
-    };
-
+export default function (parser) {
+  return function createKatexPlugin(katexOptions) {
     return {
       install(VMdEditor) {
-        VMdEditor.extendMarkdown(extendMarkdown);
+        VMdEditor.vMdParser.use(parser, katexOptions);
       },
     };
   };

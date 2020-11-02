@@ -11,7 +11,7 @@
         'v-md-editor__toolbar-item--menu': hasMenu
       }
     ]"
-    v-clickoutside="hideMenu"
+    v-clickoutside:hideMenu="hideMenu"
     @mousedown.prevent
     @mouseleave="handleHideTooltip"
     @mousemove="showTooltip"

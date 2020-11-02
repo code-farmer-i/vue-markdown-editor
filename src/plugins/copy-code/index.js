@@ -1,5 +1,5 @@
-import markdownItCopyCode from '@/utils/markdown-it-copy-code';
 import copyToClipboard from 'copy-to-clipboard';
+import parser from './parser';
 import './copy-code.css';
 
 function isCopyButton(el) {
@@ -23,9 +23,7 @@ function getPreviewEl(el) {
 export default function createCopyCodePlugin() {
   return {
     install(VMdEditor) {
-      VMdEditor.extendMarkdown((mdParser) => {
-        mdParser.use(markdownItCopyCode);
-      });
+      VMdEditor.vMdParser.use(parser);
 
       if (!VMdEditor.mixins) VMdEditor.mixins = [];
 

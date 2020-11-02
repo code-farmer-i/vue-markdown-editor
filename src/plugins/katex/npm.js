@@ -1,5 +1,4 @@
 import creator from './creator';
-import katex from 'katex';
-import 'katex/dist/katex.min.css';
+import parserNpm from './parser-npm';
 
-export default creator(katex);
+export default creator(parserNpm);

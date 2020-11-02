@@ -1,15 +1,9 @@
-import markdownItCodeLineNumber from '@vuepress/markdown/lib/lineNumbers';
-
-const extendMarkdown = function (mdParser) {
-  if (mdParser) {
-    mdParser.use(markdownItCodeLineNumber);
-  }
-};
+import parser from './parser';
 
 export default function () {
   return {
     install(VMdEditor) {
-      VMdEditor.extendMarkdown(extendMarkdown);
+      VMdEditor.vMdParser.use(parser);
     },
   };
 }

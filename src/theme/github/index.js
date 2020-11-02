@@ -1,13 +1,10 @@
-import createGithubTheme from './theme';
+import parser from './parser';
 
-const install = function (VMdEditor, options = {}) {
-  const { extend, config } = options;
-  const theme = createGithubTheme({
-    baseConfig: config,
-  });
+// style
+import '@/assets/css/theme/github-markdown';
 
-  if (extend) theme.extend(extend);
-  VMdEditor.theme(theme);
+const install = function (VMdEditor, options) {
+  VMdEditor.vMdParser.use(parser, options);
 };
 
 if (typeof window !== 'undefined' && window.VMdEditor) {

@@ -1,7 +1,4 @@
 import creator from './creator';
+import parserCdn from './parser-cdn';
 
-if (!window.katex) {
-  console.error('Please import resources katex from cdn');
-}
-
-export default creator(window.katex);
+export default creator(parserCdn);

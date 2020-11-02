@@ -21,7 +21,8 @@ function createDocumentHandler(el, binding, vnode) {
   return function (mouseup = {}, mousedown = {}) {
     if (
       !vnode ||
-      !vnode.context ||
+      !binding ||
+      !binding.instance ||
       !mouseup.target ||
       !mousedown.target ||
       el.contains(mouseup.target) ||
@@ -31,8 +32,8 @@ function createDocumentHandler(el, binding, vnode) {
       return;
     }
 
-    if (binding.expression && el[ctx].methodName && vnode.context[el[ctx].methodName]) {
-      vnode.context[el[ctx].methodName]();
+    if (binding.arg && el[ctx].methodName && binding.instance[el[ctx].methodName]) {
+      binding.instance[el[ctx].methodName]();
     } else {
       el[ctx].bindingFn && el[ctx].bindingFn();
     }
@@ -46,14 +47,14 @@ export default {
     el[ctx] = {
       id,
       documentHandler: createDocumentHandler(el, binding, vnode),
-      methodName: binding.expression,
+      methodName: binding.arg,
       bindingFn: binding.value,
     };
   },
 
   updated(el, binding, vnode) {
     el[ctx].documentHandler = createDocumentHandler(el, binding, vnode);
-    el[ctx].methodName = binding.expression;
+    el[ctx].methodName = binding.arg;
     el[ctx].bindingFn = binding.value;
   },
 

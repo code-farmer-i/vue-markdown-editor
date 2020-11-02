@@ -1,13 +1,13 @@
 import createToolbar from './toolbar';
 import commandHandler from './command';
-import markdownItTodoList from '@/utils/markdown-it-todo-list';
+import parser from './parser';
 import './todo-list.css';
 
 export default function createTodoListPlugin({
   name = 'todo-list',
   icon = 'v-md-icon-checkbox',
   text,
-  color = '#3eaf7c',
+  color,
 } = {}) {
   const toolbar = createToolbar({
     commandName: name,
@@ -15,25 +15,6 @@ export default function createTodoListPlugin({
     text,
     icon,
   });
-
-  const defaultBorderColor = '#d9d9d9';
-  const border = (type) => `border-color: ${type === 'todo' ? defaultBorderColor : color}`;
-  const background = `background-color: ${color}`;
-  const extendMarkdown = function (mdParser) {
-    if (mdParser) {
-      // extend markdown-it
-      mdParser.use(markdownItTodoList, {
-        renderCheckbox(type) {
-          const checkboxClass = 'v-md-editor__todo-list-checkbox';
-          const style = type === 'todo' ? `${border(type)}` : `${border(type)};${background}`;
-
-          return `<span class="${checkboxClass}${
-            type === 'todo' ? '' : ` ${checkboxClass}--checked`
-          }" style="${style}"></span>`;
-        },
-      });
-    }
-  };
 
   return {
     install(VMdEditor) {
@@ -63,7 +44,9 @@ export default function createTodoListPlugin({
         });
       }
 
-      VMdEditor.extendMarkdown(extendMarkdown);
+      VMdEditor.vMdParser.use(parser, {
+        color,
+      });
     },
   };
 }

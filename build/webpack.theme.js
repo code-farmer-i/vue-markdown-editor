@@ -11,6 +11,8 @@ module.exports = merge(getBaseConfig(), {
     prism: './src/theme/base/prism',
     github: './src/theme/github/index',
     vuepress: './src/theme/vuepress/index',
+    'github-parser': './src/theme/github/parser',
+    'vuepress-parser': './src/theme/vuepress/parser',
   },
   output: {
     library: 'VMdTheme',

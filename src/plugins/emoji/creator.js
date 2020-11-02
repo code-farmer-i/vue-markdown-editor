@@ -2,7 +2,7 @@ import createToolbar from './toolbar';
 import commandHandler from './command';
 import './emoji.css';
 
-export default function creator({ emojiJson, mdEmojiPlugin }) {
+export default function creator({ emojiJson, parser }) {
   return function createEmojiPlugin({
     name = 'emoji',
     icon = 'v-md-icon-emoji',
@@ -11,19 +11,6 @@ export default function creator({ emojiJson, mdEmojiPlugin }) {
     customEmoji,
   } = {}) {
     const toolbar = createToolbar({ commandName: name, title, text, icon, emojiJson });
-
-    const extendMarkdown = function (mdParser) {
-      if (mdParser) {
-        // extend markdown-it
-        mdParser.use(mdEmojiPlugin);
-
-        if (customEmoji) {
-          mdParser.renderer.rules.emoji = function (token, idx) {
-            return '<span class="v-md-emoji emoji-' + token[idx].markup + '"></span>';
-          };
-        }
-      }
-    };
 
     return {
       install(VMdEditor) {
@@ -40,7 +27,9 @@ export default function creator({ emojiJson, mdEmojiPlugin }) {
           });
         }
 
-        VMdEditor.extendMarkdown(extendMarkdown);
+        VMdEditor.vMdParser.use(parser, {
+          customEmoji,
+        });
       },
     };
   };

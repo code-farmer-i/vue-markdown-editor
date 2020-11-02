@@ -1,22 +1,25 @@
-import { reactive } from 'vue';
 import { deepAssign } from '@/utils/deep-assign';
 
-const vMdEditorlangConfig = reactive({
-  lang: 'zh-CN',
-  langConfig: {
-    'zh-CN': {},
-  },
-});
+export default class Lang {
+  constructor(options = {}) {
+    this.config = {
+      lang: 'zh-CN',
+      langConfig: {
+        'zh-CN': {},
+      },
+    };
 
-export { vMdEditorlangConfig };
+    this.options = options;
+  }
 
-export default {
   use(lang, config) {
-    vMdEditorlangConfig.lang = lang;
+    this.config.lang = lang;
     this.add({ [lang]: config });
-  },
+
+    if (this.options.afterUse) this.options.afterUse(lang, config);
+  }
 
   add(config = {}) {
-    deepAssign(vMdEditorlangConfig.langConfig, config);
-  },
-};
+    deepAssign(this.config.langConfig, config);
+  }
+}

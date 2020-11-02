@@ -1,7 +1,7 @@
 <template>
   <div
     class="v-md-editor-preview"
-    :class="[themeConfig.previewClass]"
+    :class="[previewClass]"
     @click="handlePreviewClick"
   >
     <div v-html="html" />
@@ -14,20 +14,16 @@
 </template>
 
 <script>
+import { reactive } from 'vue';
 import xss from '@/utils/xss/index';
 import { getScrollTop } from '@/utils/scroll-top';
 import smoothScroll from '@/utils/smooth-scroll';
 import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants/markup';
 import ImagePreview from '@/components/image-preview';
-
-// mixins
-import langMixins from '@/mixins/lang';
-
-const defaultMarkdownLoader = (text) => text;
+import { VMdParser } from '@/v-md-parser';
 
 const component = {
   name: 'v-md-preview',
-  mixins: [langMixins],
   props: {
     text: {
       type: String,
@@ -53,17 +49,6 @@ const component = {
       previewSrc: '',
     };
   },
-  computed: {
-    themeConfig() {
-      return component.themeConfig || {};
-    },
-    markdownParser() {
-      return this.themeConfig.markdownParser;
-    },
-    markdownLoader() {
-      return this.markdownParser?.render.bind(this.markdownParser) || defaultMarkdownLoader;
-    },
-  },
   watch: {
     text() {
       this.handleTextChange();
@@ -72,22 +57,18 @@ const component = {
       this.handleTextChange();
     },
   },
+  computed: {
+    vMdParser() {
+      return this.$options.vMdParser;
+    },
+    previewClass() {
+      return this.vMdParser.themeConfig.previewClass;
+    },
+    langConfig() {
+      return this.vMdParser.lang.langConfig;
+    },
+  },
   created() {
-    if (this.theme) component.use(this.theme);
-
-    if (
-      typeof this.markdownLoader !== 'function' ||
-      this.markdownLoader === defaultMarkdownLoader
-    ) {
-      console.warn('Please configure your markdown parser');
-    } else {
-      const { markdownExtenders } = component;
-
-      markdownExtenders.forEach((extender) => {
-        extender(this.markdownParser, () => this.langConfig);
-      });
-    }
-
     this.handleTextChange();
   },
   methods: {
@@ -143,21 +124,16 @@ const component = {
       }
     },
     handleTextChange() {
-      this.html = xss.process(this.markdownLoader(this.text));
+      this.html = xss.process(this.$options.vMdParser.parser(this.text));
 
       this.$emit('change', this.text, this.html);
     },
   },
 };
 
-component.theme = function (themeConfig) {
-  component.themeConfig = themeConfig;
-};
-
-component.markdownExtenders = [];
-component.extendMarkdown = function (extend) {
-  component.markdownExtenders.push(extend);
-};
+const vMdParser = new VMdParser();
+vMdParser.lang.config = reactive(vMdParser.lang.config);
+component.vMdParser = new VMdParser();
 
 export default component;
 </script>
