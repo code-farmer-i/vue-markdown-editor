@@ -7,9 +7,6 @@ import markdownItLink from '@/utils/markdown-it-link';
 import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants/markup';
 import slugify from '@vuepress/shared-utils/lib/slugify';
 
-// style
-import '@/assets/css/theme/base';
-
 import markdownIt from '@/utils/markdown-it';
 
 export default function createBaseTheme({ toc, link, attrs } = {}) {

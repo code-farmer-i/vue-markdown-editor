@@ -2,6 +2,7 @@ import parser from './parser';
 import createTipPlugin from '@/plugins/tip/index';
 
 // style
+import '@/assets/css/theme/base';
 import '@/assets/css/theme/vuepress-markdown';
 
 const install = function (VMdEditor, options) {
