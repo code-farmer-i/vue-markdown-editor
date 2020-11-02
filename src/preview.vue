@@ -124,7 +124,7 @@ const component = {
       }
     },
     handleTextChange() {
-      this.html = xss.process(this.$options.vMdParser.parser(this.text));
+      this.html = xss.process(this.$options.vMdParser.parse(this.text));
 
       this.$emit('change', this.text, this.html);
     },

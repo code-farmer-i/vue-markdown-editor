@@ -33,7 +33,7 @@ export class VMdParser {
     extender(markdownParser);
   }
 
-  parser(text) {
+  parse(text) {
     const { markdownParser } = this.themeConfig;
     const markdownLoader =
       markdownParser?.render?.bind(markdownParser) || this.defaultMarkdownLoader;
