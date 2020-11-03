@@ -408,7 +408,6 @@
 }
 
 .github-markdown-body div[class*='v-md-pre-wrapper-'].line-numbers-mode pre {
-  margin-bottom: 0;
   padding-left: 4.5rem;
 }
 
@@ -448,10 +447,6 @@
   user-select: none;
 }
 
-.github-markdown-body pre {
-  word-wrap: normal;
-}
-
 .github-markdown-body pre,
 .github-markdown-body code {
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
@@ -467,21 +462,13 @@
   border: 0;
 }
 
-.github-markdown-body .highlight {
-  margin-bottom: 16px;
-}
-
-.github-markdown-body .highlight pre {
-  margin-bottom: 0;
-  word-break: normal;
-}
-
-.github-markdown-body .highlight pre,
 .github-markdown-body pre {
+  margin-bottom: 16px;
   padding: 16px;
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
+  word-wrap: normal;
   background-color: #f6f8fa;
   border-radius: 3px;
 }
