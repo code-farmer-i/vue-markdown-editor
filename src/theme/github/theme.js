@@ -4,6 +4,7 @@ export default function createGithubTheme(config) {
   const hljsTheme = createHljsTheme({
     baseConfig: config.baseConfig,
     codeBlockClass: config.codeBlockClass || ((lang) => `v-md-hljs-${lang}`),
+    codeHighlightExtensionMap: config.codeHighlightExtensionMap || {},
   });
 
   return {

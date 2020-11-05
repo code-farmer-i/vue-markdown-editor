@@ -33,8 +33,16 @@ const app = createApp(App);
 
 VueMarkdownEditor.lang.use('en-US', enUS);
 
-// VueMarkdownEditor.use(githubTheme);
-VueMarkdownEditor.use(vuepressTheme);
+VueMarkdownEditor.use(githubTheme, {
+  codeHighlightExtensionMap: {
+    vue: 'xml',
+  },
+});
+// VueMarkdownEditor.use(vuepressTheme, {
+//   codeHighlightExtensionMap: {
+//     vue: 'markup',
+//   },
+// });
 // Preview.use(githubTheme);
 
 VueMarkdownEditor.use(createEmojiPlugin())
