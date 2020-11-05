@@ -38,8 +38,16 @@ VueMarkdownEditor.use(createEmojiPlugin())
   .use(createCopyCodePlugin())
   .use(createHighLinesPlugin());
 
-VueMarkdownEditor.use(githubTheme);
-// VueMarkdownEditor.use(vuepressTheme);
+VueMarkdownEditor.use(githubTheme, {
+  codeHighlightExtensionMap: {
+    vue: 'xml',
+  },
+});
+// VueMarkdownEditor.use(vuepressTheme, {
+//   codeHighlightExtensionMap: {
+//     vue: 'html',
+//   },
+// });
 // Preview.use(githubTheme);
 
 Vue.use(VueMarkdownEditor);

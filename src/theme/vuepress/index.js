@@ -2,9 +2,10 @@ import createVuepressTheme from './theme';
 import createTipPlugin from '@/plugins/tip/index';
 
 const install = function (VMdEditor, options = {}) {
-  const { extend, config } = options;
+  const { extend, config, codeHighlightExtensionMap } = options;
   const theme = createVuepressTheme({
     baseConfig: config,
+    codeHighlightExtensionMap,
   });
   const tipPlugin = createTipPlugin();
 

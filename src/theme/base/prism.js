@@ -2,12 +2,17 @@ import Prism from 'prismjs';
 import createBaseTheme from './base';
 import { createHighlightRender } from '@/utils/markdown-it';
 
-export default function createPrismTheme({ baseConfig, codeBlockClass } = {}) {
+export default function createPrismTheme({
+  baseConfig,
+  codeBlockClass,
+  codeHighlightExtensionMap = {},
+} = {}) {
   const baseTheme = createBaseTheme(baseConfig);
 
   baseTheme.extend((md) => {
     md.set({
       highlight: createHighlightRender({
+        codeHighlightExtensionMap,
         hasLang: (lang) => Prism.languages[lang],
         codeBlockClass,
         highlight: (str, lang) => Prism.highlight(str, Prism.languages[lang], lang),
