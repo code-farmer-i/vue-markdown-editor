@@ -20,7 +20,6 @@
   ],
   "main": "lib/base-editor.js",
   "unpkg": "lib/base-editor.js",
-  "typings": "types/index.d.ts",
   "files": [
     "src",
     "lib",
