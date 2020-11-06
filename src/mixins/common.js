@@ -24,6 +24,7 @@ export default {
   props: {
     height: String,
     theme: Object,
+    themeConfig: Object,
     mode: {
       type: String,
       default: EDITOR_MODE.EDITABLE,
@@ -48,7 +49,7 @@ export default {
     },
   },
   created() {
-    if (this.theme) this.$options.use(this.theme);
+    if (this.theme) this.$options.use(this.theme, this.themeConfig);
   },
   computed: {
     isPreviewMode() {

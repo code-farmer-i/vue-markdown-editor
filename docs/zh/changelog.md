@@ -1,5 +1,25 @@
 # 更新日志
 
+### 1.5.1 & 2.1.3
+
+`2020-10-05`
+
+**Features**
+
+- theme: 新增 [codeHighlightExtensionMap](./senior/code-highlight-extension.md) 配置。
+
+**Improvement**
+
+- github-theme: 样式优化。
+
+### 2.1.2
+
+`2020-10-24`
+
+**Bug Fixes**
+
+- base-editor: 修复 base-editor v-model 失效的问题。
+
 ### 2.1.1
 
 `2020-10-21`

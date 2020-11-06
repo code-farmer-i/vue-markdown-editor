@@ -1,5 +1,25 @@
 # Changelog
 
+### 1.5.1 & 2.1.3
+
+`2020-10-05`
+
+**Features**
+
+- theme: Add [codeHighlightExtensionMap](./senior/code-highlight-extension.md) configuration.
+
+**Improvement**
+
+- github-theme: Style optimization.
+
+### 2.1.2
+
+`2020-10-24`
+
+**Bug Fixes**
+
+- base-editor: Fix the problem of base-editor v-model failure.
+
 ### 2.1.1
 
 `2020-10-21`
