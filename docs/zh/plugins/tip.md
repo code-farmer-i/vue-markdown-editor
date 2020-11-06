@@ -1,5 +1,9 @@
 # Tip 提示插件
 
+::: warning 注意
+vuepress 主题已内置此插件
+:::
+
 可以引入 `tip` 插件来支持插入提示信息：
 
 <ClientOnly>
@@ -32,7 +36,3 @@ export default {
 };
 </script>
 ```
-
-::: warning 注意
-vuepress 主题已内置此插件
-:::

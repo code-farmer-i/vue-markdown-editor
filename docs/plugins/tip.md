@@ -1,5 +1,9 @@
 # Tip
 
+::: warning
+This plugin is already built into the vuePress theme
+:::
+
 <ClientOnly>
   <plugin-tip />
 </ClientOnly>
@@ -30,7 +34,3 @@ export default {
 };
 </script>
 ```
-
-::: warning
-This plugin is already built into the vuePress theme
-:::
