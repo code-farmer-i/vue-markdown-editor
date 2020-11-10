@@ -25,8 +25,6 @@ export default {
   },
   methods: {
     handleDrop(e) {
-      e.preventDefault();
-
       const files = filesFilter(e.dataTransfer.files, this.uploadImgConfig);
 
       this.emitUploadImage(e, files);
@@ -42,6 +40,8 @@ export default {
     },
     emitUploadImage(e, files) {
       if (this.hasUploadImage && files.length) {
+        e.preventDefault();
+
         this.$emit(
           'upload-image',
           e,
