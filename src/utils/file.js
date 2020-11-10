@@ -22,7 +22,6 @@ export function filesFilter(files, config) {
         }
 
         // eslint-disable-next-line no-useless-escape
-        // eslint-disable-next-line no-useless-escape
         if (/^[^\/]+\/[^\/]+$/.test(acceptedType)) {
           return type === acceptedType;
         }
@@ -35,7 +34,17 @@ export function filesFilter(files, config) {
 }
 
 export function getFilesFromClipboardData(clipboardData) {
-  return Object.keys(clipboardData.items)
-    .filter((key) => clipboardData.items[key].kind === 'file')
-    .map((key) => clipboardData.items[key].getAsFile());
+  const files = [];
+
+  Object.keys(clipboardData.items).forEach((key) => {
+    const item = clipboardData.items[key];
+
+    if (item.kind === 'file') {
+      const file = item.getAsFile();
+
+      if (file) files.push(file);
+    }
+  });
+
+  return files;
 }
