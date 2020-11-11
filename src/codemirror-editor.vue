@@ -113,7 +113,7 @@ const component = {
       this.handlePaste(e);
     });
   },
-  beforeDestory() {
+  beforeUnmount() {
     const element = this.codemirrorInstance.doc.cm.getWrapperElement();
 
     element?.remove?.();
