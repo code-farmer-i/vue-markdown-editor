@@ -1,5 +1,21 @@
 # Changelog
 
+### 1.5.3 & 2.1.5
+
+`2020-11-11`
+
+**Improvement**
+
+- upload-images: Optimized the error when pasting svg and some unsupported types of pictures.
+
+### 1.5.2 & 2.1.4
+
+`2020-11-05`
+
+**Refactor**
+
+- types: Remove types folder.
+
 ### 1.5.1 & 2.1.3
 
 `2020-10-05`
