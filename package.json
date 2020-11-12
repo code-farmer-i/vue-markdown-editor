@@ -76,6 +76,8 @@
     "@vant/eslint-config": "2.0.0",
     "@vant/stylelint-config": "^1.3.0",
     "@vue/babel-plugin-jsx": "^1.0.0-rc.3",
+    "@vue/compiler-sfc": "^3.0.2",
+    "vue": "^3.0.2",
     "babel-loader": "^8.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -137,7 +139,6 @@
     "markdown-it-container": "^2.0.0",
     "prismjs": "^1.20.0",
     "resize-observer-polyfill": "^1.5.1",
-    "vue": "^3.0.0",
     "xss": "^1.0.6"
   },
   "browserslist": [
