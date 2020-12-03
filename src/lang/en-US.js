@@ -85,17 +85,17 @@ export default {
     toolbar: 'Save',
   },
   preview: {
-    enabled: 'Preview enabled',
-    disabled: 'Preview disabled',
+    enabled: 'Enable preview',
+    disabled: 'Disable preview',
   },
   toc: {
     title: 'Directory navigation',
-    enabled: 'Toc enabled',
-    disabled: 'Toc disabled',
+    enabled: 'Enable toc',
+    disabled: 'Disable toc',
   },
   syncScroll: {
-    enabled: 'Sync scroll enabled',
-    disabled: 'Sync scroll disabled',
+    enabled: 'Enable sync scroll ',
+    disabled: 'Disable sync scroll',
   },
   fullscreen: {
     enabled: 'Full screen(Press ESC to exit)',
