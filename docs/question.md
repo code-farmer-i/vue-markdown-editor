@@ -112,3 +112,19 @@ const html = xss.process(VueMarkdownEditor.themeConfig.markdownParser.render('##
 ::: warning
 themeConfig.markdownParser.render method can only be called after using the theme
 :::
+
+## Can't run normally when using error report in vite?
+
+Error example:
+
+<img :src="$withBase('/images/vite-error.png')">
+
+Solution: add code in `vite.config.js`
+
+```js
+export default {
+  optimizeDeps: {
+    include: ['@kangc/v-md-editor/lib/theme/vuepress.js'],
+  },
+};
+```

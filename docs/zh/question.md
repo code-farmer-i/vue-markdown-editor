@@ -112,3 +112,19 @@ const html = xss.process(VueMarkdownEditor.themeConfig.markdownParser.render('##
 ::: warning 注意
 themeConfig.markdownParser.render 方法只有在使用主题之后才能调用
 :::
+
+## 在 vite 中使用报错，无法正常运行？
+
+错误示例：
+
+<img :src="$withBase('/images/vite-error.png')">
+
+解决方法：在 `vite.config.js` 中添加代码
+
+```js
+export default {
+  optimizeDeps: {
+    include: ['@kangc/v-md-editor/lib/theme/vuepress.js'],
+  },
+};
+```
