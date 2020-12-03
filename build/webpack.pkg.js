@@ -33,7 +33,7 @@ module.exports = merge(getBaseConfig({ useCssExtract: true }), {
     },
   },
   optimization: {
-    // minimize: true,
+    minimize: false,
   },
   plugins: [
     new CleanWebpackPlugin(),
