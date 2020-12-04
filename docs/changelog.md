@@ -1,5 +1,13 @@
 # Changelog
 
+### 1.5.4 & 2.1.6
+
+`2020-12-04`
+
+**Improvement**
+
+- en-US.js: Optimize en-US language pack.
+
 ### 1.5.3 & 2.1.5
 
 `2020-11-11`
