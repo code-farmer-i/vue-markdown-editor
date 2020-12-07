@@ -1,5 +1,13 @@
 # 更新日志
 
+### 1.5.5 & 2.1.7
+
+`2020-12-07`
+
+**Features**
+
+- props: 新增 [toolbar-config](./api.md#toolbar-config) 属性.
+
 ### 1.5.4 & 2.1.6
 
 `2020-12-04`
