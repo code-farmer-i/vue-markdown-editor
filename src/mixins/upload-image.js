@@ -45,8 +45,8 @@ export default {
         this.$emit(
           'upload-image',
           e,
-          ({ url, desc }) => {
-            this.execCommand(image, { url, desc });
+          (imageConfig) => {
+            this.execCommand(image, imageConfig);
           },
           files
         );

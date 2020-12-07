@@ -9,8 +9,12 @@ export default {
     {
       name: 'image-link',
       text: (editor) => editor.langConfig.imageLink.toolbar,
-      action(editor) {
-        editor.execCommand(image);
+      action(editor, config) {
+        if (config?.insertWithSize) {
+          editor.execCommand(image, { width: 'auto', height: 'auto' });
+        } else {
+          editor.execCommand(image);
+        }
       },
     },
     {
