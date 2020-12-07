@@ -20,6 +20,10 @@ export default function (Component) {
         type: Array,
         default: () => ['image/upload-image'],
       },
+      toolbarConfig: {
+        type: Object,
+        default: () => ({}),
+      },
     },
     created() {
       const { toolbars } = Component;
@@ -40,12 +44,12 @@ export default function (Component) {
       },
       handleToolbarItemClick(toolbar) {
         if (toolbar.action && !toolbar.menus?.length && typeof toolbar.action === 'function') {
-          toolbar.action(this);
+          toolbar.action.call(toolbar, this, this.toolbarConfig[toolbar.name]);
         }
       },
       handleToolbarMenuClick(menu) {
         if (menu.action && typeof menu.action === 'function') {
-          menu.action(this);
+          menu.action.call(menu, this, this.toolbarConfig[menu.name]);
         }
       },
     },
