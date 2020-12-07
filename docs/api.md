@@ -117,6 +117,24 @@ export default {
 
 demo：[Custom Toolbar](./senior/toolbar.md)
 
+### toolbar-config
+
+- type：`Object`
+- default： `{}`
+
+Some configuration of the built-in toolbar.
+
+Optional:
+
+```js
+{
+  'image-link': {
+    // Whether to bring the width and height attribute by default when inserting the image link
+    insertWithSize: false
+  }
+}
+```
+
 ### disabled-menus
 
 - type：`Object`

@@ -136,6 +136,24 @@ export default {
 
 参考高级用法：[自定义工具栏](./senior/toolbar.md)
 
+### toolbar-config
+
+- 类型：`Object`
+- 默认值： `{}`
+
+内置 toolbar 的一些配置。
+
+可选配置：
+
+```js
+{
+  'image-link': {
+    // 是否在插入图片链接的时候默认带上width height 属性，默认值：false
+    insertWithSize: false
+  }
+}
+```
+
 ### disabled-menus
 
 - 类型：`Object`
