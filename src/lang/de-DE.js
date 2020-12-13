@@ -82,11 +82,11 @@ export default {
     toolbar: 'Codeblock einfügen',
   },
   save: {
-    toolbar: 'Save',
+    toolbar: 'Speichern',
   },
   preview: {
-    enabled: 'Enable preview',
-    disabled: 'Disable preview',
+    enabled: 'Vorschau anzeigen',
+    disabled: 'Vorschau ausblenden',
   },
   toc: {
     title: 'Inhaltsverzeichnis',
