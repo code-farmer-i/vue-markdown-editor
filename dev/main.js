@@ -24,6 +24,7 @@ import createTodoListPlugin from '@/plugins/todo-list/index';
 import createLineNumberPlugin from '@/plugins/line-number/index';
 import createCopyCodePlugin from '@/plugins/copy-code/index';
 import createHighLinesPlugin from '@/plugins/highlight-lines/';
+import createMermaidPlugin from '@/plugins/mermaid/npm';
 
 import vuepressTheme from '@/theme/vuepress';
 import enUS from '@/lang/en-US';
@@ -36,7 +37,8 @@ VueMarkdownEditor.use(createEmojiPlugin())
   .use(createTodoListPlugin())
   .use(createLineNumberPlugin())
   .use(createCopyCodePlugin())
-  .use(createHighLinesPlugin());
+  .use(createHighLinesPlugin())
+  .use(createMermaidPlugin());
 
 VueMarkdownEditor.use(githubTheme, {
   codeHighlightExtensionMap: {
