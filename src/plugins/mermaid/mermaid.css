@@ -1,3 +1,11 @@
-pre.v-md-mermaid {
+.github-markdown-body pre.v-md-mermaid {
   background-color: unset;
+}
+
+.vuepress-markdown-body pre.v-md-mermaid {
+  background-color: unset;
+}
+
+.vuepress-markdown-body pre.v-md-mermaid code {
+  color: #2c3e50;
 }
