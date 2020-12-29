@@ -5,7 +5,9 @@ module.exports = (md, { className = 'v-md-mermaid' } = {}) => {
     const rawCode = wrapped(...args);
 
     if (token.info === 'mermaid') {
-      return `<pre class="${className}">${token.content}</pre>`;
+      return `<pre class="${className}">${token.content
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')}</pre>`;
     }
 
     return rawCode;
