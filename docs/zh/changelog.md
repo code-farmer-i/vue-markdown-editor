@@ -1,5 +1,14 @@
 # 更新日志
 
+### 1.5.6 & 2.1.8
+
+`2020-12-29`
+
+**Features**
+
+- plugin: 新增 [mermaid](./plugins/mermaid.md) 插件.
+- lang: 新增 [德语](./Internationalization.md#配置文件) 语言包.
+
 ### 1.5.5 & 2.1.7
 
 `2020-12-07`

@@ -1,5 +1,14 @@
 # Changelog
 
+### 1.5.6 & 2.1.8
+
+`2020-12-29`
+
+**Features**
+
+- plugin: Add [mermaid](./plugins/mermaid.md) plugin.
+- lang: Add [German](./Internationalization.md#config-files) translations.
+
 ### 1.5.5 & 2.1.7
 
 `2020-12-07`
@@ -70,7 +79,7 @@
 
 **Improvement**
 
-- codemirror-editor: codemirror is configured by users。
+- codemirror-editor: codemirror is configured by users.
 
 :::danger Important
 In order to enable developers to configure the relevant resources of the codemirror editor more flexibly, starting from this version, the codemirror editor will be manually introduced by the user in the project [View Details](./examples/codemirror-editor.md#import)
@@ -166,7 +175,7 @@ In order to enable developers to configure the relevant resources of the codemir
 
 **Features**
 
-- plugin: Add [copy code](./plugins/copy-code.md) plugin。
+- plugin: Add [copy code](./plugins/copy-code.md) plugin.
 
 ### 1.4.2
 
@@ -194,4 +203,4 @@ In order to enable developers to configure the relevant resources of the codemir
 
 **Features**
 
-- internationalization: Support [internationalization](./Internationalization.md)。
+- internationalization: Support [internationalization](./Internationalization.md).
