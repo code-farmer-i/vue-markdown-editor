@@ -1,5 +1,14 @@
 # Changelog
 
+### 1.5.7 & 2.1.9
+
+`2020-01-07`
+
+**Features**
+
+- plugin: Add new details type to [tip](./plugins/tip.md) plugin.
+- lang: Add [Spanish](./Internationalization.md#配置文件) translation.
+
 ### 1.5.6 & 2.1.8
 
 `2020-12-29`

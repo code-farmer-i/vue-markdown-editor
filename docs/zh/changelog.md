@@ -1,13 +1,22 @@
 # 更新日志
 
+### 1.5.7 & 2.1.9
+
+`2020-01-07`
+
+**Features**
+
+- plugin: [tip](./plugins/tip.md) 插件新增 details 类型。
+- lang: 新增 [西班牙语](./Internationalization.md#配置文件) 语言包。
+
 ### 1.5.6 & 2.1.8
 
 `2020-12-29`
 
 **Features**
 
-- plugin: 新增 [mermaid](./plugins/mermaid.md) 插件.
-- lang: 新增 [德语](./Internationalization.md#配置文件) 语言包.
+- plugin: 新增 [mermaid](./plugins/mermaid.md) 插件。
+- lang: 新增 [德语](./Internationalization.md#配置文件) 语言包。
 
 ### 1.5.5 & 2.1.7
 
@@ -15,7 +24,7 @@
 
 **Features**
 
-- props: 新增 [toolbar-config](./api.md#toolbar-config) 属性.
+- props: 新增 [toolbar-config](./api.md#toolbar-config) 属性。
 
 ### 1.5.4 & 2.1.6
 
