@@ -40,5 +40,6 @@ VueMarkdownEditor.lang.add({
 | 英语     | en-US  |
 | 德语     | de-DE  |
 | 韩文     | ko-KR  |
+| 西班牙语 | es-ES  |
 
 在 [这里](https://github.com/code-farmer-i/vue-markdown-editor/tree/dev/src/lang) 查看所有的 i18n 配置文件
