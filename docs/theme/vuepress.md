@@ -36,6 +36,10 @@ demo：
   This is a danger warning
 :::
 
+::: details
+  This is a detail block and does not take effect in IE / Edge
+:::
+
 ::: tip Custom title
   You can also customize the title
 :::

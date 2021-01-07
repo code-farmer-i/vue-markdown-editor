@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import VMdEditor from '../../../lib/base-editor'
-import '../../../lib/style/base-editor.css'
-import vuepressTheme from '../../../lib/theme/vuepress.js'
+import VMdEditor from '../../../lib/base-editor';
+import '../../../lib/style/base-editor.css';
+import vuepressTheme from '../../../lib/theme/vuepress.js';
 import 'prismjs/components/prism-bash';
 
 const zhCNText = `::: tip 
@@ -25,6 +25,10 @@ const zhCNText = `::: tip
 这是一个危险警告
 :::
 
+::: details
+  这是一个详情块，在 IE / Edge 中不生效
+:::
+
 ::: tip 自定义标题
   你也可以自定义块中的标题
 :::
@@ -32,7 +36,7 @@ const zhCNText = `::: tip
 ::: danger STOP
   危险区域，禁止通行
 :::
-`
+`;
 
 const enUSText = `::: tip 
   You can click on the tip in the toolbar to quickly insert
@@ -46,6 +50,10 @@ const enUSText = `::: tip
   This is a danger warning
 :::
 
+::: details
+  This is a detail block and does not take effect in IE / Edge
+:::
+
 ::: tip Custom title
   You can also customize the title
 :::
@@ -53,25 +61,25 @@ const enUSText = `::: tip
 ::: danger STOP
   Hazardous areas, no traffic
 :::
-`
+`;
 
 export default {
   components: {
-    [VMdEditor.name]: VMdEditor
+    [VMdEditor.name]: VMdEditor,
   },
-  data () {
+  data() {
     this.theme = vuepressTheme;
 
     return {
-      text: ''
-    }
+      text: '',
+    };
   },
-  created () {
+  created() {
     if (this.$lang === 'en-US') {
       this.text = enUSText;
     } else {
       this.text = zhCNText;
     }
-  }
-}
+  },
+};
 </script>

@@ -37,7 +37,11 @@ vuepress 主题内置扩展了 tip 功能。同时你也可以在 left-toolbar �
 :::
 
 ::: danger
-这是一个危险警告
+  这是一个危险警告
+:::
+
+::: details
+  这是一个详情块，在 IE / Edge 中不生效
 :::
 
 ::: tip 自定义标题
