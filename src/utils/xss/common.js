@@ -6,4 +6,5 @@ export const tags = {
   input: ['type'],
   ol: ['reversed', 'start', 'type'],
   button: ['type'],
+  summary: [],
 };

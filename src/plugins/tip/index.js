@@ -41,6 +41,13 @@ export default function createTipPlugin({ name = 'tip', icon = 'v-md-icon-tip', 
           editor.execCommand(name, 'danger');
         },
       },
+      {
+        name: 'details',
+        text: (editor) => editor.langConfig.tip.details.toolbar,
+        action(editor) {
+          editor.execCommand(name, 'details');
+        },
+      },
     ],
   };
 
@@ -65,6 +72,11 @@ export default function createTipPlugin({ name = 'tip', icon = 'v-md-icon-tip', 
                 toolbar: '警告',
                 placeholder: '在此输入内容',
               },
+              details: {
+                toolbar: '详细信息',
+                defaultTitle: '详细信息',
+                placeholder: '内容',
+              },
             },
           },
           'en-US': {
@@ -81,6 +93,11 @@ export default function createTipPlugin({ name = 'tip', icon = 'v-md-icon-tip', 
               danger: {
                 toolbar: 'Danger',
                 placeholder: 'Insert content',
+              },
+              details: {
+                toolbar: 'Details',
+                defaultTitle: 'DETAILS',
+                placeholder: 'Content',
               },
             },
           },

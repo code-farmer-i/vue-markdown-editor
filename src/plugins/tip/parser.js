@@ -27,6 +27,14 @@ export default function (vMdParser) {
       defaultTitle: () => getLangConfig().tip.danger.defaultTitle,
       blockClass,
     });
+
+    markdownItContainer(mdParser, {
+      type: 'details',
+      defaultTitle: () => getLangConfig().tip.details.defaultTitle,
+      before: (info) =>
+        `<details class="${blockClass} details">${info ? `<summary>${info}</summary>` : ''}\n`,
+      after: () => '</details>\n',
+    });
   });
 
   vMdParser.lang.add({
