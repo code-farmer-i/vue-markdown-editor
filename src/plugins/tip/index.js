@@ -41,6 +41,13 @@ export default function createTipPlugin({ name = 'tip', icon = 'v-md-icon-tip', 
           editor.execCommand(name, 'danger');
         },
       },
+      {
+        name: 'details',
+        text: (editor) => editor.langConfig.tip.details.toolbar,
+        action(editor) {
+          editor.execCommand(name, 'details');
+        },
+      },
     ],
   };
 
@@ -65,6 +72,14 @@ export default function createTipPlugin({ name = 'tip', icon = 'v-md-icon-tip', 
         type: 'danger',
         defaultTitle: () => getLangConfig().tip.danger.defaultTitle,
         blockClass,
+      });
+
+      markdownItContainer(mdParser, {
+        type: 'details',
+        defaultTitle: () => getLangConfig().tip.details.defaultTitle,
+        before: (info) =>
+          `<details class="${blockClass} details">${info ? `<summary>${info}</summary>` : ''}\n`,
+        after: () => '</details>\n',
       });
     }
   };
@@ -95,6 +110,11 @@ export default function createTipPlugin({ name = 'tip', icon = 'v-md-icon-tip', 
               defaultTitle: '警告',
               placeholder: '在此输入内容',
             },
+            details: {
+              toolbar: '详细信息',
+              defaultTitle: '详细信息',
+              placeholder: '内容',
+            },
           },
         },
         'en-US': {
@@ -114,6 +134,11 @@ export default function createTipPlugin({ name = 'tip', icon = 'v-md-icon-tip', 
               toolbar: 'Danger',
               defaultTitle: 'DANGER',
               placeholder: 'Insert content',
+            },
+            details: {
+              toolbar: 'Details',
+              defaultTitle: 'DETAILS',
+              placeholder: 'Content',
             },
           },
         },
