@@ -10,6 +10,7 @@
 import VMdEditor from '../../../lib/base-editor';
 import '../../../lib/style/base-editor.css';
 import vuepressTheme from '../../../lib/theme/vuepress.js';
+import '../../../lib/theme/style/vuepress.css';
 
 const text = `\`\`\` js {1,3}
 import VueMarkdownEditor from '@kangc/v-md-editor';

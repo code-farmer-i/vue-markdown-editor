@@ -11,7 +11,9 @@
 import VMdEditor from '../../../lib/base-editor';
 import '../../../lib/style/base-editor.css';
 import githubTheme from '../../../lib/theme/github.js';
+import '../../../lib/theme/style/github.css';
 import createCopyCodePlugin from '../../../lib/plugins/copy-code/index';
+import '../../../lib/plugins/copy-code/copy-code.css';
 
 VMdEditor.use(createCopyCodePlugin());
 

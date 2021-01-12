@@ -11,6 +11,7 @@ Quickly copy code blocks with buttons
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import createCopyCodePlugin from '@kangc/v-md-editor/lib/plugins/copy-code/index';
+import '@kangc/v-md-editor/lib/plugins/copy-code/copy-code.css';
 
 VueMarkdownEditor.use(createCopyCodePlugin());
 ```

@@ -11,6 +11,7 @@
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import createEmojiPlugin from '@kangc/v-md-editor/lib/plugins/emoji/index';
+import '@kangc/v-md-editor/lib/plugins/emoji/emoji.css';
 
 VueMarkdownEditor.use(createEmojiPlugin());
 ```

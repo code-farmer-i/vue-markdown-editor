@@ -8,23 +8,25 @@
 </template>
 
 <script>
-import VMdEditor from '../../../lib/base-editor'
-import '../../../lib/style/base-editor.css'
-import githubTheme from '../../../lib/theme/github.js'
-import createEmojiPlugin from '../../../lib/plugins/emoji/index'
+import VMdEditor from '../../../lib/base-editor';
+import '../../../lib/style/base-editor.css';
+import githubTheme from '../../../lib/theme/github.js';
+import '../../../lib/theme/style/github.css';
+import createEmojiPlugin from '../../../lib/plugins/emoji/index';
+import '../../../lib/plugins/emoji/emoji.css';
 
-VMdEditor.use(createEmojiPlugin())
+VMdEditor.use(createEmojiPlugin());
 
 export default {
   components: {
-    [VMdEditor.name]: VMdEditor
+    [VMdEditor.name]: VMdEditor,
   },
-  data () {
+  data() {
     this.theme = githubTheme;
 
     return {
-      text: ':grinning:'
-    }
-  }
-}
+      text: ':grinning:',
+    };
+  },
+};
 </script>

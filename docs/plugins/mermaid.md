@@ -17,6 +17,7 @@ You can introduce the `mermaid` plugin to support flowcharts or other graphicsï¼
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import createMermaidPlugin from '@kangc/v-md-editor/lib/plugins/mermaid/cdn';
+import '@kangc/v-md-editor/lib/plugins/mermaid/mermaid.css';
 
 VueMarkdownEditor.use(createMermaidPlugin());
 ```

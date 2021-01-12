@@ -13,6 +13,7 @@ This plugin is already built into the vuePress theme
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import createTipPlugin from '@kangc/v-md-editor/lib/plugins/tip/index';
+import '@kangc/v-md-editor/lib/plugins/tip/tip.css';
 
 VueMarkdownEditor.use(createTipPlugin());
 ```

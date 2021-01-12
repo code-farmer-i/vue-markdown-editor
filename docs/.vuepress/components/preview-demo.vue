@@ -7,21 +7,22 @@
 </template>
 
 <script>
-import VMdPreview from '../../../lib/preview'
-import '../../../lib/style/preview.css'
-import githubTheme from '../../../lib/theme/github.js'
-import text from '../../../dev/text'
+import VMdPreview from '../../../lib/preview';
+import '../../../lib/style/preview.css';
+import githubTheme from '../../../lib/theme/github.js';
+import '../../../lib/theme/style/github.css';
+import text from '../../../dev/text';
 
 export default {
   components: {
-    [VMdPreview.name]: VMdPreview
+    [VMdPreview.name]: VMdPreview,
   },
-  data () {
+  data() {
     this.theme = githubTheme;
 
     return {
-      text
-    }
-  }
-}
+      text,
+    };
+  },
+};
 </script>

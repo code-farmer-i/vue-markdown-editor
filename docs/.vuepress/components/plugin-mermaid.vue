@@ -10,7 +10,9 @@
 import VMdEditor from '../../../lib/base-editor';
 import '../../../lib/style/base-editor.css';
 import githubTheme from '../../../lib/theme/github.js';
+import '../../../lib/theme/style/github.css';
 import createMermaidPlugin from '../../../lib/plugins/mermaid/npm';
+import '../../../lib/plugins/mermaid/mermaid.css';
 
 VMdEditor.use(createMermaidPlugin());
 

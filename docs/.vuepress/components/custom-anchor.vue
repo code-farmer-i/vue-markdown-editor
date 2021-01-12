@@ -17,9 +17,10 @@
 </template>
 
 <script>
-import VMdEditor from '../../../lib/base-editor'
-import '../../../lib/style/base-editor.css'
-import githubTheme from '../../../lib/theme/github.js'
+import VMdEditor from '../../../lib/base-editor';
+import '../../../lib/style/base-editor.css';
+import githubTheme from '../../../lib/theme/github.js';
+import '../../../lib/theme/style/github.css';
 
 const text = `
 # heading 1
@@ -56,22 +57,24 @@ contentcontentcontent
 contentcontentcontent
 contentcontentcontent
 contentcontentcontent
-`
+`;
 
 export default {
   components: {
-    [VMdEditor.name]: VMdEditor
+    [VMdEditor.name]: VMdEditor,
   },
-  data () {
+  data() {
     this.theme = githubTheme;
 
     return {
       text,
-      titles: []
-    }
+      titles: [],
+    };
   },
-  mounted () {
-    const anchors = this.$refs.editor.$el.querySelectorAll('.v-md-editor-preview h1,h2,h3,h4,h5,h6');
+  mounted() {
+    const anchors = this.$refs.editor.$el.querySelectorAll(
+      '.v-md-editor-preview h1,h2,h3,h4,h5,h6'
+    );
     const titles = Array.from(anchors).filter((title) => !!title.innerText.trim());
 
     if (!titles.length) {
@@ -92,14 +95,17 @@ export default {
       const { editor } = this.$refs;
       const { lineIndex } = anchor;
 
-      const heading = editor.$el.querySelector(`.v-md-editor-preview [data-v-md-line="${lineIndex}"]`); 
+      const heading = editor.$el.querySelector(
+        `.v-md-editor-preview [data-v-md-line="${lineIndex}"]`
+      );
 
-      if (heading) editor.previewScrollToTarget({
-        target: heading,
-        scrollContainer: window,
-        top: 60
-      });
-    }
-  }
-}
+      if (heading)
+        editor.previewScrollToTarget({
+          target: heading,
+          scrollContainer: window,
+          top: 60,
+        });
+    },
+  },
+};
 </script>

@@ -16,9 +16,12 @@ markdown 解析使用 [markdown-it](https://github.com/markdown-it/markdown-it) 
 
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
+import '@kangc/v-md-editor/lib/style/base-editor.css';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+import '@kangc/v-md-editor/lib/theme/style/github.css';
+
 // 按需引入 highlightjs 的语言包，此处以 json 为例
 import json from 'highlight.js/lib/languages/json';
-import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
 
 VueMarkdownEditor.use(githubTheme, {
   extend(md, hljs) {

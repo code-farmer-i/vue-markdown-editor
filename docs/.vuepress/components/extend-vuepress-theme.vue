@@ -7,27 +7,28 @@
 </template>
 
 <script>
-import VMdEditor from '../../../lib/base-editor'
-import '../../../lib/style/base-editor.css'
-import vuepressTheme from '../../../lib/theme/vuepress.js'
+import VMdEditor from '../../../lib/base-editor';
+import '../../../lib/style/base-editor.css';
+import vuepressTheme from '../../../lib/theme/vuepress.js';
+import '../../../lib/theme/style/vuepress.css';
 import 'prismjs/components/prism-json';
 
 const text = `\`\`\`json
 {
   "key": "value"
 }
-\`\`\``
+\`\`\``;
 
 export default {
   components: {
-    [VMdEditor.name]: VMdEditor
+    [VMdEditor.name]: VMdEditor,
   },
-  data () {
+  data() {
     this.theme = vuepressTheme;
 
     return {
-      text
-    }
-  }
-}
+      text,
+    };
+  },
+};
 </script>

@@ -14,9 +14,12 @@ The theme package only supports js(javascript), xml(html), css by default. In or
 
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
+import '@kangc/v-md-editor/lib/style/base-editor.css';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+import '@kangc/v-md-editor/lib/theme/style/github.css';
+
 // Introduce highlightjs language packs as needed, here is json as an example
 import json from 'highlight.js/lib/languages/json';
-import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
 
 VueMarkdownEditor.use(githubTheme, {
   extend(md, hljs) {

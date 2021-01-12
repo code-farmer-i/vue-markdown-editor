@@ -7,33 +7,34 @@
 </template>
 
 <script>
-import VMdEditor from '../../../lib/base-editor'
-import '../../../lib/style/base-editor.css'
+import VMdEditor from '../../../lib/base-editor';
+import '../../../lib/style/base-editor.css';
 import json from 'highlight.js/lib/languages/json';
-import githubTheme from '../../../lib/theme/github.js'
+import githubTheme from '../../../lib/theme/github.js';
+import '../../../lib/theme/style/github.css';
 
 VMdEditor.use(githubTheme, {
-  extend (md, hljs) {
+  extend(md, hljs) {
     hljs.registerLanguage('json', json);
-  }
-})
+  },
+});
 
 const text = `\`\`\`json
 {
   "key": "value"
 }
-\`\`\``
+\`\`\``;
 
 export default {
   components: {
-    [VMdEditor.name]: VMdEditor
+    [VMdEditor.name]: VMdEditor,
   },
-  data () {
+  data() {
     this.theme = githubTheme;
 
     return {
-      text
-    }
-  }
-}
+      text,
+    };
+  },
+};
 </script>

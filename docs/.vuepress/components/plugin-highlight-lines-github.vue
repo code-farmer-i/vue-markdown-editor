@@ -10,7 +10,9 @@
 import VMdEditor from '../../../lib/base-editor';
 import '../../../lib/style/base-editor.css';
 import githubTheme from '../../../lib/theme/github.js';
+import '../../../lib/theme/style/github.css';
 import createHighlightLinesPlugin from '../../../lib/plugins/highlight-lines/index';
+import '../../..//lib/plugins/highlight-lines/highlight-lines.css';
 
 VMdEditor.use(createHighlightLinesPlugin());
 

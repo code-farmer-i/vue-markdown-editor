@@ -15,6 +15,7 @@ vuepress 主题已内置此插件
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import createTipPlugin from '@kangc/v-md-editor/lib/plugins/tip/index';
+import '@kangc/v-md-editor/lib/plugins/tip/tip.css';
 
 VueMarkdownEditor.use(createTipPlugin());
 ```

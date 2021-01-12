@@ -1,11 +1,17 @@
 <template>
-  <v-md-editor v-model="text" :theme="theme" :themeConfig="themeConfig" height="500px" />
+  <v-md-editor
+    v-model="text"
+    :theme="theme"
+    :themeConfig="themeConfig"
+    height="500px"
+  />
 </template>
 
 <script>
 import VMdEditor from '../../../lib/base-editor';
 import '../../../lib/style/base-editor.css';
 import vuepressTheme from '../../../lib/theme/vuepress.js';
+import '../../../lib/theme/style/vuepress.css';
 import 'prismjs/components/prism-json';
 
 const text = `\`\`\`vue
