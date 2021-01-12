@@ -1,7 +1,7 @@
 import createHljsTheme from '@/theme/base/highlight';
 
 // style
-import '@/assets/css/theme/github-markdown';
+// import '@/assets/css/theme/github-markdown';
 
 export default function createGithubTheme(config) {
   const hljsTheme = createHljsTheme({
