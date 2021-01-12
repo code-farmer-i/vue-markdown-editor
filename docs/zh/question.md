@@ -128,3 +128,17 @@ export default {
   },
 };
 ```
+
+## Vuepress 主题引用 php 语言包报错？
+
+错误：Cannot read property 'tokenizePlaceholders' of undefined
+
+解决方法：
+
+```js
+// 在引入 php 语言包之前需要先引入它的依赖包 prism-markup-templating
+import 'prismjs/components/prism-markup-templating';
+import 'prismjs/components/prism-php';
+```
+
+具体参考 prism 官方 [issue](https://github.com/PrismJS/prism/issues/1395)

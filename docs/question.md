@@ -128,3 +128,17 @@ export default {
   },
 };
 ```
+
+## Vuepress theme quotes php language pack error?
+
+Error：Cannot read property 'tokenizePlaceholders' of undefined
+
+Solution:
+
+```js
+// Before introducing the php language pack, you need to introduce its dependency package prism-markup-templating
+import 'prismjs/components/prism-markup-templating';
+import 'prismjs/components/prism-php';
+```
+
+Specific reference prism official [issue](https://github.com/PrismJS/prism/issues/1395)
