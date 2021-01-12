@@ -1,5 +1,4 @@
 import markdownItMermaid from '@/utils/markdown-it-mermaid';
-import './mermaid.css';
 import { deepAssign } from '@/utils/deep-assign';
 
 const extendMarkdown = function (mdParser) {

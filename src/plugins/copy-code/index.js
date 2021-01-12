@@ -1,6 +1,5 @@
 import markdownItCopyCode from '@/utils/markdown-it-copy-code';
 import copyToClipboard from 'copy-to-clipboard';
-import './copy-code.css';
 
 function isCopyButton(el) {
   return el.classList.contains('v-md-copy-code-btn');
