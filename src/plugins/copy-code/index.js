@@ -1,6 +1,5 @@
 import copyToClipboard from 'copy-to-clipboard';
 import parser from './parser';
-import './copy-code.css';
 
 function isCopyButton(el) {
   return el.classList.contains('v-md-copy-code-btn');

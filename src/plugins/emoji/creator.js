@@ -1,6 +1,5 @@
 import createToolbar from './toolbar';
 import commandHandler from './command';
-import './emoji.css';
 
 export default function creator({ emojiJson, parser }) {
   return function createEmojiPlugin({

@@ -6,11 +6,7 @@ importAll(defaultCommands, require.context('@/command', false, /\.(js)$/));
 export default function registerCommand(target, commandName, callback) {
   if (commandName) {
     if (!target[commandName]) {
-      if (typeof callback === 'function') {
-        target[commandName] = callback;
-      } else {
-        console.error(`The command must be registered as a function: ${commandName}`);
-      }
+      target[commandName] = callback;
     } else {
       console.error(`The command name is already in use: ${commandName}`);
     }

@@ -1,5 +1,4 @@
 import parser from './parser';
-import './tip.css';
 
 export default function createTipPlugin({ name = 'tip', icon = 'v-md-icon-tip', text } = {}) {
   const commandHandler = function (editor, type = 'tip') {

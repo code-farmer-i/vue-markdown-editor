@@ -2,8 +2,10 @@ const path = require('path');
 const merge = require('webpack-merge');
 const getBaseConfig = require('./webpack.base');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const cssnano = require('cssnano');
 
-module.exports = merge(getBaseConfig(), {
+module.exports = merge(getBaseConfig({ useCssExtract: true }), {
   mode: 'production',
   entry: {
     base: './src/theme/base/base',
@@ -26,5 +28,15 @@ module.exports = merge(getBaseConfig(), {
   optimization: {
     minimize: true,
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.css$/g,
+      cssProcessor: cssnano,
+      cssProcessorPluginOptions: {
+        preset: ['default', { discardComments: { removeAll: true } }],
+      },
+      canPrint: true,
+    }),
+  ],
 });

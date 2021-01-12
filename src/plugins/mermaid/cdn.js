@@ -1,7 +1,8 @@
 import creator from './creator';
 
-if (!window.mermaid) {
+const isServer = typeof window === 'undefined';
+if (!isServer && !window.mermaid) {
   console.error('Please import resources mermaid from cdn');
 }
 
-export default creator(window.mermaid);
+export default creator(isServer ? window.mermaid : null);

@@ -5,11 +5,7 @@ importAll(defaultToolbars, require.context('@/toolbar', false, /\.(js)$/));
 
 export default function registerToolbar(target, name, config) {
   if (name) {
-    if (!target[name]) {
-      target[name] = { ...config };
-    } else {
-      console.error(`The toolbar name is already in use: ${name}`);
-    }
+    target[name] = { ...config };
   } else {
     console.error('Toolbar name is required');
   }

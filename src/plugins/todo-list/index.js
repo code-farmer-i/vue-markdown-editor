@@ -1,7 +1,6 @@
 import createToolbar from './toolbar';
 import commandHandler from './command';
 import parser from './parser';
-import './todo-list.css';
 
 export default function createTodoListPlugin({
   name = 'todo-list',

@@ -1,7 +1,8 @@
 import parserCreator from './parser-creator';
 
-if (!window.katex) {
+const isServer = typeof window === 'undefined';
+if (!isServer && !window.katex) {
   console.error('Please import resources katex from cdn');
 }
 
-export default parserCreator(window.katex);
+export default parserCreator(isServer ? window.katex : null);

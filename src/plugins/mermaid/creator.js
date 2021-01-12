@@ -1,5 +1,4 @@
 import parser from './parser';
-import './mermaid.css';
 import { deepAssign } from '@/utils/deep-assign';
 
 function getPreviewEl(el) {
@@ -47,6 +46,8 @@ export default function creator(mermaid) {
             modelValue: {
               immediate: true,
               async handler() {
+                if (typeof window === 'undefined') return;
+
                 await this.$nextTick();
 
                 const previewEl = getPreviewEl(this.$el);
