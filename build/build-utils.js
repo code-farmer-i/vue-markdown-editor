@@ -30,10 +30,9 @@ function compile(dir) {
   });
 }
 
-['utils', 'plugins', 'lang', ['theme', 'theme-lib']].forEach((folderName) => {
-  const [srcName, libName] = Array.isArray(folderName) ? folderName : [];
-  const libDir = path.join(__dirname, `../lib/${libName || folderName}`);
-  const srcDir = path.join(__dirname, `../src/${srcName || folderName}`);
+['utils', 'plugins', 'lang'].forEach((folderName) => {
+  const libDir = path.join(__dirname, `../lib/${folderName}`);
+  const srcDir = path.join(__dirname, `../src/${folderName}`);
 
   fs.emptyDirSync(libDir);
   fs.copySync(srcDir, libDir);
