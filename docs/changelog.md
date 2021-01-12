@@ -1,5 +1,21 @@
 # Changelog
 
+### 1.6.0 & 2.2.0
+
+`2020-01-12`
+
+**Features**
+
+- ssr: Support ssr.
+
+**Refactor**
+
+- theme, plugins: The js of the theme and the plugin are separated from the style.
+
+::: warning
+Starting from this version, the styles of themes and plug-ins will be separated from js. When using themes and plug-ins, you need to import the corresponding style files at the same time. Refer to the corresponding theme or plug-in documentation for details.
+:::
+
 ### 1.5.7 & 2.1.9
 
 `2020-01-07`
