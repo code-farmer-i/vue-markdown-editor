@@ -5,4 +5,4 @@ if (!isServer && !window.mermaid) {
   console.error('Please import resources mermaid from cdn');
 }
 
-export default creator(isServer ? window.mermaid : null);
+export default creator(!isServer ? window.mermaid : null);

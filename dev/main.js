@@ -6,11 +6,15 @@ import VueMarkdownEditor from '@/codemirror-editor';
 import githubTheme from '@/theme/github/index';
 
 import createEmojiPlugin from '@/plugins/emoji/full';
+import '@/plugins/emoji/emoji';
 import createKatexPlugin from '@/plugins/katex/cdn';
 import createTodoListPlugin from '@/plugins/todo-list/index';
+import '@/plugins/todo-list/todo-list';
 import createLineNumberPlugin from '@/plugins/line-number/index';
 import createCopyCodePlugin from '@/plugins/copy-code/index';
+import '@/plugins/copy-code/copy-code';
 import createHighLinesPlugin from '@/plugins/highlight-lines/';
+import '@/plugins/highlight-lines/highlight-lines';
 import createMermaidPlugin from '@/plugins/mermaid/cdn';
 
 import vuepressTheme from '@/theme/vuepress';
