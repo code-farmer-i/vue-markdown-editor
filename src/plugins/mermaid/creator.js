@@ -52,6 +52,8 @@ export default function creator(mermaid) {
             value: {
               immediate: true,
               async handler() {
+                if (typeof window === 'undefined') return;
+
                 await this.$nextTick();
 
                 const previewEl = getPreviewEl(this.$el);
