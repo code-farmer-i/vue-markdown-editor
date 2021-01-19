@@ -12,6 +12,7 @@ import '../../../lib/style/base-editor.css';
 import githubTheme from '../../../lib/theme/github.js';
 import '../../../lib/theme/style/github.css';
 import createKatexPlugin from '../../../lib/plugins/katex/npm';
+import 'katex/dist/katex.css';
 
 VMdEditor.use(createKatexPlugin());
 
