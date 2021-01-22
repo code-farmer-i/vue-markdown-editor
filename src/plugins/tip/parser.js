@@ -49,6 +49,9 @@ export default function (vMdParser) {
         danger: {
           defaultTitle: '警告',
         },
+        details: {
+          defaultTitle: '详细信息',
+        },
       },
     },
     'en-US': {
@@ -61,6 +64,9 @@ export default function (vMdParser) {
         },
         danger: {
           defaultTitle: 'DANGER',
+        },
+        details: {
+          defaultTitle: 'DETAILS',
         },
       },
     },
