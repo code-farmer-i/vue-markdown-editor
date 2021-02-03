@@ -1,5 +1,13 @@
 # Changelog
 
+### 2.2.1
+
+`2020-02-03`
+
+**Bug Fixes**
+
+- tip-plugin: Fix copywriting.
+
 ### 1.6.0 & 2.2.0
 
 `2020-01-12`
