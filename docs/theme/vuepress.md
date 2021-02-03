@@ -71,7 +71,12 @@ import '@kangc/v-md-editor/lib/theme/style/vuepress.css';
 // Introduce prism language packs as needed, here is json as an example
 import 'prismjs/components/prism-json';
 
-VueMarkdownEditor.use(vuepressTheme);
+VueMarkdownEditor.use(vuepressTheme, {
+  extend(md) {
+    // md is a markdown-it instance, you can modify the configuration here, and use plugin for syntax expansion
+    // md.set(option).use(plugin);
+  },
+});
 ```
 
 ::: warning

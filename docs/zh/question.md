@@ -142,3 +142,14 @@ import 'prismjs/components/prism-php';
 ```
 
 具体参考 prism 官方 [issue](https://github.com/PrismJS/prism/issues/1395)
+
+## 在 vue3 + typescript 中使用报错？
+
+错误示例：Could not find a declaration file for module '@kangc/v-md-editor/lib/theme/vuepress.js'.
+
+解决方法：
+
+```ts
+// src/shims.d.ts
+declare module '@kangc/v-md-editor/lib/theme/vuepress.js';
+```

@@ -75,7 +75,12 @@ import '@kangc/v-md-editor/lib/theme/style/vuepress.css';
 // 直接按需引入 prism 的语言包即可，此处以 json 为例
 import 'prismjs/components/prism-json';
 
-VueMarkdownEditor.use(vuepressTheme);
+VueMarkdownEditor.use(vuepressTheme, {
+  extend(md) {
+    // md为 markdown-it 实例，可以在此处进行修改配置,并使用 plugin 进行语法扩展
+    // md.set(option).use(plugin);
+  },
+});
 ```
 
 ::: warning 注意

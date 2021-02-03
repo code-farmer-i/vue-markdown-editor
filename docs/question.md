@@ -142,3 +142,14 @@ import 'prismjs/components/prism-php';
 ```
 
 Specific reference prism official [issue](https://github.com/PrismJS/prism/issues/1395)
+
+## Use vue3 + typescript to report errors?
+
+Error example: Could not find a declaration file for module'@kangc/v-md-editor/lib/theme/vuepress.js'.
+
+Solution:
+
+```ts
+// src/shims.d.ts
+declare module '@kangc/v-md-editor/lib/theme/vuepress.js';
+```
