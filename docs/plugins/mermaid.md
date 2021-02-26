@@ -9,7 +9,7 @@ You can introduce the `mermaid` plugin to support flowcharts or other graphicsï¼
 ### cdn introduces mermaid resources
 
 ```html
-<script src="https://unpkg.com/mermaid/"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 ```
 
 ### Importï¼š

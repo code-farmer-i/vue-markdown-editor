@@ -9,7 +9,7 @@
 ### cdn 引入 mermaid 资源
 
 ```html
-<script src="https://unpkg.com/mermaid/"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 ```
 
 ### 引入插件：
