@@ -8,6 +8,30 @@ function getPreviewEl(el) {
 }
 
 export default function creator(mermaid) {
+  function handleMdChange () {
+    if (typeof window === 'undefined') return;
+
+    await this.$nextTick();
+
+    const previewEl = getPreviewEl(this.$el);
+    const eles = previewEl.querySelectorAll('.v-md-mermaid');
+
+    if (!eles.length) return;
+
+    let parseSuccess = false;
+    eles.forEach((ele) => {
+      try {
+        parseSuccess = mermaid.parse(ele.innerText);
+      } catch (e) {
+        if (!e.str) {
+          console.log(e);
+        }
+      }
+
+      if (parseSuccess) mermaid.init(null, ele);
+    });
+  }
+
   return function createMermaidPlugin({ mermaidInitializeOptions = {} } = {}) {
     const initialize = {
       altFontFamily: 'sans-serif',
@@ -45,29 +69,11 @@ export default function creator(mermaid) {
           watch: {
             modelValue: {
               immediate: true,
-              async handler() {
-                if (typeof window === 'undefined') return;
-
-                await this.$nextTick();
-
-                const previewEl = getPreviewEl(this.$el);
-                const eles = previewEl.querySelectorAll('.v-md-mermaid');
-
-                if (!eles.length) return;
-
-                let parseSuccess = false;
-                eles.forEach((ele) => {
-                  try {
-                    parseSuccess = mermaid.parse(ele.innerText);
-                  } catch (e) {
-                    if (!e.str) {
-                      console.log(e);
-                    }
-                  }
-
-                  if (parseSuccess) mermaid.init(null, ele);
-                });
-              },
+              handler: handleMdChange,
+            },
+            text: {
+              immediate: true,
+              handler: handleMdChange,
             },
           },
         });
