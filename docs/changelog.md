@@ -1,5 +1,13 @@
 # Changelog
 
+### 1.6.1 & 2.2.2
+
+`2021-03-02`
+
+**Bug Fixes**
+
+- mermaid-plugin: Fix the problem that the plug-in is used in the preview component.
+
 ### 2.2.1
 
 `2020-02-03`
