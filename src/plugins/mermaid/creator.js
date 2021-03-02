@@ -14,7 +14,7 @@ function getPreviewEl(el) {
 }
 
 export default function creator(mermaid) {
-  function handleMdChange () {
+  async function handleMdChange() {
     if (typeof window === 'undefined') return;
 
     await this.$nextTick();
