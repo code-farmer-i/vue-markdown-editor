@@ -32,8 +32,18 @@ function compile(dir) {
 
 ['utils', 'plugins', 'lang'].forEach((folderName) => {
   const libDir = path.join(__dirname, `../lib/${folderName}`);
+  const esDir = path.join(__dirname, `../es/${folderName}`);
   const srcDir = path.join(__dirname, `../src/${folderName}`);
 
+  // es
+  fs.emptyDirSync(esDir);
+  fs.copySync(srcDir, esDir);
+
+  process.env.BABEL_MODULE = 'esmodule';
+  process.env.USE_BABEL_RESOLVE = true;
+  compile(esDir);
+
+  // lib
   fs.emptyDirSync(libDir);
   fs.copySync(srcDir, libDir);
 
