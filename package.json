@@ -129,6 +129,7 @@
   },
   "homepage": "https://github.com/code-farmer-i/vue-markdown-editor#readme",
   "dependencies": {
+    "@babel/runtime": "7.x",
     "@vuepress/markdown": "^1.4.1",
     "codemirror": "^5.52.2",
     "copy-to-clipboard": "^3.3.1",
