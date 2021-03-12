@@ -1,7 +1,7 @@
 // Modified from https://github.com/revin/markdown-it-task-lists/blob/master/index.js
 
 /* eslint-disable */
-module.exports = function (md, options = {}) {
+export default function (md, options = {}) {
   const {
     listClass = 'v-md-editor__todo-list',
     listItemClass = 'v-md-editor__todo-list-item',
@@ -88,4 +88,4 @@ module.exports = function (md, options = {}) {
       }
     }
   });
-};
+}

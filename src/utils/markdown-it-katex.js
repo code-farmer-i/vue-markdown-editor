@@ -160,7 +160,7 @@ function math_block(state, start, end, silent) {
   return true;
 }
 
-module.exports = function math_plugin(md, options) {
+export default function math_plugin(md, options) {
   options = options || {};
 
   const { katex } = options;
@@ -203,4 +203,4 @@ module.exports = function math_plugin(md, options) {
   });
   md.renderer.rules.math_inline = inlineRenderer;
   md.renderer.rules.math_block = blockRenderer;
-};
+}

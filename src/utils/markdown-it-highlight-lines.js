@@ -1,7 +1,7 @@
 // Modified from https://github.com/vuejs/vuepress/blob/master/packages/%40vuepress/markdown/lib/highlightLines.js
 // It depends on preWrapper plugin.
 
-module.exports = (md, options = {}) => {
+export default function (md, options = {}) {
   const { fence } = md.renderer.rules;
   const { leftDelimiter = '{', rightDelimiter = '}' } = options;
   const RE = new RegExp(`${leftDelimiter}([\\d,-]+)${rightDelimiter}`);
@@ -52,4 +52,4 @@ module.exports = (md, options = {}) => {
 
     return finalCode;
   };
-};
+}

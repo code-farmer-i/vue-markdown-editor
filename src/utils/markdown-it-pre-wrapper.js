@@ -1,6 +1,6 @@
 // Modified from https://github.com/vuejs/vuepress/blob/master/packages/%40vuepress/markdown/lib/preWrapper.js
 
-module.exports = (md, options = {}) => {
+export default function (md, options = {}) {
   const { getWrapperClass = (lang) => `language-${lang}` } = options;
 
   const wrap = (wrapped) => (...args) => {
@@ -19,4 +19,4 @@ module.exports = (md, options = {}) => {
   const { fence, code_block: codeBlock } = md.renderer.rules;
   md.renderer.rules.fence = wrap(fence);
   md.renderer.rules.code_block = wrap(codeBlock);
-};
+}

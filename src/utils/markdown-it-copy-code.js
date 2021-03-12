@@ -2,7 +2,7 @@
 // It depends on preWrapper plugin.
 
 /* eslint-disable max-len */
-module.exports = (md) => {
+export default function (md) {
   const { fence } = md.renderer.rules;
   md.renderer.rules.fence = (...args) => {
     const rawCode = fence(...args);
@@ -21,4 +21,4 @@ module.exports = (md) => {
 
     return finalCode;
   };
-};
+}
