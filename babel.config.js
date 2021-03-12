@@ -34,7 +34,7 @@ module.exports = function (api) {
       'module-resolver',
       {
         alias: {
-          '@': './lib',
+          '@': useESModules ? './es' : './lib',
         },
       },
     ]);
