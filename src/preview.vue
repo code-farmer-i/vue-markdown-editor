@@ -56,30 +56,33 @@ const component = {
     themeConfig() {
       return component.themeConfig || {};
     },
-    markdownParser () {
+    markdownParser() {
       return this.themeConfig.markdownParser;
     },
-    markdownLoader () {
+    markdownLoader() {
       return this.markdownParser?.render.bind(this.markdownParser) || defaultMarkdownLoader;
     },
   },
   watch: {
-    text () {
+    text() {
       this.handleTextChange();
     },
-    langConfig () {
+    langConfig() {
       this.handleTextChange();
     },
   },
-  created () {
+  created() {
     if (this.theme) component.use(this.theme);
 
-    if (typeof this.markdownLoader !== 'function' || this.markdownLoader === defaultMarkdownLoader) {
+    if (
+      typeof this.markdownLoader !== 'function' ||
+      this.markdownLoader === defaultMarkdownLoader
+    ) {
       console.warn('Please configure your markdown parser');
     } else {
       const { markdownExtenders } = component;
 
-      markdownExtenders.forEach(extender => {
+      markdownExtenders.forEach((extender) => {
         extender(this.markdownParser, () => this.langConfig);
       });
     }
@@ -87,10 +90,10 @@ const component = {
     this.handleTextChange();
   },
   methods: {
-    handleClosePreview () {
+    handleClosePreview() {
       this.previewSrc = '';
     },
-    handlePreviewClick (e) {
+    handlePreviewClick(e) {
       const { target } = e;
 
       // image preview
@@ -112,7 +115,7 @@ const component = {
         });
       }
     },
-    getOffsetTop (target, container) {
+    getOffsetTop(target, container) {
       const rect = target.getBoundingClientRect();
 
       if (container === window || container === document.documentElement) {
@@ -121,7 +124,7 @@ const component = {
 
       return rect.top - container.getBoundingClientRect().top;
     },
-    scrollToTarget ({ target, scrollContainer = this.scrollContainer(), top = 0, onScrollEnd }) {
+    scrollToTarget({ target, scrollContainer = this.scrollContainer(), top = 0, onScrollEnd }) {
       const offsetTop = this.getOffsetTop(target, scrollContainer);
       const scrollTop = getScrollTop(scrollContainer) + offsetTop - top;
 
@@ -131,14 +134,14 @@ const component = {
         onScrollEnd,
       });
     },
-    scrollToLine ({ lineIndex, onScrollEnd }) {
+    scrollToLine({ lineIndex, onScrollEnd }) {
       if (lineIndex) {
         const target = this.$el.querySelector(`[${LINE_MARKUP}="${lineIndex}"]`);
 
         if (target) this.scrollToTarget({ target, onScrollEnd });
       }
     },
-    handleTextChange () {
+    handleTextChange() {
       this.html = xss.process(this.markdownLoader(this.text));
 
       this.$emit('change', this.text, this.html);
@@ -146,7 +149,7 @@ const component = {
   },
 };
 
-component.theme = function(themeConfig) {
+component.theme = function (themeConfig) {
   component.themeConfig = themeConfig;
 };
 
