@@ -15,7 +15,7 @@ export default function createHljsTheme({
         codeHighlightExtensionMap,
         hasLang: (lang) => hljs.getLanguage(lang),
         codeBlockClass,
-        highlight: (str, lang) => hljs.highlight(lang, str).value,
+        highlight: (str, lang) => hljs.highlight(str, { language: lang }).value,
       }),
     });
   });
