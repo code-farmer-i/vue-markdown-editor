@@ -11,7 +11,7 @@
 [class*='v-md-icon-'] {
   font-size: 16px;
   font-family: 'v-md-iconfont' !important;
-  font-style: normal;
+  font-style: normal !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

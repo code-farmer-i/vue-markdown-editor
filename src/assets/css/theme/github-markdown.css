@@ -6,6 +6,15 @@
   word-wrap: break-word;
 }
 
+.github-markdown-body > :first-child,
+.github-markdown-body > :first-child > :first-child {
+  margin-top: 0;
+}
+
+.github-markdown-body > :last-child {
+  margin-bottom: 0;
+}
+
 .github-markdown-body a {
   color: #0366d6;
   font-weight: normal;
@@ -39,14 +48,6 @@
 
 .github-markdown-body::after {
   clear: both;
-}
-
-.github-markdown-body > :first-child {
-  margin-top: 0 !important;
-}
-
-.github-markdown-body > :last-child {
-  margin-bottom: 0 !important;
 }
 
 .github-markdown-body a:not([href]) {
@@ -112,6 +113,27 @@
   margin-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
+}
+
+.github-markdown-body i,
+.github-markdown-body em {
+  font-style: italic;
+}
+.github-markdown-body ul {
+  list-style-type: disc;
+}
+.github-markdown-body ul ul,
+.github-markdown-body ol ul {
+  list-style-type: circle;
+}
+.github-markdown-body ol ol ul,
+.github-markdown-body ol ul ul,
+.github-markdown-body ul ol ul,
+.github-markdown-body ul ul ul {
+  list-style-type: square;
+}
+.github-markdown-body ol {
+  list-style-type: decimal;
 }
 
 .github-markdown-body h1 .octicon-link,
