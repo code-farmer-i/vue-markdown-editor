@@ -386,55 +386,56 @@
   font-weight: 600;
   line-height: 1.25;
 }
-.vuepress-markdown-body:not(.custom) > h1,
-.vuepress-markdown-body:not(.custom) > h2,
-.vuepress-markdown-body:not(.custom) > h3,
-.vuepress-markdown-body:not(.custom) > h4,
-.vuepress-markdown-body:not(.custom) > h5,
-.vuepress-markdown-body:not(.custom) > h6 {
-  margin-top: -3.1rem;
-  margin-bottom: 0;
-  padding-top: 4.6rem;
-}
-.vuepress-markdown-body:not(.custom) > h1:first-child,
-.vuepress-markdown-body:not(.custom) > h2:first-child,
-.vuepress-markdown-body:not(.custom) > h3:first-child,
-.vuepress-markdown-body:not(.custom) > h4:first-child,
-.vuepress-markdown-body:not(.custom) > h5:first-child,
-.vuepress-markdown-body:not(.custom) > h6:first-child {
-  margin-top: -1.5rem;
-  margin-bottom: 1rem;
-}
-.vuepress-markdown-body:not(.custom) > h1:first-child + .custom-block,
-.vuepress-markdown-body:not(.custom) > h1:first-child + p,
-.vuepress-markdown-body:not(.custom) > h1:first-child + pre,
-.vuepress-markdown-body:not(.custom) > h2:first-child + .custom-block,
-.vuepress-markdown-body:not(.custom) > h2:first-child + p,
-.vuepress-markdown-body:not(.custom) > h2:first-child + pre,
-.vuepress-markdown-body:not(.custom) > h3:first-child + .custom-block,
-.vuepress-markdown-body:not(.custom) > h3:first-child + p,
-.vuepress-markdown-body:not(.custom) > h3:first-child + pre,
-.vuepress-markdown-body:not(.custom) > h4:first-child + .custom-block,
-.vuepress-markdown-body:not(.custom) > h4:first-child + p,
-.vuepress-markdown-body:not(.custom) > h4:first-child + pre,
-.vuepress-markdown-body:not(.custom) > h5:first-child + .custom-block,
-.vuepress-markdown-body:not(.custom) > h5:first-child + p,
-.vuepress-markdown-body:not(.custom) > h5:first-child + pre,
-.vuepress-markdown-body:not(.custom) > h6:first-child + .custom-block,
-.vuepress-markdown-body:not(.custom) > h6:first-child + p,
-.vuepress-markdown-body:not(.custom) > h6:first-child + pre {
-  margin-top: 2rem;
-}
 .vuepress-markdown-body h1 {
+  margin: 0.67em 0;
   font-size: 2.2rem;
 }
+.vuepress-markdown-body > :first-child,
+.vuepress-markdown-body > :first-child > :first-child {
+  margin-top: 0;
+}
+.vuepress-markdown-body > :last-child,
+.vuepress-markdown-body > :last-child > :last-child {
+  margin-bottom: 0 !important;
+}
 .vuepress-markdown-body h2 {
+  margin: 0.83em 0;
   padding-bottom: 0.3rem;
   font-size: 1.65rem;
   border-bottom: 1px solid #eaecef;
 }
 .vuepress-markdown-body h3 {
+  margin: 1em 0;
   font-size: 1.35rem;
+}
+.vuepress-markdown-body h4 {
+  margin: 1.33em 0;
+}
+.vuepress-markdown-body h5 {
+  margin: 1.67em 0;
+}
+.vuepress-markdown-body h6 {
+  margin: 2.33em 0;
+}
+.vuepress-markdown-body i,
+.vuepress-markdown-body em {
+  font-style: italic;
+}
+.vuepress-markdown-body ul {
+  list-style-type: disc;
+}
+.vuepress-markdown-body ul ul,
+.vuepress-markdown-body ol ul {
+  list-style-type: circle;
+}
+.vuepress-markdown-body ol ol ul,
+.vuepress-markdown-body ol ul ul,
+.vuepress-markdown-body ul ol ul,
+.vuepress-markdown-body ul ul ul {
+  list-style-type: square;
+}
+.vuepress-markdown-body ol {
+  list-style-type: decimal;
 }
 .vuepress-markdown-body .line-number,
 .vuepress-markdown-body code,

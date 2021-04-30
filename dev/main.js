@@ -40,16 +40,16 @@ VueMarkdownEditor.use(createEmojiPlugin())
   .use(createHighLinesPlugin())
   .use(createMermaidPlugin());
 
-// VueMarkdownEditor.use(githubTheme, {
-//   codeHighlightExtensionMap: {
-//     vue: 'xml',
-//   },
-// });
-VueMarkdownEditor.use(vuepressTheme, {
+VueMarkdownEditor.use(githubTheme, {
   codeHighlightExtensionMap: {
-    vue: 'html',
+    vue: 'xml',
   },
 });
+// VueMarkdownEditor.use(vuepressTheme, {
+//   codeHighlightExtensionMap: {
+//     vue: 'html',
+//   },
+// });
 // Preview.use(githubTheme);
 
 Vue.use(VueMarkdownEditor);

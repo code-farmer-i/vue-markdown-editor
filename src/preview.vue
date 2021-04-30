@@ -1,10 +1,12 @@
 <template>
   <div
     class="v-md-editor-preview"
-    :class="[themeConfig.previewClass]"
     @click="handlePreviewClick"
   >
-    <div v-html="html" />
+    <div
+      :class="[themeConfig.previewClass]"
+      v-html="html"
+    />
     <v-md-image-preview
       v-if="previewSrc"
       :src="previewSrc"
