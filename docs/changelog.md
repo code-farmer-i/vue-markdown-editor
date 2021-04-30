@@ -1,5 +1,13 @@
 # Changelog
 
+### 1.6.2 & 2.2.3
+
+`2021-04-30`
+
+**Improvement**
+
+- theme: Vuepress theme and github theme style optimization.
+
 ### 1.6.1 & 2.2.2
 
 `2021-03-02`
