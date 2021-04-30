@@ -26,6 +26,9 @@
     "es",
     "types"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "dev": "npm run build:entry && webpack-dev-server --config build/webpack.dev.js",
     "lint-staged": "lint-staged",
