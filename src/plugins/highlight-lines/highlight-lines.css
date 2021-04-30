@@ -6,7 +6,6 @@
   padding-top: 1.3rem;
   line-height: 1.4;
   -webkit-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 .vuepress-markdown-body
