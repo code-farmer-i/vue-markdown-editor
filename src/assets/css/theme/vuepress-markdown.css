@@ -372,6 +372,7 @@
 }
 .vuepress-markdown-body ol,
 .vuepress-markdown-body ul {
+  margin: 1em 0;
   padding-left: 1.2em;
 }
 .vuepress-markdown-body strong {
