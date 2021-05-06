@@ -13,6 +13,7 @@ module.exports = {
   },
   base: '/vue-markdown-editor/',
   themeConfig: {
+    displayAllHeaders: true,
     locales: {
       '/': {
         selectText: 'Languages',
