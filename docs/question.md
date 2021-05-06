@@ -106,7 +106,10 @@ Vue.use(VueMarkdownEditor);
 import VueMarkdownEditor, { xss } from '@kangc/v-md-editor';
 
 // Call method to convert markdown to html and use xss filtering
+// Vue2
 const html = xss.process(VueMarkdownEditor.themeConfig.markdownParser.render('### 标题'));
+// Vue3
+const html = xss.process(VueMarkdownEditor.vMdParser.themeConfig.markdownParser.render('### 标题'));
 ```
 
 ::: warning
