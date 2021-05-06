@@ -29,7 +29,7 @@ import 'codemirror/addon/scroll/simplescrollbars.css';
 // style
 import 'codemirror/lib/codemirror.css';
 
-VMEditor.Codemirror = Codemirror;
+VMdEditor.Codemirror = Codemirror;
 
 VMdEditor.use(githubTheme);
 
