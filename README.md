@@ -21,11 +21,15 @@ qq group: 798884474
 ## Install
 
 ```bash
-# use npm
+# Vue 2 use npm
 npm i @kangc/v-md-editor -S
-
-# use yarn
+# Vue 2 use yarn
 yarn add @kangc/v-md-editor
+
+# Vue 3 use npm
+npm i @kangc/v-md-editor@next -S
+# Vue 3 use yarn
+yarn add @kangc/v-md-editor@next
 ```
 
 ## Quick Start
