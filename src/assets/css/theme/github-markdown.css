@@ -6,11 +6,6 @@
   word-wrap: break-word;
 }
 
-.github-markdown-body > :first-child,
-.github-markdown-body > :first-child > :first-child {
-  margin-top: 0;
-}
-
 .github-markdown-body > :last-child {
   margin-bottom: 0;
 }

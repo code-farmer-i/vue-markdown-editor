@@ -391,10 +391,6 @@
   margin: 0.67em 0;
   font-size: 2.2rem;
 }
-.vuepress-markdown-body > :first-child,
-.vuepress-markdown-body > :first-child > :first-child {
-  margin-top: 0;
-}
 .vuepress-markdown-body > :last-child,
 .vuepress-markdown-body > :last-child > :last-child {
   margin-bottom: 0 !important;
