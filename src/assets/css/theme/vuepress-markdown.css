@@ -17,6 +17,10 @@
   hyphens: none;
   background: none;
 }
+.vuepress-markdown-body > :first-child,
+.vuepress-markdown-body > div[data-v-md-line] > :first-child {
+  margin-top: 0;
+}
 .vuepress-markdown-body pre[class*='v-md-prism-'] {
   margin: 0.5em 0;
   padding: 1em;
@@ -390,10 +394,6 @@
 .vuepress-markdown-body h1 {
   margin: 0.67em 0;
   font-size: 2.2rem;
-}
-.vuepress-markdown-body > :first-child,
-.vuepress-markdown-body > :first-child > :first-child {
-  margin-top: 0;
 }
 .vuepress-markdown-body > :last-child,
 .vuepress-markdown-body > :last-child > :last-child {

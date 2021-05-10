@@ -7,7 +7,7 @@
 }
 
 .github-markdown-body > :first-child,
-.github-markdown-body > :first-child > :first-child {
+.github-markdown-body > div[data-v-md-line] > :first-child {
   margin-top: 0;
 }
 
