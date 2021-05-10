@@ -41,5 +41,6 @@ VueMarkdownEditor.lang.add({
 | German   | de-DE    |
 | Korean   | ko-KR    |
 | Spanish  | es-ES    |
+| Polish   | pl-PL    |
 
 View all language configs [Here](https://github.com/code-farmer-i/vue-markdown-editor/tree/dev/src/lang).
