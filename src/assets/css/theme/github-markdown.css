@@ -6,6 +6,11 @@
   word-wrap: break-word;
 }
 
+.github-markdown-body > :first-child,
+.github-markdown-body > div[data-v-md-line] > :first-child {
+  margin-top: 0;
+}
+
 .github-markdown-body > :last-child {
   margin-bottom: 0;
 }
