@@ -64,7 +64,6 @@ export default {
   },
   hr: {
     toolbar: 'Línea',
-    placeholder: 'Línea',
   },
   link: {
     toolbar: 'Insertar enlace',
