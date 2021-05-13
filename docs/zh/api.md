@@ -101,7 +101,7 @@ sidebarDepth: 2
 | preview     | 预览     |
 | toc         | 目录导航 |
 | sync-scroll | 同步滚动 |
-| fullscreen  | 撤销     |
+| fullscreen  | 全屏     |
 
 ### toolbar
 
