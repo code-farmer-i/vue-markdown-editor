@@ -18,7 +18,7 @@
     >
       <a style="cursor: pointer">{{ anchor.title }}</a>
     </div>
-    <v-md-editor v-model="text" mode="preview" ref="editor" />
+    <v-md-preview :text="text" ref="preview" />
   </div>
 </template>
 
@@ -68,9 +68,7 @@ export default {
     };
   },
   mounted() {
-    const anchors = this.$refs.editor.$el.querySelectorAll(
-      '.v-md-editor-preview h1,h2,h3,h4,h5,h6'
-    );
+    const anchors = this.$refs.preview.$el.querySelectorAll('h1,h2,h3,h4,h5,h6');
     const titles = Array.from(anchors).filter((title) => !!title.innerText.trim());
 
     if (!titles.length) {
@@ -88,15 +86,13 @@ export default {
   },
   methods: {
     handleAnchorClick(anchor) {
-      const { editor } = this.$refs;
+      const { preview } = this.$refs;
       const { lineIndex } = anchor;
 
-      const heading = editor.$el.querySelector(
-        `.v-md-editor-preview [data-v-md-line="${lineIndex}"]`
-      );
+      const heading = preview.$el.querySelector(`[data-v-md-line="${lineIndex}"]`);
 
       if (heading) {
-        editor.previewScrollToTarget({
+        preview.scrollToTarget({
           target: heading,
           scrollContainer: window,
           top: 60,
