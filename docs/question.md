@@ -1,3 +1,7 @@
+## Use error report in vue3?
+
+Please make sure that the version of the editor is installed correctly. Reference document: [Install the version that supports vue3](./quick-start.md)
+
 ## How the saved markdown text is rendered on the page？
 
 If an editor is introduced in your project. You can directly use the editor's preview mode to render.
