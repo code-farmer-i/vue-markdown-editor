@@ -30,6 +30,7 @@ import VMdPreview from '@kangc/v-md-editor/lib/preview';
 import '@kangc/v-md-editor/lib/style/preview.css';
 // Introduce the theme you use. Take the github theme as an example here
 import githubTheme from '@kangc/v-md-editor/lib/theme/github';
+import '@kangc/v-md-editor/lib/theme/style/github.css';
 
 VMdPreview.use(githubTheme);
 Vue.use(VMdPreview);
