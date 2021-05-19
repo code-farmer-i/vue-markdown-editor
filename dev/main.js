@@ -1,5 +1,6 @@
 import App from './App';
 import { createApp } from 'vue';
+import PreviewHtml from '@/preview-html.js';
 // import VueMarkdownEditor from '@/base-editor';
 import VueMarkdownEditor from '@/codemirror-editor';
 // import Preview from '@/preview';
@@ -16,6 +17,8 @@ import '@/plugins/copy-code/copy-code';
 import createHighLinesPlugin from '@/plugins/highlight-lines/';
 import '@/plugins/highlight-lines/highlight-lines';
 import createMermaidPlugin from '@/plugins/mermaid/cdn';
+
+import createCreateCopyCodePreview from '@/plugins/copy-code/preview';
 
 import vuepressTheme from '@/theme/vuepress';
 import enUS from '@/lang/en-US';
@@ -36,18 +39,20 @@ import 'codemirror/lib/codemirror.css';
 
 const app = createApp(App);
 
+PreviewHtml.use(createCreateCopyCodePreview());
+
 VueMarkdownEditor.lang.use('en-US', enUS);
 
-VueMarkdownEditor.use(githubTheme, {
-  codeHighlightExtensionMap: {
-    vue: 'xml',
-  },
-});
-// VueMarkdownEditor.use(vuepressTheme, {
+// VueMarkdownEditor.use(githubTheme, {
 //   codeHighlightExtensionMap: {
-//     vue: 'markup',
+//     vue: 'xml',
 //   },
 // });
+VueMarkdownEditor.use(vuepressTheme, {
+  codeHighlightExtensionMap: {
+    vue: 'markup',
+  },
+});
 // Preview.use(githubTheme);
 
 VueMarkdownEditor.use(createEmojiPlugin())
@@ -61,6 +66,7 @@ VueMarkdownEditor.use(createEmojiPlugin())
 VueMarkdownEditor.Codemirror = Codemirror;
 
 app.use(VueMarkdownEditor);
+app.use(PreviewHtml);
 // app.use(Preview);
 
 app.mount('#app');

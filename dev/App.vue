@@ -11,20 +11,26 @@
       @copy-code-success="handleCopyCodeSuccess"
       ref="editor"
     />
+    <v-md-preview-html
+      :html="html"
+      preview-class="vuepress-markdown-body"
+    />
   </div>
 </template>
 
 <script>
 import text from './text';
+import html from './html';
 
 export default {
-  data () {
+  data() {
     return {
       text,
+      html,
     };
   },
   methods: {
-    handleFullscreenChange (v) {
+    handleFullscreenChange(v) {
       console.log(v);
     },
     handleUploadImage(e, insertImage, files) {
@@ -35,10 +41,10 @@ export default {
         desc: '111',
       });
     },
-    handleSave (v, html) {
+    handleSave(v, html) {
       console.log(v, html);
     },
-    handleCopyCodeSuccess (code) {
+    handleCopyCodeSuccess(code) {
       console.log(code);
     },
   },
