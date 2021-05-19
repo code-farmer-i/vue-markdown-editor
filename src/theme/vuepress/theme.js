@@ -10,7 +10,6 @@ export default function createVuepressTheme(config) {
     baseConfig: {
       link: {
         openLinkIcon: true,
-        openLinkIconClass: 'v-md-icon-open-in-new',
       },
       ...config.baseConfig,
     },
