@@ -469,6 +469,13 @@
   padding: 0.6em 1em;
   border: 1px solid #dfe2e5;
 }
+.vuepress-markdown-body .v-md-svg-outbound {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  color: #aaa;
+  vertical-align: middle;
+}
 @media (max-width: 419px) {
   .vuepress-markdown-body h1 {
     font-size: 1.9rem;
