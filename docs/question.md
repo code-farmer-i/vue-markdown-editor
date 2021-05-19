@@ -4,6 +4,8 @@ Please make sure that the version of the editor is installed correctly. Referenc
 
 ## How the saved markdown text is rendered on the page？
 
+1. Render markdown text
+
 If an editor is introduced in your project. You can directly use the editor's preview mode to render.
 
 ```vue
@@ -46,6 +48,38 @@ export default {
   data() {
     return {
       markdown: '### title',
+    };
+  },
+};
+</script>
+```
+
+2. Render html text
+
+If your project does not require editing functions and only needs to render html, you can only introduce the preview html component to render.
+
+```js
+// main.js
+import VMdPreviewHtml from '@kangc/v-md-editor/lib/preview-html';
+import '@kangc/v-md-editor/lib/style/preview-html.css';
+
+// theme style
+import '@kangc/v-md-editor/lib/theme/style/vuepress';
+
+Vue.use(VMdPreviewHtml);
+```
+
+```vue
+<template>
+  <!-- preview-class is the theme's style class name, for example, vuepress is vuepress-markdown-body -->
+  <v-md-preview-html :html="html" preview-class="vuepress-markdown-body"></v-md-preview-html>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      html: '<div data-v-md-line="1"><h1 align="center">Markdown Editor built on Vue</h1>',
     };
   },
 };

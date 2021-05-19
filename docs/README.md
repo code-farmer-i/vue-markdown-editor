@@ -29,3 +29,7 @@ Disadvantages:
 ## Preview Component
 
 If you only need to preview markdown, you can use this component.
+
+## Html Preview Component
+
+If you only need to preview html, you can use this component.

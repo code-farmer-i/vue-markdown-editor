@@ -2,7 +2,9 @@
 
 请确认编辑器的版本是否安装正确。参考文档：[安装支持 vue3 的版本](./quick-start.md)
 
-## 保存后的 markdown 文本如何渲染在页面上？
+## 保存后的 markdown 或 html 文本如何渲染在页面上？
+
+1. 渲染 markdown 文本
 
 如果你的项目中引入了编辑器。你可以直接使用编辑器的预览模式来渲染。例如：
 
@@ -46,6 +48,38 @@ export default {
   data() {
     return {
       markdown: '### 标题',
+    };
+  },
+};
+</script>
+```
+
+2. 渲染 html 文本
+
+如果你的项目不需要编辑功能，只需要渲染 html 你可以只引入 preview-html 组件来渲染。例如：
+
+```js
+// main.js
+import VMdPreviewHtml from '@kangc/v-md-editor/lib/preview-html';
+import '@kangc/v-md-editor/lib/style/preview-html.css';
+
+// 引入使用主题的样式
+import '@kangc/v-md-editor/lib/theme/style/vuepress';
+
+Vue.use(VMdPreviewHtml);
+```
+
+```vue
+<template>
+  <!-- preview-class 为主题的样式类名，例如vuepress就是vuepress-markdown-body -->
+  <v-md-preview-html :html="html" preview-class="vuepress-markdown-body"></v-md-preview-html>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      html: '<div data-v-md-line="1"><h1 align="center">Markdown Editor built on Vue</h1>',
     };
   },
 };
