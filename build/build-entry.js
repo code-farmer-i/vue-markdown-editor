@@ -11,16 +11,21 @@ function isEditor(filename) {
   return filename.indexOf('editor') !== -1;
 }
 
+function isPreviewHtml(filename) {
+  return filename.indexOf('html') !== -1;
+}
+
 function buildEntry(filename) {
   const content = `${tips}
-import Component from './${filename}.vue';
-${
+import Component from './${filename}.vue';${
+  !isPreviewHtml(filename) ? "\nimport xss from '@/utils/xss/index';" : ''
+}${
   isEditor(filename)
-    ? `import xss from '@/utils/xss/index';
-// font css
-import '@/assets/css/font';\n`
+    ? `\n// font css
+import '@/assets/css/font';`
     : ''
 }
+
 const version = '${version}';
 
 const install = (app) => {
@@ -28,7 +33,7 @@ const install = (app) => {
 };
 
 Component.version = version;
-Component.install = install;${isEditor(filename) ? '\nComponent.xss = xss;\n' : ''}
+Component.install = install;${!isPreviewHtml(filename) ? '\nComponent.xss = xss;\n' : ''}
 Component.use = function (optionsOrInstall, opt) {
   if (typeof optionsOrInstall === 'function') {
     optionsOrInstall(Component, opt);
