@@ -1,5 +1,17 @@
 # 更新日志
 
+### 1.6.4 & 2.2.5
+
+`2021-05-19`
+
+**Features**
+
+- component: 新增 [preview-html](./examples/preview-html-demo.md) 组件。
+
+**Improvement**
+
+- theme: vuepress 主题样式优化。
+
 ### 1.6.3 & 2.2.4
 
 `2021-05-10`
