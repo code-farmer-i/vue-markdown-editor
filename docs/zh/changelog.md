@@ -1,5 +1,17 @@
 # 更新日志
 
+### 1.6.5 & 2.2.6
+
+`2021-05-21`
+
+**Bug Fixes**
+
+- theme: 修复 vuepress 主题缺少 tip 插件样式的问题。
+
+**Improvement**
+
+- theme: vuepress github 主题样式优化。
+
 ### 1.6.4 & 2.2.5
 
 `2021-05-19`

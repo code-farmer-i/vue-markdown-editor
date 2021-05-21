@@ -1,5 +1,17 @@
 # Changelog
 
+### 1.6.5 & 2.2.6
+
+`2021-05-21`
+
+**Bug Fixes**
+
+- theme: Fix the problem that the vuepress theme lacks tip plug style.
+
+**Improvement**
+
+- theme: Optimize the vuepress and github theme style.
+
 ### 1.6.4 & 2.2.5
 
 `2021-05-19`
