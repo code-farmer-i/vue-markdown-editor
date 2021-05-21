@@ -5,6 +5,9 @@ import createTipPlugin from '@/plugins/tip/index';
 import '@/assets/css/theme/base';
 import '@/assets/css/theme/vuepress-markdown';
 
+// tip plugin style
+import '@/plugins/tip/tip.css';
+
 const install = function (VMdEditor, options) {
   const tipPlugin = createTipPlugin();
 
