@@ -8,12 +8,13 @@
 }
 
 .github-markdown-body > :first-child,
-.github-markdown-body > div[data-v-md-line] > :first-child {
-  margin-top: 0;
+.github-markdown-body > div[data-v-md-line]:first-child > :first-child {
+  margin-top: 0 !important;
 }
 
-.github-markdown-body > :last-child {
-  margin-bottom: 0;
+.github-markdown-body > :last-child,
+.github-markdown-body > div[data-v-md-line]:last-child > :last-child {
+  margin-top: 0 !important;
 }
 
 .github-markdown-body a {
