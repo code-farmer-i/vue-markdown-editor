@@ -18,8 +18,12 @@
   background: none;
 }
 .vuepress-markdown-body > :first-child,
-.vuepress-markdown-body > div[data-v-md-line] > :first-child {
-  margin-top: 0;
+.vuepress-markdown-body > div[data-v-md-line]:first-child > :first-child {
+  margin-top: 0 !important;
+}
+.vuepress-markdown-body > :last-child,
+.vuepress-markdown-body > div[data-v-md-line]:last-child > :last-child {
+  margin-bottom: 0 !important;
 }
 .vuepress-markdown-body pre[class*='v-md-prism-'] {
   margin: 0.5em 0;
@@ -394,10 +398,6 @@
 .vuepress-markdown-body h1 {
   margin: 0.67em 0;
   font-size: 2.2rem;
-}
-.vuepress-markdown-body > :last-child,
-.vuepress-markdown-body > :last-child > :last-child {
-  margin-bottom: 0 !important;
 }
 .vuepress-markdown-body h2 {
   margin: 0.83em 0;
