@@ -1,8 +1,5 @@
 import createPrismTheme from '@/theme/base/prism';
 
-// style
-import '@/assets/css/theme/vuepress-markdown';
-
 export default function createVuepressTheme(config) {
   const prismTheme = createPrismTheme({
     codeHighlightExtensionMap: config.codeHighlightExtensionMap || {},
