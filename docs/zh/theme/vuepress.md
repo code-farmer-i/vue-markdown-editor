@@ -65,15 +65,11 @@ vuepress 主题内置扩展了 tip 功能。同时你也可以在 left-toolbar �
 
 ## 扩展
 
-主题包默认只支持了 markup, html, xml, svg, mathml, css, clike, jacascript(js)。以免引入太多冗余代码导致包的体积过大。如果需要支持更多的语言代码高亮，请按需引入对应的语言包。
-
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
 import '@kangc/v-md-editor/lib/theme/style/vuepress.css';
-// 直接按需引入 prism 的语言包即可，此处以 json 为例
-import 'prismjs/components/prism-json';
 
 VueMarkdownEditor.use(vuepressTheme, {
   extend(md) {
@@ -83,9 +79,50 @@ VueMarkdownEditor.use(vuepressTheme, {
 });
 ```
 
-::: warning 注意
-语言包需要在引入主题之后引入，否则不会生效。
-:::
+## 扩展语言包
+
+主题包默认只支持了 markup, html, xml, svg, mathml, css, clike, jacascript(js)。以免引入太多冗余代码导致包的体积过大。如果需要支持更多的语言代码高亮，请通过[babel-plugin-prismjs](https://github.com/mAAdhaTTah/babel-plugin-prismjs)插件按需引入对应的语言包。
+
+安装 `babel-plugin-prismjs` 插件
+
+```bash
+# yarn
+yarn add babel-plugin-prismjs --dev
+# npm
+npm install babel-plugin-prismjs
+```
+
+按需引入语言包（推荐）
+
+```js
+// babel.config.js
+{
+  "plugins": [
+    ["prismjs", {
+        "languages": ["json"],
+    }]
+  ]
+}
+```
+
+引入所有语言包（不推荐）
+
+```js
+// babel.config.js
+const components = require('prismjs/components');
+const allLanguages = Object.keys(components.languages).filter((item) => item !== 'meta');
+
+module.exports = {
+  plugins: [
+    [
+      'prismjs',
+      {
+        languages: allLanguages,
+      },
+    ],
+  ],
+};
+```
 
 [查看 prism 支持的语言包](https://github.com/PrismJS/prism/tree/master/components)
 

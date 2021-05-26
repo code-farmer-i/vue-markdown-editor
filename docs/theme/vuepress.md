@@ -61,15 +61,11 @@ demo：
 
 ## Expand
 
-The theme package only supports markup, html, xml, svg, mathml, css, clike, jacascript(js) by default. In order to avoid introducing too much redundant code, the package size is too large. If you need to support more language code highlighting, please introduce the corresponding language pack as needed.
-
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
 import '@kangc/v-md-editor/lib/theme/style/vuepress.css';
-// Introduce prism language packs as needed, here is json as an example
-import 'prismjs/components/prism-json';
 
 VueMarkdownEditor.use(vuepressTheme, {
   extend(md) {
@@ -79,9 +75,50 @@ VueMarkdownEditor.use(vuepressTheme, {
 });
 ```
 
-::: warning
-Language packs need to be introduced after the introduction of the theme, otherwise it will not take effect.
-:::
+## Extended language pack
+
+The theme package only supports markup, html, xml, svg, mathml, css, clike, jacascript(js) by default. So as not to introduce too much redundant code to cause the package to be too large. If you need to support more language code highlighting, please use the [babel-plugin-prismjs](https://github.com/mAAdhaTTah/babel-plugin-prismjs) plug-in to introduce the corresponding language packs on demand.
+
+Install the `babel-plugin-prismjs` plugin
+
+```bash
+# yarn
+yarn add babel-plugin-prismjs --dev
+# npm
+npm install babel-plugin-prismjs
+```
+
+Introduce language packs on demand (recommended)
+
+```js
+// babel.config.js
+{
+  "plugins": [
+    ["prismjs", {
+        "languages": ["json"],
+    }]
+  ]
+}
+```
+
+Introduce all language packs (not recommended)
+
+```js
+// babel.config.js
+const components = require('prismjs/components');
+const allLanguages = Object.keys(components.languages).filter((item) => item !== 'meta');
+
+module.exports = {
+  plugins: [
+    [
+      'prismjs',
+      {
+        languages: allLanguages,
+      },
+    ],
+  ],
+};
+```
 
 [View languages supported by prism](https://github.com/PrismJS/prism/tree/master/components)
 
