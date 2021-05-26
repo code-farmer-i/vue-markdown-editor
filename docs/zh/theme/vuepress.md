@@ -88,6 +88,7 @@ VueMarkdownEditor.use(vuepressTheme, {
 ```bash
 # yarn
 yarn add babel-plugin-prismjs --dev
+
 # npm
 npm install babel-plugin-prismjs
 ```

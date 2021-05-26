@@ -84,6 +84,7 @@ Install the `babel-plugin-prismjs` plugin
 ```bash
 # yarn
 yarn add babel-plugin-prismjs --dev
+
 # npm
 npm install babel-plugin-prismjs
 ```
