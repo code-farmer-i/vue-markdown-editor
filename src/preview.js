@@ -2,7 +2,7 @@
 import Component from './preview.vue';
 import xss from '@/utils/xss/index';
 
-const version = '2.2.6';
+const version = '2.3.0';
 
 const install = (app) => {
   app.component(Component.name, Component);
