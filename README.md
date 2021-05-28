@@ -115,6 +115,20 @@ app.use(VMdEditor);
 </script>
 ```
 
+## Sponsor
+
+Paypal
+
+[PayPal.Me](https://paypal.me/codefarmeri?locale.x=zh_XC)
+
+Alipay 支付宝 
+
+<img src="https://user-images.githubusercontent.com/15082905/119299019-c583e500-bc90-11eb-8b34-4bff83da3745.png" width="140"/>
+
+WeChat Pay 微信
+
+<img src="https://user-images.githubusercontent.com/15082905/119299205-13005200-bc91-11eb-919d-543b1550bab6.png" width="140"/>
+
 ## Refrence
 
 - [ElementUi Utils clickoutside](https://github.com/ElemeFE/element/blob/dev/src/utils/clickoutside.js)
