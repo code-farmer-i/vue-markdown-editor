@@ -34,7 +34,27 @@ import '@kangc/v-md-editor/lib/style/preview.css';
 import githubTheme from '@kangc/v-md-editor/lib/theme/github';
 import '@kangc/v-md-editor/lib/theme/style/github.css';
 
-VMdPreview.use(githubTheme);
+// highlightjs
+import hljs from 'highlight.js/lib';
+// languages
+import jsLanguage from 'highlight.js/lib/languages/javascript';
+import xmlLanguage from 'highlight.js/lib/languages/xml';
+import cssLanguage from 'highlight.js/lib/languages/css';
+
+// language js
+hljs.registerLanguage('js', jsLanguage);
+hljs.registerLanguage('javascript', jsLanguage);
+
+// language xml, html
+hljs.registerLanguage('html', xmlLanguage);
+hljs.registerLanguage('xml', xmlLanguage);
+
+// language css
+hljs.registerLanguage('css', cssLanguage);
+
+VMdPreview.use(githubTheme, {
+  Hljs: hljs,
+});
 Vue.use(VMdPreview);
 ```
 
@@ -102,18 +122,37 @@ import Vue from 'vue';
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import createHljsTheme from '@kangc/v-md-editor/lib/theme/hljs';
-// Introduce highlightjs language packs as needed, here is json as an example
-import json from 'highlight.js/lib/languages/json';
 
-const hljsTheme = createHljsTheme();
-hljsTheme.extend((md, hljs) => {
+// highlightjs
+import hljs from 'highlight.js/lib';
+// languages
+import jsLanguage from 'highlight.js/lib/languages/javascript';
+import xmlLanguage from 'highlight.js/lib/languages/xml';
+import cssLanguage from 'highlight.js/lib/languages/css';
+
+// language js
+hljs.registerLanguage('js', jsLanguage);
+hljs.registerLanguage('javascript', jsLanguage);
+
+// language xml, html
+hljs.registerLanguage('html', xmlLanguage);
+hljs.registerLanguage('xml', xmlLanguage);
+
+// language css
+hljs.registerLanguage('css', cssLanguage);
+
+const hljsTheme = createHljsTheme({
+  Hljs: hljs,
+});
+hljsTheme.extend((md) => {
   // md is a markdown-it instance, you can modify the configuration here, and use plugin for syntax expansion
   // md.set(option).use(plugin);
-
-  // Register Language Pack
-  hljs.registerLanguage('json', json);
 });
+
+// Vue2 Useage
 VueMarkdownEditor.theme(hljsTheme);
+// Vue3 Useage
+// VueMarkdownEditor.vMdParser.theme(hljsTheme);
 
 Vue.use(VueMarkdownEditor);
 ```
@@ -126,15 +165,22 @@ import Vue from 'vue';
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import creatPrismTheme from '@kangc/v-md-editor/lib/theme/prism';
-// Introduce prism language packs as needed, here is json as an example
+
+import Prism from 'prismjs';
 import 'prismjs/components/prism-json';
 
-const prismTheme = creatPrismTheme();
+const prismTheme = creatPrismTheme({
+  Prism,
+});
 prismTheme.extend((md) => {
   // md is a markdown-it instance, you can modify the configuration here, and use plugin for syntax expansion
   // md.set(option).use(plugin);
 });
+
+// Vue2 Useage
 VueMarkdownEditor.theme(prismTheme);
+// Vue3 Useage
+// VueMarkdownEditor.vMdParser.theme(prismTheme);
 
 Vue.use(VueMarkdownEditor);
 ```

@@ -34,7 +34,27 @@ import '@kangc/v-md-editor/lib/style/preview.css';
 import githubTheme from '@kangc/v-md-editor/lib/theme/github';
 import '@kangc/v-md-editor/lib/theme/style/github.css';
 
-VMdPreview.use(githubTheme);
+// highlightjs
+import hljs from 'highlight.js/lib';
+// 按需引入代码高亮的语言包并注册
+import jsLanguage from 'highlight.js/lib/languages/javascript';
+import xmlLanguage from 'highlight.js/lib/languages/xml';
+import cssLanguage from 'highlight.js/lib/languages/css';
+
+// language js
+hljs.registerLanguage('js', jsLanguage);
+hljs.registerLanguage('javascript', jsLanguage);
+
+// language xml, html
+hljs.registerLanguage('html', xmlLanguage);
+hljs.registerLanguage('xml', xmlLanguage);
+
+// language css
+hljs.registerLanguage('css', cssLanguage);
+
+VMdPreview.use(githubTheme, {
+  Hljs: hljs,
+});
 Vue.use(VMdPreview);
 ```
 
@@ -102,18 +122,37 @@ import Vue from 'vue';
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import createHljsTheme from '@kangc/v-md-editor/lib/theme/hljs';
-// 按需引入 highlightjs 的语言包，此处以 json 为例
-import json from 'highlight.js/lib/languages/json';
 
-const hljsTheme = createHljsTheme();
-hljsTheme.extend((md, hljs) => {
+// highlightjs
+import hljs from 'highlight.js/lib';
+// 按需引入代码高亮的语言包并注册
+import jsLanguage from 'highlight.js/lib/languages/javascript';
+import xmlLanguage from 'highlight.js/lib/languages/xml';
+import cssLanguage from 'highlight.js/lib/languages/css';
+
+// language js
+hljs.registerLanguage('js', jsLanguage);
+hljs.registerLanguage('javascript', jsLanguage);
+
+// language xml, html
+hljs.registerLanguage('html', xmlLanguage);
+hljs.registerLanguage('xml', xmlLanguage);
+
+// language css
+hljs.registerLanguage('css', cssLanguage);
+
+const hljsTheme = createHljsTheme({
+  Hljs: hljs,
+});
+hljsTheme.extend((md) => {
   // md为 markdown-it 实例，可以在此处进行修改配置,并使用 plugin 进行语法扩展
   // md.set(option).use(plugin);
-
-  // 注册语言包
-  hljs.registerLanguage('json', json);
 });
+
+// Vue2
 VueMarkdownEditor.theme(hljsTheme);
+// Vue3
+// VueMarkdownEditor.vMdParser.theme(hljsTheme);
 
 Vue.use(VueMarkdownEditor);
 ```
@@ -126,15 +165,24 @@ import Vue from 'vue';
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import creatPrismTheme from '@kangc/v-md-editor/lib/theme/prism';
+
+// Prism
+import Prism from 'prismjs';
 // 直接按需引入 prism 的语言包即可，此处以 json 为例
 import 'prismjs/components/prism-json';
 
-const prismTheme = creatPrismTheme();
+const prismTheme = creatPrismTheme({
+  Prism,
+});
 prismTheme.extend((md) => {
   // md为 markdown-it 实例，可以在此处进行修改配置,并使用 plugin 进行语法扩展
   // md.set(option).use(plugin);
 });
+
+// Vue2
 VueMarkdownEditor.theme(prismTheme);
+// Vue3
+// VueMarkdownEditor.vMdParser.theme(prismTheme);
 
 Vue.use(VueMarkdownEditor);
 ```

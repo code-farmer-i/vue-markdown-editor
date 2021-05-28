@@ -71,7 +71,10 @@ import '@kangc/v-md-editor/lib/style/base-editor.css';
 import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
 import '@kangc/v-md-editor/lib/theme/style/vuepress.css';
 
+import Prism from 'prismjs';
+
 VueMarkdownEditor.use(vuepressTheme, {
+  Prism,
   extend(md) {
     // md为 markdown-it 实例，可以在此处进行修改配置,并使用 plugin 进行语法扩展
     // md.set(option).use(plugin);
@@ -81,7 +84,7 @@ VueMarkdownEditor.use(vuepressTheme, {
 
 ## 扩展语言包
 
-主题包默认只支持了 markup, html, xml, svg, mathml, css, clike, jacascript(js)。以免引入太多冗余代码导致包的体积过大。如果需要支持更多的语言代码高亮，请通过[babel-plugin-prismjs](https://github.com/mAAdhaTTah/babel-plugin-prismjs)插件按需引入对应的语言包。
+请通过[babel-plugin-prismjs](https://github.com/mAAdhaTTah/babel-plugin-prismjs)插件按需引入对应的语言包。
 
 安装 `babel-plugin-prismjs` 插件
 

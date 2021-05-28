@@ -20,15 +20,29 @@ import '@kangc/v-md-editor/lib/style/base-editor.css';
 import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
 import '@kangc/v-md-editor/lib/theme/style/github.css';
 
-// 按需引入 highlightjs 的语言包，此处以 json 为例
-import json from 'highlight.js/lib/languages/json';
+// highlightjs
+import hljs from 'highlight.js/lib';
+// 按需引入代码高亮的语言包并注册
+import jsLanguage from 'highlight.js/lib/languages/javascript';
+import xmlLanguage from 'highlight.js/lib/languages/xml';
+import cssLanguage from 'highlight.js/lib/languages/css';
+
+// language js
+hljs.registerLanguage('js', jsLanguage);
+hljs.registerLanguage('javascript', jsLanguage);
+
+// language xml, html
+hljs.registerLanguage('html', xmlLanguage);
+hljs.registerLanguage('xml', xmlLanguage);
+
+// language css
+hljs.registerLanguage('css', cssLanguage);
 
 VueMarkdownEditor.use(githubTheme, {
-  extend(md, hljs) {
+  Hljs: hljs,
+  extend(md) {
     // md为 markdown-it 实例，可以在此处进行修改配置,并使用 plugin 进行语法扩展
     // md.set(option).use(plugin);
-    // 注册语言包
-    hljs.registerLanguage('json', json);
   },
 });
 ```

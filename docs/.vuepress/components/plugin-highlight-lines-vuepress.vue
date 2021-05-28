@@ -1,6 +1,5 @@
 <template>
   <v-md-editor
-    :theme="theme"
     height="500px"
     v-model="text"
   />
@@ -11,6 +10,13 @@ import VMdEditor from '../../../lib/base-editor';
 import '../../../lib/style/base-editor.css';
 import vuepressTheme from '../../../lib/theme/vuepress.js';
 import '../../../lib/theme/style/vuepress.css';
+
+import Prism from 'prismjs';
+import 'prismjs/components/prism-json';
+
+VMdEditor.use(vuepressTheme, {
+  Prism,
+});
 
 const text = `\`\`\` js {1,3}
 import VueMarkdownEditor from '@kangc/v-md-editor';
@@ -24,8 +30,6 @@ export default {
     [VMdEditor.name]: VMdEditor,
   },
   data() {
-    this.theme = vuepressTheme;
-
     return {
       text,
     };

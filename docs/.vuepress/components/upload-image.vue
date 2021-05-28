@@ -3,7 +3,6 @@
     v-model="text"
     left-toolbar="undo redo | image"
     :disabled-menus="[]"
-    :theme="theme"
     @upload-image="handleUploadImage"
     height="500px"
   />
@@ -15,13 +14,17 @@ import '../../../lib/style/base-editor.css';
 import githubTheme from '../../../lib/theme/github.js';
 import '../../../lib/theme/style/github.css';
 
+import hljs from 'highlight.js/lib';
+
+VMdEditor.use(githubTheme, {
+  Hljs: hljs,
+});
+
 export default {
   components: {
     [VMdEditor.name]: VMdEditor,
   },
   data() {
-    this.theme = githubTheme;
-
     return {
       text: '',
     };

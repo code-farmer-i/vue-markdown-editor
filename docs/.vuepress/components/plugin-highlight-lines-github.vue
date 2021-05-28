@@ -1,6 +1,5 @@
 <template>
   <v-md-editor
-    :theme="theme"
     height="500px"
     v-model="text"
   />
@@ -13,6 +12,12 @@ import githubTheme from '../../../lib/theme/github.js';
 import '../../../lib/theme/style/github.css';
 import createHighlightLinesPlugin from '../../../lib/plugins/highlight-lines/index';
 import '../../..//lib/plugins/highlight-lines/highlight-lines.css';
+
+import hljs from 'highlight.js/lib';
+
+VMdEditor.use(githubTheme, {
+  Hljs: hljs,
+});
 
 VMdEditor.use(createHighlightLinesPlugin());
 
@@ -28,8 +33,6 @@ export default {
     [VMdEditor.name]: VMdEditor,
   },
   data() {
-    this.theme = githubTheme;
-
     return {
       text,
     };

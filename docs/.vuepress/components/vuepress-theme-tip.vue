@@ -2,7 +2,6 @@
   <v-md-editor
     v-model="text"
     left-toolbar="undo redo | tip"
-    :theme="theme"
     height="500px"
   />
 </template>
@@ -12,7 +11,13 @@ import VMdEditor from '../../../lib/base-editor';
 import '../../../lib/style/base-editor.css';
 import vuepressTheme from '../../../lib/theme/vuepress.js';
 import '../../../lib/theme/style/vuepress.css';
+
+import Prism from 'prismjs';
 import 'prismjs/components/prism-bash';
+
+VMdEditor.use(vuepressTheme, {
+  Prism,
+});
 
 const zhCNText = `::: tip 
   你可以点击 toolbar 中的 tip 来快速插入
@@ -69,8 +74,6 @@ export default {
     [VMdEditor.name]: VMdEditor,
   },
   data() {
-    this.theme = vuepressTheme;
-
     return {
       text: '',
     };

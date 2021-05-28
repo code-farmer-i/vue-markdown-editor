@@ -2,7 +2,6 @@
   <v-md-editor
     v-model="text"
     left-toolbar="undo redo | todo-list"
-    :theme="theme"
     height="500px"
   />
 </template>
@@ -15,6 +14,12 @@ import '../../../lib/theme/style/github.css';
 import createTodoListPlugin from '../../../lib/plugins/todo-list/index';
 import '../../../lib/plugins/todo-list/todo-list.css';
 
+import hljs from 'highlight.js/lib';
+
+VMdEditor.use(githubTheme, {
+  Hljs: hljs,
+});
+
 VMdEditor.use(createTodoListPlugin());
 
 export default {
@@ -22,8 +27,6 @@ export default {
     [VMdEditor.name]: VMdEditor,
   },
   data() {
-    this.theme = githubTheme;
-
     return {
       text: '- [x] Task',
     };

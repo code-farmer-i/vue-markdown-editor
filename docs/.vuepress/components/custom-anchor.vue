@@ -9,7 +9,6 @@
     </div>
     <v-md-preview
       :text="text"
-      :theme="theme"
       ref="preview"
     />
   </div>
@@ -20,6 +19,12 @@ import VMdPreview from '../../../lib/preview';
 import '../../../lib/style/preview.css';
 import githubTheme from '../../../lib/theme/github.js';
 import '../../../lib/theme/style/github.css';
+
+import hljs from 'highlight.js/lib';
+
+VMdPreview.use(githubTheme, {
+  Hljs: hljs,
+});
 
 const text = `
 # heading 1
@@ -63,8 +68,6 @@ export default {
     [VMdPreview.name]: VMdPreview,
   },
   data() {
-    this.theme = githubTheme;
-
     return {
       text,
       titles: [],

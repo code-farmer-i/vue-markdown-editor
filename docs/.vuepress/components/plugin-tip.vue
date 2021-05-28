@@ -2,7 +2,6 @@
   <v-md-editor
     v-model="text"
     left-toolbar="undo redo | tip"
-    :theme="theme"
     height="500px"
   />
 </template>
@@ -14,6 +13,12 @@ import githubTheme from '../../../lib/theme/github.js';
 import '../../../lib/theme/style/github.css';
 import createTipPlugin from '../../../lib/plugins/tip/index';
 import '../../../lib/plugins/tip/tip.css';
+
+import hljs from 'highlight.js/lib';
+
+VMdEditor.use(githubTheme, {
+  Hljs: hljs,
+});
 
 VMdEditor.use(createTipPlugin());
 
@@ -27,8 +32,6 @@ export default {
     [VMdEditor.name]: VMdEditor,
   },
   data() {
-    this.theme = githubTheme;
-
     return {
       text,
     };

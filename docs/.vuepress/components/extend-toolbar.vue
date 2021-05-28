@@ -3,7 +3,6 @@
     v-model="text"
     left-toolbar="undo redo | customToolbar1 customToolbar2 customToolbar3"
     :toolbar="toolbar"
-    :theme="theme"
     height="500px"
   />
 </template>
@@ -14,12 +13,17 @@ import '../../../lib/style/base-editor.css';
 import githubTheme from '../../../lib/theme/github.js';
 import '../../../lib/theme/style/github.css';
 
+import hljs from 'highlight.js/lib';
+
+VMdEditor.use(githubTheme, {
+  Hljs: hljs,
+});
+
 export default {
   components: {
     [VMdEditor.name]: VMdEditor,
   },
   data() {
-    this.theme = githubTheme;
     this.toolbar = {
       customToolbar1: {
         title: 'base',

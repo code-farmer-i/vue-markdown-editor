@@ -18,15 +18,29 @@ import '@kangc/v-md-editor/lib/style/base-editor.css';
 import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
 import '@kangc/v-md-editor/lib/theme/style/github.css';
 
-// Introduce highlightjs language packs as needed, here is json as an example
-import json from 'highlight.js/lib/languages/json';
+// highlightjs
+import hljs from 'highlight.js/lib';
+// languages
+import jsLanguage from 'highlight.js/lib/languages/javascript';
+import xmlLanguage from 'highlight.js/lib/languages/xml';
+import cssLanguage from 'highlight.js/lib/languages/css';
+
+// language js
+hljs.registerLanguage('js', jsLanguage);
+hljs.registerLanguage('javascript', jsLanguage);
+
+// language xml, html
+hljs.registerLanguage('html', xmlLanguage);
+hljs.registerLanguage('xml', xmlLanguage);
+
+// language css
+hljs.registerLanguage('css', cssLanguage);
 
 VueMarkdownEditor.use(githubTheme, {
-  extend(md, hljs) {
+  Hljs: hljs,
+  extend(md) {
     // md is a markdown-it instance, you can modify the configuration here, and use plugin for syntax expansion
     // md.set(option).use(plugin);
-    // Register Language Pack
-    hljs.registerLanguage('json', json);
   },
 });
 ```

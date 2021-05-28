@@ -1,7 +1,6 @@
 <template>
   <v-md-editor
     v-model="text"
-    :theme="theme"
     height="500px"
   />
 </template>
@@ -13,6 +12,12 @@ import githubTheme from '../../../lib/theme/github.js';
 import '../../../lib/theme/style/github.css';
 import createMermaidPlugin from '../../../lib/plugins/mermaid/npm';
 import '../../../lib/plugins/mermaid/mermaid.css';
+
+import hljs from 'highlight.js/lib';
+
+VMdEditor.use(githubTheme, {
+  Hljs: hljs,
+});
 
 VMdEditor.use(createMermaidPlugin());
 
@@ -29,8 +34,6 @@ export default {
     [VMdEditor.name]: VMdEditor,
   },
   data() {
-    this.theme = githubTheme;
-
     return {
       text,
     };

@@ -1,7 +1,6 @@
 <template>
   <v-md-editor
     v-model="text"
-    :theme="theme"
     height="500px"
   />
 </template>
@@ -14,6 +13,12 @@ import '../../../lib/theme/style/github.css';
 import createKatexPlugin from '../../../lib/plugins/katex/npm';
 import 'katex/dist/katex.css';
 
+import hljs from 'highlight.js/lib';
+
+VMdEditor.use(githubTheme, {
+  Hljs: hljs,
+});
+
 VMdEditor.use(createKatexPlugin());
 
 export default {
@@ -21,8 +26,6 @@ export default {
     [VMdEditor.name]: VMdEditor,
   },
   data() {
-    this.theme = githubTheme;
-
     return {
       text: '$$\\sum_{i=1}^n a_i=0$$',
     };

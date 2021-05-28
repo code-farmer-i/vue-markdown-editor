@@ -1,7 +1,6 @@
 <template>
   <v-md-preview
     :text="text"
-    :theme="theme"
     height="500px"
   />
 </template>
@@ -13,13 +12,17 @@ import githubTheme from '../../../lib/theme/github.js';
 import '../../../lib/theme/style/github.css';
 import text from '../../../dev/text';
 
+import hljs from 'highlight.js/lib';
+
+VMdPreview.use(githubTheme, {
+  Hljs: hljs,
+});
+
 export default {
   components: {
     [VMdPreview.name]: VMdPreview,
   },
   data() {
-    this.theme = githubTheme;
-
     return {
       text,
     };

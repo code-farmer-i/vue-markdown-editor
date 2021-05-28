@@ -1,6 +1,5 @@
 <template>
   <v-md-editor
-    :theme="theme"
     @copy-code-success="handleCopyCodeSuccess"
     height="500px"
     v-model="text"
@@ -15,6 +14,12 @@ import '../../../lib/theme/style/github.css';
 import createCopyCodePlugin from '../../../lib/plugins/copy-code/index';
 import '../../../lib/plugins/copy-code/copy-code.css';
 
+import hljs from 'highlight.js/lib';
+
+VMdEditor.use(githubTheme, {
+  Hljs: hljs,
+});
+
 VMdEditor.use(createCopyCodePlugin());
 
 export default {
@@ -22,8 +27,6 @@ export default {
     [VMdEditor.name]: VMdEditor,
   },
   data() {
-    this.theme = githubTheme;
-
     return {
       text: `\`\`\`js
 import Vue from 'vue';

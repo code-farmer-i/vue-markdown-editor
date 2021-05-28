@@ -1,8 +1,6 @@
 <template>
   <v-md-editor
     v-model="text"
-    :theme="theme"
-    :themeConfig="themeConfig"
     height="500px"
   />
 </template>
@@ -10,13 +8,15 @@
 <script>
 import VMdEditor from '../../../lib/base-editor';
 import '../../../lib/style/base-editor.css';
-import json from 'highlight.js/lib/languages/json';
 import githubTheme from '../../../lib/theme/github.js';
 import '../../../lib/theme/style/github.css';
 
+import hljs from 'highlight.js/lib';
+
 VMdEditor.use(githubTheme, {
-  extend(md, hljs) {
-    hljs.registerLanguage('json', json);
+  Hljs: hljs,
+  codeHighlightExtensionMap: {
+    vue: 'html',
   },
 });
 
@@ -33,13 +33,6 @@ export default {
     [VMdEditor.name]: VMdEditor,
   },
   data() {
-    this.theme = githubTheme;
-    this.themeConfig = {
-      codeHighlightExtensionMap: {
-        vue: 'html',
-      },
-    };
-
     return {
       text,
     };
