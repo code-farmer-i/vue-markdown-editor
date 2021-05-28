@@ -1,5 +1,13 @@
 # Changelog
 
+### 1.7.1 & 2.3.1
+
+`2021-05-28`
+
+**Bug Fixes**
+
+-style: Fix the problem of missing icons for preview and preview-html components.
+
 ### 1.7.0 & 2.3.0
 
 `2021-05-28`
