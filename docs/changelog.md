@@ -1,5 +1,13 @@
 # Changelog
 
+### 1.7.0 & 2.3.0
+
+`2021-05-28`
+
+**Breaking Change**
+
+- theme: The code highlighting library highlight.js for the github theme and Prismjs, the code highlighting library for the vuepress theme, are separated from the theme and need to be passed in when the user uses it. For specific changes, please check the documentation of the corresponding topic.
+
 ### 1.6.5 & 2.2.6
 
 `2021-05-21`
