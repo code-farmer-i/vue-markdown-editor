@@ -1,8 +1,8 @@
-import hljs from '@/utils/highlight';
 import createBaseTheme from './base';
 import { createHighlightRender } from '@/utils/markdown-it';
 
 export default function createHljsTheme({
+  Hljs,
   baseConfig,
   codeBlockClass,
   codeHighlightExtensionMap = {},
@@ -13,9 +13,9 @@ export default function createHljsTheme({
     md.set({
       highlight: createHighlightRender({
         codeHighlightExtensionMap,
-        hasLang: (lang) => hljs.getLanguage(lang),
+        hasLang: (lang) => Hljs.getLanguage(lang),
         codeBlockClass,
-        highlight: (str, lang) => hljs.highlight(str, { language: lang }).value,
+        highlight: (str, lang) => Hljs.highlight(str, { language: lang }).value,
       }),
     });
   });
@@ -24,7 +24,7 @@ export default function createHljsTheme({
     previewClass: 'markdown-body',
     extend(callback) {
       baseTheme.extend((...arg) => {
-        callback(...arg, hljs);
+        callback(...arg);
       });
     },
     markdownParser: baseTheme.markdownParser,

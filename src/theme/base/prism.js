@@ -1,8 +1,8 @@
-import Prism from 'prismjs';
 import createBaseTheme from './base';
 import { createHighlightRender } from '@/utils/markdown-it';
 
 export default function createPrismTheme({
+  Prism,
   baseConfig,
   codeBlockClass,
   codeHighlightExtensionMap = {},

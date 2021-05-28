@@ -23,6 +23,8 @@ import createCreateCopyCodePreview from '@/plugins/copy-code/preview';
 import vuepressTheme from '@/theme/vuepress';
 import enUS from '@/lang/en-US';
 
+import Prism from 'prismjs';
+
 // codemirror 编辑器的相关资源
 import Codemirror from 'codemirror';
 // mode
@@ -49,6 +51,7 @@ VueMarkdownEditor.lang.use('en-US', enUS);
 //   },
 // });
 VueMarkdownEditor.use(vuepressTheme, {
+  Prism,
   codeHighlightExtensionMap: {
     vue: 'markup',
   },
