@@ -3,7 +3,7 @@ import Component from './preview-html.vue';
 // font css
 import '@/assets/css/font';
 
-const version = '1.7.0';
+const version = '1.7.1-beta.0';
 
 const install = (Vue) => {
   Vue.component(Component.name, Component);
