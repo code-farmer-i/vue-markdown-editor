@@ -9,8 +9,9 @@ import '@/assets/css/theme/vuepress-markdown';
 import '@/plugins/tip/tip.css';
 
 const install = function (VMdEditor, options = {}) {
-  const { extend, config, codeHighlightExtensionMap } = options;
+  const { extend, config, codeHighlightExtensionMap, Prism } = options;
   const theme = createVuepressTheme({
+    Prism,
     baseConfig: config,
     codeHighlightExtensionMap,
   });

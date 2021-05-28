@@ -16,6 +16,7 @@ import 'codemirror/addon/scroll/simplescrollbars.css';
 // style
 import 'codemirror/lib/codemirror.css';
 // import Preview from '@/preview';
+import Prism from 'prismjs';
 import githubTheme from '@/theme/github/index';
 
 import createEmojiPlugin from '@/plugins/emoji/full';
@@ -50,6 +51,7 @@ VueMarkdownEditor.use(createEmojiPlugin())
 //   },
 // });
 VueMarkdownEditor.use(vuepressTheme, {
+  Prism,
   codeHighlightExtensionMap: {
     vue: 'html',
   },

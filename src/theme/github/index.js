@@ -5,8 +5,9 @@ import '@/assets/css/theme/base';
 import '@/assets/css/theme/github-markdown';
 
 const install = function (VMdEditor, options = {}) {
-  const { extend, config, codeHighlightExtensionMap } = options;
+  const { extend, config, codeHighlightExtensionMap, Hljs } = options;
   const theme = createGithubTheme({
+    Hljs,
     baseConfig: config,
     codeHighlightExtensionMap,
   });
