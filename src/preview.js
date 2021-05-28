@@ -3,7 +3,7 @@ import Component from './preview.vue';
 import xss from '@/utils/xss/index';
 import Lang from '@/lang/';
 
-const version = '1.6.5';
+const version = '1.7.0';
 
 const install = (Vue) => {
   Vue.component(Component.name, Component);
