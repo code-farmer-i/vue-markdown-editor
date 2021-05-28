@@ -14,15 +14,16 @@ import '../../../lib/theme/style/github.css';
 import createCopyCodePlugin from '../../../lib/plugins/copy-code/index';
 import '../../../lib/plugins/copy-code/copy-code.css';
 
-import hljs from 'highlight.js/lib';
-
-VMdEditor.use(githubTheme, {
-  Hljs: hljs,
-});
-
-VMdEditor.use(createCopyCodePlugin());
+import hljs from 'highlight.js';
 
 export default {
+  created() {
+    VMdEditor.use(createCopyCodePlugin());
+
+    VMdEditor.use(githubTheme, {
+      Hljs: hljs,
+    });
+  },
   components: {
     [VMdEditor.name]: VMdEditor,
   },

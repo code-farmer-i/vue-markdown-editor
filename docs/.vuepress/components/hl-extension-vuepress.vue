@@ -14,13 +14,6 @@ import '../../../lib/theme/style/vuepress.css';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-json';
 
-VMdEditor.use(vuepressTheme, {
-  Prism,
-  codeHighlightExtensionMap: {
-    vue: 'html',
-  },
-});
-
 const text = `\`\`\`vue
 <template></template>
 
@@ -30,6 +23,14 @@ export default {}
 \`\`\``;
 
 export default {
+  created() {
+    VMdEditor.use(vuepressTheme, {
+      Prism,
+      codeHighlightExtensionMap: {
+        vue: 'html',
+      },
+    });
+  },
   components: {
     [VMdEditor.name]: VMdEditor,
   },

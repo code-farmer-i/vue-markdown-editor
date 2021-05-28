@@ -13,13 +13,7 @@ import '../../../lib/theme/style/github.css';
 import createMermaidPlugin from '../../../lib/plugins/mermaid/npm';
 import '../../../lib/plugins/mermaid/mermaid.css';
 
-import hljs from 'highlight.js/lib';
-
-VMdEditor.use(githubTheme, {
-  Hljs: hljs,
-});
-
-VMdEditor.use(createMermaidPlugin());
+import hljs from 'highlight.js';
 
 const text = `\`\`\`mermaid
 graph LR
@@ -30,6 +24,12 @@ B-->D(fa:fa-spinner);
 `;
 
 export default {
+  created() {
+    VMdEditor.use(createMermaidPlugin());
+    VMdEditor.use(githubTheme, {
+      Hljs: hljs,
+    });
+  },
   components: {
     [VMdEditor.name]: VMdEditor,
   },

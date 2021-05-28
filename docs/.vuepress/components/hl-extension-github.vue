@@ -11,14 +11,7 @@ import '../../../lib/style/base-editor.css';
 import githubTheme from '../../../lib/theme/github.js';
 import '../../../lib/theme/style/github.css';
 
-import hljs from 'highlight.js/lib';
-
-VMdEditor.use(githubTheme, {
-  Hljs: hljs,
-  codeHighlightExtensionMap: {
-    vue: 'html',
-  },
-});
+import hljs from 'highlight.js';
 
 const text = `\`\`\`vue
 <template></template>
@@ -29,6 +22,14 @@ export default {}
 \`\`\``;
 
 export default {
+  created() {
+    VMdEditor.use(githubTheme, {
+      Hljs: hljs,
+      codeHighlightExtensionMap: {
+        vue: 'html',
+      },
+    });
+  },
   components: {
     [VMdEditor.name]: VMdEditor,
   },

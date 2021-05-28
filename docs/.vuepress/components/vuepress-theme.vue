@@ -15,11 +15,12 @@ import text from '../../../dev/text';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-bash';
 
-VMdEditor.use(vuepressTheme, {
-  Prism,
-});
-
 export default {
+  created() {
+    VMdEditor.use(vuepressTheme, {
+      Prism,
+    });
+  },
   components: {
     [VMdEditor.name]: VMdEditor,
   },

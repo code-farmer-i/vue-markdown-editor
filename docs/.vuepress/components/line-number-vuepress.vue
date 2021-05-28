@@ -13,10 +13,6 @@ import '../../../lib/theme/style/vuepress.css';
 
 import Prism from 'prismjs';
 
-VMdEditor.use(vuepressTheme, {
-  Prism,
-});
-
 const text = `\`\`\` bash
 # use npm
 npm i @kangc/v-md-editor -S
@@ -27,6 +23,11 @@ yarn add @kangc/v-md-editor
 `;
 
 export default {
+  created() {
+    VMdEditor.use(vuepressTheme, {
+      Prism,
+    });
+  },
   components: {
     [VMdEditor.name]: VMdEditor,
   },

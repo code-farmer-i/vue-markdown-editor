@@ -2,11 +2,6 @@
 
 ## 介绍
 
-```java
-SELECT column1
-FROM table_name;
-```
-
 markdown 解析使用 [markdown-it](https://github.com/markdown-it/markdown-it) 来实现，代码块解析使用 [highlight.js](https://github.com/highlightjs/highlight.js) 来实现。
 
 效果如下：

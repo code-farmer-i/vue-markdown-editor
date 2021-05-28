@@ -14,13 +14,7 @@ import '../../../lib/theme/style/github.css';
 import createTipPlugin from '../../../lib/plugins/tip/index';
 import '../../../lib/plugins/tip/tip.css';
 
-import hljs from 'highlight.js/lib';
-
-VMdEditor.use(githubTheme, {
-  Hljs: hljs,
-});
-
-VMdEditor.use(createTipPlugin());
+import hljs from 'highlight.js';
 
 const text = `::: tip
   dsa
@@ -28,6 +22,12 @@ const text = `::: tip
 `;
 
 export default {
+  created() {
+    VMdEditor.use(createTipPlugin());
+    VMdEditor.use(githubTheme, {
+      Hljs: hljs,
+    });
+  },
   components: {
     [VMdEditor.name]: VMdEditor,
   },

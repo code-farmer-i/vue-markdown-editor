@@ -20,11 +20,7 @@ import '../../../lib/style/preview.css';
 import githubTheme from '../../../lib/theme/github.js';
 import '../../../lib/theme/style/github.css';
 
-import hljs from 'highlight.js/lib';
-
-VMdPreview.use(githubTheme, {
-  Hljs: hljs,
-});
+import hljs from 'highlight.js';
 
 const text = `
 # heading 1
@@ -64,6 +60,11 @@ contentcontentcontent
 `;
 
 export default {
+  created() {
+    VMdPreview.use(githubTheme, {
+      Hljs: hljs,
+    });
+  },
   components: {
     [VMdPreview.name]: VMdPreview,
   },

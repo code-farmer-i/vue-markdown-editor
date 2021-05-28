@@ -13,15 +13,15 @@ import '../../../lib/theme/style/github.css';
 import createKatexPlugin from '../../../lib/plugins/katex/npm';
 import 'katex/dist/katex.css';
 
-import hljs from 'highlight.js/lib';
-
-VMdEditor.use(githubTheme, {
-  Hljs: hljs,
-});
-
-VMdEditor.use(createKatexPlugin());
+import hljs from 'highlight.js';
 
 export default {
+  created() {
+    VMdEditor.use(createKatexPlugin());
+    VMdEditor.use(githubTheme, {
+      Hljs: hljs,
+    });
+  },
   components: {
     [VMdEditor.name]: VMdEditor,
   },

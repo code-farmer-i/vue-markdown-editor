@@ -14,10 +14,6 @@ import '../../../lib/theme/style/vuepress.css';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-json';
 
-VMdEditor.use(vuepressTheme, {
-  Prism,
-});
-
 const text = `\`\`\`json
 {
   "key": "value"
@@ -25,6 +21,11 @@ const text = `\`\`\`json
 \`\`\``;
 
 export default {
+  created() {
+    VMdEditor.use(vuepressTheme, {
+      Prism,
+    });
+  },
   components: {
     [VMdEditor.name]: VMdEditor,
   },

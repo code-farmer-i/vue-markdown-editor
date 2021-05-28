@@ -12,12 +12,8 @@ import json from 'highlight.js/lib/languages/json';
 import githubTheme from '../../../lib/theme/github.js';
 import '../../../lib/theme/style/github.css';
 
-import hljs from 'highlight.js/lib';
+import hljs from 'highlight.js';
 hljs.registerLanguage('json', json);
-
-VMdEditor.use(githubTheme, {
-  Hljs: hljs,
-});
 
 const text = `\`\`\`json
 {
@@ -26,6 +22,11 @@ const text = `\`\`\`json
 \`\`\``;
 
 export default {
+  created() {
+    VMdEditor.use(githubTheme, {
+      Hljs: hljs,
+    });
+  },
   components: {
     [VMdEditor.name]: VMdEditor,
   },

@@ -14,10 +14,6 @@ import createLineNumberPlugin from '../../../lib/plugins/line-number/index';
 
 import hljs from 'highlight.js/lib';
 
-VMdEditor.use(githubTheme, {
-  Hljs: hljs,
-});
-
 VMdEditor.use(createLineNumberPlugin());
 
 const text = `\`\`\` bash
@@ -29,6 +25,11 @@ yarn add @kangc/v-md-editor
 \`\`\``;
 
 export default {
+  created() {
+    VMdEditor.use(githubTheme, {
+      Hljs: hljs,
+    });
+  },
   components: {
     [VMdEditor.name]: VMdEditor,
   },

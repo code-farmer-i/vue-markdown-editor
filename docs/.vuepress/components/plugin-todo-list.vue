@@ -14,15 +14,15 @@ import '../../../lib/theme/style/github.css';
 import createTodoListPlugin from '../../../lib/plugins/todo-list/index';
 import '../../../lib/plugins/todo-list/todo-list.css';
 
-import hljs from 'highlight.js/lib';
-
-VMdEditor.use(githubTheme, {
-  Hljs: hljs,
-});
-
-VMdEditor.use(createTodoListPlugin());
+import hljs from 'highlight.js';
 
 export default {
+  created() {
+    VMdEditor.use(createTodoListPlugin());
+    VMdEditor.use(githubTheme, {
+      Hljs: hljs,
+    });
+  },
   components: {
     [VMdEditor.name]: VMdEditor,
   },

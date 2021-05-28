@@ -12,13 +12,14 @@ import githubTheme from '../../../lib/theme/github.js';
 import '../../../lib/theme/style/github.css';
 import text from '../../../dev/text';
 
-import hljs from 'highlight.js/lib';
-
-VMdEditor.use(githubTheme, {
-  Hljs: hljs,
-});
+import hljs from 'highlight.js';
 
 export default {
+  created() {
+    VMdEditor.use(githubTheme, {
+      Hljs: hljs,
+    });
+  },
   components: {
     [VMdEditor.name]: VMdEditor,
   },
