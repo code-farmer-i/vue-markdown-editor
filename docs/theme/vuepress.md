@@ -59,7 +59,7 @@ demo：
 </script>
 ```
 
-## Expand
+## Expand MarkdownIt
 
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
@@ -78,7 +78,7 @@ VueMarkdownEditor.use(vuepressTheme, {
 });
 ```
 
-## Extended language pack
+## Extended code highlighting language pack
 
 please use the [babel-plugin-prismjs](https://github.com/mAAdhaTTah/babel-plugin-prismjs) plug-in to introduce the corresponding language packs on demand.
 

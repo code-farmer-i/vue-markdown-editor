@@ -8,9 +8,7 @@ example：
   <base-editor />
 </ClientOnly>
 
-## Expand
-
-The theme package only supports js(javascript), xml(html), css by default. In order to avoid introducing too much redundant code, the package size is too large. If you need to support more language code highlighting, please introduce the corresponding language pack as needed.
+## Expand MarkdownIt
 
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
@@ -27,6 +25,44 @@ VueMarkdownEditor.use(githubTheme, {
     // md is a markdown-it instance, you can modify the configuration here, and use plugin for syntax expansion
     // md.set(option).use(plugin);
   },
+});
+```
+
+## Extended code highlighting language pack
+
+Introduce language packs on demand (recommended)
+
+```js
+import VueMarkdownEditor from '@kangc/v-md-editor';
+import '@kangc/v-md-editor/lib/style/base-editor.css';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+import '@kangc/v-md-editor/lib/theme/style/github.css';
+
+// highlightjs
+import hljs from 'highlight.js/lib/core';
+// languages
+import json from 'highlight.js/lib/languages/json';
+
+hljs.registerLanguage('json', json);
+
+VueMarkdownEditor.use(githubTheme, {
+  Hljs: hljs,
+});
+```
+
+Introduce all language packs (not recommended)
+
+```js
+import VueMarkdownEditor from '@kangc/v-md-editor';
+import '@kangc/v-md-editor/lib/style/base-editor.css';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+import '@kangc/v-md-editor/lib/theme/style/github.css';
+
+// all languages
+import hljs from 'highlight.js';
+
+VueMarkdownEditor.use(githubTheme, {
+  Hljs: hljs,
 });
 ```
 

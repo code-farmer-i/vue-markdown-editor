@@ -10,9 +10,7 @@ markdown 解析使用 [markdown-it](https://github.com/markdown-it/markdown-it) 
   <base-editor />
 </ClientOnly>
 
-## 扩展
-
-主题包默认只支持了 js(javascript), xml(html), css。以免引入太多冗余代码导致包的体积过大。如果需要支持更多的语言代码高亮，请按需引入对应的语言包。
+## 扩展 markdown-it
 
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
@@ -29,6 +27,44 @@ VueMarkdownEditor.use(githubTheme, {
     // md为 markdown-it 实例，可以在此处进行修改配置,并使用 plugin 进行语法扩展
     // md.set(option).use(plugin);
   },
+});
+```
+
+## 引入代码高亮语言包
+
+按需引入语言包（推荐）
+
+```js
+import VueMarkdownEditor from '@kangc/v-md-editor';
+import '@kangc/v-md-editor/lib/style/base-editor.css';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+import '@kangc/v-md-editor/lib/theme/style/github.css';
+
+// highlightjs 核心代码
+import hljs from 'highlight.js/lib/core';
+// 按需引入语言包
+import json from 'highlight.js/lib/languages/json';
+
+hljs.registerLanguage('json', json);
+
+VueMarkdownEditor.use(githubTheme, {
+  Hljs: hljs,
+});
+```
+
+引入所有语言包（不推荐）
+
+```js
+import VueMarkdownEditor from '@kangc/v-md-editor';
+import '@kangc/v-md-editor/lib/style/base-editor.css';
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+import '@kangc/v-md-editor/lib/theme/style/github.css';
+
+// 引入所有语言包
+import hljs from 'highlight.js';
+
+VueMarkdownEditor.use(githubTheme, {
+  Hljs: hljs,
 });
 ```
 

@@ -63,7 +63,7 @@ vuepress 主题内置扩展了 tip 功能。同时你也可以在 left-toolbar �
 </script>
 ```
 
-## 扩展
+## 扩展 markdown-it
 
 ```js
 import VueMarkdownEditor from '@kangc/v-md-editor';
@@ -82,7 +82,7 @@ VueMarkdownEditor.use(vuepressTheme, {
 });
 ```
 
-## 扩展语言包
+## 扩展代码高亮语言包
 
 请通过[babel-plugin-prismjs](https://github.com/mAAdhaTTah/babel-plugin-prismjs)插件按需引入对应的语言包。
 
