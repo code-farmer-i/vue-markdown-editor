@@ -2,6 +2,11 @@
 
 ## 介绍
 
+```java
+SELECT column1
+FROM table_name;
+```
+
 markdown 解析使用 [markdown-it](https://github.com/markdown-it/markdown-it) 来实现，代码块解析使用 [highlight.js](https://github.com/highlightjs/highlight.js) 来实现。
 
 效果如下：
@@ -21,22 +26,7 @@ import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
 import '@kangc/v-md-editor/lib/theme/style/github.css';
 
 // highlightjs
-import hljs from 'highlight.js/lib';
-// 按需引入代码高亮的语言包并注册
-import jsLanguage from 'highlight.js/lib/languages/javascript';
-import xmlLanguage from 'highlight.js/lib/languages/xml';
-import cssLanguage from 'highlight.js/lib/languages/css';
-
-// language js
-hljs.registerLanguage('js', jsLanguage);
-hljs.registerLanguage('javascript', jsLanguage);
-
-// language xml, html
-hljs.registerLanguage('html', xmlLanguage);
-hljs.registerLanguage('xml', xmlLanguage);
-
-// language css
-hljs.registerLanguage('css', cssLanguage);
+import hljs from 'highlight.js';
 
 VueMarkdownEditor.use(githubTheme, {
   Hljs: hljs,

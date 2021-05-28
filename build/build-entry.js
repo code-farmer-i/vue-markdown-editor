@@ -22,12 +22,9 @@ import Component from './${filename}.vue';${
     ? `\nimport xss from '@/utils/xss/index';
 import Lang from '@/lang/';`
     : ''
-}${
-  isEditor(filename)
-    ? `\n// font css
-import '@/assets/css/font';`
-    : ''
 }
+// font css
+import '@/assets/css/font';
 
 const version = '${version}';
 

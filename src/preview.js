@@ -2,6 +2,8 @@
 import Component from './preview.vue';
 import xss from '@/utils/xss/index';
 import Lang from '@/lang/';
+// font css
+import '@/assets/css/font';
 
 const version = '1.7.0';
 
