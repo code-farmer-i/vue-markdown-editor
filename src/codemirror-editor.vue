@@ -26,6 +26,9 @@
     <template #editor>
       <div
         class="codemirror-wrapper"
+        :class="{
+          'codemirror-reset': codemirrorStyleReset
+        }"
         ref="codemirrorEditor"
       />
     </template>
@@ -55,6 +58,10 @@ import HotKeys from '@/utils/hotkeys';
 const component = {
   props: {
     codemirrorConfig: Object,
+    codemirrorStyleReset: {
+      type: Boolean,
+      default: true,
+    },
   },
   watch: {
     modelValue() {
@@ -268,79 +275,84 @@ export default component;
 
     .CodeMirror {
       height: 100%;
-      color: $text-color;
-      font-size: $editor-font-size;
-      font-family: $editor-font-family;
-      line-height: $editor-line-height;
+    }
 
-      &:hover {
-        .CodeMirror-overlayscroll-vertical,
-        .CodeMirror-overlayscroll-horizontal {
-          & > div {
-            opacity: 1;
+    &.codemirror-reset {
+      .CodeMirror {
+        color: $text-color;
+        font-size: $editor-font-size;
+        font-family: $editor-font-family;
+        line-height: $editor-line-height;
+
+        &:hover {
+          .CodeMirror-overlayscroll-vertical,
+          .CodeMirror-overlayscroll-horizontal {
+            & > div {
+              opacity: 1;
+            }
+          }
+        }
+
+        pre {
+          padding: 0 12px;
+          word-break: break-all;
+        }
+      }
+
+      .CodeMirror-empty {
+        color: $text-color-placeholder;
+      }
+
+      .cm-header,
+      .cm-url,
+      .cm-link {
+        color: #1890ff;
+      }
+
+      .cm-link {
+        text-decoration: none;
+      }
+
+      .cm-url {
+        text-decoration: underline;
+      }
+
+      .cm-quote,
+      .cm-comment,
+      .cm-variable-2:not(.cm-url),
+      .cm-link {
+        color: $text-color;
+      }
+
+      // 选中代码的高亮背景色
+      .CodeMirror-selected {
+        background: mix(#e8f2ff, #000, 90%);
+      }
+
+      .CodeMirror-linenumbers {
+        padding: 0 5px;
+      }
+
+      // 滚动条样式
+      .CodeMirror-overlayscroll-vertical,
+      .CodeMirror-overlayscroll-horizontal {
+        & > div {
+          background-color: $scrollbar-background-color;
+          border-radius: $scrollbar-border-radius;
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity $scrollbar-opacity-transition,
+            background-color $scrollbar-background-transition;
+
+          &:hover {
+            background-color: $scrollbar-active-background-color;
           }
         }
       }
 
-      pre {
-        padding: 0 12px;
-        word-break: break-all;
+      .CodeMirror-overlayscroll-vertical {
+        right: 2px;
       }
-    }
-
-    .CodeMirror-empty {
-      color: $text-color-placeholder;
-    }
-
-    .cm-header,
-    .cm-url,
-    .cm-link {
-      color: #1890ff;
-    }
-
-    .cm-link {
-      text-decoration: none;
-    }
-
-    .cm-url {
-      text-decoration: underline;
-    }
-
-    .cm-quote,
-    .cm-comment,
-    .cm-variable-2:not(.cm-url),
-    .cm-link {
-      color: $text-color;
-    }
-
-    // 选中代码的高亮背景色
-    .CodeMirror-selected {
-      background: mix(#e8f2ff, #000, 90%);
-    }
-
-    .CodeMirror-linenumbers {
-      padding: 0 5px;
-    }
-
-    // 滚动条样式
-    .CodeMirror-overlayscroll-vertical,
-    .CodeMirror-overlayscroll-horizontal {
-      & > div {
-        background-color: $scrollbar-background-color;
-        border-radius: $scrollbar-border-radius;
-        cursor: pointer;
-        opacity: 0;
-        transition: opacity $scrollbar-opacity-transition,
-          background-color $scrollbar-background-transition;
-
-        &:hover {
-          background-color: $scrollbar-active-background-color;
-        }
-      }
-    }
-
-    .CodeMirror-overlayscroll-vertical {
-      right: 2px;
     }
   }
 }

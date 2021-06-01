@@ -134,7 +134,7 @@
   "dependencies": {
     "@babel/runtime": "^7.14.0",
     "@vuepress/markdown": "^1.8.2",
-    "codemirror": "^5.61.0",
+    "codemirror": "^5.61.1",
     "copy-to-clipboard": "^3.3.1",
     "highlight.js": "^10.7.2",
     "insert-text-at-cursor": "^0.3.0",

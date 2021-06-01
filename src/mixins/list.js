@@ -10,7 +10,9 @@ export default {
 
     this.registerHotkeys({
       key: 'enter',
-      action: () => {
+      action: (editor, e) => {
+        if (e.isComposing) return;
+
         const cursorLineLeftText = this.getCursorLineLeftText();
         let suffix;
         let syntax;

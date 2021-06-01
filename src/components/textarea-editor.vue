@@ -9,8 +9,9 @@
       :value="modelValue"
       :placeholder="placeholder"
       spellcheck="false"
-      @compositionstart="() => (ignoreInput = true)"
-      @compositionend="() => (ignoreInput = false)"
+      @compositionstart="handleCompositionStart"
+      @compositionupdate="handleCompositionUpdate"
+      @compositionend="handleCompositionEnd"
       @input="handleInput"
       @click="updateCurrentHistoryRange"
       @paste="handlePaste"
@@ -31,6 +32,8 @@
 import insertTextAtCursor from 'insert-text-at-cursor';
 import HotKeys from '@/utils/hotkeys';
 
+import { isKorean } from '@/utils/util';
+
 export default {
   name: 'v-md-textarea-editor',
   props: {
@@ -45,6 +48,11 @@ export default {
       default: 30,
     },
   },
+  data() {
+    return {
+      isComposing: false,
+    };
+  },
   computed: {
     textareaEl() {
       return this.$refs.textarea;
@@ -56,9 +64,7 @@ export default {
 
       if (!this.triggerInputBySetHistory) {
         this.timmer = setTimeout(() => {
-          if (!this.ignoreInput) {
-            this.saveHistory();
-          }
+          this.saveHistory();
 
           this.clearTimeout();
         }, this.historyDebounce);
@@ -79,6 +85,20 @@ export default {
     this.textareaEl.removeEventListener('keydown', this.handleKeydown, false);
   },
   methods: {
+    handleCompositionStart() {
+      this.isComposing = true;
+    },
+    handleCompositionUpdate(event) {
+      const text = event.target.value;
+      const lastCharacter = text[text.length - 1] || '';
+      this.isComposing = !isKorean(lastCharacter);
+    },
+    handleCompositionEnd(event) {
+      if (this.isComposing) {
+        this.isComposing = false;
+        this.handleInput(event);
+      }
+    },
     handlePaste(e) {
       this.$emit('paste', e);
     },
@@ -106,6 +126,9 @@ export default {
       }
     },
     handleInput(e) {
+      if (this.isComposing) return;
+      console.log(e.target.value);
+
       this.$emit('update:modelValue', e.target.value);
     },
     saveHistory() {
