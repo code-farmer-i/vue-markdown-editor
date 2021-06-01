@@ -9,8 +9,9 @@
       :value="value"
       :placeholder="placeholder"
       spellcheck="false"
-      @compositionstart="() => ignoreInput = true"
-      @compositionend="() => ignoreInput = false"
+      @compositionstart="handleCompositionStart"
+      @compositionupdate="handleCompositionUpdate"
+      @compositionend="handleCompositionEnd"
       @input="handleInput"
       @click="updateCurrentHistoryRange"
       @paste="handlePaste"
@@ -32,6 +33,8 @@ import insertTextAtCursor from 'insert-text-at-cursor';
 import HotKeys from '@/utils/hotkeys';
 import Vue from 'vue';
 
+import { isKorean } from '@/utils/util';
+
 Vue.config.keyCodes.z = 90;
 Vue.config.keyCodes.y = 89;
 
@@ -49,55 +52,72 @@ export default {
       default: 30,
     },
   },
+  data() {
+    return {
+      isComposing: false,
+    };
+  },
   computed: {
-    textareaEl () {
+    textareaEl() {
       return this.$refs.textarea;
     },
   },
   watch: {
-    value () {
+    value() {
       this.clearTimeout();
 
       if (!this.triggerInputBySetHistory) {
         this.timmer = setTimeout(() => {
-          if (!this.ignoreInput) {
-            this.saveHistory();
-          }
+          this.saveHistory();
 
           this.clearTimeout();
         }, this.historyDebounce);
       }
     },
   },
-  created () {
+  created() {
     this.historyStack = [];
     this.historyIndex = 0;
     this.hotkeysManager = new HotKeys();
   },
-  mounted () {
+  mounted() {
     this.saveHistory();
 
     this.textareaEl.addEventListener('keydown', this.handleKeydown, false);
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.textareaEl.removeEventListener('keydown', this.handleKeydown, false);
   },
   methods: {
-    handlePaste (e) {
+    handleCompositionStart() {
+      this.isComposing = true;
+    },
+    handleCompositionUpdate(event) {
+      const text = event.target.value;
+      const lastCharacter = text[text.length - 1] || '';
+      this.isComposing = !isKorean(lastCharacter);
+    },
+    handleCompositionEnd(event) {
+      if (this.isComposing) {
+        this.isComposing = false;
+        this.handleInput(event);
+      }
+    },
+    handlePaste(e) {
       this.$emit('paste', e);
     },
-    registerHotkeys (...arg) {
+    registerHotkeys(...arg) {
       this.hotkeysManager.registerHotkeys(...arg);
     },
-    handleKeydown (e) {
+    handleKeydown(e) {
       this.hotkeysManager.dispatch(e);
     },
-    heightAtLine (lineIndex) {
+    heightAtLine(lineIndex) {
       const el = this.$el.querySelector(`section[data-line="${lineIndex}"]`);
 
       return el ? el.offsetTop + el.offsetHeight : 0;
     },
-    clearTimeout () {
+    clearTimeout() {
       if (this.timmer) clearTimeout(this.timmer);
 
       this.timmer = null;
@@ -109,10 +129,10 @@ export default {
         });
       }
     },
-    handleInput (e) {
+    handleInput(e) {
       this.$emit('input', e.target.value);
     },
-    saveHistory () {
+    saveHistory() {
       const range = this.getRange();
       const history = {
         value: this.value,
@@ -124,13 +144,13 @@ export default {
       if (this.historyStack.length > this.historyMax) this.historyStack.shift();
       this.historyIndex = this.historyStack.length - 1;
     },
-    updateHistory (index, data) {
+    updateHistory(index, data) {
       const history = this.historyStack[index];
 
       if ('value' in data) history.value = data.value;
       Object.assign(history.range, data.range);
     },
-    goHistory (index) {
+    goHistory(index) {
       const { value, range } = this.historyStack[index];
 
       this.$emit('input', value);
@@ -154,10 +174,10 @@ export default {
     focus() {
       this.textareaEl.focus();
     },
-    insertText (text) {
+    insertText(text) {
       insertTextAtCursor(this.textareaEl, text);
     },
-    undo () {
+    undo() {
       if (this.historyIndex > 0) {
         this.historyIndex--;
         this.goHistory(this.historyIndex);
