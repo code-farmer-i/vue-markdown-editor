@@ -1,5 +1,13 @@
 # Changelog
 
+### 1.7.2 & 2.3.2
+
+`2021-06-01`
+
+**Improvement**
+
+- editor: Optimize the editor input experience.
+
 ### 1.7.1 & 2.3.1
 
 `2021-05-28`
