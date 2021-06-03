@@ -306,8 +306,6 @@
   border-right: 6px solid #ccc;
 }
 .vuepress-markdown-body:not(.custom) {
-  max-width: 740px;
-  margin: 0 auto;
   padding: 2rem 2.5rem;
 }
 @media (max-width: 959px) {

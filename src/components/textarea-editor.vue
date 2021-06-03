@@ -127,7 +127,6 @@ export default {
     },
     handleInput(e) {
       if (this.isComposing) return;
-      console.log(e.target.value);
 
       this.$emit('update:modelValue', e.target.value);
     },
