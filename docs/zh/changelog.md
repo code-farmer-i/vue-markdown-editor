@@ -1,5 +1,21 @@
 # 更新日志
 
+### 1.7.3 & 2.3.3
+
+`2021-06-03`
+
+**Features**
+
+- plugin: 新增 [align](./plugins/align.md) 插件。
+
+**Bug Fixes**
+
+- upload-image: 修复上传图片事件中的 insertImage 回调设置图片宽高无效的问题。
+
+**Improvement**
+
+- theme: vuepress 主题样式优化。
+
 ### 1.7.2 & 2.3.2
 
 `2021-06-01`

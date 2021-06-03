@@ -1,5 +1,21 @@
 # Changelog
 
+### 1.7.3 & 2.3.3
+
+`2021-06-03`
+
+**Features**
+
+- plugin: Add [align](./plugins/align.md) plugin.
+
+**Bug Fixes**
+
+- upload-image: Fix the issue that the insertImage callback in the upload image event is invalid to set the image width and height.
+
+**Improvement**
+
+- theme: vuepress theme style optimization.
+
 ### 1.7.2 & 2.3.2
 
 `2021-06-01`
