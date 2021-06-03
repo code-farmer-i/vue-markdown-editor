@@ -30,6 +30,7 @@ import '@/plugins/copy-code/copy-code';
 import createHighLinesPlugin from '@/plugins/highlight-lines/';
 import '@/plugins/highlight-lines/highlight-lines';
 import createMermaidPlugin from '@/plugins/mermaid/cdn';
+import createAlignPlugin from '@/plugins/align';
 
 import vuepressTheme from '@/theme/vuepress';
 import enUS from '@/lang/en-US';
@@ -43,7 +44,8 @@ VueMarkdownEditor.use(createEmojiPlugin())
   .use(createLineNumberPlugin())
   .use(createCopyCodePlugin())
   .use(createHighLinesPlugin())
-  .use(createMermaidPlugin());
+  .use(createMermaidPlugin())
+  .use(createAlignPlugin());
 
 // VueMarkdownEditor.use(githubTheme, {
 //   codeHighlightExtensionMap: {
