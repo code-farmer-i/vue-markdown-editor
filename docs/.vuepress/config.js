@@ -139,7 +139,7 @@ module.exports = {
               ['/zh/plugins/line-number', '代码行号'],
               ['/zh/plugins/highlight-lines', '高亮代码行'],
               ['/zh/plugins/copy-code', '快捷复制代码'],
-              ['/plugins/align', '内容定位'],
+              ['/zh/plugins/align', '内容定位'],
             ],
           },
         ],
