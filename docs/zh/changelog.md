@@ -1,5 +1,17 @@
 # 更新日志
 
+### 1.7.4 & 2.3.4
+
+`2021-06-04`
+
+**Features**
+
+- editor: 新增 [tab-size](./api.md#tab-size) 属性。
+
+**Improvement**
+
+- codemirror-editor: 编辑器添加引入资源，优化编辑体验。
+
 ### 1.7.3 & 2.3.3
 
 `2021-06-03`

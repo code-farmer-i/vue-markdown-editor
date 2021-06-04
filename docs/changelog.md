@@ -1,5 +1,17 @@
 # Changelog
 
+### 1.7.4 & 2.3.4
+
+`2021-06-04`
+
+**Features**
+
+- editor: Add [tab-size](./api.md#tab-size) attribute.
+
+**Improvement**
+
+- codemirror-editor: Add and import resources to the editor to optimize the editing experience.
+
 ### 1.7.3 & 2.3.3
 
 `2021-06-03`

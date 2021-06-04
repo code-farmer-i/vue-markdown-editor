@@ -38,7 +38,7 @@ sidebarDepth: 2
 
 正常模式下编辑器的高度。
 
-### tabSize
+### tab-size
 
 - 类型：`Number`
 - 默认值： `2`

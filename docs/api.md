@@ -34,7 +34,7 @@ Optional value：`edit` `editable` `preview`。
 - type：`String`
 - default： `''`
 
-### tabSize
+### tab-size
 
 - 类型：`Number`
 - 默认值： `2`
