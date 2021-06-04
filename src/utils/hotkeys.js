@@ -13,25 +13,28 @@ class Hotkeys {
 
   dispatch(e) {
     const keyName = this.getKeyName(e).toLowerCase();
-    let handler;
+    let opt;
 
     if (!keyName) return;
 
     if (this.isKeyEnterExact(e)) {
-      handler = this.hotkeys.keys[keyName];
+      opt = this.hotkeys.keys[keyName];
     } else if (this.isCtrlEnterExact(e)) {
-      handler = this.hotkeys.ctrl[keyName];
+      opt = this.hotkeys.ctrl[keyName];
     } else if (this.isShiftEnterExact(e)) {
-      handler = this.hotkeys.shift[keyName];
+      opt = this.hotkeys.shift[keyName];
     } else if (this.isCtrlAltEnterExact(e)) {
-      handler = this.hotkeys.ctrlAlt[keyName];
+      opt = this.hotkeys.ctrlAlt[keyName];
     } else if (this.isCtrlShiftEnterExact(e)) {
-      handler = this.hotkeys.ctrlShift[keyName];
+      opt = this.hotkeys.ctrlShift[keyName];
     }
 
-    if (handler) {
-      e.preventDefault();
-      handler(e);
+    if (opt) {
+      const { action, preventDefault } = opt;
+
+      if (preventDefault) e.preventDefault();
+
+      action(e);
     }
   }
 
@@ -67,11 +70,17 @@ class Hotkeys {
     return e.altKey;
   }
 
-  registerHotkeys({ modifier, key, action }) {
+  registerHotkeys({ modifier, key, preventDefault = true, action }) {
     if (modifier) {
-      this.hotkeys[modifier][key] = action;
+      this.hotkeys[modifier][key] = {
+        preventDefault,
+        action,
+      };
     } else {
-      this.hotkeys.keys[key] = action;
+      this.hotkeys.keys[key] = {
+        preventDefault,
+        action,
+      };
     }
   }
 

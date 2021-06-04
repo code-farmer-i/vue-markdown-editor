@@ -10,6 +10,7 @@ export default {
 
     this.registerHotkeys({
       key: 'enter',
+      preventDefault: false,
       action: (editor, e) => {
         if (e.isComposing) return;
 
@@ -20,11 +21,14 @@ export default {
         if (ol.test(cursorLineLeftText)) {
           suffix = 'x. ';
           syntax = olSyntax;
+
+          e.preventDefault();
         } else if (ul.test(cursorLineLeftText)) {
           suffix = '- ';
           syntax = ulSyntax;
+
+          e.preventDefault();
         } else {
-          this.replaceSelectionText('\n', 'end');
           return;
         }
 
@@ -39,10 +43,6 @@ export default {
           }
 
           this.replaceSelectionText(`\n${beforeText}`, 'end');
-        } else {
-          // break
-          this.delLineLeft();
-          this.replaceSelectionText('\n', 'end');
         }
       },
     });

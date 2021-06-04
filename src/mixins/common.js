@@ -30,6 +30,10 @@ export default {
     },
     autofocus: Boolean,
     placeholder: String,
+    tabSize: {
+      type: Number,
+      default: 2,
+    },
   },
   emits: ['change', 'save'],
   data() {

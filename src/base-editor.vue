@@ -43,6 +43,7 @@
       <scrollbar ref="previewScroller">
         <v-md-preview
           :text="text"
+          :tab-size="tabSize"
           :scroll-container="getPreviewScrollContainer"
           @change="handleChange"
           ref="preview"

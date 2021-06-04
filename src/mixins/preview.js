@@ -5,6 +5,10 @@ import ImagePreview from '@/components/image-preview';
 
 export default {
   props: {
+    tabSize: {
+      type: Number,
+      default: 2,
+    },
     scrollContainer: {
       type: Function,
       default: () => window,
