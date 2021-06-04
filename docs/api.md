@@ -34,6 +34,13 @@ Optional value：`edit` `editable` `preview`。
 - type：`String`
 - default： `''`
 
+### tabSize
+
+- 类型：`Number`
+- 默认值： `2`
+
+The length of the tab character when editing and previewing. Both the editor and preview components support this property.
+
 ### placeholder
 
 - type：`String`

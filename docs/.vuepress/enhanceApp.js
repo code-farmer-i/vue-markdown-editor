@@ -12,6 +12,14 @@ export default async ({ Vue }) => {
 
   // mode
   await import('codemirror/mode/markdown/markdown');
+  await import('codemirror/mode/javascript/javascript');
+  await import('codemirror/mode/css/css');
+  await import('codemirror/mode/htmlmixed/htmlmixed');
+  await import('codemirror/mode/vue/vue');
+  // edit
+  await import('codemirror/addon/edit/closebrackets');
+  await import('codemirror/addon/edit/closetag');
+  await import('codemirror/addon/edit/matchbrackets');
   // placeholder
   await import('codemirror/addon/display/placeholder');
   // active-line

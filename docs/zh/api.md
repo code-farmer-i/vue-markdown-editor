@@ -38,6 +38,13 @@ sidebarDepth: 2
 
 正常模式下编辑器的高度。
 
+### tabSize
+
+- 类型：`Number`
+- 默认值： `2`
+
+编辑和预览时制表符的长度，编辑器和预览组件都支持该属性。
+
 ### placeholder
 
 - 类型：`String`
