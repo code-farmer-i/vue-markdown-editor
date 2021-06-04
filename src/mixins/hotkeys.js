@@ -19,8 +19,13 @@ export default function (Component) {
       });
     },
     methods: {
-      registerHotkeys({ modifier, key, action }) {
-        this.editorRegisterHotkeys({ modifier, key, action: (...arg) => action(this, ...arg) });
+      registerHotkeys({ modifier, key, action, preventDefault = true }) {
+        this.editorRegisterHotkeys({
+          modifier,
+          key,
+          preventDefault,
+          action: (...arg) => action(this, ...arg),
+        });
       },
     },
   };

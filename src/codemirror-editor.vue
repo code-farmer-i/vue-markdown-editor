@@ -34,6 +34,7 @@
     >
       <v-md-preview
         :text="text"
+        :tab-size="tabSize"
         :scroll-container="getPreviewScrollContainer"
         @change="handleChange"
         ref="preview"
@@ -84,15 +85,20 @@ const component = {
     }
 
     this.codemirrorInstance = new this.Codemirror(this.$refs.codemirrorEditor, {
-      tabSize: 2,
       lineNumbers: true,
       styleActiveLine: true,
+      autoCloseTags: true,
+      matchBrackets: true,
+      indentWithTabs: true,
+      autoCloseBrackets: true,
+      ...this.codemirrorConfig,
+      tabSize: this.tabSize,
+      indentUnit: this.tabSize,
       value: this.text,
       placeholder: this.placeholder,
       mode: 'markdown',
-      lineWrapping: 'wrap',
+      lineWrapping: true,
       scrollbarStyle: 'overlay',
-      ...this.codemirrorConfig,
     });
 
     this.codemirrorInstance.on('change', () => {

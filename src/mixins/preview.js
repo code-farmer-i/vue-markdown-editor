@@ -13,6 +13,10 @@ export default {
       type: Number,
       default: 0,
     },
+    tabSize: {
+      type: Number,
+      default: 2,
+    },
   },
   components: {
     [ImagePreview.name]: ImagePreview,

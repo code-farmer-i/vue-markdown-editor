@@ -1,6 +1,11 @@
 <template>
   <div
     class="v-md-editor-preview"
+    :style="{
+      tabSize,
+      '-moz-tab-size': tabSize,
+      '-o-tab-size': tabSize
+    }"
     @click="handlePreviewClick"
   >
     <div

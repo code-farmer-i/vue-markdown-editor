@@ -41,6 +41,7 @@
     >
       <v-md-preview
         :text="text"
+        :tab-size="tabSize"
         :scroll-container="getPreviewScrollContainer"
         @change="handleChange"
         ref="preview"
@@ -73,7 +74,7 @@ const component = {
       this.setFocusEnd();
     },
     // Must implement
-    editorFocusEnd () {
+    editorFocusEnd() {
       this.focus();
 
       this.$refs.editorEgine.setRange({
@@ -82,7 +83,7 @@ const component = {
       });
     },
     // Must implement
-    delLineLeft () {
+    delLineLeft() {
       const { editorEgine } = this.$refs;
       const { start } = editorEgine.getRange();
 
@@ -91,25 +92,25 @@ const component = {
       this.replaceSelectionText('\n');
     },
     // Must implement
-    getCursorLineLeftText () {
+    getCursorLineLeftText() {
       const { start, end } = this.$refs.editorEgine.getRange();
 
       return start === end ? this.text.slice(0, start).split('\n').pop() : null;
     },
     // Must implement
-    editorRegisterHotkeys (...arg) {
+    editorRegisterHotkeys(...arg) {
       this.$refs.editorEgine.registerHotkeys(...arg);
     },
     // Must implement
-    editorScrollToTop (scrollTop) {
+    editorScrollToTop(scrollTop) {
       this.$refs.editorScroller.scrollTo(scrollTop);
     },
     // Must implement
-    getScrollInfo () {
+    getScrollInfo() {
       return this.$refs.editorScroller.getScrollInfo();
     },
     // Must implement
-    heightAtLine (...arg) {
+    heightAtLine(...arg) {
       return this.$refs.editorEgine.heightAtLine(...arg);
     },
     // Must implement
@@ -135,7 +136,7 @@ const component = {
       this.$refs.editorEgine.insertText(text);
     },
     // Must implement
-    getCurrentSelectedStr () {
+    getCurrentSelectedStr() {
       const { start, end } = this.$refs.editorEgine.getRange();
 
       return end > start ? this.text.slice(start, end) : null;

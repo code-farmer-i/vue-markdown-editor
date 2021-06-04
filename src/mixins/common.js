@@ -31,6 +31,10 @@ export default {
     },
     autofocus: Boolean,
     placeholder: String,
+    tabSize: {
+      type: Number,
+      default: 2,
+    },
   },
   data() {
     return {
