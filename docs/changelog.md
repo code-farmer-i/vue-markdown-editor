@@ -1,5 +1,13 @@
 # Changelog
 
+### 1.7.5
+
+`2021-06-07`
+
+**Bug Fixes**
+
+- plugin: Fix the problem that the plug fails when vue is import from cdn.
+
 ### 1.7.4 & 2.3.4
 
 `2021-06-04`
