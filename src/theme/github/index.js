@@ -16,10 +16,6 @@ const install = function (VMdEditor, options = {}) {
   VMdEditor.theme(theme);
 };
 
-if (typeof window !== 'undefined' && window.VMdEditor) {
-  install(window.VMdEditor);
-}
-
 export default {
   install,
 };
