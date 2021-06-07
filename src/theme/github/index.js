@@ -8,10 +8,6 @@ const install = function (VMdEditor, options) {
   VMdEditor.vMdParser.use(parser, options);
 };
 
-if (typeof window !== 'undefined' && window.VMdEditor) {
-  install(window.VMdEditor);
-}
-
 export default {
   install,
 };
