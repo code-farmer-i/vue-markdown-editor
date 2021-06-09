@@ -39,7 +39,7 @@ Vue.use(VueMarkdownEditor);
 ## Register in vue3
 
 ```js
-import { creatApp } from 'vue';
+import { createApp } from 'vue';
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
@@ -51,7 +51,7 @@ VueMarkdownEditor.use(vuepressTheme, {
   Prism,
 });
 
-const app = creatApp(/*...*/);
+const app = createApp(/*...*/);
 
 app.use(VueMarkdownEditor);
 ```

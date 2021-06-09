@@ -50,7 +50,7 @@ Vue.use(VMdEditor);
 ## Import in vue3
 
 ```js
-import { creatApp } from 'vue';
+import { createApp } from 'vue';
 import VMdEditor from '@kangc/v-md-editor/lib/codemirror-editor';
 import '@kangc/v-md-editor/lib/style/codemirror-editor.css';
 import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
@@ -82,7 +82,7 @@ VMdEditor.Codemirror = Codemirror;
 
 VMdEditor.use(githubTheme);
 
-const app = creatApp(/*...*/);
+const app = createApp(/*...*/);
 
 app.use(VMdEditor);
 ```

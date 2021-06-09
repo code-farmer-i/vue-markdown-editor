@@ -26,7 +26,7 @@ Vue.use(VMdEditor);
 ## Import in vue3
 
 ```js
-import { creatApp } from 'vue';
+import { createApp } from 'vue';
 import VMdEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
@@ -39,7 +39,7 @@ VMdEditor.use(githubTheme, {
   Hljs: hljs,
 });
 
-const app = creatApp(/*...*/);
+const app = createApp(/*...*/);
 
 app.use(VMdEditor);
 ```

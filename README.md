@@ -55,7 +55,7 @@ Vue.use(VueMarkdownEditor);
 ## Quick Start In Vue3
 
 ```js
-import { creatApp } from 'vue';
+import { createApp } from 'vue';
 import VMdEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
 import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
@@ -70,7 +70,7 @@ VMdEditor.use(vuepressTheme, {
   Prism,
 });
 
-const app = creatApp(/*...*/);
+const app = createApp(/*...*/);
 
 app.use(VMdEditor);
 ```
@@ -121,7 +121,7 @@ Paypal
 
 [PayPal.Me](https://paypal.me/codefarmeri?locale.x=zh_XC)
 
-Alipay 支付宝 
+Alipay 支付宝
 
 <img src="https://user-images.githubusercontent.com/15082905/119299019-c583e500-bc90-11eb-8b34-4bff83da3745.png" width="140"/>
 
