@@ -225,6 +225,7 @@ export default {
   }
 
   &--left-area-reverse &__left-area {
+    border-right: none;
     border-left: 1px solid $border-color;
   }
 
