@@ -3,7 +3,10 @@
     class="v-md-editor"
     :class="[
       `v-md-editor--${mode}`,
-      { 'v-md-editor--fullscreen': fullscreen }
+      {
+        'v-md-editor--fullscreen': fullscreen,
+        'v-md-editor--left-area-reverse': leftAreaReverse
+      }
     ]"
     :style="{ height: heightGetter }"
   >
@@ -97,14 +100,15 @@ export default {
       type: String,
       default: '200px',
     },
+    leftAreaReverse: Boolean,
     mode: {
       type: String,
       default: EDITOR_MODE.EDITABLE,
     },
   },
-  data () {
+  data() {
     return {
-      toolbarHeight: 0,
+      toolbarHeight: 41,
     };
   },
   computed: {
@@ -117,10 +121,10 @@ export default {
     rightToolbarGroup() {
       return this.getToolbarConfig(this.rightToolbar);
     },
-    isPreviewMode () {
+    isPreviewMode() {
       return this.mode === EDITOR_MODE.PREVIEW;
     },
-    isEditMode () {
+    isEditMode() {
       return this.mode === EDITOR_MODE.EDIT;
     },
   },
@@ -213,6 +217,15 @@ export default {
       padding: 8px 14px;
       overflow: hidden;
     }
+  }
+
+  &--left-area-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &--left-area-reverse &__left-area {
+    border-right: none;
+    border-left: 1px solid $border-color;
   }
 
   &__right-area {

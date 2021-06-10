@@ -4,6 +4,7 @@
       v-model="text"
       height="500px"
       autofocus
+      toc-nav-position-right
       :disabled-menus="[]"
       @upload-image="handleUploadImage"
       @fullscreen-change="handleFullscreenChange"

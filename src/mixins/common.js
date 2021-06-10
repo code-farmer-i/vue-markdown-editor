@@ -35,6 +35,7 @@ export default {
       type: Number,
       default: 2,
     },
+    tocNavPositionRight: Boolean,
   },
   data() {
     return {
