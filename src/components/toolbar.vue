@@ -27,10 +27,10 @@ import ToolbarItem from '@/components/toolbar-item/index';
 
 export default {
   name: 'editor-toolbar',
-  inject: ['markdownEditor'],
   components: {
     [ToolbarItem.name]: ToolbarItem,
   },
+  inject: ['markdownEditor'],
   props: {
     groups: Array,
     toolbars: Object,

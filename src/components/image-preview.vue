@@ -44,7 +44,7 @@
           @load="handleImgLoad"
           @error="handleImgError"
           @mousedown="handleMouseDown"
-        />
+        >
       </div>
     </div>
   </transition>

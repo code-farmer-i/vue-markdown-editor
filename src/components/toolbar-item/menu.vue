@@ -21,7 +21,9 @@
             :editor="$self"
             v-if="item.render"
           />
-          <template v-else>{{ getText(item.text) }}</template>
+          <template v-else>
+            {{ getText(item.text) }}
+          </template>
         </li>
       </template>
       <template v-else>

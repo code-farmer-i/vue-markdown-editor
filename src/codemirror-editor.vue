@@ -18,7 +18,6 @@
     <template #left-area>
       <scrollbar>
         <toc-nav
-          #default
           :titles="titles"
           @nav-click="handleNavClick"
         />

@@ -7,7 +7,7 @@
     :multiple="uploadConfig.multiple"
     @input="handleUpload"
     ref="fileInput"
-  />
+  >
 </template>
 
 <script>
@@ -16,7 +16,7 @@ export default {
   props: {
     uploadConfig: Object,
   },
-  data () {
+  data() {
     return {
       handleUpload() {},
       key: 0,
@@ -29,7 +29,7 @@ export default {
       return event;
     },
     chooseFile() {
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         this.handleUpload = (e) => {
           resolve(e);
 

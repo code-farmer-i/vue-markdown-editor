@@ -18,7 +18,6 @@
     <template #left-area>
       <scrollbar>
         <toc-nav
-          #default
           :titles="titles"
           @nav-click="handleNavClick"
         />
@@ -33,8 +32,8 @@
           :model-value="text"
           :placeholder="placeholder"
           @update:modelValue="handleInput"
-          @click.native.stop
-          @drop.native="handleDrop"
+          @click.stop
+          @drop="handleDrop"
           @paste="handlePaste"
           ref="editorEgine"
         />
@@ -52,7 +51,6 @@
       </scrollbar>
     </template>
     <v-md-upload-file
-      #default
       v-if="hasUploadImage"
       :upload-config="uploadConfig"
       ref="uploadFile"

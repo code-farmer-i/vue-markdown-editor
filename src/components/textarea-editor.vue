@@ -3,7 +3,7 @@
     <pre><section
   v-for="(row, idx) in modelValue.split('\n')"
   :data-line="idx + 1"
->{{ row || ' ' }}<br /></section></pre>
+>{{ row || ' ' }}<br></section></pre>
     <textarea
       ref="textarea"
       :value="modelValue"
@@ -48,6 +48,7 @@ export default {
       default: 30,
     },
   },
+  emits: ['paste', 'update:modelValue'],
   data() {
     return {
       isComposing: false,
