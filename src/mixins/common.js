@@ -30,6 +30,7 @@ export default {
     },
     autofocus: Boolean,
     placeholder: String,
+    tocNavPositionRight: Boolean,
     tabSize: {
       type: Number,
       default: 2,

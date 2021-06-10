@@ -5,16 +5,17 @@
       height="500px"
       autofocus
       :disabled-menus="[]"
+      toc-nav-position-right
       @upload-image="handleUploadImage"
       @fullscreen-change="handleFullscreenChange"
       @save="handleSave"
       @copy-code-success="handleCopyCodeSuccess"
       ref="editor"
     />
-    <v-md-preview-html
+    <!-- <v-md-preview-html
       :html="html"
       preview-class="vuepress-markdown-body"
-    />
+    /> -->
   </div>
 </template>
 

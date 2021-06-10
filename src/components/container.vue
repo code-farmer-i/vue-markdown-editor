@@ -3,7 +3,10 @@
     class="v-md-editor"
     :class="[
       `v-md-editor--${mode}`,
-      { 'v-md-editor--fullscreen': fullscreen }
+      {
+        'v-md-editor--fullscreen': fullscreen,
+        'v-md-editor--left-area-reverse': leftAreaReverse
+      }
     ]"
     :style="{ height: heightGetter }"
   >
@@ -93,6 +96,7 @@ export default {
     disabledMenus: Array,
     leftAreaVisible: Boolean,
     leftAreaTitle: String,
+    leftAreaReverse: Boolean,
     leftAreaWidth: {
       type: String,
       default: '200px',
@@ -214,6 +218,14 @@ export default {
       padding: 8px 14px;
       overflow: hidden;
     }
+  }
+
+  &--left-area-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &--left-area-reverse &__left-area {
+    border-left: 1px solid $border-color;
   }
 
   &__right-area {

@@ -8,6 +8,7 @@
     :fullscreen="fullscreen"
     :left-area-visible="tocVisible"
     :left-area-title="langConfig.toc.title"
+    :left-area-reverse="tocNavPositionRight"
     :mode="currentMode"
     @toolbar-item-click="handleToolbarItemClick"
     @toolbar-menu-click="handleToolbarMenuClick"
