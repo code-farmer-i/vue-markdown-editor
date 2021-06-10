@@ -41,6 +41,13 @@ Optional value：`edit` `editable` `preview`。
 
 The length of the tab character when editing and previewing. Both the editor and preview components support this property.
 
+### toc-nav-position-right
+
+- 类型：`Boolean`
+- 默认值： `false`
+
+Whether the directory navigation is on the right.
+
 ### placeholder
 
 - type：`String`

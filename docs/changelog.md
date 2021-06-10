@@ -1,5 +1,17 @@
 # Changelog
 
+### 1.7.6
+
+`2021-06-10`
+
+**Features**
+
+- editor: Add [toc-nav-position-right](./api.md#toc-nav-position-right) prop.
+
+**Bug Fixes**
+
+- editor: Fix the problem that the upload-image event is triggered twice when pasting an image.
+
 ### 1.7.5
 
 `2021-06-07`

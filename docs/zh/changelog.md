@@ -1,5 +1,17 @@
 # 更新日志
 
+### 1.7.6
+
+`2021-06-10`
+
+**Features**
+
+- editor: 新增 [toc-nav-position-right](./api.md#toc-nav-position-right) 属性。
+
+**Bug Fixes**
+
+- editor: 修复粘贴图片时 upload-image 事件触发两次的问题。
+
 ### 1.7.5
 
 `2021-06-07`

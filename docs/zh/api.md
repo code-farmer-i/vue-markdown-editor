@@ -45,6 +45,13 @@ sidebarDepth: 2
 
 编辑和预览时制表符的长度，编辑器和预览组件都支持该属性。
 
+### toc-nav-position-right
+
+- 类型：`Boolean`
+- 默认值： `false`
+
+目录导航是否在右侧。
+
 ### placeholder
 
 - 类型：`String`
