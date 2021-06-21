@@ -45,7 +45,11 @@ import '@kangc/v-md-editor/lib/style/base-editor.css';
 import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js';
 import '@kangc/v-md-editor/lib/theme/style/vuepress.css';
 
-VueMarkdownEditor.use(vuepressTheme);
+import Prism from 'prismjs';
+
+VueMarkdownEditor.use(vuepressTheme, {
+  Prism,
+});
 
 const app = createApp(/*...*/);
 
