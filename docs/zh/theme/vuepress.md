@@ -100,13 +100,77 @@ npm install babel-plugin-prismjs
 
 ```js
 // babel.config.js
-{
-  "plugins": [
-    ["prismjs", {
-        "languages": ["json"],
-    }]
-  ]
-}
+module.exports = {
+  plugins: [
+    [
+      'prismjs',
+      {
+        languages: ['json'],
+      },
+    ],
+  ],
+};
+```
+
+引入所有语言包（不推荐）
+
+```js
+// babel.config.js
+const components = require('prismjs/components');
+const allLanguages = Object.keys(components.languages).filter((item) => item !== 'meta');
+
+module.exports = {
+  plugins: [
+    [
+      'prismjs',
+      {
+        languages: allLanguages,
+      },
+    ],
+  ],
+};
+```
+
+## vite 中扩展代码高亮语言包
+
+请通过[babel-plugin-prismjs](https://github.com/mAAdhaTTah/babel-plugin-prismjs)插件按需引入对应的语言包。
+
+安装 `babel-plugin-prismjs` `rollup-plugin-babel` 插件
+
+```bash
+# yarn
+yarn add babel-plugin-prismjs rollup-plugin-babel --dev
+
+# npm
+npm install babel-plugin-prismjs rollup-plugin-babel
+```
+
+vite.config.js
+
+```js
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import babel from 'rollup-plugin-babel';
+
+export default defineConfig({
+  plugins: [vue(), babel()],
+});
+```
+
+按需引入语言包（推荐）
+
+```js
+// babel.config.js
+module.exports = {
+  plugins: [
+    [
+      'prismjs',
+      {
+        languages: ['json'],
+      },
+    ],
+  ],
+};
 ```
 
 引入所有语言包（不推荐）
