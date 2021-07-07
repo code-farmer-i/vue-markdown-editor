@@ -129,63 +129,52 @@ module.exports = {
 
 ## vite 中扩展代码高亮语言包
 
-please use the [babel-plugin-prismjs](https://github.com/mAAdhaTTah/babel-plugin-prismjs) plug-in to introduce the corresponding language packs on demand.
+please use the [vite-plugin-prismjs](https://github.com/code-farmer-i/vite-plugin-prismjs) plug-in to introduce the corresponding language packs on demand.
 
-Install the `babel-plugin-prismjs` `rollup-plugin-babel` plugin
+Install the `vite-plugin-prismjs` plugin
 
 ```bash
 # yarn
-yarn add babel-plugin-prismjs rollup-plugin-babel --dev
+yarn add vite-plugin-prismjs --dev
 
 # npm
-npm install babel-plugin-prismjs rollup-plugin-babel
-```
-
-vite.config.js
-
-```js
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import babel from 'rollup-plugin-babel';
-
-export default defineConfig({
-  plugins: [vue(), babel()],
-});
+npm install vite-plugin-prismjs
 ```
 
 Introduce language packs on demand (recommended)
 
 ```js
-// babel.config.js
-module.exports = {
+// vite.config.js
+import { defineConfig } from 'vite';
+import prismjs from 'vite-plugin-prismjs';
+
+export default defineConfig({
   plugins: [
-    [
-      'prismjs',
-      {
-        languages: ['json'],
-      },
-    ],
+    prismjs({
+      languages: ['json'],
+    }),
   ],
-};
+});
 ```
 
 Introduce all language packs (not recommended)
 
 ```js
-// babel.config.js
-const components = require('prismjs/components');
+// vite.config.js
+import { defineConfig } from 'vite';
+
+import prismjs from 'vite-plugin-prismjs';
+import components from 'prismjs/components';
+
 const allLanguages = Object.keys(components.languages).filter((item) => item !== 'meta');
 
-module.exports = {
+export default defineConfig({
   plugins: [
-    [
-      'prismjs',
-      {
-        languages: allLanguages,
-      },
-    ],
+    prismjs({
+      languages: allLanguages,
+    }),
   ],
-};
+});
 ```
 
 [View languages supported by prism](https://github.com/PrismJS/prism/tree/master/components)
