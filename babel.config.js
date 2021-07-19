@@ -17,6 +17,24 @@ module.exports = function (api) {
       ],
     ],
     plugins: [
+      [
+        'import',
+        {
+          libraryName: 'element-plus',
+          customStyleName: (name) => {
+            return `element-plus/lib/theme-chalk/${name}.css`;
+          },
+        },
+      ],
+      [
+        'import',
+        {
+          libraryName: 'vant',
+          libraryDirectory: 'es',
+          style: true,
+        },
+        'vant',
+      ],
       '@vue/babel-plugin-jsx',
       [
         '@babel/plugin-transform-runtime',

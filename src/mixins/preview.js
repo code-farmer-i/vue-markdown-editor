@@ -1,7 +1,13 @@
 import { getScrollTop } from '@/utils/scroll-top';
+import { isMobile } from '@/utils/util';
 import smoothScroll from '@/utils/smooth-scroll';
 import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants/markup';
-import ImagePreview from '@/components/image-preview';
+// ele image component
+import { ElImageViewer } from 'element-plus';
+import 'element-plus/lib/theme-chalk/base';
+
+// vant image preview
+import { ImagePreview as VantImagePreview } from 'vant';
 
 export default {
   props: {
@@ -19,17 +25,17 @@ export default {
     },
   },
   components: {
-    [ImagePreview.name]: ImagePreview,
+    [ElImageViewer.name]: ElImageViewer,
   },
   data() {
     return {
-      previewSrc: '',
+      images: [],
+      imagePreviewInitIndex: 0,
+      showImageViewer: false,
+      isMobile: isMobile(),
     };
   },
   methods: {
-    handleClosePreview() {
-      this.previewSrc = '';
-    },
     handlePreviewClick(e) {
       const { target } = e;
 
@@ -37,7 +43,24 @@ export default {
       if (target.tagName === 'IMG') {
         const src = target.getAttribute('src');
 
-        this.previewSrc = src;
+        if (!src) return;
+
+        this.isMobile = isMobile();
+        const imageEls = Array.from(this.$el.querySelectorAll('img'));
+        const images = imageEls.map((el) => el.getAttribute('src')).filter((src) => src);
+        const imagePreviewInitIndex = imageEls.indexOf(target);
+
+        if (this.isMobile) {
+          VantImagePreview({
+            images,
+            startPosition: imagePreviewInitIndex,
+          });
+        } else {
+          this.showImageViewer = true;
+          this.images = images;
+          this.imagePreviewInitIndex = imagePreviewInitIndex;
+        }
+
         return;
       }
 

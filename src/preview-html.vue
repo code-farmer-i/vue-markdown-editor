@@ -12,10 +12,11 @@
       :class="[previewClass]"
       v-html="html"
     />
-    <v-md-image-preview
-      v-if="previewSrc"
-      :src="previewSrc"
-      :on-close="handleClosePreview"
+    <el-image-viewer
+      v-if="!isMobile && showImageViewer"
+      :initial-index="imagePreviewInitIndex"
+      :url-list="images"
+      @close="showImageViewer = false"
     />
   </div>
 </template>
