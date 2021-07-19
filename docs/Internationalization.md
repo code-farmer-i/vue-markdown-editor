@@ -34,14 +34,15 @@ VueMarkdownEditor.lang.add({
 
 ## Config files
 
-| Language | Filename |
-| -------- | -------- |
-| Chinese  | zh-CN    |
-| English  | en-US    |
-| German   | de-DE    |
-| Korean   | ko-KR    |
-| Spanish  | es-ES    |
-| Polish   | pl-PL    |
-| French   | fr-FR    |
+| Language              | Filename |
+| --------------------- | -------- |
+| Chinese (Simplified)  | zh-CN    |
+| English               | en-US    |
+| German                | de-DE    |
+| Korean                | ko-KR    |
+| Spanish               | es-ES    |
+| Polish                | pl-PL    |
+| French                | fr-FR    |
+| Chinese (Traditional) | zh-TW    |
 
 View all language configs [Here](https://github.com/code-farmer-i/vue-markdown-editor/tree/dev/src/lang).
