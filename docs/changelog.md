@@ -1,5 +1,17 @@
 # Changelog
 
+::: warning
+Except for major bugs, the 1.x version based on vue2.0 will no longer be iterated synchronously starting from version 1.7.6.
+:::
+
+### 2.3.6
+
+`2021-07-19`
+
+**Improvement**
+
+- image-preview: Optimize the picture preview experience, and compatible with mobile terminals.
+
 ### 1.7.6 & 2.3.5
 
 `2021-06-10`
