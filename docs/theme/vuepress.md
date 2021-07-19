@@ -127,7 +127,7 @@ module.exports = {
 };
 ```
 
-## vite 中扩展代码高亮语言包
+## Extended code highlighting language pack in vite
 
 please use the [vite-plugin-prismjs](https://github.com/code-farmer-i/vite-plugin-prismjs) plug-in to introduce the corresponding language packs on demand.
 
