@@ -4,6 +4,18 @@
 Except for major bugs, the 1.x version based on vue2.0 will no longer be iterated synchronously starting from version 1.7.6.
 :::
 
+### 1.7.7 & 2.3.7
+
+`2021-07-22`
+
+**Breaking Change**
+
+- image-preview: Remove the picture preview.
+
+**Features**
+
+- editor: Added [image-click](./api.md#image-click) click event.
+
 ### 2.3.6
 
 `2021-07-19`

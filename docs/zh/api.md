@@ -269,6 +269,12 @@ editor.insert((selected) => {
 
 点击 save toolbar 时触发的事件。
 
+### image-click
+
+- 回调参数：`(images, currentIndex)`
+
+点击图片时触发的事件。
+
 ### fullscreen-change
 
 - 回调参数：`(isFullscreen)`

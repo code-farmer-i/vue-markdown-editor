@@ -226,6 +226,12 @@ Event triggered when the content changes. text is the input content, and html is
 
 Event triggered when click save toolbar.
 
+### image-click
+
+- Callback parameter：`(images, currentIndex)`
+
+Event triggered when the picture is clicked.
+
 ### fullscreen-change
 
 - Callback parameter：`(isFullscreen)`

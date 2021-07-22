@@ -4,6 +4,18 @@
 基于 vue2.0 的 1.x 的版本除了重大 bug 之外，从 1.7.6 版本开始将不再同步迭代。
 :::
 
+### 1.7.7 & 2.3.7
+
+`2021-07-22`
+
+**Breaking Change**
+
+- image-preview: 移除图片预览功能。
+
+**Features**
+
+- editor: 新增 [image-click](./api.md#image-click) 点击事件。
+
 ### 2.3.6
 
 `2021-07-19`
