@@ -46,6 +46,7 @@
           :tab-size="tabSize"
           :scroll-container="getPreviewScrollContainer"
           @change="handleChange"
+          @image-click="handlePreviewImageClick"
           ref="preview"
         />
       </scrollbar>
