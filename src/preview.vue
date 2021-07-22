@@ -12,11 +12,6 @@
       :class="[themeConfig.previewClass]"
       v-html="html"
     />
-    <v-md-image-preview
-      v-if="previewSrc"
-      :src="previewSrc"
-      :on-close="handleClosePreview"
-    />
   </div>
 </template>
 

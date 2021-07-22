@@ -10,6 +10,7 @@
       @fullscreen-change="handleFullscreenChange"
       @save="handleSave"
       @copy-code-success="handleCopyCodeSuccess"
+      @image-click="handleImageClick"
       ref="editor"
     />
   </div>
@@ -25,6 +26,9 @@ export default {
     };
   },
   methods: {
+    handleImageClick(images, currentIndex) {
+      console.log(images, currentIndex);
+    },
     handleFullscreenChange(v) {
       console.log(v);
     },

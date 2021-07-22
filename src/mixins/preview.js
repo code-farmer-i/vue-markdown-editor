@@ -1,7 +1,6 @@
 import { getScrollTop } from '@/utils/scroll-top';
 import smoothScroll from '@/utils/smooth-scroll';
 import { LINE_MARKUP, HEADING_MARKUP, ANCHOR_MARKUP } from '@/utils/constants/markup';
-import ImagePreview from '@/components/image-preview';
 
 export default {
   props: {
@@ -18,18 +17,7 @@ export default {
       default: 2,
     },
   },
-  components: {
-    [ImagePreview.name]: ImagePreview,
-  },
-  data() {
-    return {
-      previewSrc: '',
-    };
-  },
   methods: {
-    handleClosePreview() {
-      this.previewSrc = '';
-    },
     handlePreviewClick(e) {
       const { target } = e;
 
@@ -37,7 +25,14 @@ export default {
       if (target.tagName === 'IMG') {
         const src = target.getAttribute('src');
 
-        this.previewSrc = src;
+        if (!src) return;
+
+        const imageEls = Array.from(this.$el.querySelectorAll('img'));
+        const images = imageEls.map((el) => el.getAttribute('src')).filter((src) => src);
+        const imagePreviewInitIndex = imageEls.indexOf(target);
+
+        this.$emit('image-click', images, imagePreviewInitIndex);
+
         return;
       }
 

@@ -79,6 +79,9 @@ export default {
     handleChange(text, html) {
       this.$emit('change', text, html);
     },
+    handlePreviewImageClick(images, currentIndex) {
+      this.$emit('image-click', images, currentIndex);
+    },
     save() {
       this.$emit('save', this.text, this.$refs.preview.html);
     },
