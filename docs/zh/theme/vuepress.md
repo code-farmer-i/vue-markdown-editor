@@ -166,16 +166,12 @@ export default defineConfig({
 ```js
 // vite.config.js
 import { defineConfig } from 'vite';
-
 import prismjs from 'vite-plugin-prismjs';
-import components from 'prismjs/components';
-
-const allLanguages = Object.keys(components.languages).filter((item) => item !== 'meta');
 
 export default defineConfig({
   plugins: [
     prismjs({
-      languages: allLanguages,
+      languages: 'all',
     }),
   ],
 });
