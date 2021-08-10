@@ -10,7 +10,10 @@
 
 ```vue
 <template>
+  <!-- vue2 -->
   <v-md-editor :value="markdown" mode="preview"></v-md-editor>
+  <!-- vue3 -->
+  <v-md-editor :model-value="markdown" mode="preview"></v-md-editor>
 </template>
 
 <script>
