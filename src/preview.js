@@ -4,7 +4,7 @@ import xss from '@/utils/xss/index';
 // font css
 import '@/assets/css/font';
 
-const version = '2.3.7';
+const version = '2.3.8-beta.0';
 
 const install = (app) => {
   app.component(Component.name, Component);
