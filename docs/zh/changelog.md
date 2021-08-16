@@ -4,6 +4,14 @@
 基于 vue2.0 的 1.x 的版本除了重大 bug 之外，从 1.7.6 版本开始将不再同步迭代。
 :::
 
+### 2.3.8
+
+`2021-08-16`
+
+**Features**
+
+- editor: 新增 [before-preview-change](./api.md#before-preview-change) 属性。
+
 ### 1.7.7 & 2.3.7
 
 `2021-07-22`

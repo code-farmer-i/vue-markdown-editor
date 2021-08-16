@@ -4,6 +4,14 @@
 Except for major bugs, the 1.x version based on vue2.0 will no longer be iterated synchronously starting from version 1.7.6.
 :::
 
+### 2.3.8
+
+`2021-08-16`
+
+**Features**
+
+- editor: add [before-preview-change](./api.md#before-preview-change) prop.
+
 ### 1.7.7 & 2.3.7
 
 `2021-07-22`
