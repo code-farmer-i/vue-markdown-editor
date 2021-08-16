@@ -45,6 +45,7 @@
           :text="text"
           :tab-size="tabSize"
           :scroll-container="getPreviewScrollContainer"
+          :before-change="beforePreviewChange"
           @change="handleChange"
           @image-click="handlePreviewImageClick"
           ref="preview"

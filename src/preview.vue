@@ -32,6 +32,7 @@ const component = {
       default: '',
     },
     theme: Object,
+    beforeChange: Function,
   },
   emits: ['change'],
   data() {
@@ -63,9 +64,17 @@ const component = {
   },
   methods: {
     handleTextChange() {
-      this.html = xss.process(this.$options.vMdParser.parse(this.text));
+      const next = (text) => {
+        this.html = xss.process(this.$options.vMdParser.parse(text));
 
-      this.$emit('change', this.text, this.html);
+        this.$emit('change', text, this.html);
+      };
+
+      if (this.beforeChange) {
+        this.beforeChange(this.text, next);
+      } else {
+        next(this.text);
+      }
     },
   },
 };

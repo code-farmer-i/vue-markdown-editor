@@ -35,6 +35,12 @@ export default {
       type: Number,
       default: 2,
     },
+    beforePreviewChange: {
+      type: Function,
+      default: (text, next) => {
+        next(text);
+      },
+    },
   },
   emits: ['change', 'save', 'image-click'],
   data() {
