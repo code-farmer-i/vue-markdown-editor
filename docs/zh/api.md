@@ -186,6 +186,14 @@ export default {
 
 上传本地图片的相关配置。参考高级用法：[如何插入本地图片](./senior/upload-image.md)
 
+### before-preview-change
+
+- 类型：`Function`
+- 默认值：`-`
+- 回调参数：`(text, next)`
+
+在预览解析前触发的函数，配置此属性后必须要调用 next 方法并传入需要渲染的 md 文本，否则 preview 组件将不会进行渲染。
+
 ### codemirror-config
 
 - 类型：`Object`

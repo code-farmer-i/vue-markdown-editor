@@ -161,6 +161,14 @@ Disabled menu. default is the upload local image menu under the image toolbar. E
 - type：`Object`
 - default：`{ accept: 'image/*' }`
 
+### before-preview-change
+
+-Type: `Function`
+-Default value: `-`
+-Callback parameters: `(text, next)`
+
+Function triggered before preview parsing. After configuring this property, you must call the next method and pass in the md text that needs to be rendered, otherwise the preview component will not be rendered.
+
 ### codemirror-config
 
 - type：`Object`
