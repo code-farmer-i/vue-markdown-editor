@@ -62,21 +62,23 @@ export default function creator(mermaid) {
 
         if (!VMdEditor.mixins) VMdEditor.mixins = [];
 
-        VMdEditor.mixins.push({
+        const mixin = {
           created() {
             mermaid.initialize(initialize);
           },
           watch: {
-            modelValue: {
-              immediate: true,
-              handler: handleMdChange,
-            },
-            text: {
+            html: {
               immediate: true,
               handler: handleMdChange,
             },
           },
-        });
+        };
+
+        if (VMdEditor.name === 'v-md-editor') {
+          VMdEditor.Preview.mixins.push(mixin);
+        } else {
+          VMdEditor.mixins.push(mixin);
+        }
       },
     };
   };

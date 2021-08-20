@@ -38,6 +38,7 @@ export default function createEditor(component) {
   component.name = 'v-md-editor';
   component.lang = lang;
   component.vMdParser = Preview.vMdParser;
+  component.Preview = Preview;
   component.hotkeys = [];
   component.hotkey = function (config) {
     component.hotkeys.push(config);
