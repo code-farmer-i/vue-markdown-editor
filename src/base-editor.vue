@@ -35,6 +35,7 @@
           @click.stop
           @drop="handleDrop"
           @paste="handlePaste"
+          @blur="handleBlur"
           ref="editorEgine"
         />
       </scrollbar>
