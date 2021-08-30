@@ -127,6 +127,10 @@ const component = {
     this.codemirrorInstance.on('paste', (_, e) => {
       this.handlePaste(e);
     });
+
+    this.codemirrorInstance.on('blur', (_, e) => {
+      this.handleBlur(e);
+    });
   },
   beforeUnmount() {
     const element = this.codemirrorInstance.doc.cm.getWrapperElement();
