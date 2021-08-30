@@ -4,6 +4,16 @@
 Except for major bugs, the 1.x version based on vue2.0 will no longer be iterated synchronously starting from version 1.7.6.
 :::
 
+### 2.3.9
+
+`2021-08-30`
+
+**Features**
+
+- lang: Added [zh-TW](./Internationalization.md#config-files) language pack ([#78](https://github.com/code-farmer-i/vue-markdown-editor/pull/78)).
+- lang: Added [ru-RU](./Internationalization.md#config-files) language pack ([#107](https://github.com/code-farmer-i/vue-markdown-editor/pull/107)).
+- editor: Added [blur](./api.md#blur) event ([#109](https://github.com/code-farmer-i/vue-markdown-editor/pull/109)).
+
 ### 2.3.8
 
 `2021-08-16`
@@ -183,7 +193,7 @@ Starting from this version, the styles of themes and plug-ins will be separated 
 **Features**
 
 - plugin: Add new details type to [tip](./plugins/tip.md) plugin.
-- lang: Add [Spanish](./Internationalization.md#配置文件) translation.
+- lang: Add [Spanish](./Internationalization.md#config-files) translation.
 
 ### 1.5.6 & 2.1.8
 

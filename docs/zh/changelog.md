@@ -4,6 +4,16 @@
 基于 vue2.0 的 1.x 的版本除了重大 bug 之外，从 1.7.6 版本开始将不再同步迭代。
 :::
 
+### 2.3.9
+
+`2021-08-30`
+
+**Features**
+
+- lang: 新增 [zh-TW](./Internationalization.md#配置文件) 语言包([#78](https://github.com/code-farmer-i/vue-markdown-editor/pull/78))。
+- lang: 新增 [ru-RU](./Internationalization.md#配置文件) 语言包([#107](https://github.com/code-farmer-i/vue-markdown-editor/pull/107))。
+- editor: 新增 [blur](./api.md#blur) 事件([#109](https://github.com/code-farmer-i/vue-markdown-editor/pull/109))。
+
 ### 2.3.8
 
 `2021-08-16`
