@@ -271,6 +271,12 @@ editor.insert((selected) => {
 
 内容变化时触发的事件。text 为输入的内容，html 为解析之后的 html 字符串。
 
+### blur
+
+- 回调参数：`(event)`
+
+编辑器失去焦点时触发。
+
 ### save
 
 - 回调参数：`(text, html)`

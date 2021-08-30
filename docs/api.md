@@ -228,6 +228,12 @@ demo：[Custom toolbar](./senior/toolbar.md)
 
 Event triggered when the content changes. text is the input content, and html is the html string after parsing.
 
+### blur
+
+-Callback parameters: `(event)`
+
+Fires when the editor loses focus.
+
 ### save
 
 - Callback parameter：`(text, html)`

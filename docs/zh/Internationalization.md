@@ -34,14 +34,16 @@ VueMarkdownEditor.lang.add({
 
 ## 配置文件
 
-| 语言     | 文件名 |
-| -------- | ------ |
-| 简体中文 | zh-CN  |
-| 英语     | en-US  |
-| 德语     | de-DE  |
-| 韩文     | ko-KR  |
-| 西班牙语 | es-ES  |
-| 波兰语   | pl-PL  |
-| 法语     | fr-FR  |
+| 语言           | 文件名 |
+| -------------- | ------ |
+| 简体中文       | zh-CN  |
+| 繁體中文（台） | zh-TW  |
+| 英语           | en-US  |
+| 德语           | de-DE  |
+| 韩文           | ko-KR  |
+| 西班牙语       | es-ES  |
+| 波兰语         | pl-PL  |
+| 法语           | fr-FR  |
+| 俄罗斯语       | ru-RU  |
 
 在 [这里](https://github.com/code-farmer-i/vue-markdown-editor/tree/dev/src/lang) 查看所有的 i18n 配置文件
