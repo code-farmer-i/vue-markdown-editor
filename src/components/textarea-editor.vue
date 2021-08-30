@@ -15,6 +15,7 @@
       @input="handleInput"
       @click="updateCurrentHistoryRange"
       @paste="handlePaste"
+      @blur="handleBlur"
       @keydown.tab.prevent
       @keydown.ctrl.z.prevent.exact="undo"
       @keydown.meta.z.prevent.exact="undo"
@@ -48,7 +49,7 @@ export default {
       default: 30,
     },
   },
-  emits: ['paste', 'update:modelValue'],
+  emits: ['blur', 'paste', 'update:modelValue'],
   data() {
     return {
       isComposing: false,
@@ -102,6 +103,9 @@ export default {
     },
     handlePaste(e) {
       this.$emit('paste', e);
+    },
+    handleBlur(e) {
+      this.$emit('blur', e);
     },
     registerHotkeys(...arg) {
       this.hotkeysManager.registerHotkeys(...arg);

@@ -42,7 +42,7 @@ export default {
       },
     },
   },
-  emits: ['change', 'save', 'image-click'],
+  emits: ['blur', 'change', 'save', 'image-click'],
   data() {
     return {
       currentMode: this.mode,
@@ -84,6 +84,9 @@ export default {
     // change event
     handleChange(text, html) {
       this.$emit('change', text, html);
+    },
+    handleBlur (e) {
+      this.$emit('blur', e);
     },
     handlePreviewImageClick(images, currentIndex) {
       this.$emit('image-click', images, currentIndex);
