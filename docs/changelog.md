@@ -4,6 +4,14 @@
 Except for major bugs, the 1.x version based on vue2.0 will no longer be iterated synchronously starting from version 1.7.6.
 :::
 
+### 2.3.10
+
+`2021-09-09`
+
+**Improvement**
+
+- base-editor: Optimized the problem that the trigger area for dragging and uploading images is too small when there is no content.
+
 ### 2.3.9
 
 `2021-08-30`
