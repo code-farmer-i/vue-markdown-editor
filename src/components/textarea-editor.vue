@@ -1,6 +1,6 @@
 <template>
   <div class="v-md-textarea-editor">
-    <pre><section
+    <pre :style="{ minHeight }"><section
   v-for="(row, idx) in modelValue.split('\n')"
   :data-line="idx + 1"
 >{{ row || ' ' }}<br></section></pre>
@@ -39,6 +39,7 @@ export default {
   name: 'v-md-textarea-editor',
   props: {
     modelValue: String,
+    minHeight: String,
     placeholder: String,
     historyDebounce: {
       type: Number,

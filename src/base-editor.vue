@@ -30,6 +30,7 @@
       >
         <v-md-textarea-editor
           :model-value="text"
+          :min-height="textEditorMinHeight"
           :placeholder="placeholder"
           @update:modelValue="handleInput"
           @click.stop
@@ -74,6 +75,24 @@ const component = {
     modelValue() {
       this.text = this.modelValue;
     },
+    height: {
+      async handler() {
+        await this.$nextTick();
+
+        if (this.height) {
+          const editorWrapper = this.$el.querySelector('.v-md-editor__editor-wrapper');
+          this.textEditorMinHeight = window.getComputedStyle(editorWrapper).height;
+        } else {
+          this.textEditorMinHeight = '';
+        }
+      },
+      immediate: true,
+    },
+  },
+  data() {
+    return {
+      textEditorMinHeight: '',
+    };
   },
   methods: {
     handleEditorWrapperClick() {
