@@ -26,9 +26,6 @@ export function importAll(map, r) {
   });
 }
 
-const ua = navigator.userAgent.toLowerCase();
-export const isMobile = () => /ios|iphone|ipod|ipad|android/.test(ua);
-
 export function isKorean(text) {
   const reg = /([(\uAC00-\uD7AF)|(\u3130-\u318F)])+/gi;
 
