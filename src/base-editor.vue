@@ -64,8 +64,9 @@
 
 <script>
 import TextareaEditor from '@/components/textarea-editor';
-
 import createEditor from './create-editor';
+
+import { inBrowser } from '@/utils';
 
 const component = {
   components: {
@@ -77,6 +78,8 @@ const component = {
     },
     height: {
       async handler() {
+        if (!inBrowser) return;
+
         await this.$nextTick();
 
         if (this.height) {

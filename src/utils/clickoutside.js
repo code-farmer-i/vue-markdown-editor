@@ -1,13 +1,13 @@
 // Modified from https://github.com/ElemeFE/element/blob/dev/src/utils/clickoutside.js
+import { inBrowser } from '@/utils';
 
 const nodeList = [];
 const ctx = '@@clickoutsideContext';
-const isServer = typeof window === 'undefined';
 
 let startClick;
 let seed = 0;
 
-if (!isServer) {
+if (inBrowser) {
   document.addEventListener('mousedown', (e) => {
     startClick = e;
   });

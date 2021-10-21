@@ -1,5 +1,6 @@
 import parser from './parser';
 import { deepAssign } from '@/utils/deep-assign';
+import { inBrowser } from '@/utils';
 
 function getPreviewEl(el) {
   const previewElClass = 'v-md-editor-preview';
@@ -9,7 +10,7 @@ function getPreviewEl(el) {
 
 export default function creator(mermaid) {
   async function handleMdChange() {
-    if (typeof window === 'undefined') return;
+    if (!inBrowser) return;
 
     await this.$nextTick();
 
