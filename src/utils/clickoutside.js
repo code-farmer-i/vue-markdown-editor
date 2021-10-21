@@ -1,5 +1,5 @@
 // Modified from https://github.com/ElemeFE/element/blob/dev/src/utils/clickoutside.js
-import { inBrowser } from '@/utils';
+import { inBrowser } from '@/utils/util';
 
 const nodeList = [];
 const ctx = '@@clickoutsideContext';

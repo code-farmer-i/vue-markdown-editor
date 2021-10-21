@@ -66,7 +66,7 @@
 import TextareaEditor from '@/components/textarea-editor';
 import createEditor from './create-editor';
 
-import { inBrowser } from '@/utils';
+import { inBrowser } from '@/utils/util';
 
 const component = {
   components: {

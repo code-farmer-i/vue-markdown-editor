@@ -1,6 +1,6 @@
 import parser from './parser';
 import { deepAssign } from '@/utils/deep-assign';
-import { inBrowser } from '@/utils';
+import { inBrowser } from '@/utils/util';
 
 function getPreviewEl(el) {
   const previewElClass = 'v-md-editor-preview';
