@@ -1,6 +1,6 @@
 {
   "name": "@kangc/v-md-editor",
-  "version": "1.7.7",
+  "version": "1.7.8",
   "description": "A markdown editor built on Vue",
   "keywords": [
     "javascript",
