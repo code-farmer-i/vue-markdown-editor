@@ -275,33 +275,6 @@
 .vuepress-markdown-body div[class~='v-md-pre-wrapper-php']::before {
   content: 'php';
 }
-.vuepress-markdown-body .arrow {
-  display: inline-block;
-  width: 0;
-  height: 0;
-}
-.vuepress-markdown-body .arrow.up {
-  border-bottom: 6px solid #ccc;
-}
-.vuepress-markdown-body .arrow.down,
-.vuepress-markdown-body .arrow.up {
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-}
-.vuepress-markdown-body .arrow.down {
-  border-top: 6px solid #ccc;
-}
-.vuepress-markdown-body .arrow.right {
-  border-left: 6px solid #ccc;
-}
-.vuepress-markdown-body .arrow.left,
-.vuepress-markdown-body .arrow.right {
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-}
-.vuepress-markdown-body .arrow.left {
-  border-right: 6px solid #ccc;
-}
 .vuepress-markdown-body:not(.custom) {
   padding: 2rem 2.5rem;
 }
