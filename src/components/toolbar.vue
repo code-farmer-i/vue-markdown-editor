@@ -8,12 +8,17 @@
         :title="getConfig(toolbarName, 'title')"
         :icon="getConfig(toolbarName, 'icon')"
         :text="getConfig(toolbarName, 'text')"
-        :active="getConfig(toolbarName,'active')"
+        :active="getConfig(toolbarName, 'active')"
         :menus="getConfig(toolbarName, 'menus')"
+        :prevent-native-click="getConfig(toolbarName, 'preventNativeClick')"
         :disabled-menus="disabledMenus"
         @click="$emit('item-click', toolbars[toolbarName])"
         @menu-click="$emit('toolbar-menu-click', $event)"
-      />
+      >
+        <template #icon>
+          <slot :name="toolbarName" />
+        </template>
+      </toolbar-item>
       <li
         v-if="idx !== groups.length - 1"
         class="v-md-editor__toolbar-divider"

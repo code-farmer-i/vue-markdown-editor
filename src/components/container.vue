@@ -44,7 +44,17 @@
           :disabled-menus="disabledMenus"
           @item-click="handleToolbarItemClick"
           @toolbar-menu-click="handleToolbarMenuClick"
-        />
+        >
+          <template
+            v-for="button of leftToolbarCustomSlots"
+            #[button]="slotData"
+          >
+            <slot
+              :name="button"
+              v-bind="slotData"
+            />
+          </template>
+        </editor-toolbar>
         <editor-toolbar
           class="v-md-editor__toolbar-right"
           :groups="rightToolbarGroup"
@@ -52,7 +62,17 @@
           :disabled-mens="disabledMenus"
           @item-click="handleToolbarItemClick"
           @toolbar-menu-click="handleToolbarMenuClick"
-        />
+        >
+          <template
+            v-for="button of rightToolbarCustomSlots"
+            #[button]="slotData"
+          >
+            <slot
+              :name="button"
+              v-bind="slotData"
+            />
+          </template>
+        </editor-toolbar>
       </div>
       <div class="v-md-editor__main">
         <div
@@ -119,8 +139,16 @@ export default {
     leftToolbarGroup() {
       return this.getToolbarConfig(this.leftToolbar);
     },
+    leftToolbarCustomSlots() {
+      const buttons =  this.leftToolbarGroup.flat();
+      return buttons.filter( btn => !!this.toolbars[btn].slot);
+    },
     rightToolbarGroup() {
       return this.getToolbarConfig(this.rightToolbar);
+    },
+    rightToolbarCustomSlots() {
+      const buttons =  this.rightToolbarGroup.flat();
+      return buttons.filter( btn => !!this.toolbars[btn].slot);
     },
     isPreviewMode() {
       return this.mode === EDITOR_MODE.PREVIEW;

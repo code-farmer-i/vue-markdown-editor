@@ -15,6 +15,15 @@
     @toolbar-menu-click="handleToolbarMenuClick"
     ref="contaner"
   >
+    <template
+      v-for="button of customSlotButtons"
+      #[button]="slotData"
+    >
+      <slot 
+        :name="button"
+        v-bind="slotData"
+      />
+    </template>
     <template #left-area>
       <scrollbar>
         <toc-nav
@@ -91,6 +100,12 @@ const component = {
       },
       immediate: true,
     },
+  },
+  computed: {
+    customSlotButtons() {
+      const toolbar = this.toolbar;
+      return Object.keys(toolbar).filter( btn => toolbar[btn].slot)
+    }
   },
   data() {
     return {
