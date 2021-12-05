@@ -1,10 +1,71 @@
 <h1 align="center">Markdown Editor built on Vue</h1>
+<h3 align="center">This is a fork of the <a href="https://github.com/code-farmer-i/vue-markdown-editor">original project</a></h3>
+
 
 <p align="center">
   <a href="https://npmcharts.com/compare/@kangc/v-md-editor?minimal=true"><img src="https://img.shields.io/npm/dm/@kangc/v-md-editor.svg?sanitize=true" alt="Downloads"></a>
   <a href="https://www.npmjs.com/package/@kangc/v-md-editor"><img src="https://img.shields.io/npm/v/@kangc/v-md-editor.svg?sanitize=true" alt="Version"></a>
   <a href="https://www.npmjs.com/package/@kangc/v-md-editor"><img src="https://img.shields.io/npm/l/@kangc/v-md-editor.svg?sanitize=true" alt="License"></a>
 </p>
+
+## What this fork adds
+
+This fork adds the possibility to use any custom component as a toolbar button. For example, we can obtain a customized toolbar like the one below:
+
+![image](https://user-images.githubusercontent.com/4061104/144724202-d9b679f1-78b4-4b25-82f0-ff70efa7da4a.png)
+
+
+by using a `toolbar` config like this:
+
+```js
+const customToolbar = {
+  myButton: {
+    title: 'Options',
+    slot: true, // this tells the editor to render the button using our custom template
+    preventNativeClick: false, // this allows elements like a select to work correctly
+  },
+  my2ndButton: {
+    title: 'Settings',
+    slot: true,
+    action() { // you can still define the onClick action via the usual function
+      console.log('opening the settings..');
+    },
+  },
+};
+```
+
+Then we can provide custom templates for `myButton` and `my2ndButton`, like this:
+
+```js
+<v-md-editor
+  v-model="text"
+  height="500px"     
+  :toolbar="customToolbar"
+  left-toolbar="undo redo | myButton my2ndButton"
+> 
+  <template #myButton>
+    <select name="opts">
+      <option value="opt1">
+        option 1
+      </option>
+      <option value="opt2">
+        option 2
+      </option>
+    </select>
+  </template>
+  <template #my2ndButton>
+    <img
+      src="https://www.svgrepo.com/show/131974/settings.svg"
+      intrinsicsize="512 x 512"
+      width="16"
+      height="16"
+      srcset="https://www.svgrepo.com/show/131974/settings.svg 4x"
+      alt="Settings SVG Vector"
+    >
+  </template>
+</v-md-editor>
+```
+
 
 ## Links
 
