@@ -72,6 +72,7 @@
     "@babel/core": "7.9.0",
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",
     "@babel/plugin-transform-object-assign": "^7.8.3",
+    "@babel/preset-env": "^7.16.4",
     "@babel/runtime": "^7.9.2",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
@@ -130,6 +131,7 @@
   "homepage": "https://github.com/code-farmer-i/vue-markdown-editor#readme",
   "dependencies": {
     "@vuepress/markdown": "^1.8.2",
+    "@vuepress/shared-utils": "^1.8.2",
     "codemirror": "^5.61.0",
     "copy-to-clipboard": "^3.3.1",
     "highlight.js": "^10.7.1",
@@ -138,6 +140,7 @@
     "markdown-it": "^12.0.6",
     "markdown-it-attrs": "^4.0.0",
     "markdown-it-container": "^3.0.0",
+    "markdown-it-emoji": "1.4.0",
     "mermaid": "^8.10.1",
     "prismjs": "^1.23.0",
     "resize-observer-polyfill": "^1.5.1",
