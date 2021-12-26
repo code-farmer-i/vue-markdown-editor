@@ -1,7 +1,6 @@
 <h1 align="center">Markdown Editor built on Vue</h1>
 <h3 align="center">This is a fork of the <a href="https://github.com/code-farmer-i/vue-markdown-editor">original project</a></h3>
 
-
 <p align="center">
   <a href="https://npmcharts.com/compare/@kangc/v-md-editor?minimal=true"><img src="https://img.shields.io/npm/dm/@kangc/v-md-editor.svg?sanitize=true" alt="Downloads"></a>
   <a href="https://www.npmjs.com/package/@kangc/v-md-editor"><img src="https://img.shields.io/npm/v/@kangc/v-md-editor.svg?sanitize=true" alt="Version"></a>
@@ -13,7 +12,6 @@
 This fork adds the possibility to use any custom component as a toolbar button. For example, we can obtain a customized toolbar like the one below:
 
 ![image](https://user-images.githubusercontent.com/4061104/144724202-d9b679f1-78b4-4b25-82f0-ff70efa7da4a.png)
-
 
 by using a `toolbar` config like this:
 
@@ -27,7 +25,8 @@ const customToolbar = {
   my2ndButton: {
     title: 'Settings',
     slot: true,
-    action() { // you can still define the onClick action via the usual function
+    action() {
+      // you can still define the onClick action via the usual function
       console.log('opening the settings..');
     },
   },
@@ -39,10 +38,10 @@ Then we can provide custom templates for `myButton` and `my2ndButton`, like this
 ```js
 <v-md-editor
   v-model="text"
-  height="500px"     
+  height="500px"
   :toolbar="customToolbar"
   left-toolbar="undo redo | myButton my2ndButton"
-> 
+>
   <template #myButton>
     <select name="opts">
       <option value="opt1">
@@ -65,7 +64,6 @@ Then we can provide custom templates for `myButton` and `my2ndButton`, like this
   </template>
 </v-md-editor>
 ```
-
 
 ## Links
 
@@ -190,7 +188,7 @@ WeChat Pay 微信
 
 <img src="https://user-images.githubusercontent.com/15082905/119299205-13005200-bc91-11eb-919d-543b1550bab6.png" width="140"/>
 
-## Refrence
+## Reference
 
 - [ElementUi Utils clickoutside](https://github.com/ElemeFE/element/blob/dev/src/utils/clickoutside.js)
 - [ElementUi Utils resize-event](https://github.com/ElemeFE/element/blob/dev/src/utils/resize-event.js)
