@@ -21,6 +21,7 @@
     <script src="../lib/base-editor.js"></script>
     <script src="../lib/theme/vuepress.js"></script>
     <script>
+      VMdTheme.install(VMdEditor)
       window.onload = function () {
         const vm = new Vue({
           el: '#app',
