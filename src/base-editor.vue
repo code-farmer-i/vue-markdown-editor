@@ -15,14 +15,25 @@
     @toolbar-menu-click="handleToolbarMenuClick"
     ref="contaner"
   >
-    <scrollbar slot="left-area">
+    <template
+      v-for="button of customSlotButtons"
+      #[button]="slotData"
+    >
+      <slot
+        :name="button"
+        v-bind="slotData"
+      />
+    </template>
+    <template #left-area>
+    <scrollbar>
       <toc-nav
         :titles="titles"
         @nav-click="handleNavClick"
       />
     </scrollbar>
-    <scrollbar
-      slot="editor"
+    </template>
+    <template #editor>
+      <scrollbar
       @scroll="handleEditorScroll"
       ref="editorScroller"
     >
@@ -36,10 +47,9 @@
         ref="editorEgine"
       />
     </scrollbar>
-    <scrollbar
-      slot="preview"
-      ref="previewScroller"
-    >
+    </template>
+    <template #preview>
+      <scrollbar ref="previewScroller">
       <v-md-preview
         :text="text"
         :tab-size="tabSize"
@@ -49,6 +59,8 @@
         ref="preview"
       />
     </scrollbar>
+    </template>
+    
     <v-md-upload-file
       v-if="hasUploadImage"
       :upload-config="uploadConfig"
@@ -70,6 +82,17 @@ const component = {
     value() {
       this.text = this.value;
     },
+  },
+  computed: {
+    customSlotButtons() {
+      const { toolbar } = this;
+      return Object.keys(toolbar).filter(btn => toolbar[btn].slot);
+    },
+  },
+  data() {
+    return {
+      textEditorMinHeight: '',
+    };
   },
   methods: {
     handleEditorWrapperClick() {

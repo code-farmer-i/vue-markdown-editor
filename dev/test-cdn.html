@@ -24,6 +24,9 @@
       window.onload = function () {
         const vm = new Vue({
           el: '#app',
+          components: {
+            'v-md-editor': VMdEditor
+          }
         });
 
         console.log(vm);

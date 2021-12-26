@@ -15,6 +15,15 @@
     @resize="handleContainerResize"
     ref="contaner"
   >
+    <template
+      v-for="button of customSlotButtons"
+      #[button]="slotData"
+    >
+      <slot
+        :name="button"
+        v-bind="slotData"
+      />
+    </template>
     <scrollbar slot="left-area">
       <toc-nav
         :titles="titles"
@@ -77,6 +86,10 @@ const component = {
   computed: {
     Codemirror() {
       return this.$options.Codemirror;
+    },
+    customSlotButtons() {
+      const { toolbar } = this;
+      return Object.keys(toolbar).filter(btn => toolbar[btn].slot);
     },
   },
   mounted() {

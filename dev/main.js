@@ -25,7 +25,7 @@ import 'codemirror/addon/scroll/simplescrollbars.css';
 import 'codemirror/lib/codemirror.css';
 // import Preview from '@/preview';
 import Prism from 'prismjs';
-import githubTheme from '@/theme/github/index';
+// import githubTheme from '@/theme/github/index';
 
 import createEmojiPlugin from '@/plugins/emoji/full';
 import '@/plugins/emoji/emoji';

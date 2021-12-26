@@ -2,7 +2,7 @@
   <li
     class="v-md-editor__toolbar-item"
     :class="[
-      icon,
+      !$slots['customIcon'] ? icon : '',
       `v-md-editor__toolbar-item-${name}`,
       {
         'v-md-editor__toolbar-item--active': active || menuActive
@@ -12,12 +12,13 @@
       }
     ]"
     v-clickoutside="hideMenu"
-    @mousedown.prevent
+    @mousedown="preventNativeClick ? $event.preventDefault() : undefined"
     @mouseleave="handleHideTooltip"
-    @mousemove="showTooltip"
-    @click.stop="handleClick"
+    @mouseenter="showTooltip"
+    @click="handleClick"
   >
     {{ text }}
+    <slot name="icon" />
     <v-md-tooltip
       ref="tooltip"
       :text="title"
@@ -62,6 +63,10 @@ export default {
     icon: String,
     menus: [Array, Object],
     disabledMenus: Array,
+    preventNativeClick: {
+      type: Boolean,
+      default: true,
+    },
   },
   data () {
     return {
@@ -93,6 +98,9 @@ export default {
       }
     },
     handleClick(e) {
+      if (this.preventNativeClick) {
+        e.stopPropagation();
+      }
       this.$emit('click');
       this.menuActive ? this.hideMenu() : this.showMenu();
 
@@ -112,15 +120,15 @@ export default {
 
         return;
       }
+      
 
-
-      if (this.timmer) clearTimeout(this.timmer);
+      if (this.timer) clearTimeout(this.timer);
 
       const selfElRect = selfEl.getBoundingClientRect();
       const x = e.clientX - selfElRect.left;
       const y = e.clientY - selfElRect.top;
 
-      this.timmer = setTimeout(() => {
+      this.timer = setTimeout(() => {
         this.$refs.tooltip?.show({
           x: x - 2,
           y: y + 20,
@@ -128,7 +136,7 @@ export default {
       }, 100);
     },
     handleHideTooltip () {
-      if (this.timmer) clearTimeout(this.timmer);
+      if (this.timer) clearTimeout(this.timer);
 
       this.$refs.tooltip.hide();
     },
