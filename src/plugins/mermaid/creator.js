@@ -22,7 +22,7 @@ export default function creator(mermaid) {
     const previewEl = getPreviewEl(this.$el);
     const eles = previewEl.querySelectorAll('.v-md-mermaid');
 
-    if (!eles.length) return;
+    if (!eles.length || this.isEditMode) return;
 
     let parseSuccess = false;
     eles.forEach((ele) => {
@@ -81,6 +81,7 @@ export default function creator(mermaid) {
               immediate: true,
               handler: handleMdChange,
             },
+            currentMode: handleMdChange,
           },
         });
       },
