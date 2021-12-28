@@ -36,17 +36,24 @@ Optional value：`edit` `editable` `preview`。
 
 ### tab-size
 
-- 类型：`Number`
-- 默认值： `2`
+- type：`Number`
+- default： `2`
 
 The length of the tab character when editing and previewing. Both the editor and preview components support this property.
 
 ### toc-nav-position-right
 
-- 类型：`Boolean`
-- 默认值： `false`
+- type：`Boolean`
+- default： `false`
 
 Whether the directory navigation is on the right.
+
+### default-show-toc
+
+- type：`Boolean`
+- default： `false`
+
+Whether to show toc by default.
 
 ### placeholder
 

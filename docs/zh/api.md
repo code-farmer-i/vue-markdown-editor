@@ -52,6 +52,13 @@ sidebarDepth: 2
 
 目录导航是否在右侧。
 
+### default-show-toc
+
+- 类型：`Boolean`
+- 默认值： `false`
+
+是否默认显示目录导航。
+
 ### placeholder
 
 - 类型：`String`
