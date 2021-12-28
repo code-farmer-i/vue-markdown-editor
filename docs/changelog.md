@@ -4,6 +4,14 @@
 Except for major bugs, the 1.x version based on vue2.0 will no longer be iterated synchronously starting from version 1.7.6.
 :::
 
+### 2.3.13
+
+`2021-12-28`
+
+**Features**
+
+- editor: Add [default-show-toc](./api.md#default-show-toc) prop.
+
 ### 2.3.10
 
 `2021-09-09`
