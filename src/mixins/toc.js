@@ -3,7 +3,7 @@ import { LINE_MARKUP } from '@/utils/constants/markup';
 export default {
   data() {
     return {
-      tocVisible: false,
+      tocVisible: this.defaultShowToc,
       titles: [],
     };
   },
@@ -12,6 +12,7 @@ export default {
       type: Array,
       default: () => [2, 3],
     },
+    defaultShowToc: Boolean,
   },
   watch: {
     text: {
