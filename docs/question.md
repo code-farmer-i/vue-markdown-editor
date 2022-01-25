@@ -137,12 +137,12 @@ If your code highlighting chooses to use prismjs:
 import Vue from 'vue';
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
-import creatPrismTheme from '@kangc/v-md-editor/lib/theme/prism';
+import createPrismTheme from '@kangc/v-md-editor/lib/theme/prism';
 
 import Prism from 'prismjs';
 import 'prismjs/components/prism-json';
 
-const prismTheme = creatPrismTheme({
+const prismTheme = createPrismTheme({
   Prism,
 });
 prismTheme.extend((md) => {
