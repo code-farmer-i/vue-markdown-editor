@@ -93,7 +93,6 @@ const component = {
       matchBrackets: true,
       indentWithTabs: true,
       autoCloseBrackets: true,
-      ...this.codemirrorConfig,
       tabSize: this.tabSize,
       indentUnit: this.tabSize,
       value: this.text,
@@ -101,6 +100,7 @@ const component = {
       mode: 'markdown',
       lineWrapping: true,
       scrollbarStyle: 'overlay',
+      ...this.codemirrorConfig
     });
 
     this.codemirrorInstance.on('change', () => {
