@@ -53,14 +53,14 @@ export default {
   },
   ul: {
     toolbar: 'Liste désordonnée（Ctrl+U）',
-    placeholder: 'List désordonnée',
+    placeholder: 'Liste désordonnée',
   },
   ol: {
     toolbar: 'Liste ordonnée（Ctrl+O）',
     placeholder: 'Liste ordonnée',
   },
   table: {
-    toolbar: 'Insérer un tavleau',
+    toolbar: 'Insérer un tableau',
   },
   hr: {
     toolbar: 'Ligne',
