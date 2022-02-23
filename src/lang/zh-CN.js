@@ -1,6 +1,6 @@
 export default {
   undo: {
-    toolbar: '撤销',
+    toolbar: '撤销（Ctrl+Z）',
   },
   redo: {
     toolbar: '重做',
@@ -9,7 +9,7 @@ export default {
     toolbar: '清空',
   },
   h: {
-    toolbar: '标题',
+    toolbar: '标题（Ctrl+1~6）',
   },
   h1: {
     toolbar: '一级标题',
@@ -36,11 +36,11 @@ export default {
     placeholder: '六级标题',
   },
   bold: {
-    toolbar: '粗体',
+    toolbar: '粗体（Ctrl+B）',
     placeholder: '粗体',
   },
   italic: {
-    toolbar: '斜体',
+    toolbar: '斜体（Ctrl+I）',
     placeholder: '斜体',
   },
   strikethrough: {
@@ -56,7 +56,7 @@ export default {
     placeholder: '无序列表',
   },
   ol: {
-    toolbar: '有序列表',
+    toolbar: '有序列表（Ctrl+O）',
     placeholder: '有序列表',
   },
   table: {

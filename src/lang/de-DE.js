@@ -3,7 +3,7 @@ export default {
     toolbar: 'Rückgängig',
   },
   redo: {
-    toolbar: 'Wiederholen',
+    toolbar: 'Wiederholen（Ctrl+Y）',
   },
   clear: {
     toolbar: 'Löschen',
@@ -48,15 +48,15 @@ export default {
     placeholder: 'Strike',
   },
   quote: {
-    toolbar: 'Zitat',
+    toolbar: 'Zitat（Ctrl+Q）',
     placeholder: 'Zitat',
   },
   ul: {
-    toolbar: 'Ungeordnete Liste',
+    toolbar: 'Ungeordnete Liste（Ctrl+U）',
     placeholder: 'Ungeordnete Liste',
   },
   ol: {
-    toolbar: 'Geordnete Liste',
+    toolbar: 'Geordnete Liste（Ctrl+O）',
     placeholder: 'Geordnete Liste',
   },
   table: {
@@ -66,7 +66,7 @@ export default {
     toolbar: 'Horizontale Linie',
   },
   link: {
-    toolbar: 'Link einfügen',
+    toolbar: 'Link einfügen（Ctrl+L）',
     descPlaceholder: 'Link',
   },
   image: {
@@ -82,7 +82,7 @@ export default {
     toolbar: 'Codeblock einfügen',
   },
   save: {
-    toolbar: 'Speichern',
+    toolbar: 'Speichern（Ctrl+S）',
   },
   preview: {
     enabled: 'Vorschau anzeigen',

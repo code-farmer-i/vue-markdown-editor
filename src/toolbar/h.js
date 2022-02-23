@@ -3,7 +3,7 @@ import { h1, h2, h3, h4, h5, h6 } from '@/utils/constants/command';
 export default {
   name: 'h',
   text: 'H',
-  title: (editor) => `${editor.langConfig.h.toolbar}（Ctrl+1~6）`,
+  title: (editor) => editor.langConfig.h.toolbar,
   menus: [
     {
       name: h1,

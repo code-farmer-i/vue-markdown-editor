@@ -1,15 +1,15 @@
 export default {
   undo: {
-    toolbar: '실행취소',
+    toolbar: '실행취소（Ctrl+Z）',
   },
   redo: {
-    toolbar: '복원',
+    toolbar: '복원（Ctrl+Y）',
   },
   clear: {
     toolbar: '전체 삭제',
   },
   h: {
-    toolbar: '헤딩',
+    toolbar: '헤딩（Ctrl+1~6）',
   },
   h1: {
     toolbar: '헤딩 1',
@@ -36,11 +36,11 @@ export default {
     placeholder: '헤딩 6',
   },
   bold: {
-    toolbar: '굵게',
+    toolbar: '굵게（Ctrl+B）',
     placeholder: '굵게',
   },
   italic: {
-    toolbar: '이탤릭',
+    toolbar: '이탤릭（Ctrl+I）',
     placeholder: '이탤릭',
   },
   strikethrough: {
@@ -48,15 +48,15 @@ export default {
     placeholder: '취소선',
   },
   quote: {
-    toolbar: '인용',
+    toolbar: '인용（Ctrl+Q）',
     placeholder: '인용',
   },
   ul: {
-    toolbar: '리스트',
+    toolbar: '리스트（Ctrl+U）',
     placeholder: '리스트',
   },
   ol: {
-    toolbar: '순서 리스트',
+    toolbar: '순서 리스트（Ctrl+O）',
     placeholder: '순서 리스트',
   },
   table: {
@@ -66,7 +66,7 @@ export default {
     toolbar: '가로줄',
   },
   link: {
-    toolbar: '링크',
+    toolbar: '링크（Ctrl+L）',
     descPlaceholder: '링크',
   },
   image: {
@@ -82,7 +82,7 @@ export default {
     toolbar: '코드블럭',
   },
   save: {
-    toolbar: '저장',
+    toolbar: '저장（Ctrl+S）',
   },
   preview: {
     enabled: '미리보기 켬',

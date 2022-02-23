@@ -1,15 +1,15 @@
 export default {
   undo: {
-    toolbar: 'Cofnij',
+    toolbar: 'Cofnij（Ctrl+Z）',
   },
   redo: {
-    toolbar: 'Powtórz',
+    toolbar: 'Powtórz（Ctrl+Y）',
   },
   clear: {
     toolbar: 'Wyczyść wszystko',
   },
   h: {
-    toolbar: 'Nagłówki',
+    toolbar: 'Nagłówki（Ctrl+1~6）',
   },
   h1: {
     toolbar: 'Nagłówek 1',
@@ -36,11 +36,11 @@ export default {
     placeholder: 'Nagłówek 6',
   },
   bold: {
-    toolbar: 'Pogrubienie',
+    toolbar: 'Pogrubienie（Ctrl+B）',
     placeholder: 'Pogrubienie',
   },
   italic: {
-    toolbar: 'Kursywa',
+    toolbar: 'Kursywa（Ctrl+I）',
     placeholder: 'Kursywa',
   },
   strikethrough: {
@@ -48,15 +48,15 @@ export default {
     placeholder: 'Przekreślenie',
   },
   quote: {
-    toolbar: 'Blok cytatu',
+    toolbar: 'Blok cytatu（Ctrl+Q）',
     placeholder: 'Blok cytatu',
   },
   ul: {
-    toolbar: 'Lista nieuporządkowana',
+    toolbar: 'Lista nieuporządkowana（Ctrl+U）',
     placeholder: 'Lista nieuporządkowana',
   },
   ol: {
-    toolbar: 'Lista uporządkowana',
+    toolbar: 'Lista uporządkowana（Ctrl+O）',
     placeholder: 'Lista uporządkowana',
   },
   table: {
@@ -66,7 +66,7 @@ export default {
     toolbar: 'Linia',
   },
   link: {
-    toolbar: 'Wstaw link',
+    toolbar: 'Wstaw link（Ctrl+L）',
     descPlaceholder: 'Link',
   },
   image: {
@@ -82,7 +82,7 @@ export default {
     toolbar: 'Wstaw blok kodu',
   },
   save: {
-    toolbar: 'Zapisz',
+    toolbar: 'Zapisz（Ctrl+S）',
   },
   preview: {
     enabled: 'Pokaż podgląd',

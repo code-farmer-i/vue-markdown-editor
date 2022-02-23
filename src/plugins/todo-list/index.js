@@ -10,7 +10,7 @@ export default function createTodoListPlugin({
 } = {}) {
   const toolbar = createToolbar({
     commandName: name,
-    title: (editor) => `${editor.langConfig.task.toolbar}（Ctrl+Shift+U）`,
+    title: (editor) => editor.langConfig.task.toolbar,
     text,
     icon,
   });
@@ -30,13 +30,13 @@ export default function createTodoListPlugin({
         VMdEditor.lang.add({
           'zh-CN': {
             task: {
-              toolbar: '任务列表',
+              toolbar: '任务列表（Ctrl+Shift+U）',
               placeholder: '任务列表',
             },
           },
           'en-US': {
             task: {
-              toolbar: 'Task',
+              toolbar: 'Task（Ctrl+Shift+U）',
               placeholder: 'Task',
             },
           },
