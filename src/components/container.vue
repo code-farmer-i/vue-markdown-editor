@@ -58,13 +58,13 @@
         <div
           ref="editorWrapper"
           class="v-md-editor__editor-wrapper"
-          v-show="!isPreviewMode"
+          v-if="!isPreviewMode"
           @click="handleEditorWrapperClick"
         >
           <slot name="editor" />
         </div>
         <div
-          v-show="!isEditMode"
+          v-if="!isEditMode"
           class="v-md-editor__preview-wrapper"
           ref="previewWrapper"
         >
