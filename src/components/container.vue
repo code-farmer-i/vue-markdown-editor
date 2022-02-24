@@ -11,7 +11,7 @@
     :style="{ height: heightGetter }"
   >
     <div
-      v-show="!isPreviewMode"
+      v-if="!isPreviewMode"
       class="v-md-editor__left-area"
       :style="{
         width: leftAreaVisible ? leftAreaWidth : 0,
@@ -33,7 +33,7 @@
     </div>
     <div class="v-md-editor__right-area">
       <div
-        v-show="!isPreviewMode"
+        v-if="!isPreviewMode"
         class="v-md-editor__toolbar"
         ref="toolbarWrapper"
       >
