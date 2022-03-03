@@ -141,7 +141,7 @@
     "highlight.js": "^10.7.2",
     "insert-text-at-cursor": "^0.3.0",
     "katex": "^0.13.11",
-    "markdown-it": "^12.0.6",
+    "markdown-it": "^12.3.2",
     "markdown-it-attrs": "^4.0.0",
     "markdown-it-container": "^3.0.0",
     "mermaid": "^8.10.1",
