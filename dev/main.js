@@ -1,10 +1,10 @@
 import App from './App';
 import { createApp } from 'vue';
 import PreviewHtml from '@/preview-html.js';
-// import VueMarkdownEditor from '@/base-editor';
-import VueMarkdownEditor from '@/codemirror-editor';
+import VueMarkdownEditor from '@/base-editor';
+// import VueMarkdownEditor from '@/codemirror-editor';
 // import Preview from '@/preview';
-import githubTheme from '@/theme/github/index';
+// import githubTheme from '@/theme/github/index';
 
 import createEmojiPlugin from '@/plugins/emoji/full';
 import '@/plugins/emoji/emoji';
