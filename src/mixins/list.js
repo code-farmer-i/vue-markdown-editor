@@ -43,6 +43,10 @@ export default {
           }
 
           this.replaceSelectionText(`\n${beforeText}`, 'end');
+        } else {
+          // break
+          this.delLineLeft();
+          this.replaceSelectionText('\n', 'end');
         }
       },
     });
