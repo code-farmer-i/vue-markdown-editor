@@ -11,19 +11,23 @@
     :style="{ height: heightGetter }"
   >
     <div
-      v-show="!isPreviewMode"
       class="v-md-editor__left-area"
       :style="{
         width: leftAreaVisible ? leftAreaWidth : 0,
         borderWidth: leftAreaVisible? '1px' : 0
       }"
     >
-      <div
+      <div v-if="!isPreviewMode"
         class="v-md-editor__left-area-title"
         :style="{
           height: `${toolbarHeight}px`,
           lineHeight: `${toolbarHeight}px`,
         }"
+      >
+        {{ leftAreaTitle }}
+      </div>
+      <div v-else
+        class="v-md-editor__left-area-title"
       >
         {{ leftAreaTitle }}
       </div>
@@ -191,6 +195,7 @@ export default {
     overflow: hidden;
     border-right: 1px solid $border-color;
     transition: 0.3s;
+    user-select: none;
 
     &-title {
       position: relative;

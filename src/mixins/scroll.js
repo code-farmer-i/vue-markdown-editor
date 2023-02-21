@@ -8,7 +8,8 @@ export default {
         const previewScrollContainer = this.$refs.previewScroller.$el.querySelector(
           '.scrollbar__wrap'
         );
-        const defaultContainer = this.isPreviewMode ? window : previewScrollContainer;
+        //const defaultContainer = this.isPreviewMode ? window : previewScrollContainer;
+        const defaultContainer = previewScrollContainer;
 
         return this.previewScrollContainer ? this.previewScrollContainer() : defaultContainer;
       };

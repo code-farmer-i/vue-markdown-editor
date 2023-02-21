@@ -8,10 +8,16 @@ export default {
     };
   },
   props: {
+    defaultTocVisible: Boolean,
     includeLevel: {
       type: Array,
       default: () => [2, 3],
     },
+  },
+  mounted() {
+    if (this.defaultFullscreen) {
+      this.toggleToc();
+    }
   },
   watch: {
     text: {
