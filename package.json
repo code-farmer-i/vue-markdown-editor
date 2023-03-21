@@ -1,5 +1,5 @@
 {
-  "name": "@kangc/v-md-editor",
+  "name": "@renpan/v-md-editor",
   "version": "1.7.11",
   "description": "A markdown editor built on Vue",
   "keywords": [
@@ -121,7 +121,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/code-farmer-i/vue-markdown-editor.git"
+    "url": "git+https://github.com/2258525463/vue-markdown-editor.git"
   },
   "author": "",
   "license": "MIT",
