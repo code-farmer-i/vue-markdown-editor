@@ -15,7 +15,7 @@ export default {
     },
   },
   mounted() {
-    if (this.defaultFullscreen) {
+    if (this.defaultTocVisible) {
       this.toggleToc();
     }
   },
