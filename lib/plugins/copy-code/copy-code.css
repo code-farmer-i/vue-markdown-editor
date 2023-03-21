@@ -1,0 +1,49 @@
+.v-md-pre-wrapper.copy-code-mode .v-md-copy-code-btn {
+  position: absolute;
+  top: 0.4em;
+  right: 0.4em;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 24px;
+  padding: 0;
+  color: #ddd;
+  font-size: 14px;
+  background-color: #666;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
+  visibility: hidden;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  user-select: none;
+}
+
+.v-md-pre-wrapper.copy-code-mode .v-md-copy-code-btn i {
+  display: inline-block;
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+  vertical-align: -0.125em;
+  text-rendering: optimizeLegibility;
+  pointer-events: none;
+}
+
+.v-md-pre-wrapper.copy-code-mode::before {
+  transition: 0.3s;
+}
+
+.v-md-pre-wrapper.copy-code-mode:hover .v-md-copy-code-btn {
+  visibility: visible;
+  opacity: 1;
+}
+
+.v-md-pre-wrapper.copy-code-mode:hover::before {
+  display: none;
+}

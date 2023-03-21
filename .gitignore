@@ -4,6 +4,5 @@ package-lock.json
 
 # dist file
 dist
-lib
 
 .DS_Store

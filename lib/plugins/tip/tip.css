@@ -1,0 +1,62 @@
+.v-md-plugin-tip p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.v-md-plugin-tip .v-md-plugin-tip-title {
+  margin-bottom: -0.4rem;
+  font-weight: 600;
+}
+.v-md-plugin-tip.danger,
+.v-md-plugin-tip.tip,
+.v-md-plugin-tip.warning {
+  margin: 1rem 0;
+  padding: 0.1rem 1.5rem;
+  border-left-width: 0.5rem;
+  border-left-style: solid;
+}
+.v-md-plugin-tip.tip {
+  background-color: #f3f5f7;
+  border-color: #42b983;
+}
+.v-md-plugin-tip.warning {
+  color: #6b5900;
+  background-color: rgba(255, 229, 100, 0.3);
+  border-color: #e7c000;
+}
+.v-md-plugin-tip.warning .v-md-plugin-tip-title {
+  color: #b29400;
+}
+.v-md-plugin-tip.warning a {
+  color: #2c3e50;
+}
+.v-md-plugin-tip.danger {
+  color: #4d0000;
+  background-color: #ffe6e6;
+  border-color: #c00;
+}
+.v-md-plugin-tip.danger .v-md-plugin-tip-title {
+  color: #900;
+}
+.v-md-plugin-tip.danger a {
+  color: #2c3e50;
+}
+.v-md-plugin-tip.details {
+  position: relative;
+  display: block;
+  margin: 1.6em 0;
+  padding: 1.6em;
+  background-color: #eee;
+  border-radius: 2px;
+}
+.v-md-plugin-tip.details h4 {
+  margin-top: 0;
+}
+.v-md-plugin-tip.details figure:last-child,
+.v-md-plugin-tip.details p:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.v-md-plugin-tip.details summary {
+  outline: none;
+  cursor: pointer;
+}

@@ -1,0 +1,68 @@
+.vuepress-markdown-body div[class*='v-md-pre-wrapper-'] .highlight-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 1.3rem;
+  line-height: 1.4;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.vuepress-markdown-body
+  div[class*='v-md-pre-wrapper-'].line-numbers-mode
+  .highlight-lines
+  .highlighted {
+  position: relative;
+}
+.vuepress-markdown-body
+  div[class*='v-md-pre-wrapper-'].line-numbers-mode
+  .highlight-lines
+  .highlighted::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: block;
+  width: 3.5rem;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.66);
+  content: ' ';
+}
+.vuepress-markdown-body div[class*='v-md-pre-wrapper-'] .highlight-lines .highlighted {
+  background-color: rgba(0, 0, 0, 0.66);
+}
+.github-markdown-body
+  div[class*='v-md-pre-wrapper-'].line-numbers-mode
+  .highlight-lines
+  .highlighted {
+  position: relative;
+}
+.github-markdown-body
+  div[class*='v-md-pre-wrapper-'].line-numbers-mode
+  .highlight-lines
+  .highlighted::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: block;
+  width: 3.5rem;
+  height: 100%;
+  background-color: rgba(208, 213, 221, 0.66);
+  content: ' ';
+}
+.github-markdown-body div[class*='v-md-pre-wrapper-'] .highlight-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 16px;
+  font-size: 85%;
+  line-height: 1.4;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.github-markdown-body div[class*='v-md-pre-wrapper-'] .highlight-lines .highlighted {
+  background-color: rgba(208, 213, 221, 0.66);
+}
