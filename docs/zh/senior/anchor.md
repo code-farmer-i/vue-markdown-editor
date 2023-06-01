@@ -92,6 +92,7 @@ export default {
       const heading = preview.$el.querySelector(`[data-v-md-line="${lineIndex}"]`);
 
       if (heading) {
+        // 注意：如果你使用的是编辑组件的预览模式,则这里的方法名改为 previewScrollToTarget
         preview.scrollToTarget({
           target: heading,
           scrollContainer: window,

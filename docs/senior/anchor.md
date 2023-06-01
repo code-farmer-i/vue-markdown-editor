@@ -92,6 +92,7 @@ export default {
       const heading = preview.$el.querySelector(`[data-v-md-line="${lineIndex}"]`);
 
       if (heading) {
+        // Note: If you are using the preview mode of the editing component, the method name here is changed to previewScrollToTarget
         preview.scrollToTarget({
           target: heading,
           scrollContainer: window,
