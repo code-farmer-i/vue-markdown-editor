@@ -96,7 +96,7 @@ export default {
   },
 
   render(h) {
-    if (this.disabled) return this.$slots.default;
+    if (this.disabled) return Array.isArray(this.$slots.default) ? this.$slots.default[0] : this.$slots.default;
 
     const gutter = scrollbarWidth();
     let style = this.wrapStyle;
@@ -132,7 +132,7 @@ export default {
         style: this.viewStyle,
         ref: 'resize',
       },
-      this.$slots.default
+      Array.isArray(this.$slots.default) ? this.$slots.default[0] : this.$slots.default
     );
     const wrap = (
       <div

@@ -19,7 +19,7 @@ Component.lang = Lang;
 Component.use = function (optionsOrInstall, opt) {
   if (typeof optionsOrInstall === 'function') {
     optionsOrInstall(Component, opt);
-  } else {
+  } else if (typeof optionsOrInstall === 'object' && 'install' in optionsOrInstall && typeof optionsOrInstall.install === 'function') {
     optionsOrInstall.install(Component, opt);
   }
 
