@@ -37,22 +37,30 @@
         class="v-md-editor__toolbar"
         ref="toolbarWrapper"
       >
-        <editor-toolbar
-          class="v-md-editor__toolbar-left"
-          :groups="leftToolbarGroup"
-          :toolbars="toolbars"
-          :disabled-menus="disabledMenus"
-          @item-click="handleToolbarItemClick"
-          @toolbar-menu-click="handleToolbarMenuClick"
-        />
-        <editor-toolbar
-          class="v-md-editor__toolbar-right"
-          :groups="rightToolbarGroup"
-          :toolbars="toolbars"
-          :disabled-mens="disabledMenus"
-          @item-click="handleToolbarItemClick"
-          @toolbar-menu-click="handleToolbarMenuClick"
-        />
+        <div class="v-md-editor__toolbar-left-wrapper">
+          <slot name="left-toolbar">
+            <editor-toolbar
+              class="v-md-editor__toolbar-left"
+              :groups="leftToolbarGroup"
+              :toolbars="toolbars"
+              :disabled-menus="disabledMenus"
+              @item-click="handleToolbarItemClick"
+              @toolbar-menu-click="handleToolbarMenuClick"
+            />
+          </slot>
+        </div>
+        <div class="v-md-editor__toolbar-right-wrapper">
+          <slot name="right-toolbar">
+            <editor-toolbar
+              class="v-md-editor__toolbar-right"
+              :groups="rightToolbarGroup"
+              :toolbars="toolbars"
+              :disabled-mens="disabledMenus"
+              @item-click="handleToolbarItemClick"
+              @toolbar-menu-click="handleToolbarMenuClick"
+            />
+          </slot>
+        </div>
       </div>
       <div class="v-md-editor__main">
         <div

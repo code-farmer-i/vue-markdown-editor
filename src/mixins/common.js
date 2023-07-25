@@ -69,6 +69,9 @@ export default {
     isEditMode() {
       return this.currentMode === EDITOR_MODE.EDIT;
     },
+    proxySlots() {
+      return ['left-toolbar', 'right-toolbar'].filter((slotName) => this.$slots[slotName]);
+    },
   },
   mounted() {
     if (this.autofocus) {
@@ -85,7 +88,7 @@ export default {
     handleChange(text, html) {
       this.$emit('change', text, html);
     },
-    handleBlur (e) {
+    handleBlur(e) {
       this.$emit('blur', e);
     },
     handlePreviewImageClick(images, currentIndex) {

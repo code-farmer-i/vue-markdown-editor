@@ -15,6 +15,15 @@
     @resize="handleContainerResize"
     ref="contaner"
   >
+    <template
+      v-for="slotName in proxySlots"
+      #[slotName]="scope"
+    >
+      <slot
+        :name="slotName"
+        v-bind="scope"
+      />
+    </template>
     <template #left-area>
       <scrollbar>
         <toc-nav
