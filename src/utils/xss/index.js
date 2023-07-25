@@ -7,11 +7,13 @@ const options = {
   whiteList: {
     ...xss.getDefaultWhiteList(),
     ...commonWhiteList,
+    ...svgTagWhiteList,
+    ...katexTagWhiteList,
   },
   onIgnoreTagAttr(tag, name, value) {
     if (
-      (svgTagWhiteList[tag] && svgAttrWhiteList[name]) ||
-      (katexTagWhiteList[tag] && katexAttrWhiteList[name]) ||
+      (svgTagWhiteList[tag] && svgAttrWhiteList.includes(name)) ||
+      (katexTagWhiteList[tag] && katexAttrWhiteList.includes(name)) ||
       attrWhiteList.some((attr) => attr === name) ||
       prefixAttrWhiteList.some((prefix) => name.startsWith(prefix))
     ) {
@@ -39,10 +41,10 @@ xssFilterInstance.extend = function (extendOptions) {
         }
       });
     } else if (optionName === 'onIgnoreTagAttr') {
-      const oldHandler = instanceOptions.onIgnoreTagAttr;
-      instanceOptions.onIgnoreTagAttr = function (...arg) {
+      const oldHandler = instanceOptions[optionName];
+      instanceOptions[optionName] = function (...arg) {
         const oldReturnVal = oldHandler.call(this, ...arg);
-        const newReturnVal = extendOptions.onIgnoreTagAttr.call(this, ...arg);
+        const newReturnVal = extendOptions[optionName].call(this, ...arg);
 
         return oldReturnVal || newReturnVal;
       };
