@@ -2,7 +2,7 @@ export const attrWhiteList = ['style', 'align', 'class', 'id'];
 
 export const prefixAttrWhiteList = ['data-'];
 
-export const tags = {
+export const commonWhiteList = {
   input: ['type'],
   ol: ['reversed', 'start', 'type'],
   button: ['type'],

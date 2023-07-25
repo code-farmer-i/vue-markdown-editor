@@ -1,21 +1,19 @@
 import xss from 'xss';
-import svgTagWhiteList from './svg';
-import kaTexWhiteList from './KaTex';
-import { attrWhiteList, prefixAttrWhiteList, tags } from './common';
-
-const tagWhiteList = { ...tags, ...kaTexWhiteList, ...svgTagWhiteList };
+import { svgTagWhiteList, svgAttrWhiteList } from './svg';
+import { katexTagWhiteList, katexAttrWhiteList } from './KaTex';
+import { attrWhiteList, prefixAttrWhiteList, commonWhiteList } from './common';
 
 const options = {
   whiteList: {
     ...xss.getDefaultWhiteList(),
-    ...tagWhiteList,
+    ...commonWhiteList,
   },
   onIgnoreTagAttr(tag, name, value) {
     if (
-      svgTagWhiteList[tag] ||
-      kaTexWhiteList[tag] ||
-      attrWhiteList.find((attr) => attr === name) ||
-      prefixAttrWhiteList.find((prefix) => name.startsWith(prefix))
+      (svgTagWhiteList[tag] && svgAttrWhiteList[name]) ||
+      (katexTagWhiteList[tag] && katexAttrWhiteList[name]) ||
+      attrWhiteList.some((attr) => attr === name) ||
+      prefixAttrWhiteList.some((prefix) => name.startsWith(prefix))
     ) {
       return `${name}="${xss.escapeAttrValue(value)}"`;
     }
