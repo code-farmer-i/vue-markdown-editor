@@ -33,16 +33,20 @@ export default {
   methods: {
     handleUploadImage(event, insertImage, files) {
       // Get the files and upload them to the file server, then insert the corresponding content into the editor
-      console.log(files);
-
+      console.log(files); 
+      
       // Here is just an example
-      insertImage({
-        url:
-          'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1269952892,3525182336&fm=26&gp=0.jpg',
-        desc: 'desc',
-        // width: 'auto',
-        // height: 'auto',
-      });
+      const formData = new FormData()
+      formData.append('file', files[0])
+      
+      axios.post('url', formData).then(res => {
+          insertImage({
+          url:res.data.url,
+          desc: 'desc',
+          // width: 'auto',
+          // height: 'auto',
+        });
+      })
     },
   },
 };
