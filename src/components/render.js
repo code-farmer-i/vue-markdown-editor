@@ -1,5 +1,5 @@
-const renderFn = function (props, { data }) {
-  return props.render(...data.$attrs);
+const renderFn = function (props, { attrs }) {
+  return props.render(...attrs);
 };
 
 renderFn.props = ['render'];

@@ -18,7 +18,6 @@
         >
           <v-md-render
             :render="item.render"
-            :editor="$self"
             v-if="item.render"
           />
           <template v-else>
