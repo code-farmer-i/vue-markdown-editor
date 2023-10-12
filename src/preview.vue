@@ -56,7 +56,7 @@ const component = {
       return this.vMdParser.themeConfig.previewClass;
     },
     langConfig() {
-      return this.vMdParser.lang.langConfig;
+      return this.vMdParser.lang.config;
     },
   },
   created() {
