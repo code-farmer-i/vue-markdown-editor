@@ -24,7 +24,18 @@ export default function creator(mermaid) {
 
     if (!eles.length || this.isEditMode) return;
 
-    mermaid.init(null, eles);
+    let parseSuccess = false;
+    eles.forEach((ele) => {
+      try {
+        parseSuccess = mermaid.parse(ele.innerText);
+      } catch (e) {
+        if (!e.str) {
+          console.log(e);
+        }
+      }
+
+      if (parseSuccess) mermaid.init(null, ele);
+    });
   }
 
   return function createMermaidPlugin({ mermaidInitializeOptions = {} } = {}) {
