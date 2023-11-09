@@ -19,17 +19,8 @@ export default function creator(mermaid) {
 
     if (!eles.length) return;
 
-    let parseSuccess = false;
-    eles.forEach((ele) => {
-      try {
-        parseSuccess = mermaid.parse(ele.innerText);
-      } catch (e) {
-        if (!e.str) {
-          console.log(e);
-        }
-      }
-
-      if (parseSuccess) mermaid.init(null, ele);
+    mermaid.run({
+      nodes: eles,
     });
   }
 
