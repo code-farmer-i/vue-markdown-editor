@@ -1,15 +1,15 @@
 export default {
   undo: {
-    toolbar: 'Deshacer',
+    toolbar: 'Deshacer（Ctrl+Z）',
   },
   redo: {
-    toolbar: 'Rehacer',
+    toolbar: 'Rehacer（Ctrl+Y）',
   },
   clear: {
     toolbar: 'Borrar',
   },
   h: {
-    toolbar: 'Encabezados',
+    toolbar: 'Encabezados（Ctrl+1~6）',
   },
   h1: {
     toolbar: 'Titulo 1',
@@ -36,11 +36,11 @@ export default {
     placeholder: 'Título 6',
   },
   bold: {
-    toolbar: 'Negrita',
+    toolbar: 'Negrita（Ctrl+B）',
     placeholder: 'Negrita',
   },
   italic: {
-    toolbar: 'Itálica',
+    toolbar: 'Itálica（Ctrl+I）',
     placeholder: 'Itálica',
   },
   strikethrough: {
@@ -48,15 +48,15 @@ export default {
     placeholder: 'Tachado',
   },
   quote: {
-    toolbar: 'Blockquote',
+    toolbar: 'Blockquote（Ctrl+Q）',
     placeholder: 'Blockquote',
   },
   ul: {
-    toolbar: 'Lista desordenada',
+    toolbar: 'Lista desordenada（Ctrl+U）',
     placeholder: 'Lista desordenada',
   },
   ol: {
-    toolbar: 'Lista ordenada',
+    toolbar: 'Lista ordenada（Ctrl+O）',
     placeholder: 'Lista ordenada',
   },
   table: {
@@ -66,7 +66,7 @@ export default {
     toolbar: 'Línea',
   },
   link: {
-    toolbar: 'Insertar enlace',
+    toolbar: 'Insertar enlace（Ctrl+L）',
     descPlaceholder: 'Enlace',
   },
   image: {
@@ -82,7 +82,7 @@ export default {
     toolbar: 'Insertar Bloque de Código',
   },
   save: {
-    toolbar: 'Guardar',
+    toolbar: 'Guardar（Ctrl+S）',
   },
   preview: {
     enabled: 'Habilitar vista previa',
