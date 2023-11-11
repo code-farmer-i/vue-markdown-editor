@@ -275,7 +275,11 @@
 .vuepress-markdown-body div[class~='v-md-pre-wrapper-php']::before {
   content: 'php';
 }
-.vuepress-markdown-body .arrow {
+.vuepress-markdown-body
+.arrow.up,
+.arrow.down,
+.arrow.left,
+.arrow.right {
   display: inline-block;
   width: 0;
   height: 0;
