@@ -141,7 +141,7 @@
     "markdown-it-attrs": "^4.0.0",
     "markdown-it-container": "^3.0.0",
     "markdown-it-emoji": "1.4.0",
-    "mermaid": "^8.10.1",
+    "mermaid": "^9.1.2",
     "prismjs": "^1.23.0",
     "resize-observer-polyfill": "^1.5.1",
     "xss": "^1.0.9"
