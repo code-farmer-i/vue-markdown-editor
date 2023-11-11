@@ -100,7 +100,7 @@ const component = {
       mode: 'markdown',
       lineWrapping: true,
       scrollbarStyle: 'overlay',
-      ...this.codemirrorConfig
+      ...this.codemirrorConfig,
     });
 
     this.codemirrorInstance.on('change', () => {
