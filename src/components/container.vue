@@ -11,7 +11,7 @@
     :style="{ height: heightGetter }"
   >
     <div
-      v-show="!isPreviewMode"
+      v-if="!isPreviewMode"
       class="v-md-editor__left-area"
       :style="{
         width: leftAreaVisible ? leftAreaWidth : 0,
@@ -33,7 +33,7 @@
     </div>
     <div class="v-md-editor__right-area">
       <div
-        v-show="!isPreviewMode"
+        v-if="!isPreviewMode"
         class="v-md-editor__toolbar"
         ref="toolbarWrapper"
       >
@@ -66,13 +66,13 @@
         <div
           ref="editorWrapper"
           class="v-md-editor__editor-wrapper"
-          v-show="!isPreviewMode"
+          v-if="!isPreviewMode"
           @click="handleEditorWrapperClick"
         >
           <slot name="editor" />
         </div>
         <div
-          v-show="!isEditMode"
+          v-if="!isEditMode"
           class="v-md-editor__preview-wrapper"
           ref="previewWrapper"
         >
